@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第9課 – 男の仕事・女の仕事</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Sans+Pro:wght@400;600&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+Myanmar:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;
+  --accent:#b8433a;--grammar-color:#7b2d8e;--border:#e0d5c5;
+  --popup-bg:#fffef9;--shadow:0 8px 32px rgba(44,36,22,0.12);
+  --hira-color:#999;--trans-color:#5a7a5a;--font-size:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Serif JP',serif;background:var(--bg);color:var(--text);min-height:100vh;}
+.page-bg{background:linear-gradient(160deg,#f7f3ec,#efe8dc);min-height:100vh;padding-bottom:3rem;}
+
+/* Sticky toolbar */
+.toolbar{
+  position:sticky;top:0;z-index:100;
+  background:linear-gradient(180deg,#f7f3ec,rgba(247,243,236,0.97));
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);padding-bottom:0.4rem;
+  transition:box-shadow 0.3s;
+}
+.toolbar.scrolled{box-shadow:0 2px 16px rgba(44,36,22,0.1);}
+.toolbar-header{
+  display:flex;align-items:center;justify-content:center;
+  padding:0.7rem 1rem 0.15rem;position:relative;
+}
+.toolbar-header h1{font-size:1.3rem;font-weight:700;color:var(--accent);letter-spacing:0.06em;}
+.toolbar-header .sub{
+  font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);
+  margin-left:0.5rem;align-self:flex-end;padding-bottom:0.08rem;
+}
+.collapse-btn{
+  position:absolute;right:1rem;top:50%;transform:translateY(-50%);
+  background:none;border:2px solid var(--border);border-radius:50%;
+  width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  color:var(--text-light);transition:all 0.2s;
+}
+.collapse-btn:hover{border-color:var(--accent);color:var(--accent);}
+.collapse-btn svg{transition:transform 0.3s;}
+.toolbar.collapsed .collapse-btn svg{transform:rotate(180deg);}
+.toolbar-body{max-height:160px;overflow:hidden;transition:max-height 0.35s ease,opacity 0.25s ease;opacity:1;}
+.toolbar.collapsed .toolbar-body{max-height:0;opacity:0;}
+
+/* Controls row 1: toggle buttons */
+.controls-row1{
+  max-width:720px;margin:0.3rem auto 0;padding:0 1rem;
+  display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;
+}
+.toggle-btn{
+  font-family:'Source Sans Pro',sans-serif;font-size:0.75rem;font-weight:600;
+  padding:0.35rem 0;border-radius:999px;border:2px solid var(--border);
+  background:var(--card-bg);color:var(--text-light);cursor:pointer;
+  transition:all 0.2s;user-select:none;white-space:nowrap;
+  width:5.5rem;text-align:center;
+}
+.toggle-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(184,67,58,0.06);}
+.toggle-btn:hover{border-color:var(--accent);}
+
+/* Controls row 2: lang picker left, slider right */
+.controls-row2{
+  max-width:720px;margin:0.35rem auto 0;padding:0 1rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.slider-group{
+  display:flex;align-items:center;gap:0.4rem;
+  font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);
+}
+.slider-group input[type=range]{width:70px;accent-color:var(--accent);cursor:pointer;}
+
+/* Language picker */
+.lang-picker-wrap{
+  position:relative;display:inline-flex;align-items:center;
+}
+.lang-picker{
+  font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;
+  font-size:0.78rem;font-weight:600;
+  padding:0.35rem 2rem 0.35rem 0.7rem;
+  border-radius:999px;border:2px solid #2471a3;
+  background:rgba(36,113,163,0.07);color:#2471a3;
+  cursor:pointer;appearance:none;-webkit-appearance:none;
+  outline:none;transition:all 0.2s;
+}
+.lang-picker:hover,.lang-picker:focus{border-color:#1a5276;box-shadow:0 0 0 3px rgba(36,113,163,0.12);}
+.lang-picker-arrow{
+  position:absolute;right:0.65rem;top:50%;transform:translateY(-50%);
+  pointer-events:none;color:#2471a3;
+}
+
+/* Legend */
+.legend{
+  display:flex;justify-content:center;gap:0.9rem;padding:0.3rem 1rem 0;flex-wrap:wrap;
+}
+.legend-item{
+  font-family:'Source Sans Pro',sans-serif;font-size:0.68rem;color:var(--text-light);
+  display:flex;align-items:center;gap:0.25rem;
+}
+.legend-dot{width:8px;height:8px;border-radius:50%;}
+.legend-dot.vocab{background:var(--accent);opacity:0.4;}
+.legend-dot.grammar{background:var(--grammar-color);opacity:0.5;}
+
+/* Content */
+.content{max-width:720px;margin:0 auto;padding:0.8rem 1.2rem 3rem;}
+.passage-card{
+  background:var(--card-bg);border-radius:12px;padding:2rem 1.8rem;
+  box-shadow:var(--shadow);border:1px solid var(--border);
+  line-height:2.6;font-size:var(--font-size);
+}
+.sentence-block{margin-bottom:0.7rem;}
+.jp-sentence{display:inline;}
+ruby rt{font-size:0.5em;color:var(--hira-color);font-family:'Noto Sans JP',sans-serif;font-weight:400;}
+body.hide-furigana ruby rt{visibility:hidden;}
+.word{cursor:pointer;border-bottom:1.5px dotted rgba(184,67,58,0.3);transition:background 0.15s;border-radius:2px;}
+.word:hover{background:rgba(184,67,58,0.08);}
+.grammar{
+  font-weight:700;color:var(--grammar-color);cursor:pointer;
+  border-bottom:2px solid rgba(123,45,142,0.35);border-radius:2px;transition:background 0.15s;
+}
+.grammar:hover{background:rgba(123,45,142,0.08);}
+.hira-line{
+  display:block;font-family:'Noto Sans JP',sans-serif;font-size:0.78em;
+  color:var(--hira-color);margin-top:0.1rem;line-height:1.6;
+  transition:opacity 0.25s,max-height 0.3s;
+}
+.hira-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}
+.trans-line{
+  display:block;font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;
+  font-size:0.78em;color:var(--trans-color);margin-top:0.05rem;line-height:1.6;font-style:italic;
+  transition:opacity 0.25s,max-height 0.3s;
+}
+.trans-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}
+.para-break{height:0.6rem;}
+
+/* Popup */
+.popup-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;}
+.popup-overlay.show{display:block;}
+.popup{
+  display:none;position:fixed;z-index:1000;background:var(--popup-bg);
+  border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;
+  box-shadow:0 12px 40px rgba(44,36,22,0.18);max-width:360px;min-width:200px;
+  animation:popIn 0.18s ease-out;
+}
+.popup.show{display:block;}
+@keyframes popIn{from{opacity:0;transform:translateY(6px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+.popup .reading{font-family:'Noto Sans JP',sans-serif;font-size:1.05rem;color:var(--accent);font-weight:500;margin-bottom:0.15rem;}
+.popup .kanji-display{font-size:0.78rem;color:var(--text-light);margin-bottom:0.3rem;}
+.popup .meaning{
+  font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;
+  font-size:0.88rem;color:var(--text);line-height:1.55;
+}
+.popup .grammar-tag{
+  display:inline-block;font-family:'Source Sans Pro',sans-serif;font-size:0.62rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.06em;color:#fff;background:var(--grammar-color);
+  padding:0.12rem 0.5rem;border-radius:999px;margin-bottom:0.35rem;
+}
+.popup .grammar-explain{
+  font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;
+  font-size:0.8rem;color:var(--text);line-height:1.55;margin-top:0.25rem;
+}
+@media(max-width:520px){
+  .passage-card{padding:1.2rem 1rem;}
+  .toolbar-header h1{font-size:1.15rem;}
+  .popup{max-width:90vw;min-width:170px;}
+}
+</style>
+</head>
+<body>
+<div class="page-bg">
+
+<div class="toolbar" id="toolbar">
+  <div class="toolbar-header">
+    <h1>男の仕事・女の仕事</h1>
+    <span class="sub">第9課</span>
+    <button class="collapse-btn" onclick="toggleToolbar()" aria-label="Toggle controls">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </div>
+  <div class="toolbar-body">
+    <div class="controls-row2">
+      <div class="lang-picker-wrap">
+        <select class="lang-picker" id="langPicker" onchange="setLang(this.value)"></select>
+        <svg class="lang-picker-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="slider-group">
+        <span class="slider-label">Aa</span>
+        <input type="range" min="14" max="28" value="18" id="fontSlider" oninput="setFontSize(this.value)">
+        <span class="slider-label" style="font-size:1.1em;">Aa</span>
+      </div>
+    </div>
+    <div class="controls-row1">
+      <button class="toggle-btn active" id="btnFurigana" onclick="toggleFurigana()">振り仮名</button>
+      <button class="toggle-btn active" id="btnHira" onclick="toggleHira()">ひらがな</button>
+      <button class="toggle-btn active" id="btnTrans" onclick="toggleTrans()" data-ui="trans_btn"></button>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><span class="legend-dot vocab"></span> <span data-ui="leg_vocab"></span></div>
+      <div class="legend-item"><span class="legend-dot grammar"></span> <b><span data-ui="leg_grammar"></span></b></div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="passage-card" id="passage"></div>
+</div>
+
+<div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div>
+<div class="popup" id="popup"></div>
+</div>
+
+<script>
+// ========== LANGUAGES ==========
+const LANGS = ['en','zh','ko','my','vi','ne'];
+const LANG_LABELS = {en:'English',zh:'中文',ko:'한국어',my:'မြန်မာ',vi:'Tiếng Việt',ne:'नेपाली'};
+
+// UI strings per language
+const UI = {
+  trans_btn:   {en:'Translation',zh:'翻译',ko:'번역',my:'ဘာသာပြန်',vi:'Dịch',ne:'अनुवाद'},
+  leg_vocab:   {en:'Vocabulary',zh:'词汇',ko:'어휘',my:'ဝေါဟာရ',vi:'Từ vựng',ne:'शब्दावली'},
+  leg_grammar: {en:'Grammar',zh:'语法',ko:'문법',my:'သဒ္ဒါ',vi:'Ngữ pháp',ne:'व्याकरण'},
+  grammar_tag: {en:'Grammar Point',zh:'语法点',ko:'문법 포인트',my:'သဒ္ဒါအချက်',vi:'Điểm ngữ pháp',ne:'व्याकरण बिन्दु'},
+};
+
+let curLang = 'en';
+let showHira = true, showTrans = true, showFurigana = true;
+
+// ========== MULTI-LANG HELPER ==========
+// m() creates a multi-lang meaning object. Pass: en, zh, ko, my, vi, ne
+function m(en,zh,ko,my,vi,ne){ return {en,zh,ko,my,vi,ne}; }
+function W(surface,reading,meaning){ return {w:surface,r:reading,m:meaning}; }
+function G(surface,reading,meaning,explain){ return {g:surface,r:reading,m:meaning,x:explain}; }
+function P(text){ return {p:text}; }
+function L(data){ return (typeof data==='object' && data[curLang]) ? data[curLang] : (typeof data==='string' ? data : (data.en||'')); }
+
+// ========== SENTENCE DATA ==========
+const sentences = [
+// ---- S1 ----
+{
+  parts:[
+    W("以前","いぜん", m("before, previously","以前，之前","이전에","ယခင်က","trước đây","पहिले")),
+    W("女性","じょせい", m("female, woman","女性","여성","အမျိုးသမီး","phụ nữ","महिला")),
+    P("の"),
+    W("職場","しょくば", m("workplace","职场，工作单位","직장","အလုပ်ခွင်","nơi làm việc","कार्यस्थल")),
+    P("と"),
+    W("言われていた","いわれていた", m("was said to be (passive of 言う)","被称为（言う的被动形式）","~라고 불렸다 (言う의 수동형)","ဟုခေါ်ဝေါ်ခံရသည် (言う ၏ passive)","được gọi là (thể bị động của 言う)","भनिन्थ्यो (言うको passive)")),
+    W("所","ところ", m("place","地方","곳","နေရာ","nơi","ठाउँ")),
+    P("で、"),
+    W("男性","だんせい", m("male, man","男性","남성","အမျိုးသား","nam giới","पुरुष")),
+    P("も"),
+    W("働く","はたらく", m("to work","工作","일하다","အလုပ်လုပ်သည်","làm việc","काम गर्नु")),
+    G("ようになった","ようになった",
+      m("came to ~ / started to ~","变得开始～","~하게 되었다","~ဖြစ်လာသည်","trở nên ~","~गर्न थाल्यो"),
+      m("Vる＋ようになる — Indicates a gradual change to a new state. Here: men came to work in women's workplaces.",
+        "Vる＋ようになる — 表示逐渐变化到新状态。此处：男性开始在女性的职场工作。",
+        "Vる＋ようになる — 새로운 상태로의 점진적 변화를 나타냅니다. 여기서는 남성도 여성의 직장에서 일하게 되었다는 의미입니다.",
+        "Vる＋ようになる — အခြေအနေအသစ်သို့ တဖြည်းဖြည်း ပြောင်းလဲခြင်းကို ဖော်ပြသည်။",
+        "Vる＋ようになる — Biểu thị sự thay đổi dần sang trạng thái mới. Ở đây: nam giới bắt đầu làm việc ở nơi làm việc của nữ giới.",
+        "Vる＋ようになる — नयाँ अवस्थामा बिस्तारै परिवर्तन हुनु। यहाँ: पुरुषहरू महिलाको कार्यस्थलमा काम गर्न थाले।")),
+    P("。"),
+  ],
+  hira:"いぜん じょせい の しょくば と いわれていた ところ で、 だんせい も はたらく よう に なった。",
+  trans: m(
+    "Men also came to work in places that were previously considered women's workplaces.",
+    "男性也开始在以前被称为女性职场的地方工作了。",
+    "이전에 여성의 직장이라고 불리던 곳에서 남성도 일하게 되었다.",
+    "ယခင်က အမျိုးသမီးများ၏ အလုပ်ခွင်ဟု ခေါ်ဝေါ်ခဲ့သော နေရာများတွင် အမျိုးသားများလည်း အလုပ်လုပ်လာကြသည်။",
+    "Nam giới cũng bắt đầu làm việc ở những nơi trước đây được coi là nơi làm việc của phụ nữ.",
+    "पहिले महिलाको कार्यस्थल भनिने ठाउँमा पुरुषहरू पनि काम गर्न थाले।"
+  )
+},
+// ---- S2 ----
+{
+  parts:[
+    W("それ","それ", m("that","那","그것","ထို","điều đó","त्यो")),
+    G("にともなって","にともなって",
+      m("as ~ / along with ~","随着～","~에 따라","~နှင့်အတူ","cùng với ~","~सँगसँगै"),
+      m("［V辞書形/N］＋にともなって — As one thing changes, another changes. Used for large-scale changes. Here: as men entered women's workplaces, job titles changed.",
+        "［V辞書形/N］＋にともなって — 随着一件事变化，另一件事也跟着变化。常用于大规模变化。此处：随着男性进入女性职场，职业名称也改变了。",
+        "［V사전형/N］＋にともなって — 하나가 변하면 다른 것도 따라 변합니다. 대규모 변화에 사용됩니다.",
+        "［V辞書形/N］＋にともなって — တစ်ခုပြောင်းလဲသောအခါ နောက်တစ်ခုလည်း ပြောင်းလဲခြင်း။",
+        "［V辞書形/N］＋にともなって — Khi một điều thay đổi, điều khác cũng thay đổi theo. Dùng cho thay đổi quy mô lớn.",
+        "［V辞書形/N］＋にともなって — एउटा कुरा परिवर्तन हुँदा अर्को पनि परिवर्तन हुन्छ। ठूलो परिवर्तनमा प्रयोग गरिन्छ।")),
+    P("、"),
+    W("女性","じょせい", m("female, woman","女性","여성","အမျိုးသမီး","phụ nữ","महिला")),
+    P("の"),
+    W("仕事","しごと", m("work, job","工作","일, 직업","အလုပ်","công việc","काम")),
+    P("を"),
+    W("表す","あらわす", m("to express, represent","表示，代表","나타내다","ကိုယ်စားပြုသည်","biểu thị","प्रतिनिधित्व गर्नु")),
+    P("「"),
+    W("看護婦","かんごふ", m("nurse (old female term)","护士（旧称，女性用语）","간호부 (구 여성 용어)","သူနာပြု (ဟောင်း၊ အမျိုးသမီးသုံး)","y tá (từ cũ dành cho nữ)","नर्स (पुरानो महिला शब्द)")),
+    P("」や「"),
+    W("保母","ほぼ", m("childminder (old female term)","保育员（旧称，女性用语）","보모 (구 여성 용어)","ကလေးထိန်း (ဟောင်း)","bảo mẫu (từ cũ dành cho nữ)","बालस्याहारकर्ता (पुरानो महिला शब्द)")),
+    P("」"),
+    G("のような","のような",
+      m("such as ~ / like ~","像～一样的","~와 같은","~ကဲ့သို့","như là ~","~जस्तो"),
+      m("Nのような＋N — 'such as ~' or 'like ~.' Gives examples. Here: occupation names such as 看護婦 and 保母.",
+        "Nのような＋N — '像～一样的'。用于举例。此处：像看護婦和保母这样的职业名称。",
+        "Nのような＋N — '~와 같은'. 예를 들 때 사용합니다.",
+        "Nのような＋N — '~ကဲ့သို့'။ ဥပမာပေးရန် သုံးသည်။",
+        "Nのような＋N — 'như là ~'. Dùng để đưa ví dụ.",
+        "Nのような＋N — '~जस्तो'। उदाहरण दिन प्रयोग गरिन्छ।")),
+    W("職業","しょくぎょう", m("occupation","职业","직업","အသက်မွေးဝမ်းကျောင်း","nghề nghiệp","पेशा")),
+    P("の"),
+    W("名称","めいしょう", m("name, title","名称","명칭","အမည်","tên gọi","नाम")),
+    P("は、「"),
+    W("看護師","かんごし", m("nurse (gender-neutral)","护士（通用）","간호사 (성별 무관)","သူနာပြု (ယောက်ျား/မိန်းမ မရွေး)","điều dưỡng (trung tính)","नर्स (लिङ्ग तटस्थ)")),
+    P("」や「"),
+    W("保育士","ほいくし", m("childcare worker (gender-neutral)","保育员（通用）","보육사 (성별 무관)","ကလေးထိန်း (ယောက်ျား/မိန်းမ မရွေး)","nhân viên giữ trẻ (trung tính)","बालस्याहारकर्ता (लिङ्ग तटस्थ)")),
+    P("」に"),
+    W("変わった","かわった", m("changed (past of 変わる)","改变了（変わる的过去式）","변했다 (変わる의 과거형)","ပြောင်းလဲသွားသည်","đã thay đổi","परिवर्तन भयो")),
+    P("。"),
+  ],
+  hira:"それ にともなって、 じょせい の しごと を あらわす 「かんごふ」 や 「ほぼ」 の よう な しょくぎょう の めいしょう は、 「かんごし」 や 「ほいくし」 に かわった。",
+  trans: m(
+    "Along with that, occupation titles like \"kangofu\" (nurse) and \"hobo\" (childminder) changed to the gender-neutral \"kangoshi\" and \"hoikushi.\"",
+    "随之，表示女性工作的'看護婦'和'保母'等职业名称也变成了'看護師'和'保育士'。",
+    "그에 따라 여성의 일을 나타내는 '간호부'나 '보모' 같은 직업 명칭이 '간호사'와 '보육사'로 바뀌었다.",
+    "ထိုအရာနှင့်အတူ အမျိုးသမီးအလုပ်များကို ကိုယ်စားပြုသော \"看護婦\" နှင့် \"保母\" ကဲ့သို့သော အလုပ်အမည်များသည် \"看護師\" နှင့် \"保育士\" သို့ ပြောင်းလဲသွားခဲ့သည်။",
+    "Cùng với đó, các tên gọi nghề nghiệp biểu thị công việc của phụ nữ như \"kangofu\" và \"hobo\" đã đổi thành \"kangoshi\" và \"hoikushi\".",
+    "त्यससँगै, महिलाको काम जनाउने \"कान्गोफु\" र \"होबो\" जस्ता पेशाका नामहरू \"कान्गोशि\" र \"होइकुशि\" मा परिवर्तन भए।"
+  )
+},
+// ---- S3 ----
+{
+  parts:[
+    W("反対","はんたい", m("opposite, conversely","相反","반대로","ဆန့်ကျင်ဘက်","ngược lại","विपरीत")),
+    P("に、"),
+    W("男性","だんせい", m("male, man","男性","남성","အမျိုးသား","nam giới","पुरुष")),
+    P("が"),
+    W("多かった","おおかった", m("were many (past of 多い)","很多（多い的过去式）","많았다 (多い의 과거형)","များခဲ့သည်","đã nhiều","धेरै थिए")),
+    W("建築","けんちく", m("construction","建筑","건축","ဆောက်လုပ်ရေး","xây dựng","निर्माण")),
+    P("の"),
+    W("仕事","しごと", m("work, job","工作","일","အလုပ်","công việc","काम")),
+    W("とか","とか", m("things like ~ (casual listing)","～之类的（随意列举）","~라든가 (가벼운 나열)","~စသည်","chẳng hạn như ~","~जस्ता")),
+    W("運転手","うんてんしゅ", m("driver","司机","운전사","ယာဉ်မောင်း","tài xế","चालक")),
+    P("や"),
+    W("車掌","しゃしょう", m("conductor","列车长","차장","စာရေး","nhân viên soát vé","कन्डक्टर")),
+    G("という","という",
+      m("called ~ / known as ~","叫做～","~라고 하는","~ဟုခေါ်သော","gọi là ~","~भनिने"),
+      m("～というN (L7) — 'a noun called ~.' Connects a name or description to a noun. Here: 'jobs called driver and conductor.'",
+        "～というN（第7课）— '叫做～的N'。将名称或描述与名词连接。",
+        "～というN (7과) — '~라고 하는 N'. 이름이나 설명을 명사에 연결합니다.",
+        "～というN (သင်ခန်းစာ 7) — '~ဟုခေါ်သော N'။",
+        "～というN (Bài 7) — 'N gọi là ~'. Nối tên hoặc mô tả với danh từ.",
+        "～というN (पाठ 7) — '~भनिने N'। नाम वा विवरणलाई नामसँग जोड्छ।")),
+    W("仕事","しごと", m("work, job","工作","일","အလုပ်","công việc","काम")),
+    P("を"),
+    W("女性","じょせい", m("female, woman","女性","여성","အမျိုးသမီး","phụ nữ","महिला")),
+    P("も"),
+    G("するようになった","するようになった",
+      m("came to do ~","开始做～了","~하게 되었다","~လုပ်လာကြသည်","bắt đầu làm ~","~गर्न थाल्यो"),
+      m("Vる＋ようになる — Gradual change: women came to do these jobs too.",
+        "Vる＋ようになる — 逐渐变化：女性也开始从事这些工作了。",
+        "Vる＋ようになる — 점진적 변화: 여성도 이런 일을 하게 되었습니다.",
+        "Vる＋ようになる — တဖြည်းဖြည်းပြောင်းလဲခြင်း။",
+        "Vる＋ようになる — Thay đổi dần: phụ nữ cũng bắt đầu làm những công việc này.",
+        "Vる＋ようになる — बिस्तारै परिवर्तन: महिलाहरूले पनि यी काम गर्न थाले।")),
+    P("。"),
+  ],
+  hira:"はんたい に、 だんせい が おおかった けんちく の しごと とか うんてんしゅ や しゃしょう と いう しごと を じょせい も する よう に なった。",
+  trans: m(
+    "Conversely, women also came to do construction work and jobs like driver and conductor, which had been predominantly male.",
+    "相反，女性也开始从事以前男性居多的建筑工作以及司机、列车长等工作。",
+    "반대로, 남성이 많았던 건축 일이나 운전사, 차장이라는 일을 여성도 하게 되었다.",
+    "ဆန့်ကျင်ဘက်တွင် အမျိုးသားများ အများစုဖြစ်ခဲ့သော ဆောက်လုပ်ရေးလုပ်ငန်းနှင့် ယာဉ်မောင်း၊ စာရေးအလုပ်များကို အမျိုးသမီးများလည်း လုပ်လာကြသည်။",
+    "Ngược lại, phụ nữ cũng bắt đầu làm các công việc xây dựng và nghề như tài xế, soát vé mà trước đây chủ yếu là nam giới.",
+    "विपरीतमा, पुरुष बाहुल्य भएको निर्माण काम र चालक, कन्डक्टर जस्ता काम महिलाहरूले पनि गर्न थाले।"
+  )
+},
+// ---- S4 ----
+{
+  parts:[
+    G("つまり","つまり",
+      m("in other words","也就是说","즉","ဆိုလိုသည်မှာ","nói cách khác","अर्थात्"),
+      m("Conjunction (L9): つまり — Rephrases or draws a conclusion from what was said. Wraps up the examples into a general statement.",
+        "接续词（第9课）：つまり — 换句话说，总结前述内容。",
+        "접속사 (9과): つまり — 앞의 내용을 다시 말하거나 결론을 내립니다.",
+        "ဆက်စပ်စကား (သင်ခန်းစာ 9): つまり — ရှေ့တွင်ပြောခဲ့သည်ကို ပြန်လည်ဖော်ပြခြင်း။",
+        "Liên từ (Bài 9): つまり — Diễn đạt lại hoặc rút ra kết luận.",
+        "योजक (पाठ 9): つまり — अघि भनेकोलाई संक्षेपमा भन्नु।")),
+    P("、"),
+    W("職業","しょくぎょう", m("occupation","职业","직업","အသက်မွေးဝမ်းကျောင်း","nghề nghiệp","पेशा")),
+    P("は"),
+    W("男女","だんじょ", m("men and women","男女","남녀","ကျား/မ","nam nữ","पुरुष र महिला")),
+    P("の"),
+    W("区別","くべつ", m("distinction","区别","구별","ကွဲပြားခြင်း","sự phân biệt","भेद")),
+    P("が"),
+    W("少なく","すくなく", m("few (adverbial)","少（副词形式）","적게","နည်း","ít","कम")),
+    W("なってきている","なってきている", m("has been becoming","逐渐变得","되어 오고 있다","ဖြစ်လာနေသည်","đang trở nên","हुँदै आएको छ")),
+    G("のだ","のだ",
+      m("[explanatory ending]","[解释性结尾]","[설명적 종결]","[ရှင်းပြချက် အဆုံးသတ်]","[kết thúc giải thích]","[व्याख्यात्मक अन्त्य]"),
+      m("～のだ (＝んです) (L7) — Explanatory/emphatic ending. Presents the statement as a concluded fact: 'The fact is that…'",
+        "～のだ（＝んです）（第7课）— 解释性/强调性结尾。表示'事实是……'。",
+        "～のだ (＝んです) (7과) — 설명적/강조적 종결. '사실은…'이라는 뉘앙스를 줍니다.",
+        "～のだ (＝んです) (သင်ခန်းစာ 7) — ရှင်းပြချက်/အလေးပေး အဆုံးသတ်။",
+        "～のだ (＝んです) (Bài 7) — Kết thúc mang tính giải thích/nhấn mạnh.",
+        "～のだ (＝んです) (पाठ 7) — व्याख्यात्मक/जोडदार अन्त्य। 'तथ्य यो हो कि…'")),
+    P("。"),
+  ],
+  hira:"つまり、 しょくぎょう は だんじょ の くべつ が すくなく なって きて いる のだ。",
+  trans: m(
+    "In other words, the distinction between men and women in occupations has been decreasing.",
+    "也就是说，职业上的男女区别正在逐渐减少。",
+    "즉, 직업에서 남녀의 구별이 줄어들고 있는 것이다.",
+    "ဆိုလိုသည်မှာ အလုပ်အကိုင်တွင် ကျား/မ ကွဲပြားခြင်း နည်းပါးလာနေခြင်းဖြစ်သည်။",
+    "Nói cách khác, sự phân biệt nam nữ trong nghề nghiệp đang ngày càng giảm.",
+    "अर्थात्, पेशामा पुरुष र महिलाको भेद कम हुँदै आएको छ।"
+  )
+},
+// ---- S5 ----
+{
+  parts:[
+    G("一方","いっぽう",
+      m("on the other hand","另一方面","한편","တစ်ဖက်တွင်","mặt khác","अर्कोतर्फ"),
+      m("Conjunction (L9): 一方 — Introduces contrast. Previous paragraph: workplace gender gap shrinking. Now pivots to the home, where the gap remains.",
+        "接续词（第9课）：一方 — 引入对比。前段：职场性别差距缩小。现在转向家庭。",
+        "접속사 (9과): 一方 — 대조를 나타냅니다. 앞 문단과 반대되는 가정 내 상황을 소개합니다.",
+        "ဆက်စပ်စကား (သင်ခန်းစာ 9): 一方 — ဆန့်ကျင်ဘက်အခြေအနေကို မိတ်ဆက်သည်။",
+        "Liên từ (Bài 9): 一方 — Giới thiệu sự đối lập. Chuyển sang tình hình gia đình.",
+        "योजक (पाठ 9): 一方 — विपरीत परिचय। अब घरको अवस्थामा फर्कन्छ।")),
+    P("、"),
+    W("家庭","かてい", m("home, household","家庭","가정","အိမ်","gia đình","घर")),
+    P("に"),
+    W("目を向けて","めをむけて", m("turn one's attention to","关注","눈을 돌려","အာရုံစိုက်","hướng sự chú ý","ध्यान दिनु")),
+    W("みると","みると", m("when one tries looking — てみる + と","试着看一下的话","보면","ကြည့်ကြည့်တော့","khi thử nhìn","हेर्दा")),
+    P("、"),
+    W("女性","じょせい", m("female, woman","女性","여성","အမျိုးသမီး","phụ nữ","महिला")),
+    P("の"),
+    W("家事","かじ", m("housework","家务","가사","အိမ်မှုကိစ္စ","việc nhà","घरको काम")),
+    W("労働","ろうどう", m("labor, work","劳动","노동","အလုပ်","lao động","श्रम")),
+    P("は"),
+    W("4時間","よじかん", m("4 hours","4小时","4시간","4 နာရီ","4 giờ","४ घण्टा")),
+    P("53"),
+    W("分","ふん", m("minutes","分钟","분","မိနစ်","phút","मिनेट")),
+    P("（293"),
+    W("分","ふん", m("minutes","分钟","분","မိနစ်","phút","मिनेट")),
+    P("）"),
+    G("である","である",
+      m("is/are (literary)","是（书面语）","이다 (문어체)","ဖြစ်သည် (စာပေ)","là (văn viết)","हो (साहित्यिक)"),
+      m("Na/N＋である (L9) — Formal written equivalent of だ/です. Used in essays and reports.",
+        "Na/N＋である（第9课）— だ/です的正式书面形式。用于论文和报告。",
+        "Na/N＋である (9과) — だ/です의 격식체 문어 표현. 논문이나 보고서에 사용됩니다.",
+        "Na/N＋である (သင်ခန်းစာ 9) — だ/です ၏ တရားဝင်စာပေပုံစံ။",
+        "Na/N＋である (Bài 9) — Tương đương văn viết trang trọng của だ/です.",
+        "Na/N＋である (पाठ 9) — だ/です को औपचारिक लिखित रूप।")),
+    P("が、"),
+    W("男性","だんせい", m("male, man","男性","남성","အမျိုးသား","nam giới","पुरुष")),
+    P("は39"),
+    W("分","ふん", m("minutes","分钟","분","မိနစ်","phút","मिनेट")),
+    W("程度","ていど", m("about ~, approximately","大约，左右","정도","ခန့်","khoảng","जति")),
+    P("だ"),
+    G("という","という",
+      m("that says ~ (quoting)","据说～（引用）","~라고 하는 (인용)","~ဟူသော (ကိုးကား)","rằng ~","~भन्ने"),
+      m("～という — Here used for indirect quotation: 'a survey result that says…'",
+        "～という — 此处用于间接引用：'据调查结果显示……'",
+        "～という — 여기서는 간접 인용: '~라는 조사 결과'",
+        "～という — ဤနေရာတွင် သွယ်ဝိုက်ကိုးကားခြင်းအတွက် သုံးသည်။",
+        "～という — Ở đây dùng để trích dẫn gián tiếp.",
+        "～という — यहाँ अप्रत्यक्ष उद्धरणको लागि प्रयोग गरिएको छ।")),
+    W("調査","ちょうさ", m("survey, investigation","调查","조사","စစ်တမ်း","điều tra","सर्वेक्षण")),
+    W("結果","けっか", m("result","结果","결과","ရလဒ်","kết quả","परिणाम")),
+    P("がある。"),
+  ],
+  hira:"いっぽう、 かてい に め を むけて みる と、 じょせい の かじ ろうどう は 4じかん 53ふん （293ふん） である が、 だんせい は 39ふん ていど だ と いう ちょうさ けっか が ある。",
+  trans: m(
+    "On the other hand, looking at the household, a survey shows women's housework is 4 hours 53 minutes (293 min), while men's is only about 39 minutes.",
+    "另一方面，关注家庭的话，有调查结果显示女性的家务劳动为4小时53分（293分钟），而男性仅约39分钟。",
+    "한편, 가정에 눈을 돌려 보면, 여성의 가사노동은 4시간 53분(293분)인 데 비해 남성은 39분 정도라는 조사 결과가 있다.",
+    "တစ်ဖက်တွင် အိမ်သို့ အာရုံစိုက်ကြည့်လျှင် အမျိုးသမီးများ၏ အိမ်မှုကိစ္စလုပ်ချိန်သည် 4 နာရီ 53 မိနစ် (293 မိနစ်) ဖြစ်ပြီး အမျိုးသားများမှာ 39 မိနစ်ခန့်သာဟု စစ်တမ်းရလဒ်ရှိသည်။",
+    "Mặt khác, nhìn vào gia đình, có kết quả điều tra cho thấy lao động gia đình của phụ nữ là 4 giờ 53 phút (293 phút), trong khi nam giới chỉ khoảng 39 phút.",
+    "अर्कोतर्फ, घरमा ध्यान दिँदा, महिलाको घरेलु श्रम ४ घण्टा ५३ मिनेट (२९३ मिनेट) छ भने पुरुषको करिब ३९ मिनेट मात्र हो भन्ने सर्वेक्षण परिणाम छ।"
+  )
+},
+// ---- S6 ----
+{
+  parts:[
+    W("男性","だんせい", m("male, man","男性","남성","အမျိုးသား","nam giới","पुरुष")),
+    P("も「"),
+    W("家事","かじ", m("housework","家务","가사","အိမ်မှုကိစ္စ","việc nhà","घरको काम")),
+    P("を"),
+    G("やらされる","やらされる",
+      m("to be made/forced to do","被迫做","억지로 시키다","အတင်းခိုင်းခံရသည်","bị bắt phải làm","गर्न बाध्य हुनु"),
+      m("Causative-Passive 使役受身 (L9): やる→やらせる (make do)→やらされる (be made to do). Expresses being forced, with a negative/reluctant feeling.",
+        "使役被动（第9课）：やる→やらせる（让做）→やらされる（被迫做）。带有消极/不情愿的语感。",
+        "사역수동 使役受身 (9과): やる→やらせる(시키다)→やらされる(시킴을 당하다). 부정적/마지못한 느낌.",
+        "使役受身 (သင်ခန်းစာ 9): やる→やらせる→やらされる။ အတင်းခိုင်းခံရခြင်း။",
+        "Thể sai khiến bị động 使役受身 (Bài 9): やる→やらせる→やらされる. Diễn tả bị ép buộc, mang sắc thái tiêu cực.",
+        "कारक-कर्मवाच्य 使役受身 (पाठ 9): やる→やらせる→やらされる। बाध्य पारिनु जनाउँछ।")),
+    P("」"),
+    G("ではなく","ではなく",
+      m("not A but B","不是A而是B","A가 아니라 B","Aမဟုတ်ဘဲ B","không phải A mà là B","A होइन B"),
+      m("AではなくB (L9) — 'Not A, but B.' Negates A and presents B as the preferred alternative.",
+        "AではなくB（第9课）— '不是A，而是B'。否定A，提出B作为更好的选择。",
+        "AではなくB (9과) — 'A가 아니라 B'. A를 부정하고 B를 대안으로 제시합니다.",
+        "AではなくB (သင်ခန်းစာ 9) — 'Aမဟုတ်ဘဲ B'။",
+        "AではなくB (Bài 9) — 'Không phải A mà là B.'",
+        "AではなくB (पाठ 9) — 'A होइन B'। A लाई अस्वीकार गरी B प्रस्तुत गर्छ।")),
+    P("、「"),
+    W("すすんで","すすんで", m("willingly, voluntarily","主动地","자진해서","ဆန္ဒအလျောက်","tự nguyện","स्वेच्छाले")),
+    W("家事","かじ", m("housework","家务","가사","အိမ်မှုကိစ္စ","việc nhà","घरको काम")),
+    P("を"),
+    W("分担する","ぶんたんする", m("to share duties","分担","분담하다","တာဝန်ခွဲဝေသည်","chia sẻ","बाँड्नु")),
+    P("」"),
+    G("ような","ような",
+      m("such ~ / like ~","像～那样的","~와 같은","~ကဲ့သို့","như là ~","~जस्तो"),
+      m("V/Nの＋ような — 'like ~' or 'such that ~.' Modifies the following noun. Here: an awareness 'such that one willingly shares housework.'",
+        "V/Nの＋ような — '像～那样的'。修饰后面的名词。",
+        "V/Nの＋ような — '~와 같은'. 뒤의 명사를 수식합니다.",
+        "V/Nの＋ような — '~ကဲ့သို့'။ နောက်လိုက်နာမ်ကို ပြင်ဆင်သည်။",
+        "V/Nの＋ような — 'như là ~'. Bổ nghĩa cho danh từ phía sau.",
+        "V/Nの＋ような — '~जस्तो'। पछिको नामलाई विशेषण गर्छ।")),
+    W("意識","いしき", m("awareness, consciousness","意识","의식","သတိ","ý thức","चेतना")),
+    P("を"),
+    W("持って","もって", m("to have (te-form of 持つ)","拥有（持つ的て形）","가지고 (持つ의 て형)","ကိုင်ဆောင်","có (thể て của 持つ)","राख्नु (持つ को て形)")),
+    G("欲しいものだ","ほしいものだ",
+      m("I strongly wish that…","衷心希望……","~했으면 좋겠다","~ဖြစ်စေချင်ပါသည်","tôi thật sự mong rằng…","म चाहन्छु कि…"),
+      m("Vて＋欲しいものだ (L9) — Expresses a strong wish about how society or others should act. ものだ adds emotional weight: 'how things ought to be.'",
+        "Vて＋欲しいものだ（第9课）— 表达对社会或他人行为的强烈期望。ものだ增添情感分量。",
+        "Vて＋欲しいものだ (9과) — 사회나 다른 사람들에 대한 강한 바람을 나타냅니다. ものだ가 감정적 무게를 더합니다.",
+        "Vて＋欲しいものだ (သင်ခန်းစာ 9) — လူ့အဖွဲ့အစည်းအတွက် ပြင်းပြသော ဆန္ဒကို ဖော်ပြသည်။",
+        "Vて＋欲しいものだ (Bài 9) — Diễn tả mong muốn mạnh mẽ về cách xã hội hoặc người khác nên hành động.",
+        "Vて＋欲しいものだ (पाठ 9) — समाज वा अरूले कसरी व्यवहार गर्नुपर्छ भन्ने बारेमा कडा इच्छा व्यक्त गर्छ।")),
+    P("。"),
+  ],
+  hira:"だんせい も 「かじ を やらされる」 ではなく、 「すすんで かじ を ぶんたんする」 よう な いしき を もって ほしい ものだ。",
+  trans: m(
+    "I wish that men would not see housework as something they are 'made to do,' but instead have the mindset of willingly sharing it.",
+    "希望男性不要觉得家务是'被迫做的'，而是拥有主动分担家务的意识。",
+    "남성도 '가사를 시킴 당한다'가 아니라, '자진해서 가사를 분담한다'는 의식을 가졌으면 좋겠다.",
+    "အမျိုးသားများသည် \"အိမ်မှုကိစ္စကို အတင်းခိုင်းခံရသည်\" ဟူသော စိတ်ထား မဟုတ်ဘဲ \"ဆန္ဒအလျောက် အိမ်မှုကိစ္စကို ခွဲဝေလုပ်ဆောင်မည်\" ဆိုသော သတိရှိစေလိုပါသည်။",
+    "Tôi mong rằng nam giới không coi việc nhà là thứ bị 'ép buộc làm', mà có ý thức tự nguyện chia sẻ.",
+    "पुरुषहरूले घरको काम 'गर्न बाध्य हुनु' होइन, बरु स्वेच्छाले बाँड्ने चेतना राख्न चाहन्छु।"
+  )
+}
+];
+
+// ========== RENDERING ==========
+function rubyHTML(surface, reading) {
+  if (/^[\u3040-\u309F\u30A0-\u30FFー\uFF01-\uFF5E「」（）]+$/.test(surface)) return surface;
+  return `<ruby>${surface}<rt>${reading}</rt></ruby>`;
+}
+
+function renderPassage() {
+  const el = document.getElementById('passage');
+  el.innerHTML = '';
+  sentences.forEach((s, si) => {
+    const block = document.createElement('div');
+    block.className = 'sentence-block';
+    const jpLine = document.createElement('span');
+    jpLine.className = 'jp-sentence';
+    s.parts.forEach(part => {
+      if (part.w) {
+        const span = document.createElement('span');
+        span.className = 'word';
+        span.innerHTML = rubyHTML(part.w, part.r);
+        span.onclick = e => showPopup(e, {type:'word', reading:part.r, word:part.w, meaning:L(part.m)});
+        jpLine.appendChild(span);
+      } else if (part.g) {
+        const span = document.createElement('span');
+        span.className = 'grammar';
+        span.innerHTML = rubyHTML(part.g, part.r);
+        span.onclick = e => showPopup(e, {type:'grammar', reading:part.r, word:part.g, meaning:L(part.m), explain:L(part.x)});
+        jpLine.appendChild(span);
+      } else if (part.p !== undefined) {
+        const span = document.createElement('span');
+        span.innerHTML = part.p;
+        jpLine.appendChild(span);
+      }
+    });
+    block.appendChild(jpLine);
+
+    const hiraLine = document.createElement('span');
+    hiraLine.className = 'hira-line' + (showHira ? '' : ' hidden');
+    hiraLine.textContent = s.hira;
+    block.appendChild(hiraLine);
+
+    const transLine = document.createElement('span');
+    transLine.className = 'trans-line' + (showTrans ? '' : ' hidden');
+    transLine.textContent = L(s.trans);
+    block.appendChild(transLine);
+
+    el.appendChild(block);
+    if (si === 3) { const br = document.createElement('div'); br.className = 'para-break'; el.appendChild(br); }
+  });
+}
+
+function renderLangPicker() {
+  const sel = document.getElementById('langPicker');
+  sel.innerHTML = '';
+  LANGS.forEach(code => {
+    const opt = document.createElement('option');
+    opt.value = code;
+    opt.textContent = LANG_LABELS[code];
+    if (code === curLang) opt.selected = true;
+    sel.appendChild(opt);
+  });
+}
+function setLang(code) { curLang = code; updateAll(); }
+
+function updateUI() {
+  document.querySelectorAll('[data-ui]').forEach(el => {
+    const key = el.getAttribute('data-ui');
+    if (UI[key]) el.textContent = L(UI[key]);
+  });
+}
+
+function updateAll() {
+  renderLangPicker();
+  updateUI();
+  renderPassage();
+}
+
+// ========== POPUP ==========
+function showPopup(e, data) {
+  e.stopPropagation();
+  const popup = document.getElementById('popup');
+  const overlay = document.getElementById('popupOverlay');
+  let html = '';
+  if (data.type === 'grammar') {
+    html += `<div class="grammar-tag">${L(UI.grammar_tag)}</div>`;
+    html += `<div class="reading">${data.reading}</div>`;
+    if (data.word !== data.reading) html += `<div class="kanji-display">${data.word}</div>`;
+    html += `<div class="meaning"><strong>${data.meaning}</strong></div>`;
+    html += `<div class="grammar-explain">${data.explain}</div>`;
+  } else {
+    html += `<div class="reading">${data.reading}</div>`;
+    if (data.word !== data.reading) html += `<div class="kanji-display">${data.word}</div>`;
+    html += `<div class="meaning">${data.meaning}</div>`;
+  }
+  popup.innerHTML = html;
+  popup.classList.add('show');
+  overlay.classList.add('show');
+  const rect = e.currentTarget.getBoundingClientRect();
+  const popW = Math.min(340, window.innerWidth - 20);
+  let left = rect.left + rect.width/2 - popW/2;
+  if (left < 10) left = 10;
+  if (left + popW > window.innerWidth - 10) left = window.innerWidth - popW - 10;
+  let top = rect.bottom + 10;
+  popup.style.transform = 'none';
+  if (top + 220 > window.innerHeight) { top = rect.top - 10; popup.style.transform = 'translateY(-100%)'; }
+  popup.style.left = left + 'px';
+  popup.style.top = top + 'px';
+  popup.style.width = popW + 'px';
+}
+function closePopup() {
+  document.getElementById('popup').classList.remove('show');
+  document.getElementById('popupOverlay').classList.remove('show');
+}
+
+// ========== TOGGLES ==========
+function toggleFurigana() {
+  showFurigana = !showFurigana;
+  document.body.classList.toggle('hide-furigana', !showFurigana);
+  document.getElementById('btnFurigana').classList.toggle('active', showFurigana);
+}
+function toggleHira() {
+  showHira = !showHira;
+  document.getElementById('btnHira').classList.toggle('active', showHira);
+  document.querySelectorAll('.hira-line').forEach(el => el.classList.toggle('hidden', !showHira));
+}
+function toggleTrans() {
+  showTrans = !showTrans;
+  document.getElementById('btnTrans').classList.toggle('active', showTrans);
+  document.querySelectorAll('.trans-line').forEach(el => el.classList.toggle('hidden', !showTrans));
+}
+function setFontSize(val) { document.documentElement.style.setProperty('--font-size', val + 'px'); }
+function toggleToolbar() { document.getElementById('toolbar').classList.toggle('collapsed'); }
+window.addEventListener('scroll', () => {
+  document.getElementById('toolbar').classList.toggle('scrolled', window.scrollY > 5);
+}, {passive:true});
+
+// Init
+updateAll();
+</script>
+</body>
+</html>

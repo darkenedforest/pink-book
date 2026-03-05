@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Textbook Readings</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;
+  --accent:#b8433a;--border:#e0d5c5;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Serif JP',serif;background:var(--bg);color:var(--text);min-height:100vh;
+  background:linear-gradient(160deg,#f7f3ec,#efe8dc);
+}
+.container{max-width:640px;margin:0 auto;padding:2rem 1.2rem 3rem;}
+.header{text-align:center;margin-bottom:2rem;}
+.header h1{font-size:1.8rem;font-weight:700;letter-spacing:0.06em;margin-bottom:0.3rem;}
+.header .subtitle{font-family:'Source Sans Pro',sans-serif;font-size:0.95rem;color:var(--text-light);}
+.ornament{
+  display:block;margin:1rem auto 1.5rem;
+  width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);
+}
+.toc-heading{
+  font-family:'Source Sans Pro',sans-serif;font-size:0.75rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);
+  margin-bottom:0.8rem;padding-left:0.2rem;
+}
+.lesson-list{list-style:none;}
+.lesson-item{margin-bottom:0.6rem;}
+.lesson-link{
+  display:flex;align-items:baseline;gap:0.8rem;
+  text-decoration:none;color:var(--text);
+  background:var(--card-bg);border:1px solid var(--border);border-radius:10px;
+  padding:1rem 1.4rem;transition:all 0.2s;
+  box-shadow:0 2px 8px rgba(44,36,22,0.05);
+}
+.lesson-link:hover{
+  border-color:var(--accent);box-shadow:0 4px 16px rgba(184,67,58,0.1);
+  transform:translateY(-1px);
+}
+.lesson-link.disabled{opacity:0.4;pointer-events:none;}
+.lesson-num{
+  font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;font-weight:600;
+  color:var(--accent);white-space:nowrap;min-width:2.5rem;
+}
+.lesson-titles{flex:1;min-width:0;}
+.lesson-title-jp{font-size:1.05rem;font-weight:700;display:block;margin-bottom:0.15rem;}
+.lesson-title-en{font-family:'Source Sans Pro',sans-serif;font-size:0.8rem;color:var(--text-light);display:block;}
+.lesson-badge{
+  font-family:'Source Sans Pro',sans-serif;font-size:0.62rem;font-weight:600;
+  color:var(--text-light);background:rgba(0,0,0,0.04);
+  padding:0.15rem 0.5rem;border-radius:999px;white-space:nowrap;
+}
+.back-link{
+  display:block;text-align:center;margin-top:2rem;
+  font-family:'Source Sans Pro',sans-serif;font-size:0.85rem;
+  color:var(--text-light);text-decoration:none;transition:color 0.2s;
+}
+.back-link:hover{color:var(--accent);}
+@media(max-width:520px){
+  .header h1{font-size:1.4rem;}
+  .lesson-link{padding:0.8rem 1rem;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Textbook Readings</h1>
+    <p class="subtitle">Interactive reading assignments</p>
+  </div>
+  <span class="ornament"></span>
+  <p class="toc-heading">Lessons</p>
+  <ul class="lesson-list">
+    <li class="lesson-item"><a class="lesson-link disabled" href="#"><span class="lesson-num">Lesson 1</span><span class="lesson-titles"><span class="lesson-title-jp"></span></span><span class="lesson-badge">Coming soon</span></a></li>
+    <li class="lesson-item"><a class="lesson-link disabled" href="#"><span class="lesson-num">Lesson 2</span><span class="lesson-titles"><span class="lesson-title-jp"></span></span><span class="lesson-badge">Coming soon</span></a></li>
+    <li class="lesson-item"><a class="lesson-link disabled" href="#"><span class="lesson-num">Lesson 3</span><span class="lesson-titles"><span class="lesson-title-jp"></span></span><span class="lesson-badge">Coming soon</span></a></li>
+    <li class="lesson-item"><a class="lesson-link disabled" href="#"><span class="lesson-num">Lesson 4</span><span class="lesson-titles"><span class="lesson-title-jp"></span></span><span class="lesson-badge">Coming soon</span></a></li>
+    <li class="lesson-item"><a class="lesson-link disabled" href="#"><span class="lesson-num">Lesson 5</span><span class="lesson-titles"><span class="lesson-title-jp"></span></span><span class="lesson-badge">Coming soon</span></a></li>
+    <li class="lesson-item"><a class="lesson-link disabled" href="#"><span class="lesson-num">Lesson 6</span><span class="lesson-titles"><span class="lesson-title-jp"></span></span><span class="lesson-badge">Coming soon</span></a></li>
+    <li class="lesson-item"><a class="lesson-link disabled" href="#"><span class="lesson-num">Lesson 7</span><span class="lesson-titles"><span class="lesson-title-jp"></span></span><span class="lesson-badge">Coming soon</span></a></li>
+    <li class="lesson-item"><a class="lesson-link disabled" href="#"><span class="lesson-num">Lesson 8</span><span class="lesson-titles"><span class="lesson-title-jp"></span></span><span class="lesson-badge">Coming soon</span></a></li>
+    <li class="lesson-item"><a class="lesson-link" href="lesson09.html"><span class="lesson-num">Lesson 9</span><span class="lesson-titles"><span class="lesson-title-jp">男の仕事・女の仕事</span><span class="lesson-title-en">Men's Work, Women's Work</span></span></a></li>
+    <li class="lesson-item"><a class="lesson-link disabled" href="#"><span class="lesson-num">Lesson 10</span><span class="lesson-titles"><span class="lesson-title-jp"></span></span><span class="lesson-badge">Coming soon</span></a></li>
+  </ul>
+  <a href="../index.html" class="back-link">Back to Home</a>
+</div>
+</body>
+</html>

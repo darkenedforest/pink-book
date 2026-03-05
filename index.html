@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japanese Reading</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;
+  --accent:#b8433a;--border:#e0d5c5;
+  --shadow:0 8px 32px rgba(44,36,22,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Source Sans Pro',sans-serif;background:var(--bg);color:var(--text);
+  min-height:100vh;background:linear-gradient(160deg,#f7f3ec,#efe8dc);
+}
+.container{max-width:680px;margin:0 auto;padding:2.5rem 1.2rem 3rem;}
+.header{text-align:center;margin-bottom:2.5rem;}
+.header h1{
+  font-family:'Noto Serif JP',serif;font-size:2rem;font-weight:700;
+  color:var(--text);letter-spacing:0.06em;margin-bottom:0.4rem;
+}
+.header p{font-size:0.9rem;color:var(--text-light);}
+.ornament{
+  display:block;margin:1rem auto 2rem;
+  width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);
+}
+.section-card{
+  background:var(--card-bg);border:1px solid var(--border);border-radius:14px;
+  padding:1.8rem 1.6rem;margin-bottom:1.2rem;
+  box-shadow:0 4px 16px rgba(44,36,22,0.06);
+  text-decoration:none;color:var(--text);display:block;
+  transition:all 0.25s;position:relative;overflow:hidden;
+}
+.section-card:hover{
+  border-color:var(--accent);
+  box-shadow:0 8px 28px rgba(184,67,58,0.1);
+  transform:translateY(-2px);
+}
+.section-card::after{
+  content:'';position:absolute;top:0;left:0;width:4px;height:100%;
+  background:var(--accent);border-radius:4px 0 0 4px;opacity:0;
+  transition:opacity 0.25s;
+}
+.section-card:hover::after{opacity:1;}
+.section-icon{font-size:1.8rem;margin-bottom:0.6rem;display:block;}
+.section-title{
+  font-family:'Noto Serif JP',serif;font-size:1.2rem;font-weight:700;
+  margin-bottom:0.3rem;
+}
+.section-subtitle{font-size:0.82rem;color:var(--text-light);margin-bottom:0.5rem;}
+.section-meta{
+  font-size:0.72rem;color:var(--accent);font-weight:600;
+  letter-spacing:0.03em;
+}
+.footer{
+  text-align:center;margin-top:2rem;
+  font-size:0.72rem;color:var(--text-light);opacity:0.6;
+}
+@media(max-width:520px){
+  .header h1{font-size:1.5rem;}
+  .section-card{padding:1.4rem 1.2rem;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Japanese Reading</h1>
+    <p>Interactive Japanese study tools</p>
+  </div>
+  <span class="ornament"></span>
+
+  <a href="kirihama/index.html" class="section-card">
+    <span class="section-icon">&#128214;</span>
+    <div class="section-title">&#x971C;&#x6D5C;&#x306E;&#x79D8;&#x5BC6;</div>
+    <div class="section-subtitle">The Secrets of Kirihama &mdash; an interactive mystery novel for Japanese learners</div>
+    <div class="section-meta">20 chapters &middot; 12,385 sentences &middot; 104 grammar points</div>
+  </a>
+
+  <a href="textbook/index.html" class="section-card">
+    <span class="section-icon">&#128218;</span>
+    <div class="section-title">Textbook Readings</div>
+    <div class="section-subtitle">Reading assignments from class &mdash; interactive with tap dictionary and grammar popups</div>
+    <div class="section-meta">Lessons 1&ndash;10</div>
+  </a>
+
+  <a href="flashcards/index.html" class="section-card">
+    <span class="section-icon">&#127183;</span>
+    <div class="section-title">Flashcards</div>
+    <div class="section-subtitle">Vocabulary review with spaced repetition</div>
+    <div class="section-meta">Coming soon</div>
+  </a>
+
+  <p class="footer">Built with Claude Code</p>
+</div>
+</body>
+</html>

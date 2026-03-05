@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> - Table of Contents</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;
+  --accent:#b8433a;--grammar-color:#7b2d8e;--border:#e0d5c5;
+  --shadow:0 8px 32px rgba(44,36,22,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Noto Serif JP',serif;background:var(--bg);color:var(--text);min-height:100vh;
+  background:linear-gradient(160deg,#f7f3ec,#efe8dc);
+}
+.container{max-width:640px;margin:0 auto;padding:2rem 1.2rem 3rem;}
+.header{text-align:center;margin-bottom:2rem;}
+.header h1{
+  font-size:1.8rem;font-weight:700;color:var(--text);letter-spacing:0.06em;margin-bottom:0.3rem;
+}
+.header .subtitle{
+  font-family:'Source Sans Pro',sans-serif;font-size:0.95rem;color:var(--text-light);
+}
+.ornament{
+  display:block;margin:1rem auto 1.5rem;
+  width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);
+}
+.toc-heading{
+  font-family:'Source Sans Pro',sans-serif;font-size:0.75rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);
+  margin-bottom:0.8rem;padding-left:0.2rem;
+}
+.episode-list{list-style:none;}
+.episode-item{margin-bottom:0.6rem;}
+.episode-link{
+  display:flex;align-items:baseline;gap:0.8rem;
+  text-decoration:none;color:var(--text);
+  background:var(--card-bg);border:1px solid var(--border);border-radius:10px;
+  padding:1rem 1.4rem;transition:all 0.2s;
+  box-shadow:0 2px 8px rgba(44,36,22,0.05);
+}
+.episode-link:hover{
+  border-color:var(--accent);box-shadow:0 4px 16px rgba(184,67,58,0.1);
+  transform:translateY(-1px);
+}
+.ep-number{
+  font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;font-weight:600;
+  color:var(--accent);white-space:nowrap;min-width:2rem;
+}
+.ep-titles{flex:1;min-width:0;}
+.ep-title-jp{
+  font-size:1.05rem;font-weight:700;display:block;margin-bottom:0.15rem;
+}
+.ep-title-en{
+  font-family:'Source Sans Pro',sans-serif;font-size:0.8rem;color:var(--text-light);
+  display:block;
+}
+.back-link{
+  display:block;text-align:center;margin-top:2rem;
+  font-family:'Source Sans Pro',sans-serif;font-size:0.85rem;
+  color:var(--text-light);text-decoration:none;transition:color 0.2s;
+}
+.back-link:hover{color:var(--accent);}
+@media(max-width:520px){
+  .header h1{font-size:1.4rem;}
+  .episode-link{padding:0.8rem 1rem;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1></h1>
+    <p class="subtitle"></p>
+  </div>
+  <span class="ornament"></span>
+  <p class="toc-heading">Episodes</p>
+  <ul class="episode-list">
+        <li class="episode-item">
+      <a class="episode-link" href="ep01.html">
+        <span class="ep-number">EP 1</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">霧の中の民宿</span>
+          <span class="ep-title-en">The Guesthouse in the Mist</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep02.html">
+        <span class="ep-number">EP 2</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">星の五つの点</span>
+          <span class="ep-title-en">Five Points of the Star</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep03.html">
+        <span class="ep-number">EP 3</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">老漁師の警告</span>
+          <span class="ep-title-en">The Old Fisherman's Warning</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep04.html">
+        <span class="ep-number">EP 4</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">バズった動画</span>
+          <span class="ep-title-en">The Viral Video</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep05.html">
+        <span class="ep-number">EP 5</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">消えた学生</span>
+          <span class="ep-title-en">The Vanished Student</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep06.html">
+        <span class="ep-number">EP 6</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">最初の修復</span>
+          <span class="ep-title-en">The First Restoration</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep07.html">
+        <span class="ep-number">EP 7</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">深い根</span>
+          <span class="ep-title-en">Deep Roots</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep08.html">
+        <span class="ep-number">EP 8</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">狐火</span>
+          <span class="ep-title-en">Fox Fire</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep09.html">
+        <span class="ep-number">EP 9</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">仮面を外す</span>
+          <span class="ep-title-en">Removing the Mask</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep10.html">
+        <span class="ep-number">EP 10</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">沈んだ鐘</span>
+          <span class="ep-title-en">The Sunken Bell</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep11.html">
+        <span class="ep-number">EP 11</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">水底の村</span>
+          <span class="ep-title-en">The Village at the Bottom of the Lake</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep12.html">
+        <span class="ep-number">EP 12</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">水を割く道</span>
+          <span class="ep-title-en">The Way That Parts the Water</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep13.html">
+        <span class="ep-number">EP 13</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">亀裂</span>
+          <span class="ep-title-en">Fracture</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep14.html">
+        <span class="ep-number">EP 14</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">灯台守の記録</span>
+          <span class="ep-title-en">The Lighthouse Keeper's Records</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep15.html">
+        <span class="ep-number">EP 15</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">深い封印</span>
+          <span class="ep-title-en">The Deep Seal</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep16.html">
+        <span class="ep-number">EP 16</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">樹海</span>
+          <span class="ep-title-en">Sea of Trees</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep17.html">
+        <span class="ep-number">EP 17</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">失われた者たちの名前</span>
+          <span class="ep-title-en">Names of the Lost</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep18.html">
+        <span class="ep-number">EP 18</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">嵐の前</span>
+          <span class="ep-title-en">Before the Storm</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep19.html">
+        <span class="ep-number">EP 19</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">五つの心</span>
+          <span class="ep-title-en">Five Hearts</span>
+        </span>
+      </a>
+    </li>
+    <li class="episode-item">
+      <a class="episode-link" href="ep20.html">
+        <span class="ep-number">EP 20</span>
+        <span class="ep-titles">
+          <span class="ep-title-jp">境の神</span>
+          <span class="ep-title-en">The Boundary God</span>
+        </span>
+      </a>
+    </li>
+
+  </ul>
+  <a href="../index.html" class="back-link">Back to Title Page</a>
+</div>
+</body>
+</html>
