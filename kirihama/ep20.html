@@ -240,26 +240,26 @@ body.hide-furigana ruby rt{visibility:hidden;}
 .swipe-zone-left{left:0;}
 .swipe-zone-right{right:0;}
 
-/* ===== READING MODE ===== */
-.book-wrapper.reading-mode .top-bar{
+/* ===== COLLAPSED MODE (reading mode) ===== */
+.book-wrapper.collapsed .top-bar{
   padding:0;border-bottom:1px solid rgba(224,213,197,0.5);
 }
-.book-wrapper.reading-mode .top-bar-title,
-.book-wrapper.reading-mode .top-bar-right{display:none;}
-.book-wrapper.reading-mode .top-bar-left{
+.book-wrapper.collapsed .top-bar-title,
+.book-wrapper.collapsed .top-bar-right{display:none;}
+.book-wrapper.collapsed .top-bar-left{
   width:100%;justify-content:center;
 }
-.book-wrapper.reading-mode .top-bar-btn#btnSettings{
+.book-wrapper.collapsed .top-bar-btn#btnToggleUI{
   padding:0.1rem 0.5rem;
 }
-.book-wrapper.reading-mode .top-bar-btn#btnSettings svg{
+.book-wrapper.collapsed .top-bar-btn#btnToggleUI svg{
   width:14px;height:14px;opacity:0.4;
 }
-.book-wrapper.reading-mode .settings-drawer{max-height:0 !important;}
-.book-wrapper.reading-mode .bottom-bar{display:none;}
-/* Settings chevron rotation */
-#btnSettings svg{transition:transform 0.3s ease;}
-#btnSettings.flipped svg{transform:rotate(180deg);}
+.book-wrapper.collapsed .settings-drawer{max-height:0 !important;}
+.book-wrapper.collapsed .bottom-bar{display:none;}
+/* Chevron rotation: points up when collapsed (click to expand), down when expanded */
+#btnToggleUI svg{transition:transform 0.3s ease;}
+.book-wrapper.collapsed #btnToggleUI svg{transform:rotate(180deg);}
 
 @media(max-width:520px){
   .page{padding:1.2rem 1rem 2rem;}
@@ -275,15 +275,12 @@ body.hide-furigana ruby rt{visibility:hidden;}
 <!-- TOP BAR -->
 <div class="top-bar">
   <div class="top-bar-left">
-    <button class="top-bar-btn" onclick="toggleReadingMode()" aria-label="Reading mode" title="Reading mode" id="btnSettings">
+    <button class="top-bar-btn" onclick="toggleUI()" aria-label="Toggle menu" title="Toggle menu" id="btnToggleUI">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
   </div>
   <div class="top-bar-title">境の神<span class="top-bar-sub">EP 20</span></div>
   <div class="top-bar-right">
-    <button class="top-bar-btn" onclick="toggleSettings()" aria-label="Settings" title="Settings">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-    </button>
     <button class="top-bar-btn" onclick="goToBookmark()" aria-label="Go to bookmark" title="Go to bookmark">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
     </button>
@@ -13600,24 +13597,19 @@ function closePopup() {
   document.getElementById('popupOverlay').classList.remove('show');
 }
 
-// ========== READING MODE ==========
-var readingMode = false;
-function toggleReadingMode() {
-  readingMode = !readingMode;
-  document.querySelector('.book-wrapper').classList.toggle('reading-mode', readingMode);
-  // Close settings if open when entering reading mode
-  if (readingMode) {
-    document.getElementById('settingsDrawer').classList.remove('open');
-    document.getElementById('btnSettings').classList.remove('flipped');
-  }
-}
-
-// ========== TOGGLES ==========
-function toggleSettings() {
+// ========== UI TOGGLE (expand/collapse everything) ==========
+var uiCollapsed = false;
+function toggleUI() {
+  uiCollapsed = !uiCollapsed;
+  var wrapper = document.querySelector('.book-wrapper');
   var drawer = document.getElementById('settingsDrawer');
-  var btn = document.getElementById('btnSettings');
-  drawer.classList.toggle('open');
-  btn.classList.toggle('flipped', drawer.classList.contains('open'));
+  wrapper.classList.toggle('collapsed', uiCollapsed);
+  // When expanding, also open settings drawer; when collapsing, close it
+  if (uiCollapsed) {
+    drawer.classList.remove('open');
+  } else {
+    drawer.classList.add('open');
+  }
 }
 function toggleFurigana() {
   showFurigana = !showFurigana;
