@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bookshelf</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;
+  --accent:#b8433a;--border:#e0d5c5;
+  --shadow:0 8px 32px rgba(44,36,22,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Source Sans Pro',sans-serif;background:var(--bg);color:var(--text);
+  min-height:100vh;background:linear-gradient(160deg,#f7f3ec,#efe8dc);
+}
+.container{max-width:680px;margin:0 auto;padding:1.5rem 1.2rem 3rem;}
+.back-link{
+  display:inline-block;font-size:0.85rem;
+  color:var(--text-light);text-decoration:none;transition:color 0.2s;
+  margin-bottom:1.5rem;
+}
+.back-link:hover{color:var(--accent);}
+.header{text-align:center;margin-bottom:2rem;}
+.header h1{
+  font-family:'Noto Serif JP',serif;font-size:1.8rem;font-weight:700;
+  color:var(--text);letter-spacing:0.06em;margin-bottom:0.3rem;
+}
+.header p{font-size:0.85rem;color:var(--text-light);}
+.ornament{
+  display:block;margin:0.8rem auto 1.8rem;
+  width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);
+}
+
+/* Book grid */
+.book-grid{
+  display:grid;grid-template-columns:repeat(auto-fill, minmax(150px, 1fr));
+  gap:1.2rem;
+}
+.book-slot{
+  background:var(--card-bg);border:1px solid var(--border);border-radius:12px;
+  overflow:hidden;cursor:pointer;transition:all 0.25s;
+  box-shadow:0 3px 12px rgba(44,36,22,0.06);
+}
+.book-slot:hover{
+  border-color:var(--accent);transform:translateY(-3px);
+  box-shadow:0 8px 24px rgba(184,67,58,0.12);
+}
+.book-cover{
+  width:100%;aspect-ratio:2/3;object-fit:cover;display:block;
+  border-bottom:1px solid var(--border);
+}
+.book-info{padding:0.7rem 0.8rem;}
+.book-title{
+  font-family:'Noto Serif JP',serif;font-size:0.95rem;font-weight:700;
+  margin-bottom:0.2rem;line-height:1.3;
+}
+.book-tagline{
+  font-size:0.72rem;color:var(--text-light);line-height:1.4;
+}
+
+/* Empty slot for future books */
+.book-slot.empty{
+  border-style:dashed;cursor:default;
+  display:flex;align-items:center;justify-content:center;
+  min-height:260px;
+}
+.book-slot.empty:hover{border-color:var(--border);transform:none;box-shadow:0 3px 12px rgba(44,36,22,0.06);}
+.empty-label{
+  font-size:0.8rem;color:var(--border);font-weight:600;
+  text-align:center;padding:1rem;
+}
+
+/* Modal overlay */
+.modal-overlay{
+  display:none;position:fixed;inset:0;z-index:1000;
+  background:rgba(44,36,22,0.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  align-items:center;justify-content:center;padding:1.5rem;
+}
+.modal-overlay.open{display:flex;}
+.modal{
+  background:var(--card-bg);border-radius:16px;
+  max-width:420px;width:100%;max-height:90vh;overflow-y:auto;
+  box-shadow:var(--shadow);position:relative;
+}
+.modal-cover{
+  width:100%;max-height:50vh;object-fit:contain;display:block;
+  border-radius:16px 16px 0 0;background:#e8e0d4;
+}
+.modal-body{padding:1.4rem 1.6rem 1.8rem;}
+.modal-title{
+  font-family:'Noto Serif JP',serif;font-size:1.3rem;font-weight:700;
+  margin-bottom:0.15rem;
+}
+.modal-subtitle{
+  font-size:0.85rem;color:var(--text-light);margin-bottom:0.8rem;
+  font-style:italic;
+}
+.modal-meta{
+  font-size:0.72rem;color:var(--accent);font-weight:600;
+  margin-bottom:1rem;letter-spacing:0.02em;
+}
+.modal-synopsis{
+  font-size:0.88rem;color:var(--text);line-height:1.7;
+  margin-bottom:1.4rem;
+}
+.modal-btn{
+  display:block;width:100%;padding:0.8rem;border:none;border-radius:10px;
+  background:var(--accent);color:#fff;font-family:'Source Sans Pro',sans-serif;
+  font-size:0.95rem;font-weight:600;cursor:pointer;transition:opacity 0.2s;
+  text-align:center;text-decoration:none;
+}
+.modal-btn:hover{opacity:0.85;}
+.modal-close{
+  position:absolute;top:0.6rem;right:0.8rem;background:rgba(44,36,22,0.5);
+  border:none;color:#fff;width:32px;height:32px;border-radius:50%;
+  font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;z-index:1;
+}
+.modal-close:hover{background:rgba(44,36,22,0.7);}
+
+@media(max-width:520px){
+  .header h1{font-size:1.4rem;}
+  .book-grid{grid-template-columns:repeat(2, 1fr);gap:0.8rem;}
+  .modal-body{padding:1.2rem 1.2rem 1.4rem;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="../index.html" class="back-link">&larr; Back to Home</a>
+  <div class="header">
+    <h1>Bookshelf</h1>
+    <p>Supplementary reading for 中級へ行こう</p>
+  </div>
+  <span class="ornament"></span>
+
+  <div class="book-grid">
+        <div class="book-slot" onclick="openBook('kirihama')">
+      <img class="book-cover" src="kirihama-cover.png" alt="The Secrets of Kirihama">
+      <div class="book-info">
+        <div class="book-title">霧浜の秘密</div>
+        <div class="book-tagline">A supernatural mystery in a foggy coastal village</div>
+      </div>
+    </div>
+
+
+    <div class="book-slot empty">
+      <div class="empty-label">More books<br>coming soon</div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script>
+var books = [{"id": "kirihama", "title_jp": "霧浜の秘密", "title_en": "The Secrets of Kirihama", "tagline": "A supernatural mystery in a foggy coastal village", "meta": "20 chapters · 12,385 sentences · 104 grammar points", "cover": "kirihama-cover.png", "url": "../kirihama/index.html", "synopsis": "Five university students arrive in the remote fishing village of Kirihama for a summer research project—but the fog that rolls in off the sea carries more than moisture. Strange lights flicker over the water at night, an old fisherman warns them to stay away from the shore, and a pentagram etched into ancient stone hints at secrets the villagers have guarded for generations. As the students dig deeper, they discover that Kirihama’s history is tied to something far older and more dangerous than any of them imagined—and that the boundary between the living and the dead is thinner here than anywhere else in Japan."}];
+
+function openBook(id) {
+  var b = books.find(function(x){return x.id===id;});
+  if (!b) return;
+  var m = document.getElementById('modal');
+  m.innerHTML =
+    '<button class="modal-close" onclick="closeModal()">&times;</button>' +
+    '<img class="modal-cover" src="' + b.cover + '" alt="' + b.title_en + '">' +
+    '<div class="modal-body">' +
+      '<div class="modal-title">' + b.title_jp + '</div>' +
+      '<div class="modal-subtitle">' + b.title_en + '</div>' +
+      '<div class="modal-meta">' + b.meta + '</div>' +
+      '<div class="modal-synopsis">' + b.synopsis + '</div>' +
+      '<a class="modal-btn" href="' + b.url + '">Read</a>' +
+    '</div>';
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+</script>
+</body>
+</html>
