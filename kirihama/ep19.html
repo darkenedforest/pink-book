@@ -256,14 +256,7 @@ body.hide-furigana ruby rt{visibility:hidden;}
   width:14px;height:14px;opacity:0.4;
 }
 .book-wrapper.reading-mode .settings-drawer{max-height:0 !important;}
-.book-wrapper.reading-mode .bottom-bar{
-  max-height:0;padding:0;border:none;overflow:hidden;
-  transition:max-height 0.3s ease,padding 0.3s ease;
-}
-.bottom-bar{
-  transition:max-height 0.3s ease,padding 0.3s ease;
-  max-height:120px;overflow:hidden;
-}
+.book-wrapper.reading-mode .bottom-bar{display:none;}
 /* Settings chevron rotation */
 #btnSettings svg{transition:transform 0.3s ease;}
 #btnSettings.flipped svg{transform:rotate(180deg);}
