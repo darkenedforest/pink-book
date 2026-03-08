@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第2課 – 地震</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Sans+Pro:wght@400;600&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+Myanmar:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;--accent:#b8433a;--grammar-color:#7b2d8e;--border:#e0d5c5;--popup-bg:#fffef9;--shadow:0 8px 32px rgba(44,36,22,0.12);--hira-color:#999;--trans-color:#5a7a5a;--font-size:18px;}*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Noto Serif JP',serif;background:var(--bg);color:var(--text);min-height:100vh;}.page-bg{background:linear-gradient(160deg,#f7f3ec,#efe8dc);min-height:100vh;padding-bottom:3rem;}.toolbar{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,#f7f3ec,rgba(247,243,236,0.97));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding-bottom:0.4rem;transition:box-shadow 0.3s;}.toolbar.scrolled{box-shadow:0 2px 16px rgba(44,36,22,0.1);}.toolbar-header{display:flex;align-items:center;justify-content:center;padding:0.7rem 1rem 0.15rem;position:relative;}.toolbar-header h1{font-size:1.3rem;font-weight:700;color:var(--accent);letter-spacing:0.06em;}.toolbar-header .sub{font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);margin-left:0.5rem;align-self:flex-end;padding-bottom:0.08rem;}.collapse-btn{position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:2px solid var(--border);border-radius:50%;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-light);transition:all 0.2s;}.collapse-btn:hover{border-color:var(--accent);color:var(--accent);}.collapse-btn svg{transition:transform 0.3s;}.toolbar.collapsed .collapse-btn svg{transform:rotate(180deg);}.toolbar-body{max-height:160px;overflow:hidden;transition:max-height 0.35s ease,opacity 0.25s ease;opacity:1;}.toolbar.collapsed .toolbar-body{max-height:0;opacity:0;}.controls-row1{max-width:720px;margin:0.3rem auto 0;padding:0 1rem;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;}.toggle-btn{font-family:'Source Sans Pro',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0;border-radius:999px;border:2px solid var(--border);background:var(--card-bg);color:var(--text-light);cursor:pointer;transition:all 0.2s;user-select:none;white-space:nowrap;width:5.5rem;text-align:center;}.toggle-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(184,67,58,0.06);}.toggle-btn:hover{border-color:var(--accent);}.controls-row2{max-width:720px;margin:0.35rem auto 0;padding:0 1rem;display:flex;align-items:center;justify-content:space-between;}.slider-group{display:flex;align-items:center;gap:0.4rem;font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);}.slider-group input[type=range]{width:70px;accent-color:var(--accent);cursor:pointer;}.lang-picker-wrap{position:relative;display:inline-flex;align-items:center;}.lang-picker{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.78rem;font-weight:600;padding:0.35rem 2rem 0.35rem 0.7rem;border-radius:999px;border:2px solid #2471a3;background:rgba(36,113,163,0.07);color:#2471a3;cursor:pointer;appearance:none;-webkit-appearance:none;outline:none;transition:all 0.2s;}.lang-picker:hover,.lang-picker:focus{border-color:#1a5276;box-shadow:0 0 0 3px rgba(36,113,163,0.12);}.lang-picker-arrow{position:absolute;right:0.65rem;top:50%;transform:translateY(-50%);pointer-events:none;color:#2471a3;}.legend{display:flex;justify-content:center;gap:0.9rem;padding:0.3rem 1rem 0;flex-wrap:wrap;}.legend-item{font-family:'Source Sans Pro',sans-serif;font-size:0.68rem;color:var(--text-light);display:flex;align-items:center;gap:0.25rem;}.legend-dot{width:8px;height:8px;border-radius:50%;}.legend-dot.vocab{background:var(--accent);opacity:0.4;}.legend-dot.grammar{background:var(--grammar-color);opacity:0.5;}.content{max-width:720px;margin:0 auto;padding:0.8rem 1.2rem 3rem;}.passage-card{background:var(--card-bg);border-radius:12px;padding:2rem 1.8rem;box-shadow:var(--shadow);border:1px solid var(--border);line-height:2.6;font-size:var(--font-size);}.sentence-block{margin-bottom:0.7rem;}.jp-sentence{display:inline;}ruby rt{font-size:0.5em;color:var(--hira-color);font-family:'Noto Sans JP',sans-serif;font-weight:400;}body.hide-furigana ruby rt{visibility:hidden;}.word{cursor:pointer;border-bottom:1.5px dotted rgba(184,67,58,0.3);transition:background 0.15s;border-radius:2px;}.word:hover{background:rgba(184,67,58,0.08);}.grammar{font-weight:700;color:var(--grammar-color);cursor:pointer;border-bottom:2px solid rgba(123,45,142,0.35);border-radius:2px;transition:background 0.15s;}.grammar:hover{background:rgba(123,45,142,0.08);}.hira-line{display:block;font-family:'Noto Sans JP',sans-serif;font-size:0.78em;color:var(--hira-color);margin-top:0.1rem;line-height:1.6;transition:opacity 0.25s,max-height 0.3s;}.hira-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}.trans-line{display:block;font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.78em;color:var(--trans-color);margin-top:0.05rem;line-height:1.6;font-style:italic;transition:opacity 0.25s,max-height 0.3s;}.trans-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}.para-break{height:0.6rem;}.popup-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;}.popup-overlay.show{display:block;}.popup{display:none;position:fixed;z-index:1000;background:var(--popup-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;box-shadow:0 12px 40px rgba(44,36,22,0.18);max-width:360px;min-width:200px;animation:popIn 0.18s ease-out;}.popup.show{display:block;}@keyframes popIn{from{opacity:0;transform:translateY(6px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}.popup .reading{font-family:'Noto Sans JP',sans-serif;font-size:1.05rem;color:var(--accent);font-weight:500;margin-bottom:0.15rem;}.popup .kanji-display{font-size:0.78rem;color:var(--text-light);margin-bottom:0.3rem;}.popup .meaning{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.88rem;color:var(--text);line-height:1.55;}.popup .grammar-tag{display:inline-block;font-family:'Source Sans Pro',sans-serif;font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#fff;background:var(--grammar-color);padding:0.12rem 0.5rem;border-radius:999px;margin-bottom:0.35rem;}.popup .grammar-explain{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.8rem;color:var(--text);line-height:1.55;margin-top:0.25rem;}@media(max-width:520px){.passage-card{padding:1.2rem 1rem;}.toolbar-header h1{font-size:1.15rem;}.popup{max-width:90vw;min-width:170px;}}
+</style>
+</head>
+<body>
+<div class="page-bg">
+<div class="toolbar" id="toolbar">
+  <div class="toolbar-header"><h1>地震</h1><span class="sub">第2課</span><button class="collapse-btn" onclick="toggleToolbar()" aria-label="Toggle controls"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button></div>
+  <div class="toolbar-body"><div class="controls-row2"><div class="lang-picker-wrap"><select class="lang-picker" id="langPicker" onchange="setLang(this.value)"></select><svg class="lang-picker-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="slider-group"><span>Aa</span><input type="range" min="14" max="28" value="18" id="fontSlider" oninput="setFontSize(this.value)"><span style="font-size:1.1em;">Aa</span></div></div><div class="controls-row1"><button class="toggle-btn active" id="btnFurigana" onclick="toggleFurigana()">振り仮名</button><button class="toggle-btn active" id="btnHira" onclick="toggleHira()">ひらがな</button><button class="toggle-btn active" id="btnTrans" onclick="toggleTrans()" data-ui="trans_btn"></button></div><div class="legend"><div class="legend-item"><span class="legend-dot vocab"></span> <span data-ui="leg_vocab"></span></div><div class="legend-item"><span class="legend-dot grammar"></span> <b><span data-ui="leg_grammar"></span></b></div></div></div>
+</div>
+<div class="content"><div class="passage-card" id="passage"></div></div>
+<div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div><div class="popup" id="popup"></div>
+</div>
+<script>
+const LANGS=['en','zh','ko','my','vi','ne'];const LANG_LABELS={en:'English',zh:'中文',ko:'한국어',my:'မြန်မာ',vi:'Tiếng Việt',ne:'नेपाली'};const UI={trans_btn:{en:'Translation',zh:'翻译',ko:'번역',my:'ဘာသာပြန်',vi:'Dịch',ne:'अनुवाद'},leg_vocab:{en:'Vocabulary',zh:'词汇',ko:'어휘',my:'ဝေါဟာရ',vi:'Từ vựng',ne:'शब्दावली'},leg_grammar:{en:'Grammar',zh:'语法',ko:'문법',my:'သဒ္ဒါ',vi:'Ngữ pháp',ne:'व्याकरण'},grammar_tag:{en:'Grammar Point',zh:'语法点',ko:'문법 포인트',my:'သဒ္ဒါအချက်',vi:'Điểm ngữ pháp',ne:'व्याकरण बिन्दु'}};let curLang='en';let showHira=true,showTrans=true,showFurigana=true;
+function m(en,zh,ko,my,vi,ne){return{en,zh,ko,my,vi,ne};}function W(s,r,mg){return{w:s,r:r,m:mg};}function G(s,r,mg,x){return{g:s,r:r,m:mg,x:x};}function P(t){return{p:t};}function L(d){return(typeof d==='object'&&d[curLang])?d[curLang]:(typeof d==='string'?d:(d.en||''));}
+
+const sentences=[
+// ---- S1 ----
+{
+  parts:[
+    W("大きい","おおきい",m("big","大的","큰","ကြီးသော","lớn","ठूलो")),
+    W("地震","じしん",m("earthquake","地震","지진","ငလျင်","động đất","भूकम्प")),
+    P("が"),
+    W("起きたら","おきたら",m("if it happens","如果发生了","일어나면","ဖြစ်ရင်","nếu xảy ra","भयो भने")),
+    P("、"),
+    G("どうすればいいのでしょうか","どうすればいいのでしょうか",
+      m("what should one do?","该怎么办呢？","어떻게 하면 좋을까요?","ဘာလုပ်ရမလဲ","phải làm gì?","के गर्नुपर्छ?"),
+      m("～のでしょうか (L2) — A polite way to ask a question, often rhetorical or used when genuinely wondering. Here: WHAT SHOULD WE DO if a big earthquake happens? The writer poses this to the reader before giving advice.",
+        "～のでしょうか（第2课）— 礼貌地提问的方式，常用于反问或真心疑惑。此处：如果发生大地震，该怎么办呢？作者在给出建议前向读者提出这个问题。",
+        "～のでしょうか (2과) — 정중하게 질문하는 방식. 여기서는 큰 지진이 일어나면 어떻게 하면 좋을까요? 조언을 주기 전에 독자에게 질문합니다.",
+        "～のでしょうか (သင်ခန်းစာ 2) — ယဉ်ကျေးစွာ မေးခွန်းထုတ်ခြင်း။ ငလျင်ကြီး ဖြစ်ရင် ဘာလုပ်ရမလဲ — အကြံဉာဏ်မပေးမီ စာဖတ်သူကို မေးသည်။",
+        "～のでしょうか (Bài 2) — Cách hỏi lịch sự. Ở đây: nếu xảy ra động đất lớn, PHẢI LÀM GÌ? Tác giả đặt câu hỏi trước khi đưa lời khuyên.",
+        "～のでしょうか (पाठ 2) — विनम्र तरिकाले प्रश्न सोध्ने। यहाँ: ठूलो भूकम्प आयो भने के गर्नुपर्छ? लेखकले सल्लाह दिनुअघि प्रश्न राख्छन्।")),
+    P("。"),
+  ],
+  hira:"おおきい じしん が おきたら、 どうすれば いい のでしょうか。",
+  trans:m("If a big earthquake happens, what should you do?","如果发生大地震，该怎么办呢？","큰 지진이 일어나면 어떻게 하면 좋을까요?","ငလျင်ကြီး ဖြစ်ရင် ဘာလုပ်ရမလဲ။","Nếu xảy ra động đất lớn, bạn nên làm gì?","ठूलो भूकम्प आयो भने, के गर्नुपर्छ?")
+},
+// ---- S2 ----
+{
+  parts:[
+    W("まず","まず",m("first","首先","우선","ပထမ","trước hết","पहिले")),
+    P("、"),
+    W("テーブル","テーブル",m("table","桌子","테이블","စားပွဲ","bàn","टेबल")),
+    P("や"),
+    W("机","つくえ",m("desk","书桌","책상","စာပွဲ","bàn","डेस्क")),
+    P("の"),
+    W("下","した",m("under","下面","아래","အောက်","dưới","तल")),
+    P("に"),
+    W("入って","はいって",m("get in, go under","进去","들어가","ဝင်","vào","भित्र पस्नु")),
+    P("ください。"),
+  ],
+  hira:"まず、 テーブル や つくえ の した に はいって ください。",
+  trans:m("First, get under a table or desk.","首先，请钻到桌子底下。","우선, 테이블이나 책상 아래로 들어가세요.","ပထမ စားပွဲ သို့မဟုတ် စာပွဲ အောက်သို့ ဝင်ပါ။","Trước hết, hãy chui vào dưới bàn.","पहिले, टेबल वा डेस्कको तल पस्नुहोस्।")
+},
+// ---- S3 ----
+{
+  parts:[
+    W("次","つぎ",m("next","接下来","다음","ပြီးရင်","tiếp theo","त्यसपछि")),
+    P("に、"),
+    W("ストーブ","ストーブ",m("heater","暖炉","스토브","မီးလင်ဗန်း","lò sưởi","हिटर")),
+    P("や"),
+    W("ガスコンロ","ガスコンロ",m("gas stove","煤气灶","가스레인지","ဂတ်စ်မီးဖို","bếp ga","ग्यास चुलो")),
+    P("の"),
+    G("火がついていたら","ひがついていたら",
+      m("if the fire is on","如果火开着","불이 켜져 있으면","မီးဖွင့်ထားရင်","nếu lửa đang bật","आगो बलिरहेको भए"),
+      m("自動詞テいる (L2) — The intransitive verb つく (to turn on by itself) in the ている form shows an ongoing state. Here: if the fire IS ON (state) — the stove lit itself or was lit earlier and is still burning. Contrasts with transitive つける (to turn on).",
+        "自動詞テいる（第2课）— 自动词つく（自行点燃）的ている形表示持续状态。此处：如果火开着——炉子之前点燃了，现在还在燃烧。与他动词つける（点燃）对比。",
+        "自動詞テいる (2과) — 자동사 つく(켜지다)의 ている형은 지속 상태를 나타냅니다. 불이 켜져 있으면 — 타동사 つける(켜다)와 대비됩니다.",
+        "自動詞テいる (သင်ခန်းစာ 2) — အလိုအလျောက်ကြိယာ つく ၏ ている ပုံစံဖြင့် ဆက်လက်ရှိနေသော အခြေအနေကို ဖော်ပြသည်။",
+        "自動詞テいる (Bài 2) — Tự động từ つく ở dạng ている cho thấy trạng thái đang diễn ra. Nếu lửa ĐANG BẬT. Đối lập với tha động từ つける.",
+        "自動詞テいる (पाठ 2) — अकर्मक क्रिया つく को ている रूपले चलिरहेको अवस्था देखाउँछ। आगो बलिरहेको भए — सकर्मक つける सँग तुलना।")),
+    P("、"),
+    W("消しましょう","けしましょう",m("let's turn it off","关掉吧","끕시다","ပိတ်ပါ","hãy tắt","निभाऔं")),
+    P("。"),
+  ],
+  hira:"つぎ に、 ストーブ や ガスコンロ の ひ が ついていたら、 けしましょう。",
+  trans:m("Next, if any heaters or gas stoves are on, turn them off.","接下来，如果暖炉或煤气灶的火开着，请关掉。","다음으로, 스토브나 가스레인지의 불이 켜져 있으면 끕시다.","ပြီးရင် မီးလင်ဗန်း သို့မဟုတ် ဂတ်စ်မီးဖိုတွင် မီးဖွင့်ထားရင် ပိတ်ပါ။","Tiếp theo, nếu lò sưởi hay bếp ga đang bật, hãy tắt đi.","त्यसपछि, हिटर वा ग्यास चुलोमा आगो बलिरहेको भए, निभाऔं।")
+},
+// ---- S4 ----
+{
+  parts:[
+    W("揺れ","ゆれ",m("shaking","摇晃","흔들림","တုန်ခါခြင်း","rung lắc","हल्लिनु")),
+    P("が"),
+    W("おさまったら","おさまったら",m("when it subsides","平息后","진정되면","ငြိမ်သွားရင်","khi dừng lại","शान्त भएपछि")),
+    P("、"),
+    G("閉まっている","しまっている",
+      m("are closed (intransitive state)","关着的","닫혀 있는","ပိတ်နေသော","đang đóng","बन्द भइरहेको"),
+      m("自動詞テいる (L2) — The intransitive verb 閉まる (to close by itself) in ている shows a resulting state. The doors ARE CLOSED — they closed during the earthquake. Next you'll 開ける (transitive: open them). This pair demonstrates intransitive/transitive contrast.",
+        "自動詞テいる（第2课）— 自动词閉まる（自行关闭）的ている形表示结果状态。门关着——在地震中关上了。接下来要開ける（他动词：打开它们）。展示了自他动词对比。",
+        "自動詞テいる (2과) — 자동사 閉まる(닫히다)의 ている형은 결과 상태를 나타냅니다. 문이 닫혀 있습니다 — 지진 중에 닫혔습니다. 타동사 開ける와 대비됩니다.",
+        "自動詞テいる (သင်ခန်းစာ 2) — အလိုအလျောက်ကြိယာ 閉まる ၏ ている ပုံစံ — ရလဒ်အခြေအနေ ဖော်ပြသည်။",
+        "自動詞テいる (Bài 2) — Tự động từ 閉まる ở dạng ている cho thấy trạng thái kết quả. Cửa ĐANG ĐÓNG. Sau đó bạn sẽ 開ける (tha động: mở ra).",
+        "自動詞テいる (पाठ 2) — अकर्मक क्रिया 閉まる को ている रूप — परिणामस्वरूप अवस्था। ढोका बन्द छ। त्यसपछि 開ける (सकर्मक: खोल्ने)।")),
+    W("ドア","ドア",m("door","门","문","တံခါး","cửa","ढोका")),
+    P("や"),
+    W("窓","まど",m("window","窗户","창문","ပြတင်းပေါက်","cửa sổ","झ्याल")),
+    P("を"),
+    W("開けて","あけて",m("open (transitive)","打开","열어","ဖွင့်","mở","खोल्नुहोस्")),
+    P("ください。"),
+  ],
+  hira:"ゆれ が おさまったら、 しまっている ドア や まど を あけて ください。",
+  trans:m("When the shaking subsides, please open any closed doors and windows.","摇晃平息后，请打开关着的门和窗户。","흔들림이 진정되면, 닫혀 있는 문이나 창문을 열어 주세요.","တုန်ခါခြင်း ငြိမ်သွားရင် ပိတ်နေသော တံခါးနှင့် ပြတင်းပေါက်များ ဖွင့်ပါ။","Khi rung lắc dừng lại, hãy mở các cửa và cửa sổ đang đóng.","हल्लिनु शान्त भएपछि, बन्द भइरहेका ढोका र झ्याल खोल्नुहोस्।")
+},
+// ---- S5 ----
+{
+  parts:[
+    W("地震","じしん",m("earthquake","地震","지진","ငလျင်","động đất","भूकम्प")),
+    P("の"),
+    W("後","あと",m("after","之后","후에","ပြီးတော့","sau","पछि")),
+    P("で、"),
+    G("開けようとしても、開かない","あけようとしても、あかない",
+      m("even if you try to open, it won't open","即使想打开也打不开","열려고 해도 열리지 않는다","ဖွင့်ဖို့ ကြိုးစားပေမယ့် မဖွင့်နိုင်","dù cố mở cũng không mở được","खोल्न कोसिस गरे पनि खुल्दैन"),
+      m("V(よ)うとしても、Vない (L2) — Expresses that despite TRYING to do something, it cannot be done. Here: even if you TRY TO OPEN the door, it WON'T OPEN — the earthquake may have warped the frame. The volitional form + としても shows futile effort.",
+        "V(よ)うとしても、Vない（第2课）— 表达尽管尝试做某事，但做不到。此处：即使想打开门也打不开——地震可能使门框变形了。意志形+としても表示徒劳的努力。",
+        "V(よ)うとしても、Vない (2과) — 무언가를 하려고 해도 할 수 없음을 표현합니다. 문을 열려고 해도 열리지 않습니다 — 지진으로 프레임이 변형되었을 수 있습니다.",
+        "V(よ)うとしても、Vない (သင်ခန်းစာ 2) — တစ်ခုခု လုပ်ဖို့ ကြိုးစားပေမယ့် မရကြောင်း ဖော်ပြသည်။",
+        "V(よ)うとしても、Vない (Bài 2) — Dù CỐ MỞ cửa cũng KHÔNG MỞ ĐƯỢC — khung cửa có thể bị biến dạng vì động đất.",
+        "V(よ)うとしても、Vない (पाठ 2) — केही गर्न कोसिस गरे पनि हुँदैन भन्ने जनाउँछ। ढोका खोल्न कोसिस गरे पनि खुल्दैन।")),
+    W("場合","ばあい",m("case, situation","情况","경우","အခြေအနေ","trường hợp","अवस्था")),
+    P("がありますから。"),
+  ],
+  hira:"じしん の あと で、 あけようとしても、 あかない ばあい が ありますから。",
+  trans:m("Because after an earthquake, even if you try to open them, there are cases where they won't open.","因为地震后，即使想打开也可能打不开。","지진 후에 열려고 해도 열리지 않는 경우가 있으니까요.","ငလျင်ပြီးနောက် ဖွင့်ဖို့ ကြိုးစားပေမယ့် မဖွင့်နိုင်တဲ့ အခြေအနေ ရှိနိုင်သည်။","Vì sau động đất, dù cố mở cũng có khi không mở được.","किनकि भूकम्पपछि, खोल्न कोसिस गरे पनि नखुल्ने अवस्था हुन सक्छ।")
+},
+// ---- S6 ----
+{
+  parts:[
+    W("地震","じしん",m("earthquake","地震","지진","ငလျင်","động đất","भूकम्प")),
+    P("が"),
+    W("起きた","おきた",m("occurred","发生了","일어났을","ဖြစ်","xảy ra","आयो")),
+    W("時","とき",m("when","时候","때","အချိန်","lúc","बेला")),
+    P("、もし"),
+    W("ビル","ビル",m("building","大楼","빌딩","အဆောက်အအုံ","tòa nhà","भवन")),
+    P("の"),
+    W("中","なか",m("inside","中","안","ထဲ","trong","भित्र")),
+    P("にいたら、"),
+    W("エレベーター","エレベーター",m("elevator","电梯","엘리베이터","ဓာတ်လှေကား","thang máy","लिफ्ट")),
+    P("は"),
+    W("使わないで","つかわないで",m("do not use","不要使用","사용하지 말고","မသုံးပါနဲ့","đừng sử dụng","प्रयोग नगर्नुहोस्")),
+    P("ください。"),
+  ],
+  hira:"じしん が おきた とき、 もし ビル の なか に いたら、 エレベーター は つかわないで ください。",
+  trans:m("When an earthquake occurs, if you are inside a building, please do not use the elevator.","地震发生时，如果在大楼里，请不要使用电梯。","지진이 일어났을 때, 만약 빌딩 안에 있다면 엘리베이터는 사용하지 마세요.","ငလျင်ဖြစ်သောအခါ အဆောက်အအုံထဲ ရှိနေလျှင် ဓာတ်လှေကား မသုံးပါနဲ့။","Khi xảy ra động đất, nếu bạn đang ở trong tòa nhà, xin đừng dùng thang máy.","भूकम्प आउँदा, यदि भवन भित्र हुनुहुन्छ भने, लिफ्ट प्रयोग नगर्नुहोस्।")
+},
+// ---- S7 ----
+{
+  parts:[
+    W("一番","いちばん",m("the most","最","가장","အကောင်းဆုံး","nhất","सबैभन्दा")),
+    W("大切な","たいせつな",m("important","重要的","중요한","အရေးကြီးသော","quan trọng","महत्त्वपूर्ण")),
+    G("のは","のは",
+      m("(the thing that is)","的是","것은","ဆိုတာ","thì là","भनेको"),
+      m("～のは〜ことだ (L2) — Focuses attention on what follows. Here: the MOST IMPORTANT THING is to not panic. のは highlights what matters, ことだ wraps it up. This structure spotlights one key idea.",
+        "～のは〜ことだ（第2课）— 将注意力集中在后面的内容上。此处：最重要的是不要慌张。のは突出重点，ことだ总结。",
+        "～のは〜ことだ (2과) — 뒤에 오는 내용에 초점을 맞춥니다. 가장 중요한 것은 당황하지 않는 것입니다.",
+        "～のは〜ことだ (သင်ခန်းစာ 2) — နောက်ပါအကြောင်းအရာကို အလေးပေးသည်။ အရေးအကြီးဆုံးမှာ မထိတ်လန့်ခြင်း ဖြစ်သည်။",
+        "～のは〜ことだ (Bài 2) — Tập trung vào điều tiếp theo. Ở đây: điều QUAN TRỌNG NHẤT là không hoảng loạn.",
+        "～のは〜ことだ (पाठ 2) — पछि आउने कुरामा ध्यान केन्द्रित गर्छ। सबैभन्दा महत्त्वपूर्ण कुरा अत्तालिनु नहुनु हो।")),
+    W("慌てない","あわてない",m("not to panic","不慌张","당황하지 않는","မထိတ်လန့်","không hoảng","नअत्तालिने")),
+    P("ことです。"),
+  ],
+  hira:"いちばん たいせつな のは あわてない ことです。",
+  trans:m("The most important thing is not to panic.","最重要的是不要慌张。","가장 중요한 것은 당황하지 않는 것입니다.","အရေးအကြီးဆုံးမှာ မထိတ်လန့်ခြင်း ဖြစ်သည်။","Điều quan trọng nhất là không hoảng loạn.","सबैभन्दा महत्त्वपूर्ण कुरा अत्तालिनु नहुनु हो।")
+},
+// ---- S8 ----
+{
+  parts:[
+    W("日本","にほん",m("Japan","日本","일본","ဂျပန်","Nhật Bản","जापान")),
+    P("は"),
+    W("地震","じしん",m("earthquake","地震","지진","ငလျင်","động đất","भूकम्प")),
+    P("が"),
+    W("多い","おおい",m("many, frequent","多","많은","များသော","nhiều","धेरै")),
+    W("国","くに",m("country","国家","나라","နိုင်ငံ","đất nước","देश")),
+    P("です。"),
+  ],
+  hira:"にほん は じしん が おおい くに です。",
+  trans:m("Japan is a country with many earthquakes.","日本是地震多发的国家。","일본은 지진이 많은 나라입니다.","ဂျပန်သည် ငလျင် များသော နိုင်ငံ ဖြစ်သည်။","Nhật Bản là đất nước có nhiều động đất.","जापान भूकम्प धेरै हुने देश हो।")
+},
+// ---- S9 ----
+{
+  parts:[
+    W("地震","じしん",m("earthquake","地震","지진","ငလျင်","động đất","भूकम्प")),
+    P("が"),
+    W("起きても","おきても",m("even if it happens","即使发生","일어나도","ဖြစ်ရင်တောင်","dù xảy ra","आए पनि")),
+    P("、"),
+    W("困らない","こまらない",m("not to be troubled","不会困扰","곤란하지 않도록","ဒုက္ခမခံရ","không gặp khó","समस्या नहुने")),
+    P("ように、"),
+    W("水","みず",m("water","水","물","ရေ","nước","पानी")),
+    P("や"),
+    W("食料","しょくりょう",m("food supplies","食物","식량","အစားအစာ","thực phẩm","खाद्य सामग्री")),
+    P("を"),
+    W("用意して","よういして",m("prepare","准备","준비해","ပြင်ဆင်","chuẩn bị","तयार गरेर")),
+    W("おきましょう","おきましょう",m("let's do in advance","提前准备好吧","둡시다","ထားပါ","để sẵn","राखौं")),
+    P("。"),
+  ],
+  hira:"じしん が おきても、 こまらない ように、 みず や しょくりょう を よういして おきましょう。",
+  trans:m("So that you won't be troubled even if an earthquake happens, let's prepare water and food supplies in advance.","为了即使发生地震也不会困扰，提前准备好水和食物吧。","지진이 일어나도 곤란하지 않도록, 물이나 식량을 준비해 둡시다.","ငလျင်ဖြစ်ရင်တောင် ဒုက္ခမခံရအောင် ရေနှင့် အစားအစာ ပြင်ဆင်ထားပါ။","Để không gặp khó khăn dù xảy ra động đất, hãy chuẩn bị sẵn nước và thực phẩm.","भूकम्प आए पनि समस्या नहुने गरी, पानी र खाद्य सामग्री तयार गरेर राखौं।")
+},
+// ---- S10 ----
+{
+  parts:[
+    W("その他","そのた",m("in addition","此外","그 외에","ထို့အပြင်","ngoài ra","त्यसबाहेक")),
+    P("、"),
+    W("万一","まんいち",m("in case of emergency","万一","만일","မထင်မှတ်ဘဲ","phòng khi","आपत्कालीन")),
+    P("の"),
+    W("場合","ばあい",m("case","情况","경우","အခြေအနေ","trường hợp","अवस्था")),
+    P("を"),
+    W("考えて","かんがえて",m("considering","考虑","생각하여","စဉ်းစားပြီး","suy nghĩ","सोचेर")),
+    P("、"),
+    W("家族","かぞく",m("family","家人","가족","မိသားစု","gia đình","परिवार")),
+    P("との"),
+    W("連絡","れんらく",m("contact","联系","연락","ဆက်သွယ်ရေး","liên lạc","सम्पर्क")),
+    W("方法","ほうほう",m("method","方法","방법","နည်းလမ်း","phương pháp","तरिका")),
+    P("や"),
+    W("避難","ひなん",m("evacuation","避难","피난","ဘေးလွှဲ","sơ tán","शरण")),
+    W("場所","ばしょ",m("place","地点","장소","နေရာ","nơi","स्थान")),
+    P("を"),
+    W("決めて","きめて",m("decide","决定","정해","ဆုံးဖြတ်","quyết định","निर्णय गरेर")),
+    W("おきましょう","おきましょう",m("let's do in advance","提前定好吧","둡시다","ထားပါ","để sẵn","राखौं")),
+    P("。"),
+  ],
+  hira:"そのた、 まんいち の ばあい を かんがえて、 かぞく と の れんらく ほうほう や ひなん ばしょ を きめて おきましょう。",
+  trans:m("Also, considering a worst-case scenario, let's decide on a contact method with family and an evacuation site in advance.","此外，考虑到万一的情况，提前定好与家人的联系方法和避难场所吧。","그 외에, 만일의 경우를 생각하여 가족과의 연락 방법이나 피난 장소를 정해 둡시다.","ထို့အပြင် မထင်မှတ်ဘဲ ဖြစ်နိုင်မှုကို စဉ်းစားပြီး မိသားစုနှင့် ဆက်သွယ်ရေးနည်းလမ်း၊ ဘေးလွှဲနေရာ ဆုံးဖြတ်ထားပါ။","Ngoài ra, để phòng khi bất trắc, hãy quyết định trước phương pháp liên lạc với gia đình và nơi sơ tán.","त्यसबाहेक, आपत्कालीन अवस्थाको बारेमा सोचेर, परिवारसँग सम्पर्क तरिका र शरण स्थान पहिल्यै निर्णय गरेर राखौं।")
+}
+];
+
+function rubyHTML(s,r){if(/^[\u3040-\u309F\u30A0-\u30FFー\uFF01-\uFF5E「」（）]+$/.test(s))return s;return`<ruby>${s}<rt>${r}</rt></ruby>`;}
+function renderPassage(){const el=document.getElementById('passage');el.innerHTML='';sentences.forEach((s,si)=>{const block=document.createElement('div');block.className='sentence-block';const jpLine=document.createElement('span');jpLine.className='jp-sentence';s.parts.forEach(part=>{if(part.w){const span=document.createElement('span');span.className='word';span.innerHTML=rubyHTML(part.w,part.r);span.onclick=e=>showPopup(e,{type:'word',reading:part.r,word:part.w,meaning:L(part.m)});jpLine.appendChild(span);}else if(part.g){const span=document.createElement('span');span.className='grammar';span.innerHTML=rubyHTML(part.g,part.r);span.onclick=e=>showPopup(e,{type:'grammar',reading:part.r,word:part.g,meaning:L(part.m),explain:L(part.x)});jpLine.appendChild(span);}else if(part.p!==undefined){const span=document.createElement('span');span.innerHTML=part.p;jpLine.appendChild(span);}});block.appendChild(jpLine);const hiraLine=document.createElement('span');hiraLine.className='hira-line'+(showHira?'':' hidden');hiraLine.textContent=s.hira;block.appendChild(hiraLine);const transLine=document.createElement('span');transLine.className='trans-line'+(showTrans?'':' hidden');transLine.textContent=L(s.trans);block.appendChild(transLine);el.appendChild(block);if(si===4){const br=document.createElement('div');br.className='para-break';el.appendChild(br);}});}
+function renderLangPicker(){const sel=document.getElementById('langPicker');sel.innerHTML='';LANGS.forEach(code=>{const opt=document.createElement('option');opt.value=code;opt.textContent=LANG_LABELS[code];if(code===curLang)opt.selected=true;sel.appendChild(opt);});}
+function setLang(code){curLang=code;updateAll();}function updateUI(){document.querySelectorAll('[data-ui]').forEach(el=>{const key=el.getAttribute('data-ui');if(UI[key])el.textContent=L(UI[key]);});}function updateAll(){renderLangPicker();updateUI();renderPassage();}
+function showPopup(e,data){e.stopPropagation();const popup=document.getElementById('popup');const overlay=document.getElementById('popupOverlay');let html='';if(data.type==='grammar'){html+=`<div class="grammar-tag">${L(UI.grammar_tag)}</div>`;html+=`<div class="reading">${data.reading}</div>`;if(data.word!==data.reading)html+=`<div class="kanji-display">${data.word}</div>`;html+=`<div class="meaning"><strong>${data.meaning}</strong></div>`;html+=`<div class="grammar-explain">${data.explain}</div>`;}else{html+=`<div class="reading">${data.reading}</div>`;if(data.word!==data.reading)html+=`<div class="kanji-display">${data.word}</div>`;html+=`<div class="meaning">${data.meaning}</div>`;}popup.innerHTML=html;popup.classList.add('show');overlay.classList.add('show');const rect=e.currentTarget.getBoundingClientRect();const popW=Math.min(340,window.innerWidth-20);let left=rect.left+rect.width/2-popW/2;if(left<10)left=10;if(left+popW>window.innerWidth-10)left=window.innerWidth-popW-10;let top=rect.bottom+10;popup.style.transform='none';if(top+220>window.innerHeight){top=rect.top-10;popup.style.transform='translateY(-100%)';}popup.style.left=left+'px';popup.style.top=top+'px';popup.style.width=popW+'px';}
+function closePopup(){document.getElementById('popup').classList.remove('show');document.getElementById('popupOverlay').classList.remove('show');}
+function toggleFurigana(){showFurigana=!showFurigana;document.body.classList.toggle('hide-furigana',!showFurigana);document.getElementById('btnFurigana').classList.toggle('active',showFurigana);}
+function toggleHira(){showHira=!showHira;document.getElementById('btnHira').classList.toggle('active',showHira);document.querySelectorAll('.hira-line').forEach(el=>el.classList.toggle('hidden',!showHira));}
+function toggleTrans(){showTrans=!showTrans;document.getElementById('btnTrans').classList.toggle('active',showTrans);document.querySelectorAll('.trans-line').forEach(el=>el.classList.toggle('hidden',!showTrans));}
+function setFontSize(val){document.documentElement.style.setProperty('--font-size',val+'px');}function toggleToolbar(){document.getElementById('toolbar').classList.toggle('collapsed');}
+window.addEventListener('scroll',()=>{document.getElementById('toolbar').classList.toggle('scrolled',window.scrollY>5);},{passive:true});
+updateAll();
+</script>
+</body>
+</html>

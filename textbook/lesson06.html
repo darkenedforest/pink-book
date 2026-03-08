@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第6課 – 日本人の発明</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Sans+Pro:wght@400;600&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+Myanmar:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;--accent:#b8433a;--grammar-color:#7b2d8e;--border:#e0d5c5;--popup-bg:#fffef9;--shadow:0 8px 32px rgba(44,36,22,0.12);--hira-color:#999;--trans-color:#5a7a5a;--font-size:18px;}*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Noto Serif JP',serif;background:var(--bg);color:var(--text);min-height:100vh;}.page-bg{background:linear-gradient(160deg,#f7f3ec,#efe8dc);min-height:100vh;padding-bottom:3rem;}.toolbar{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,#f7f3ec,rgba(247,243,236,0.97));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding-bottom:0.4rem;transition:box-shadow 0.3s;}.toolbar.scrolled{box-shadow:0 2px 16px rgba(44,36,22,0.1);}.toolbar-header{display:flex;align-items:center;justify-content:center;padding:0.7rem 1rem 0.15rem;position:relative;}.toolbar-header h1{font-size:1.3rem;font-weight:700;color:var(--accent);letter-spacing:0.06em;}.toolbar-header .sub{font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);margin-left:0.5rem;align-self:flex-end;padding-bottom:0.08rem;}.collapse-btn{position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:2px solid var(--border);border-radius:50%;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-light);transition:all 0.2s;}.collapse-btn:hover{border-color:var(--accent);color:var(--accent);}.collapse-btn svg{transition:transform 0.3s;}.toolbar.collapsed .collapse-btn svg{transform:rotate(180deg);}.toolbar-body{max-height:160px;overflow:hidden;transition:max-height 0.35s ease,opacity 0.25s ease;opacity:1;}.toolbar.collapsed .toolbar-body{max-height:0;opacity:0;}.controls-row1{max-width:720px;margin:0.3rem auto 0;padding:0 1rem;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;}.toggle-btn{font-family:'Source Sans Pro',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0;border-radius:999px;border:2px solid var(--border);background:var(--card-bg);color:var(--text-light);cursor:pointer;transition:all 0.2s;user-select:none;white-space:nowrap;width:5.5rem;text-align:center;}.toggle-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(184,67,58,0.06);}.toggle-btn:hover{border-color:var(--accent);}.controls-row2{max-width:720px;margin:0.35rem auto 0;padding:0 1rem;display:flex;align-items:center;justify-content:space-between;}.slider-group{display:flex;align-items:center;gap:0.4rem;font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);}.slider-group input[type=range]{width:70px;accent-color:var(--accent);cursor:pointer;}.lang-picker-wrap{position:relative;display:inline-flex;align-items:center;}.lang-picker{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.78rem;font-weight:600;padding:0.35rem 2rem 0.35rem 0.7rem;border-radius:999px;border:2px solid #2471a3;background:rgba(36,113,163,0.07);color:#2471a3;cursor:pointer;appearance:none;-webkit-appearance:none;outline:none;transition:all 0.2s;}.lang-picker:hover,.lang-picker:focus{border-color:#1a5276;box-shadow:0 0 0 3px rgba(36,113,163,0.12);}.lang-picker-arrow{position:absolute;right:0.65rem;top:50%;transform:translateY(-50%);pointer-events:none;color:#2471a3;}.legend{display:flex;justify-content:center;gap:0.9rem;padding:0.3rem 1rem 0;flex-wrap:wrap;}.legend-item{font-family:'Source Sans Pro',sans-serif;font-size:0.68rem;color:var(--text-light);display:flex;align-items:center;gap:0.25rem;}.legend-dot{width:8px;height:8px;border-radius:50%;}.legend-dot.vocab{background:var(--accent);opacity:0.4;}.legend-dot.grammar{background:var(--grammar-color);opacity:0.5;}.content{max-width:720px;margin:0 auto;padding:0.8rem 1.2rem 3rem;}.passage-card{background:var(--card-bg);border-radius:12px;padding:2rem 1.8rem;box-shadow:var(--shadow);border:1px solid var(--border);line-height:2.6;font-size:var(--font-size);}.sentence-block{margin-bottom:0.7rem;}.jp-sentence{display:inline;}ruby rt{font-size:0.5em;color:var(--hira-color);font-family:'Noto Sans JP',sans-serif;font-weight:400;}body.hide-furigana ruby rt{visibility:hidden;}.word{cursor:pointer;border-bottom:1.5px dotted rgba(184,67,58,0.3);transition:background 0.15s;border-radius:2px;}.word:hover{background:rgba(184,67,58,0.08);}.grammar{font-weight:700;color:var(--grammar-color);cursor:pointer;border-bottom:2px solid rgba(123,45,142,0.35);border-radius:2px;transition:background 0.15s;}.grammar:hover{background:rgba(123,45,142,0.08);}.hira-line{display:block;font-family:'Noto Sans JP',sans-serif;font-size:0.78em;color:var(--hira-color);margin-top:0.1rem;line-height:1.6;transition:opacity 0.25s,max-height 0.3s;}.hira-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}.trans-line{display:block;font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.78em;color:var(--trans-color);margin-top:0.05rem;line-height:1.6;font-style:italic;transition:opacity 0.25s,max-height 0.3s;}.trans-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}.para-break{height:0.6rem;}.popup-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;}.popup-overlay.show{display:block;}.popup{display:none;position:fixed;z-index:1000;background:var(--popup-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;box-shadow:0 12px 40px rgba(44,36,22,0.18);max-width:360px;min-width:200px;animation:popIn 0.18s ease-out;}.popup.show{display:block;}@keyframes popIn{from{opacity:0;transform:translateY(6px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}.popup .reading{font-family:'Noto Sans JP',sans-serif;font-size:1.05rem;color:var(--accent);font-weight:500;margin-bottom:0.15rem;}.popup .kanji-display{font-size:0.78rem;color:var(--text-light);margin-bottom:0.3rem;}.popup .meaning{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.88rem;color:var(--text);line-height:1.55;}.popup .grammar-tag{display:inline-block;font-family:'Source Sans Pro',sans-serif;font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#fff;background:var(--grammar-color);padding:0.12rem 0.5rem;border-radius:999px;margin-bottom:0.35rem;}.popup .grammar-explain{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.8rem;color:var(--text);line-height:1.55;margin-top:0.25rem;}@media(max-width:520px){.passage-card{padding:1.2rem 1rem;}.toolbar-header h1{font-size:1.15rem;}.popup{max-width:90vw;min-width:170px;}}
+</style>
+</head>
+<body>
+<div class="page-bg">
+<div class="toolbar" id="toolbar">
+  <div class="toolbar-header"><h1>日本人の発明</h1><span class="sub">第6課</span><button class="collapse-btn" onclick="toggleToolbar()" aria-label="Toggle controls"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button></div>
+  <div class="toolbar-body"><div class="controls-row2"><div class="lang-picker-wrap"><select class="lang-picker" id="langPicker" onchange="setLang(this.value)"></select><svg class="lang-picker-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="slider-group"><span>Aa</span><input type="range" min="14" max="28" value="18" id="fontSlider" oninput="setFontSize(this.value)"><span style="font-size:1.1em;">Aa</span></div></div><div class="controls-row1"><button class="toggle-btn active" id="btnFurigana" onclick="toggleFurigana()">振り仮名</button><button class="toggle-btn active" id="btnHira" onclick="toggleHira()">ひらがな</button><button class="toggle-btn active" id="btnTrans" onclick="toggleTrans()" data-ui="trans_btn"></button></div><div class="legend"><div class="legend-item"><span class="legend-dot vocab"></span> <span data-ui="leg_vocab"></span></div><div class="legend-item"><span class="legend-dot grammar"></span> <b><span data-ui="leg_grammar"></span></b></div></div></div>
+</div>
+<div class="content"><div class="passage-card" id="passage"></div></div>
+<div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div><div class="popup" id="popup"></div>
+</div>
+<script>
+const LANGS=['en','zh','ko','my','vi','ne'];const LANG_LABELS={en:'English',zh:'中文',ko:'한국어',my:'မြန်မာ',vi:'Tiếng Việt',ne:'नेपाली'};const UI={trans_btn:{en:'Translation',zh:'翻译',ko:'번역',my:'ဘာသာပြန်',vi:'Dịch',ne:'अनुवाद'},leg_vocab:{en:'Vocabulary',zh:'词汇',ko:'어휘',my:'ဝေါဟာရ',vi:'Từ vựng',ne:'शब्दावली'},leg_grammar:{en:'Grammar',zh:'语法',ko:'문법',my:'သဒ္ဒါ',vi:'Ngữ pháp',ne:'व्याकरण'},grammar_tag:{en:'Grammar Point',zh:'语法点',ko:'문법 포인트',my:'သဒ္ဒါအချက်',vi:'Điểm ngữ pháp',ne:'व्याकरण बिन्दु'}};let curLang='en';let showHira=true,showTrans=true,showFurigana=true;
+function m(en,zh,ko,my,vi,ne){return{en,zh,ko,my,vi,ne};}function W(s,r,mg){return{w:s,r:r,m:mg};}function G(s,r,mg,x){return{g:s,r:r,m:mg,x:x};}function P(t){return{p:t};}function L(d){return(typeof d==='object'&&d[curLang])?d[curLang]:(typeof d==='string'?d:(d.en||''));}
+
+const sentences=[
+// ---- S1 ----
+{
+  parts:[
+    W("世界","せかい",m("the world","世界","세계","ကမ္ဘာ","thế giới","संसार")),
+    P("で"),
+    W("広く","ひろく",m("widely","广泛地","널리","ကျယ်ကျယ်ပြန့်ပြန့်","rộng rãi","व्यापक रूपमा")),
+    W("使われている","つかわれている",m("is being used (passive)","被使用着","사용되고 있는","အသုံးပြုခံနေသော","đang được sử dụng","प्रयोग गरिएको")),
+    W("物","もの",m("thing","东西","물건","အရာ","đồ vật","सामान")),
+    P("の"),
+    W("中","なか",m("among","中","중","ထဲ","trong","बीचमा")),
+    P("に、"),
+    W("日本人","にほんじん",m("Japanese person","日本人","일본인","ဂျပန်လူမျိုး","người Nhật","जापानी")),
+    P("が"),
+    W("発明した","はつめいした",m("invented","发明了","발명한","တီထွင်ခဲ့သော","đã phát minh","आविष्कार गरेको")),
+    W("物","もの",m("thing","东西","물건","အရာ","đồ vật","सामान")),
+    P("が"),
+    W("たくさん","たくさん",m("many, a lot","很多","많이","အများအပြား","rất nhiều","धेरै")),
+    P("ある。"),
+  ],
+  hira:"せかい で ひろく つかわれている もの の なか に、 にほんじん が はつめいした もの が たくさん ある。",
+  trans:m("Among things widely used in the world, there are many that were invented by Japanese people.","在世界上广泛使用的东西中，有很多是日本人发明的。","세계에서 널리 사용되고 있는 물건 중에, 일본인이 발명한 것이 많이 있다.","ကမ္ဘာတစ်ဝှမ်း ကျယ်ကျယ်ပြန့်ပြန့် သုံးနေတဲ့ အရာတွေထဲမှာ ဂျပန်လူမျိုးတွေ တီထွင်ခဲ့တာ အများအပြားရှိသည်။","Trong những thứ được sử dụng rộng rãi trên thế giới, có rất nhiều thứ do người Nhật phát minh.","संसारमा व्यापक रूपमा प्रयोग गरिएका सामानहरूमध्ये, जापानीहरूले आविष्कार गरेका धेरै छन्।")
+},
+// ---- S2 ----
+{
+  parts:[
+    W("病院","びょういん",m("hospital","医院","병원","ဆေးရုံ","bệnh viện","अस्पताल")),
+    P("の"),
+    W("胃カメラ","いカメラ",m("gastro camera","胃镜","위 카메라","အစာအိမ်ကင်မရာ","máy nội soi dạ dày","ग्यास्ट्रो क्यामेरा")),
+    P("、"),
+    W("毎日","まいにち",m("every day","每天","매일","နေ့တိုင်း","hàng ngày","हरेक दिन")),
+    P("の"),
+    W("生活","せいかつ",m("daily life","生活","생활","နေ့စဉ်ဘဝ","cuộc sống","जीवन")),
+    P("でよく"),
+    W("使われている","つかわれている",m("is used (passive)","被使用着","사용되는","အသုံးပြုခံနေသော","được sử dụng","प्रयोग गरिने")),
+    W("乾電池","かんでんち",m("dry cell battery","干电池","건전지","ခြောက်ဘက်ထရီ","pin khô","ड्राइ सेल ब्याट्री")),
+    P("、"),
+    W("シャープペンシル","シャープペンシル",m("mechanical pencil","自动铅笔","샤프펜슬","ခဲတံအလိုအလျောက်","bút chì kim","मेकानिकल पेन्सिल")),
+    P("、"),
+    W("サインペン","サインペン",m("felt-tip pen","签字笔","사인펜","ဘောလ်ပင်","bút dạ","फेल्ट-टिप पेन")),
+    P("、"),
+    W("せんす","せんす",m("folding fan","折扇","부채","ပန်ကာခေါက်","quạt gấp","बिजना")),
+    P("などだ。"),
+  ],
+  hira:"びょういん の いカメラ、 まいにち の せいかつ で よく つかわれている かんでんち、 シャープペンシル、 サインペン、 せんす などだ。",
+  trans:m("These include the hospital gastro camera, dry cell batteries used daily, mechanical pencils, felt-tip pens, folding fans, and so on.","有医院的胃镜、日常生活中常用的干电池、自动铅笔、签字笔、折扇等。","병원의 위 카메라, 매일의 생활에서 자주 사용되는 건전지, 샤프펜슬, 사인펜, 부채 등이다.","ဆေးရုံရဲ့ အစာအိမ်ကင်မရာ၊ နေ့စဉ်ဘဝမှာ အသုံးများတဲ့ ခြောက်ဘက်ထရီ၊ ခဲတံအလိုအလျောက်၊ ဘောလ်ပင်၊ ပန်ကာခေါက် စသည်တို့ဖြစ်သည်။","Đó là máy nội soi dạ dày, pin khô được dùng hàng ngày, bút chì kim, bút dạ, quạt gấp, v.v.","अस्पतालको ग्यास्ट्रो क्यामेरा, दैनिक जीवनमा प्रयोग हुने ड्राइ सेल ब्याट्री, मेकानिकल पेन्सिल, फेल्ट-टिप पेन, बिजना आदि हुन्।")
+},
+// ---- S3 ----
+{
+  parts:[
+    W("インスタントコーヒー","インスタントコーヒー",m("instant coffee","速溶咖啡","인스턴트 커피","ချက်ချင်းကော်ဖီ","cà phê hòa tan","इन्स्ट्यान्ट कफी")),
+    P("も"),
+    W("その","その",m("that","其","그","ထို","đó","त्यो")),
+    W("一つ","ひとつ",m("one (of them)","之一","하나","တစ်ခု","một","एउटा")),
+    P("だ。"),
+  ],
+  hira:"インスタントコーヒー も その ひとつ だ。",
+  trans:m("Instant coffee is also one of them.","速溶咖啡也是其中之一。","인스턴트 커피도 그중 하나이다.","ချက်ချင်းကော်ဖီလည်း ထိုထဲမှ တစ်ခုဖြစ်သည်။","Cà phê hòa tan cũng là một trong số đó.","इन्स्ट्यान्ट कफी पनि त्यसमध्ये एउटा हो।")
+},
+// ---- S4 ----
+{
+  parts:[
+    W("インスタントコーヒー","インスタントコーヒー",m("instant coffee","速溶咖啡","인스턴트 커피","ချက်ချင်းကော်ဖီ","cà phê hòa tan","इन्स्ट्यान्ट कफी")),
+    P("は1899"),
+    W("年","ねん",m("year","年","년","နှစ်","năm","वर्ष")),
+    P("に"),
+    W("日本人","にほんじん",m("Japanese person","日本人","일본인","ဂျပန်လူမျိုး","người Nhật","जापानी")),
+    G("によって","によって",
+      m("by (passive agent)","由～（被动施事者）","~에 의해","~ဖြင့်","bởi","~द्वारा"),
+      m("Nによって＋受身 (L6) — Marks the agent in a passive sentence. Used in formal/written Japanese. Here: instant coffee was invented BY a Japanese person. The focus is on the invention, not the inventor.",
+        "Nによって＋受身（第6课）— 标记被动句中的施事者。用于正式/书面语。此处：速溶咖啡由日本人发明。重点在发明，而非发明者。",
+        "Nによって＋수동 (6과) — 수동문에서 행위자를 나타냅니다. 격식체/문어체에서 사용. 여기서는 인스턴트 커피가 일본인에 의해 발명되었습니다.",
+        "Nによって＋受身 (သင်ခန်းစာ 6) — passive ဝါကျတွင် လုပ်ဆောင်သူကို ဖော်ပြသည်။ တရားဝင်/စာပေတွင် သုံးသည်။",
+        "Nによって＋bị động (Bài 6) — Đánh dấu tác nhân trong câu bị động. Dùng trong văn viết. Ở đây: cà phê hòa tan được phát minh BỞI người Nhật.",
+        "Nによって＋कर्मवाच्य (पाठ 6) — कर्मवाच्य वाक्यमा कर्ता जनाउँछ। औपचारिक/लिखित भाषामा प्रयोग गरिन्छ।")),
+    W("発明された","はつめいされた",m("was invented (passive)","被发明了","발명되었다","တီထွင်ခံရသည်","đã được phát minh","आविष्कार गरियो")),
+    P("。"),
+  ],
+  hira:"インスタントコーヒー は 1899ねん に にほんじん によって はつめいされた。",
+  trans:m("Instant coffee was invented by a Japanese person in 1899.","速溶咖啡于1899年由日本人发明。","인스턴트 커피는 1899년에 일본인에 의해 발명되었다.","ချက်ချင်းကော်ဖီကို 1899 ခုနှစ်တွင် ဂျပန်လူမျိုးတစ်ဦးက တီထွင်ခဲ့သည်။","Cà phê hòa tan được phát minh bởi một người Nhật vào năm 1899.","इन्स्ट्यान्ट कफी सन् 1899 मा एक जापानीद्वारा आविष्कार गरियो।")
+},
+// ---- S5 ----
+{
+  parts:[
+    W("当時","とうじ",m("at that time","当时","당시","ထိုစဉ်","lúc đó","त्यतिबेला")),
+    P("、"),
+    W("コーヒー","コーヒー",m("coffee","咖啡","커피","ကော်ဖီ","cà phê","कफी")),
+    P("は"),
+    W("日本","にほん",m("Japan","日本","일본","ဂျပန်","Nhật Bản","जापान")),
+    P("ではあまり"),
+    W("飲まれていなかった","のまれていなかった",m("was not being drunk (passive)","没怎么被喝","마시지 않았다","မသောက်ခဲ့","không được uống","पिइँदैन थियो")),
+    G("ため","ため",
+      m("because of, due to","因为","~때문에","~ကြောင့်","vì","~को कारणले"),
+      m("～ため（に） (L6) — Gives the cause or reason for what follows. Here: BECAUSE coffee was not widely drunk in Japan at the time, the invention was not noticed. More formal than から/ので.",
+        "～ため（に）（第6课）— 给出后续内容的原因。此处：因为当时日本不怎么喝咖啡，所以这个发明没有引起注意。比から/ので更正式。",
+        "～ため（に） (6과) — 뒤에 오는 내용의 원인이나 이유를 나타냅니다. 당시 일본에서 커피가 별로 마시지 않았기 때문에 주목받지 못했습니다. から/ので보다 격식체.",
+        "～ため（に） (သင်ခန်းစာ 6) — နောက်ပါအကြောင်းအရာ၏ အကြောင်းရင်းကို ပေးသည်။ から/ので ထက် ပိုတရားဝင်သည်။",
+        "～ため（に） (Bài 6) — Nêu nguyên nhân cho điều tiếp theo. VÌ cà phê không được uống nhiều ở Nhật lúc đó, phát minh không được chú ý. Trang trọng hơn から/ので.",
+        "～ため（に） (पाठ 6) — पछि आउने कुराको कारण दिन्छ। から/ので भन्दा औपचारिक।")),
+    P("、"),
+    W("ほとんど","ほとんど",m("hardly, almost not","几乎没有","거의","အများအားဖြင့် မ~","hầu như không","प्रायः")),
+    W("注目されなかった","ちゅうもくされなかった",m("was not noticed","没有受到关注","주목받지 못했다","အာရုံမစိုက်ခံရ","không được chú ý","ध्यान दिइएन")),
+    P("。"),
+  ],
+  hira:"とうじ、 コーヒー は にほん では あまり のまれていなかった ため、 ほとんど ちゅうもくされなかった。",
+  trans:m("At that time, because coffee was not widely drunk in Japan, it received almost no attention.","当时，因为咖啡在日本不怎么被饮用，所以几乎没有受到关注。","당시, 커피가 일본에서 별로 마시지 않았기 때문에 거의 주목받지 못했다.","ထိုစဉ်က ကော်ဖီကို ဂျပန်တွင် သိပ်မသောက်ခဲ့သောကြောင့် အာရုံစိုက်ခံရခြင်း မရှိခဲ့ပေ။","Lúc đó, vì cà phê không được uống nhiều ở Nhật, nên hầu như không được chú ý.","त्यतिबेला, जापानमा कफी धेरै पिइँदैन थियो भएकाले, प्रायः ध्यान दिइएन।")
+},
+// ---- S6 ----
+{
+  parts:[
+    W("発明した","はつめいした",m("invented","发明了","발명한","တီထွင်ခဲ့သော","đã phát minh","आविष्कार गरेको")),
+    W("日本人","にほんじん",m("Japanese person","日本人","일본인","ဂျပန်လူမျိုး","người Nhật","जापानी")),
+    P("は"),
+    W("特許","とっきょ",m("patent","专利","특허","မူပိုင်ခွင့်","bằng sáng chế","पेटेन्ट")),
+    P("を"),
+    W("取らなかった","とらなかった",m("did not take out","没有取得","취득하지 않았다","မရယူခဲ့","không lấy","लिएनन्")),
+    P("。"),
+  ],
+  hira:"はつめいした にほんじん は とっきょ を とらなかった。",
+  trans:m("The Japanese inventor did not take out a patent.","发明的日本人没有取得专利。","발명한 일본인은 특허를 취득하지 않았다.","တီထွင်ခဲ့သော ဂျပန်လူမျိုးသည် မူပိုင်ခွင့် မရယူခဲ့ပေ။","Người Nhật đã phát minh nhưng không lấy bằng sáng chế.","आविष्कार गरेको जापानीले पेटेन्ट लिएनन्।")
+},
+// ---- S7 ----
+{
+  parts:[
+    W("しかし","しかし",m("however","但是","하지만","သို့သော်","tuy nhiên","तथापि")),
+    P("、"),
+    W("少し","すこし",m("a little","稍微","조금","အနည်းငယ်","một chút","अलिकति")),
+    W("後","あと",m("after, later","后","후에","နောက်","sau","पछि")),
+    P("で"),
+    W("別の","べつの",m("another, different","别的","다른","အခြားတစ်ခု","khác","अर्को")),
+    W("方法","ほうほう",m("method","方法","방법","နည်းလမ်း","phương pháp","तरिका")),
+    P("で"),
+    W("インスタントコーヒー","インスタントコーヒー",m("instant coffee","速溶咖啡","인스턴트 커피","ချက်ချင်းကော်ဖီ","cà phê hòa tan","इन्स्ट्यान्ट कफी")),
+    P("を"),
+    W("作った","つくった",m("made","制作了","만든","ပြုလုပ်ခဲ့သော","đã làm","बनाएको")),
+    W("アメリカ人","アメリカじん",m("American","美国人","미국인","အမေရိကန်လူမျိုး","người Mỹ","अमेरिकी")),
+    P("が"),
+    W("特許","とっきょ",m("patent","专利","특허","မူပိုင်ခွင့်","bằng sáng chế","पेटेन्ट")),
+    P("を"),
+    W("取った","とった",m("took out, obtained","取得了","취득했다","ရယူခဲ့သည်","đã lấy","लिए")),
+    P("。"),
+  ],
+  hira:"しかし、 すこし あと で べつ の ほうほう で インスタントコーヒー を つくった アメリカじん が とっきょ を とった。",
+  trans:m("However, a little later, an American who made instant coffee by a different method took out a patent.","但是，稍后，用另一种方法制作速溶咖啡的美国人取得了专利。","하지만, 조금 후에 다른 방법으로 인스턴트 커피를 만든 미국인이 특허를 취득했다.","သို့သော် အနည်းငယ်နောက်မှ အခြားနည်းလမ်းဖြင့် ချက်ချင်းကော်ဖီ ပြုလုပ်ခဲ့သော အမေရိကန်လူမျိုးက မူပိုင်ခွင့် ရယူခဲ့သည်။","Tuy nhiên, một thời gian sau, một người Mỹ đã làm cà phê hòa tan bằng phương pháp khác và lấy bằng sáng chế.","तथापि, अलिकति पछि अर्को तरिकाले इन्स्ट्यान्ट कफी बनाएको अमेरिकीले पेटेन्ट लिए।")
+},
+// ---- S8 ----
+{
+  parts:[
+    W("そのため","そのため",m("because of that","因此","그 때문에","ထိုကြောင့်","vì vậy","त्यसकारण")),
+    P("、"),
+    W("この","この",m("this","这个","이","ဤ","người này","यो")),
+    W("日本人","にほんじん",m("Japanese person","日本人","일본인","ဂျပန်လူမျိုး","người Nhật","जापानी")),
+    P("の"),
+    W("名前","なまえ",m("name","名字","이름","နာမည်","tên","नाम")),
+    P("は"),
+    W("忘れられた","わすれられた",m("was forgotten (passive)","被遗忘了","잊혀진","မေ့ခံရသော","bị quên","बिर्सियो")),
+    G("まま","まま",
+      m("remaining as, still in that state","一直保持","~채로","~အတိုင်း","vẫn còn","~नै"),
+      m("～まま (L6) — Indicates a state continues without change. Here: the Japanese inventor's name REMAINS forgotten — it was forgotten and has stayed that way ever since. The situation never changed.",
+        "～まま（第6课）— 表示某种状态持续不变。此处：日本发明者的名字一直被遗忘——被遗忘后就再也没被想起来。",
+        "～まま (6과) — 상태가 변하지 않고 계속됨을 나타냅니다. 여기서는 일본인 발명가의 이름이 잊혀진 채로 계속 남아 있습니다.",
+        "～まま (သင်ခန်းစာ 6) — အခြေအနေတစ်ခု ပြောင်းလဲခြင်းမရှိဘဲ ဆက်လက်ရှိနေကြောင်း ဖော်ပြသည်။",
+        "～まま (Bài 6) — Chỉ trạng thái tiếp tục không thay đổi. Tên của nhà phát minh Nhật VẪN bị quên — bị quên và cứ thế mãi.",
+        "～まま (पाठ 6) — अवस्था परिवर्तन नभई जारी रहन्छ भन्ने जनाउँछ। जापानी आविष्कारकको नाम बिर्सिएको नै रह्यो।")),
+    P("になって"),
+    W("しまった","しまった",m("ended up (regrettably)","（遗憾地）变成了","~해 버렸다","ဖြစ်သွားခဲ့သည်","đã trở thành","भइहाल्यो")),
+    P("。"),
+  ],
+  hira:"そのため、 この にほんじん の なまえ は わすれられた まま に なって しまった。",
+  trans:m("Because of that, this Japanese person's name ended up remaining forgotten.","因此，这位日本人的名字就一直被遗忘了。","그 때문에, 이 일본인의 이름은 잊혀진 채로 남게 되어 버렸다.","ထိုကြောင့် ဤဂျပန်လူမျိုး၏ နာမည်သည် မေ့ခံရပြီး ဆက်လက်ရှိနေခဲ့သည်။","Vì vậy, tên của người Nhật này đã bị quên lãng mãi.","त्यसकारण, यो जापानीको नाम बिर्सिएकै रहन पुग्यो।")
+}
+];
+
+function rubyHTML(s,r){if(/^[\u3040-\u309F\u30A0-\u30FFー\uFF01-\uFF5E「」（）]+$/.test(s))return s;return`<ruby>${s}<rt>${r}</rt></ruby>`;}
+function renderPassage(){const el=document.getElementById('passage');el.innerHTML='';sentences.forEach((s,si)=>{const block=document.createElement('div');block.className='sentence-block';const jpLine=document.createElement('span');jpLine.className='jp-sentence';s.parts.forEach(part=>{if(part.w){const span=document.createElement('span');span.className='word';span.innerHTML=rubyHTML(part.w,part.r);span.onclick=e=>showPopup(e,{type:'word',reading:part.r,word:part.w,meaning:L(part.m)});jpLine.appendChild(span);}else if(part.g){const span=document.createElement('span');span.className='grammar';span.innerHTML=rubyHTML(part.g,part.r);span.onclick=e=>showPopup(e,{type:'grammar',reading:part.r,word:part.g,meaning:L(part.m),explain:L(part.x)});jpLine.appendChild(span);}else if(part.p!==undefined){const span=document.createElement('span');span.innerHTML=part.p;jpLine.appendChild(span);}});block.appendChild(jpLine);const hiraLine=document.createElement('span');hiraLine.className='hira-line'+(showHira?'':' hidden');hiraLine.textContent=s.hira;block.appendChild(hiraLine);const transLine=document.createElement('span');transLine.className='trans-line'+(showTrans?'':' hidden');transLine.textContent=L(s.trans);block.appendChild(transLine);el.appendChild(block);if(si===2){const br=document.createElement('div');br.className='para-break';el.appendChild(br);}});}
+function renderLangPicker(){const sel=document.getElementById('langPicker');sel.innerHTML='';LANGS.forEach(code=>{const opt=document.createElement('option');opt.value=code;opt.textContent=LANG_LABELS[code];if(code===curLang)opt.selected=true;sel.appendChild(opt);});}
+function setLang(code){curLang=code;updateAll();}function updateUI(){document.querySelectorAll('[data-ui]').forEach(el=>{const key=el.getAttribute('data-ui');if(UI[key])el.textContent=L(UI[key]);});}function updateAll(){renderLangPicker();updateUI();renderPassage();}
+function showPopup(e,data){e.stopPropagation();const popup=document.getElementById('popup');const overlay=document.getElementById('popupOverlay');let html='';if(data.type==='grammar'){html+=`<div class="grammar-tag">${L(UI.grammar_tag)}</div>`;html+=`<div class="reading">${data.reading}</div>`;if(data.word!==data.reading)html+=`<div class="kanji-display">${data.word}</div>`;html+=`<div class="meaning"><strong>${data.meaning}</strong></div>`;html+=`<div class="grammar-explain">${data.explain}</div>`;}else{html+=`<div class="reading">${data.reading}</div>`;if(data.word!==data.reading)html+=`<div class="kanji-display">${data.word}</div>`;html+=`<div class="meaning">${data.meaning}</div>`;}popup.innerHTML=html;popup.classList.add('show');overlay.classList.add('show');const rect=e.currentTarget.getBoundingClientRect();const popW=Math.min(340,window.innerWidth-20);let left=rect.left+rect.width/2-popW/2;if(left<10)left=10;if(left+popW>window.innerWidth-10)left=window.innerWidth-popW-10;let top=rect.bottom+10;popup.style.transform='none';if(top+220>window.innerHeight){top=rect.top-10;popup.style.transform='translateY(-100%)';}popup.style.left=left+'px';popup.style.top=top+'px';popup.style.width=popW+'px';}
+function closePopup(){document.getElementById('popup').classList.remove('show');document.getElementById('popupOverlay').classList.remove('show');}
+function toggleFurigana(){showFurigana=!showFurigana;document.body.classList.toggle('hide-furigana',!showFurigana);document.getElementById('btnFurigana').classList.toggle('active',showFurigana);}
+function toggleHira(){showHira=!showHira;document.getElementById('btnHira').classList.toggle('active',showHira);document.querySelectorAll('.hira-line').forEach(el=>el.classList.toggle('hidden',!showHira));}
+function toggleTrans(){showTrans=!showTrans;document.getElementById('btnTrans').classList.toggle('active',showTrans);document.querySelectorAll('.trans-line').forEach(el=>el.classList.toggle('hidden',!showTrans));}
+function setFontSize(val){document.documentElement.style.setProperty('--font-size',val+'px');}function toggleToolbar(){document.getElementById('toolbar').classList.toggle('collapsed');}
+window.addEventListener('scroll',()=>{document.getElementById('toolbar').classList.toggle('scrolled',window.scrollY>5);},{passive:true});
+updateAll();
+</script>
+</body>
+</html>

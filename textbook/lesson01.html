@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第1課 – ファストフード</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Sans+Pro:wght@400;600&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+Myanmar:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;--accent:#b8433a;--grammar-color:#7b2d8e;--border:#e0d5c5;--popup-bg:#fffef9;--shadow:0 8px 32px rgba(44,36,22,0.12);--hira-color:#999;--trans-color:#5a7a5a;--font-size:18px;}*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Noto Serif JP',serif;background:var(--bg);color:var(--text);min-height:100vh;}.page-bg{background:linear-gradient(160deg,#f7f3ec,#efe8dc);min-height:100vh;padding-bottom:3rem;}.toolbar{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,#f7f3ec,rgba(247,243,236,0.97));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding-bottom:0.4rem;transition:box-shadow 0.3s;}.toolbar.scrolled{box-shadow:0 2px 16px rgba(44,36,22,0.1);}.toolbar-header{display:flex;align-items:center;justify-content:center;padding:0.7rem 1rem 0.15rem;position:relative;}.toolbar-header h1{font-size:1.3rem;font-weight:700;color:var(--accent);letter-spacing:0.06em;}.toolbar-header .sub{font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);margin-left:0.5rem;align-self:flex-end;padding-bottom:0.08rem;}.collapse-btn{position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:2px solid var(--border);border-radius:50%;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-light);transition:all 0.2s;}.collapse-btn:hover{border-color:var(--accent);color:var(--accent);}.collapse-btn svg{transition:transform 0.3s;}.toolbar.collapsed .collapse-btn svg{transform:rotate(180deg);}.toolbar-body{max-height:160px;overflow:hidden;transition:max-height 0.35s ease,opacity 0.25s ease;opacity:1;}.toolbar.collapsed .toolbar-body{max-height:0;opacity:0;}.controls-row1{max-width:720px;margin:0.3rem auto 0;padding:0 1rem;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;}.toggle-btn{font-family:'Source Sans Pro',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0;border-radius:999px;border:2px solid var(--border);background:var(--card-bg);color:var(--text-light);cursor:pointer;transition:all 0.2s;user-select:none;white-space:nowrap;width:5.5rem;text-align:center;}.toggle-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(184,67,58,0.06);}.toggle-btn:hover{border-color:var(--accent);}.controls-row2{max-width:720px;margin:0.35rem auto 0;padding:0 1rem;display:flex;align-items:center;justify-content:space-between;}.slider-group{display:flex;align-items:center;gap:0.4rem;font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);}.slider-group input[type=range]{width:70px;accent-color:var(--accent);cursor:pointer;}.lang-picker-wrap{position:relative;display:inline-flex;align-items:center;}.lang-picker{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.78rem;font-weight:600;padding:0.35rem 2rem 0.35rem 0.7rem;border-radius:999px;border:2px solid #2471a3;background:rgba(36,113,163,0.07);color:#2471a3;cursor:pointer;appearance:none;-webkit-appearance:none;outline:none;transition:all 0.2s;}.lang-picker:hover,.lang-picker:focus{border-color:#1a5276;box-shadow:0 0 0 3px rgba(36,113,163,0.12);}.lang-picker-arrow{position:absolute;right:0.65rem;top:50%;transform:translateY(-50%);pointer-events:none;color:#2471a3;}.legend{display:flex;justify-content:center;gap:0.9rem;padding:0.3rem 1rem 0;flex-wrap:wrap;}.legend-item{font-family:'Source Sans Pro',sans-serif;font-size:0.68rem;color:var(--text-light);display:flex;align-items:center;gap:0.25rem;}.legend-dot{width:8px;height:8px;border-radius:50%;}.legend-dot.vocab{background:var(--accent);opacity:0.4;}.legend-dot.grammar{background:var(--grammar-color);opacity:0.5;}.content{max-width:720px;margin:0 auto;padding:0.8rem 1.2rem 3rem;}.passage-card{background:var(--card-bg);border-radius:12px;padding:2rem 1.8rem;box-shadow:var(--shadow);border:1px solid var(--border);line-height:2.6;font-size:var(--font-size);}.sentence-block{margin-bottom:0.7rem;}.jp-sentence{display:inline;}ruby rt{font-size:0.5em;color:var(--hira-color);font-family:'Noto Sans JP',sans-serif;font-weight:400;}body.hide-furigana ruby rt{visibility:hidden;}.word{cursor:pointer;border-bottom:1.5px dotted rgba(184,67,58,0.3);transition:background 0.15s;border-radius:2px;}.word:hover{background:rgba(184,67,58,0.08);}.grammar{font-weight:700;color:var(--grammar-color);cursor:pointer;border-bottom:2px solid rgba(123,45,142,0.35);border-radius:2px;transition:background 0.15s;}.grammar:hover{background:rgba(123,45,142,0.08);}.hira-line{display:block;font-family:'Noto Sans JP',sans-serif;font-size:0.78em;color:var(--hira-color);margin-top:0.1rem;line-height:1.6;transition:opacity 0.25s,max-height 0.3s;}.hira-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}.trans-line{display:block;font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.78em;color:var(--trans-color);margin-top:0.05rem;line-height:1.6;font-style:italic;transition:opacity 0.25s,max-height 0.3s;}.trans-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}.para-break{height:0.6rem;}.popup-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;}.popup-overlay.show{display:block;}.popup{display:none;position:fixed;z-index:1000;background:var(--popup-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;box-shadow:0 12px 40px rgba(44,36,22,0.18);max-width:360px;min-width:200px;animation:popIn 0.18s ease-out;}.popup.show{display:block;}@keyframes popIn{from{opacity:0;transform:translateY(6px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}.popup .reading{font-family:'Noto Sans JP',sans-serif;font-size:1.05rem;color:var(--accent);font-weight:500;margin-bottom:0.15rem;}.popup .kanji-display{font-size:0.78rem;color:var(--text-light);margin-bottom:0.3rem;}.popup .meaning{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.88rem;color:var(--text);line-height:1.55;}.popup .grammar-tag{display:inline-block;font-family:'Source Sans Pro',sans-serif;font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#fff;background:var(--grammar-color);padding:0.12rem 0.5rem;border-radius:999px;margin-bottom:0.35rem;}.popup .grammar-explain{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.8rem;color:var(--text);line-height:1.55;margin-top:0.25rem;}@media(max-width:520px){.passage-card{padding:1.2rem 1rem;}.toolbar-header h1{font-size:1.15rem;}.popup{max-width:90vw;min-width:170px;}}
+</style>
+</head>
+<body>
+<div class="page-bg">
+<div class="toolbar" id="toolbar">
+  <div class="toolbar-header"><h1>ファストフード</h1><span class="sub">第1課</span><button class="collapse-btn" onclick="toggleToolbar()" aria-label="Toggle controls"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button></div>
+  <div class="toolbar-body"><div class="controls-row2"><div class="lang-picker-wrap"><select class="lang-picker" id="langPicker" onchange="setLang(this.value)"></select><svg class="lang-picker-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="slider-group"><span>Aa</span><input type="range" min="14" max="28" value="18" id="fontSlider" oninput="setFontSize(this.value)"><span style="font-size:1.1em;">Aa</span></div></div><div class="controls-row1"><button class="toggle-btn active" id="btnFurigana" onclick="toggleFurigana()">振り仮名</button><button class="toggle-btn active" id="btnHira" onclick="toggleHira()">ひらがな</button><button class="toggle-btn active" id="btnTrans" onclick="toggleTrans()" data-ui="trans_btn"></button></div><div class="legend"><div class="legend-item"><span class="legend-dot vocab"></span> <span data-ui="leg_vocab"></span></div><div class="legend-item"><span class="legend-dot grammar"></span> <b><span data-ui="leg_grammar"></span></b></div></div></div>
+</div>
+<div class="content"><div class="passage-card" id="passage"></div></div>
+<div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div><div class="popup" id="popup"></div>
+</div>
+<script>
+const LANGS=['en','zh','ko','my','vi','ne'];const LANG_LABELS={en:'English',zh:'中文',ko:'한국어',my:'မြန်မာ',vi:'Tiếng Việt',ne:'नेपाली'};const UI={trans_btn:{en:'Translation',zh:'翻译',ko:'번역',my:'ဘာသာပြန်',vi:'Dịch',ne:'अनुवाद'},leg_vocab:{en:'Vocabulary',zh:'词汇',ko:'어휘',my:'ဝေါဟာရ',vi:'Từ vựng',ne:'शब्दावली'},leg_grammar:{en:'Grammar',zh:'语法',ko:'문법',my:'သဒ္ဒါ',vi:'Ngữ pháp',ne:'व्याकरण'},grammar_tag:{en:'Grammar Point',zh:'语法点',ko:'문법 포인트',my:'သဒ္ဒါအချက်',vi:'Điểm ngữ pháp',ne:'व्याकरण बिन्दु'}};let curLang='en';let showHira=true,showTrans=true,showFurigana=true;
+function m(en,zh,ko,my,vi,ne){return{en,zh,ko,my,vi,ne};}function W(s,r,mg){return{w:s,r:r,m:mg};}function G(s,r,mg,x){return{g:s,r:r,m:mg,x:x};}function P(t){return{p:t};}function L(d){return(typeof d==='object'&&d[curLang])?d[curLang]:(typeof d==='string'?d:(d.en||''));}
+
+const sentences=[
+// ---- S1 ----
+{
+  parts:[
+    W("ファストフード","ファストフード",m("fast food","快餐","패스트푸드","အမြန်အစာ","đồ ăn nhanh","फास्टफुड")),
+    P("の"),
+    W("メニュー","メニュー",m("menu","菜单","메뉴","မီနူး","thực đơn","मेनु")),
+    P("で"),
+    W("代表的な","だいひょうてきな",m("typical, representative","有代表性的","대표적인","ကိုယ်စားပြုသော","tiêu biểu","प्रतिनिधि")),
+    W("物","もの",m("thing","东西","물건","အရာ","thứ","सामान")),
+    G("といえば","といえば",
+      m("when it comes to, speaking of","说到","~라고 하면","~ဟုဆိုလျှင်","nói đến","भन्दा"),
+      m("N1といえば、N2だ (L1) — Shows N2 as a TYPICAL EXAMPLE of N1. Here: WHEN IT COMES TO typical fast food menu items, it's hamburgers and fries. The speaker picks the most obvious examples of the category.",
+        "N1といえば、N2だ（第1课）— 将N2作为N1的典型例子。此处：说到快餐的代表性食品，就是汉堡和薯条。说话者选取了该类别中最显著的例子。",
+        "N1といえば、N2だ (1과) — N2를 N1의 전형적인 예로 제시합니다. 패스트푸드의 대표적인 것이라고 하면 햄버거와 감자튀김입니다.",
+        "N1といえば、N2だ (သင်ခန်းစာ 1) — N2 ကို N1 ၏ ပုံမှန်ဥပမာအဖြစ် ပြသသည်။",
+        "N1といえば、N2だ (Bài 1) — Đưa N2 làm ví dụ TIÊU BIỂU của N1. NÓI ĐẾN món tiêu biểu trong thực đơn đồ ăn nhanh, đó là hamburger và khoai tây chiên.",
+        "N1といえば、N2だ (पाठ 1) — N2 लाई N1 को प्रतिनिधि उदाहरणको रूपमा देखाउँछ। फास्टफुडको प्रतिनिधि सामान भन्दा ह्यामबर्गर र फ्राइज हो।")),
+    P("、"),
+    W("ハンバーガー","ハンバーガー",m("hamburger","汉堡","햄버거","ဟမ်ဘာဂါ","hamburger","ह्यामबर्गर")),
+    P("や"),
+    W("フライドポテト","フライドポテト",m("French fries","炸薯条","감자튀김","အာလူးကြော်","khoai tây chiên","फ्रेन्च फ्राइज")),
+    P("などです。"),
+  ],
+  hira:"ファストフード の メニュー で だいひょうてきな もの といえば、 ハンバーガー や フライドポテト などです。",
+  trans:m("When it comes to typical fast food menu items, it's things like hamburgers and French fries.","说到快餐的代表性食品，就是汉堡和炸薯条等。","패스트푸드 메뉴에서 대표적인 것이라고 하면 햄버거나 감자튀김 등입니다.","အမြန်အစာ မီနူးမှ ကိုယ်စားပြုစာရင်း ဆိုရင် ဟမ်ဘာဂါ နှင့် အာလူးကြော် စသည်တို့ ဖြစ်သည်။","Nói đến món tiêu biểu trong thực đơn đồ ăn nhanh, đó là hamburger và khoai tây chiên.","फास्टफुडको मेनुमा प्रतिनिधि सामान भन्दा ह्यामबर्गर र फ्रेन्च फ्राइज आदि हुन्।")
+},
+// ---- S2 ----
+{
+  parts:[
+    W("最近","さいきん",m("recently","最近","최근","မကြာသေးမီ","gần đây","हालसालै")),
+    P("は"),
+    W("牛丼","ぎゅうどん",m("beef bowl","牛肉盖饭","규동","အမဲသားထမင်း","cơm bò","बिफ बाउल")),
+    P("、"),
+    W("スープ","スープ",m("soup","汤","수프","ဟင်းရည်","súp","सुप")),
+    P("など、"),
+    W("種類","しゅるい",m("variety, types","种类","종류","အမျိုးအစား","loại","प्रकार")),
+    P("が"),
+    W("増えています","ふえています",m("have been increasing","在增加","늘고 있습니다","တိုးပွားနေသည်","đang tăng","बढ्दैछ")),
+    P("。"),
+  ],
+  hira:"さいきん は ぎゅうどん、 スープ など、 しゅるい が ふえています。",
+  trans:m("Recently, the variety has been increasing, with things like beef bowls and soup.","最近，种类增加了，有牛肉盖饭、汤等。","최근에는 규동, 수프 등 종류가 늘고 있습니다.","မကြာသေးမီ အမဲသားထမင်း၊ ဟင်းရည် စသဖြင့် အမျိုးအစား တိုးပွားလာသည်။","Gần đây, các loại ngày càng tăng, như cơm bò, súp, v.v.","हालसालै बिफ बाउल, सुप आदि प्रकारहरू बढ्दैछन्।")
+},
+// ---- S3 ----
+{
+  parts:[
+    W("ある","ある",m("a certain","某个","어느","တစ်ခုသော","một","कुनै")),
+    W("発表","はっぴょう",m("announcement, report","发表","발표","ကြေညာချက်","báo cáo","प्रकाशन")),
+    P("によると、"),
+    W("日本人","にほんじん",m("Japanese people","日本人","일본인","ဂျပန်လူမျိုး","người Nhật","जापानी")),
+    P("は1"),
+    W("年間","ねんかん",m("per year","年","년간","တစ်နှစ်","một năm","वर्षमा")),
+    P("に3"),
+    W("兆","ちょう",m("trillion","万亿","조","ထရီလီယံ","nghìn tỷ","खर्ब")),
+    W("円","えん",m("yen","日元","엔","ယန်း","yên","येन")),
+    G("も","も",
+      m("as much as (emphasis)","竟然","~이나","~လောက်ပင်","đến tận","जति पनि"),
+      m("Quantity＋も (L1) — Emphasizes that a quantity is surprisingly large. Here: Japanese people spend as much as 3 TRILLION YEN per year on fast food. The も highlights how shockingly huge this number is.",
+        "Quantity＋も（第1课）— 强调数量大得惊人。此处：日本人一年竟然花3万亿日元在快餐上。も突出这个数字的惊人程度。",
+        "Quantity＋も (1과) — 양이 놀라울 정도로 크다는 것을 강조합니다. 일본인은 1년에 3조 엔이나 패스트푸드에 돈을 쓰고 있습니다.",
+        "Quantity＋も (သင်ခန်းစာ 1) — ပမာဏ အံ့သြစရာ ကြီးမားကြောင်း အလေးပေးသည်။",
+        "Quantity＋も (Bài 1) — Nhấn mạnh số lượng lớn đáng ngạc nhiên. Người Nhật chi ĐẾN TẬN 3 nghìn tỷ yên mỗi năm cho đồ ăn nhanh.",
+        "Quantity＋も (पाठ 1) — परिमाण अचम्मपूर्ण रूपमा ठूलो छ भन्ने जोड दिन्छ। जापानीहरूले वर्षमा ३ खर्ब येन जति पनि फास्टफुडमा खर्च गर्छन्।")),
+    W("ファストフード","ファストフード",m("fast food","快餐","패스트푸드","အမြန်အစာ","đồ ăn nhanh","फास्टफुड")),
+    P("に"),
+    W("お金","おかね",m("money","钱","돈","ငွေ","tiền","पैसा")),
+    P("を"),
+    W("使っています","つかっています",m("are spending","在花","쓰고 있습니다","သုံးနေသည်","đang chi","खर्च गर्छन्")),
+    P("。"),
+  ],
+  hira:"ある はっぴょう に よると、 にほんじん は 1ねんかん に 3ちょうえん も ファストフード に おかね を つかっています。",
+  trans:m("According to one report, Japanese people spend as much as 3 trillion yen per year on fast food.","据某项发表，日本人一年在快餐上花费高达3万亿日元。","어느 발표에 따르면, 일본인은 1년에 3조 엔이나 패스트푸드에 돈을 쓰고 있습니다.","ကြေညာချက်တစ်ခုအရ ဂျပန်လူမျိုးများ တစ်နှစ်တာ 3 ထရီလီယံ ယန်း လောက်ပင် အမြန်အစာအတွက် သုံးနေသည်။","Theo một báo cáo, người Nhật chi đến tận 3 nghìn tỷ yên mỗi năm cho đồ ăn nhanh.","एक प्रकाशन अनुसार, जापानीहरूले वर्षमा ३ खर्ब येन जति फास्टफुडमा खर्च गर्छन्।")
+},
+// ---- S4 ----
+{
+  parts:[
+    W("理由","りゆう",m("reason","理由","이유","အကြောင်းပြချက်","lý do","कारण")),
+    G("は","は",
+      m("(topic marker introducing reasons)","是","는","မှာ","là","भनेको"),
+      m("Nは〜こと、〜ことだ (L1) — Lists reasons or causes. Here: the REASONS ARE that it's cheap, convenient, fast, and the restaurants are bright. Each reason is wrapped in こと to nominalize the clause.",
+        "Nは〜こと、〜ことだ（第1课）— 列举理由或原因。此处：理由是便宜、方便、快、店面明亮。每个理由用こと名词化。",
+        "Nは〜こと、〜ことだ (1과) — 이유나 원인을 나열합니다. 이유는 싸고 편리한 것, 시간이 걸리지 않는 것, 가게가 밝은 것 등입니다.",
+        "Nは〜こと、〜ことだ (သင်ခန်းစာ 1) — အကြောင်းပြချက်များ စာရင်းပြုသည်။",
+        "Nは〜こと、〜ことだ (Bài 1) — Liệt kê các lý do. LÝ DO LÀ rẻ, tiện lợi, nhanh, và nhà hàng sáng sủa.",
+        "Nは〜こと、〜ことだ (पाठ 1) — कारणहरू सूचीबद्ध गर्छ। कारण सस्तो, सुविधाजनक, छिटो, र पसल उज्यालो हुनु हो।")),
+    W("値段","ねだん",m("price","价格","가격","ဈေးနှုန်း","giá","मूल्य")),
+    P("が"),
+    W("安くて","やすくて",m("cheap and","便宜且","싸고","စျေးနှုန်းသက်သာ","rẻ và","सस्तो")),
+    W("手軽に","てがるに",m("easily, conveniently","方便地","간편하게","လွယ်ကူ","tiện lợi","सजिलै")),
+    W("利用できる","りようできる",m("can use, can go to","可以利用","이용할 수 있는","အသုံးပြုနိုင်","sử dụng được","प्रयोग गर्न सकिने")),
+    G("こと","こと",
+      m("(nominalizer)","事情","것","အကြောင်းအရာ","điều","कुरा"),
+      m("Nは〜こと (L1) — こと nominalizes the preceding clause, turning 'prices are cheap and it's easy to use' into a noun phrase — one of the REASONS. Each こと in this sentence packages a reason.",
+        "Nは〜こと（第1课）— こと将前面的句子名词化，把"价格便宜且方便利用"变成名词短语——理由之一。",
+        "Nは〜こと (1과) — こと는 앞의 절을 명사화합니다. '가격이 싸고 편리하게 이용할 수 있는 것'이 이유 중 하나입니다.",
+        "Nは〜こと (သင်ခန်းစာ 1) — こと သည် ရှေ့ဝါကျကို နာမ်အဖြစ် ပြောင်းသည်။",
+        "Nは〜こと (Bài 1) — こと danh từ hóa mệnh đề trước. Giá rẻ và dễ sử dụng → một LÝ DO.",
+        "Nは〜こと (पाठ 1) — こと ले अघिको वाक्यांशलाई नाम बनाउँछ। 'मूल्य सस्तो र सजिलै प्रयोग गर्न सकिने' कुरा एउटा कारण हो।")),
+    P("、"),
+    W("時間","じかん",m("time","时间","시간","အချိန်","thời gian","समय")),
+    P("がかからない"),
+    W("こと","こと",m("(the fact that)","事情","것","အကြောင်းအရာ","điều","कुरा")),
+    P("、それに"),
+    W("ファストフード","ファストフード",m("fast food","快餐","패스트푸드","အမြန်အစာ","đồ ăn nhanh","फास्टफुड")),
+    P("の"),
+    W("店","みせ",m("shop, restaurant","店","가게","ဆိုင်","cửa hàng","पसल")),
+    P("は"),
+    W("明るくて","あかるくて",m("bright and","明亮且","밝고","တောက်ပ","sáng và","उज्यालो")),
+    W("入りやすい","はいりやすい",m("easy to enter","容易进入","들어가기 쉬운","ဝင်လွယ်","dễ vào","प्रवेश गर्न सजिलो")),
+    P("ことなどです。"),
+  ],
+  hira:"りゆう は ねだん が やすくて てがるに りようできる こと、 じかん が かからない こと、 それに ファストフード の みせ は あかるくて はいりやすい こと など です。",
+  trans:m("The reasons are that prices are cheap and convenient to use, it doesn't take time, and fast food restaurants are bright and easy to enter.","理由是价格便宜且方便利用、不花时间、以及快餐店明亮容易进去等。","이유는 가격이 싸고 간편하게 이용할 수 있는 것, 시간이 걸리지 않는 것, 그리고 패스트푸드 가게는 밝고 들어가기 쉬운 것 등입니다.","အကြောင်းပြချက်မှာ ဈေးနှုန်းသက်သာ၍ လွယ်ကူ၊ အချိန်မကြာ၊ ဆိုင်တွေ တောက်ပ၍ ဝင်လွယ်ခြင်း စသည်တို့ ဖြစ်သည်။","Lý do là giá rẻ và tiện lợi, không mất thời gian, và cửa hàng đồ ăn nhanh sáng sủa dễ vào.","कारण मूल्य सस्तो र सजिलै प्रयोग गर्न सकिने, समय नलाग्ने, र फास्टफुड पसल उज्यालो र प्रवेश गर्न सजिलो हुनु आदि हुन्।")
+},
+// ---- S5 ----
+{
+  parts:[
+    W("しかし","しかし",m("however","但是","하지만","သို့သော်","tuy nhiên","तथापि")),
+    P("、この"),
+    W("ような","ような",m("this kind of","这样的","같은","ကဲ့သို့","loại","यस्तो")),
+    W("食べ物","たべもの",m("food","食物","음식","အစားအစာ","đồ ăn","खाना")),
+    P("は"),
+    W("カロリー","カロリー",m("calories","卡路里","칼로리","ကယ်လိုရီ","calo","क्यालोरी")),
+    P("が"),
+    W("高い","たかい",m("high","高","높다","မြင့်","cao","उच्च")),
+    P("ので、"),
+    W("生活","せいかつ",m("lifestyle","生活","생활","နေ့စဉ်ဘဝ","cuộc sống","जीवनशैली")),
+    W("習慣","しゅうかん",m("habit","习惯","습관","အလေ့အကျင့်","thói quen","बानी")),
+    W("病","びょう",m("disease","病","병","ရောဂါ","bệnh","रोग")),
+    P("が"),
+    G("増え始めた","ふえはじめた",
+      m("started to increase","开始增加","늘기 시작한","စတင်တိုးပွားလာသော","bắt đầu tăng","बढ्न थालेको"),
+      m("Vマス始める (L1) — Shows the BEGINNING of an action or change. Here: lifestyle diseases STARTED TO INCREASE — they weren't increasing before, but now the trend has begun. The stem 増え + 始める marks the onset.",
+        "Vマス始める（第1课）— 表示动作或变化的开始。此处：生活习惯病开始增加——之前没在增加，但现在趋势开始了。",
+        "Vマス始める (1과) — 동작이나 변화의 시작을 나타냅니다. 생활습관병이 늘기 시작했습니다 — 이전에는 늘지 않았지만 이제 추세가 시작되었습니다.",
+        "Vマス始める (သင်ခန်းစာ 1) — လုပ်ဆောင်ခြင်း သို့မဟုတ် ပြောင်းလဲခြင်း စတင်ပုံကို ဖော်ပြသည်။",
+        "Vマス始める (Bài 1) — Cho thấy SỰ BẮT ĐẦU của một hành động. Bệnh lối sống BẮT ĐẦU TĂNG — trước đó chưa tăng, giờ xu hướng đã bắt đầu.",
+        "Vマス始める (पाठ 1) — कार्य वा परिवर्तनको सुरुवात देखाउँछ। जीवनशैली रोगहरू बढ्न थाले — पहिले बढ्दैनथे, अब प्रवृत्ति सुरु भयो।")),
+    W("原因","げんいん",m("cause","原因","원인","အကြောင်းရင်း","nguyên nhân","कारण")),
+    P("の"),
+    W("一つ","ひとつ",m("one (of)","之一","하나","တစ်ခု","một","एउटा")),
+    P("だと"),
+    W("言われています","いわれています",m("it is said","被认为","~라고 합니다","ဟု ဆိုသည်","được cho là","भनिन्छ")),
+    P("。"),
+  ],
+  hira:"しかし、 この ような たべもの は カロリー が たかい ので、 せいかつ しゅうかん びょう が ふえはじめた げんいん の ひとつ だと いわれています。",
+  trans:m("However, since this kind of food is high in calories, it is said to be one of the causes of the increase in lifestyle diseases.","但是，由于这类食物卡路里高，被认为是生活习惯病开始增多的原因之一。","하지만 이런 음식은 칼로리가 높기 때문에 생활습관병이 늘기 시작한 원인 중 하나라고 합니다.","သို့သော် ဒီလို အစားအစာတွေ ကယ်လိုရီ မြင့်သောကြောင့် နေ့စဉ်ဘဝ အလေ့အကျင့် ရောဂါများ စတင်တိုးပွားလာခြင်း အကြောင်းရင်းတစ်ခု ဟု ဆိုသည်။","Tuy nhiên, vì loại đồ ăn này cao calo, nó được cho là một trong những nguyên nhân khiến bệnh lối sống bắt đầu tăng.","तथापि, यस्तो खाना क्यालोरी उच्च भएकाले, जीवनशैली रोगहरू बढ्न थालेको एउटा कारण हो भनिन्छ।")
+},
+// ---- S6 ----
+{
+  parts:[
+    W("それで","それで",m("therefore","因此","그래서","ဒါကြောင့်","vì vậy","त्यसैले")),
+    P("、"),
+    W("最近","さいきん",m("recently","最近","최근","မကြာသေးမီ","gần đây","हालसालै")),
+    P("では"),
+    W("健康","けんこう",m("health","健康","건강","ကျန်းမာရေး","sức khỏe","स्वास्थ्य")),
+    P("を"),
+    W("考えて","かんがえて",m("considering","考虑","생각하여","စဉ်းစားပြီး","suy nghĩ","सोचेर")),
+    P("、"),
+    W("カロリー","カロリー",m("calories","卡路里","칼로리","ကယ်လိုရီ","calo","क्यालोरी")),
+    P("が"),
+    W("低い","ひくい",m("low","低","낮은","နည်း","thấp","कम")),
+    W("メニュー","メニュー",m("menu items","菜单","메뉴","မီနူး","thực đơn","मेनु")),
+    P("を"),
+    W("増やしたり","ふやしたり",m("increasing (among other things)","增加","늘리거나","တိုးချဲ့","tăng thêm","बढाउने")),
+    P("、"),
+    W("カロリー","カロリー",m("calories","卡路里","칼로리","ကယ်လိုရီ","calo","क्यालोरी")),
+    P("を"),
+    W("表示したり","ひょうじしたり",m("displaying (among other things)","标示","표시하거나","ပြသ","hiển thị","प्रदर्शन गर्ने")),
+    P("する"),
+    W("店","みせ",m("shops","店","가게","ဆိုင်","cửa hàng","पसल")),
+    P("が"),
+    W("増えています","ふえています",m("are increasing","在增加","늘고 있습니다","တိုးပွားနေသည်","đang tăng","बढ्दैछ")),
+    P("。"),
+  ],
+  hira:"それで、 さいきん では けんこう を かんがえて、 カロリー が ひくい メニュー を ふやしたり、 カロリー を ひょうじしたり する みせ が ふえています。",
+  trans:m("Therefore, recently more shops are adding low-calorie menu items and displaying calorie counts, with health in mind.","因此，最近考虑到健康，增加低卡路里菜单、标示卡路里的店在增多。","그래서 최근에는 건강을 생각하여 칼로리가 낮은 메뉴를 늘리거나 칼로리를 표시하는 가게가 늘고 있습니다.","ဒါကြောင့် မကြာသေးမီ ကျန်းမာရေးကို စဉ်းစားပြီး ကယ်လိုရီ နည်းသော မီနူးများ တိုးချဲ့ခြင်း၊ ကယ်လိုရီ ပြသခြင်းတို့ ပြုလုပ်သော ဆိုင်များ တိုးပွားလာသည်။","Vì vậy, gần đây ngày càng nhiều cửa hàng tăng thêm món ít calo và hiển thị lượng calo, vì sức khỏe.","त्यसैले, हालसालै स्वास्थ्यको बारेमा सोचेर, कम क्यालोरी भएका मेनु बढाउने र क्यालोरी प्रदर्शन गर्ने पसलहरू बढ्दैछन्।")
+}
+];
+
+function rubyHTML(s,r){if(/^[\u3040-\u309F\u30A0-\u30FFー\uFF01-\uFF5E「」（）]+$/.test(s))return s;return`<ruby>${s}<rt>${r}</rt></ruby>`;}
+function renderPassage(){const el=document.getElementById('passage');el.innerHTML='';sentences.forEach((s,si)=>{const block=document.createElement('div');block.className='sentence-block';const jpLine=document.createElement('span');jpLine.className='jp-sentence';s.parts.forEach(part=>{if(part.w){const span=document.createElement('span');span.className='word';span.innerHTML=rubyHTML(part.w,part.r);span.onclick=e=>showPopup(e,{type:'word',reading:part.r,word:part.w,meaning:L(part.m)});jpLine.appendChild(span);}else if(part.g){const span=document.createElement('span');span.className='grammar';span.innerHTML=rubyHTML(part.g,part.r);span.onclick=e=>showPopup(e,{type:'grammar',reading:part.r,word:part.g,meaning:L(part.m),explain:L(part.x)});jpLine.appendChild(span);}else if(part.p!==undefined){const span=document.createElement('span');span.innerHTML=part.p;jpLine.appendChild(span);}});block.appendChild(jpLine);const hiraLine=document.createElement('span');hiraLine.className='hira-line'+(showHira?'':' hidden');hiraLine.textContent=s.hira;block.appendChild(hiraLine);const transLine=document.createElement('span');transLine.className='trans-line'+(showTrans?'':' hidden');transLine.textContent=L(s.trans);block.appendChild(transLine);el.appendChild(block);if(si===2){const br=document.createElement('div');br.className='para-break';el.appendChild(br);}});}
+function renderLangPicker(){const sel=document.getElementById('langPicker');sel.innerHTML='';LANGS.forEach(code=>{const opt=document.createElement('option');opt.value=code;opt.textContent=LANG_LABELS[code];if(code===curLang)opt.selected=true;sel.appendChild(opt);});}
+function setLang(code){curLang=code;updateAll();}function updateUI(){document.querySelectorAll('[data-ui]').forEach(el=>{const key=el.getAttribute('data-ui');if(UI[key])el.textContent=L(UI[key]);});}function updateAll(){renderLangPicker();updateUI();renderPassage();}
+function showPopup(e,data){e.stopPropagation();const popup=document.getElementById('popup');const overlay=document.getElementById('popupOverlay');let html='';if(data.type==='grammar'){html+=`<div class="grammar-tag">${L(UI.grammar_tag)}</div>`;html+=`<div class="reading">${data.reading}</div>`;if(data.word!==data.reading)html+=`<div class="kanji-display">${data.word}</div>`;html+=`<div class="meaning"><strong>${data.meaning}</strong></div>`;html+=`<div class="grammar-explain">${data.explain}</div>`;}else{html+=`<div class="reading">${data.reading}</div>`;if(data.word!==data.reading)html+=`<div class="kanji-display">${data.word}</div>`;html+=`<div class="meaning">${data.meaning}</div>`;}popup.innerHTML=html;popup.classList.add('show');overlay.classList.add('show');const rect=e.currentTarget.getBoundingClientRect();const popW=Math.min(340,window.innerWidth-20);let left=rect.left+rect.width/2-popW/2;if(left<10)left=10;if(left+popW>window.innerWidth-10)left=window.innerWidth-popW-10;let top=rect.bottom+10;popup.style.transform='none';if(top+220>window.innerHeight){top=rect.top-10;popup.style.transform='translateY(-100%)';}popup.style.left=left+'px';popup.style.top=top+'px';popup.style.width=popW+'px';}
+function closePopup(){document.getElementById('popup').classList.remove('show');document.getElementById('popupOverlay').classList.remove('show');}
+function toggleFurigana(){showFurigana=!showFurigana;document.body.classList.toggle('hide-furigana',!showFurigana);document.getElementById('btnFurigana').classList.toggle('active',showFurigana);}
+function toggleHira(){showHira=!showHira;document.getElementById('btnHira').classList.toggle('active',showHira);document.querySelectorAll('.hira-line').forEach(el=>el.classList.toggle('hidden',!showHira));}
+function toggleTrans(){showTrans=!showTrans;document.getElementById('btnTrans').classList.toggle('active',showTrans);document.querySelectorAll('.trans-line').forEach(el=>el.classList.toggle('hidden',!showTrans));}
+function setFontSize(val){document.documentElement.style.setProperty('--font-size',val+'px');}function toggleToolbar(){document.getElementById('toolbar').classList.toggle('collapsed');}
+window.addEventListener('scroll',()=>{document.getElementById('toolbar').classList.toggle('scrolled',window.scrollY>5);},{passive:true});
+updateAll();
+</script>
+</body>
+</html>

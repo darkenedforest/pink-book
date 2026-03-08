@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第5課 – 睡眠</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Sans+Pro:wght@400;600&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+Myanmar:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;--accent:#b8433a;--grammar-color:#7b2d8e;--border:#e0d5c5;--popup-bg:#fffef9;--shadow:0 8px 32px rgba(44,36,22,0.12);--hira-color:#999;--trans-color:#5a7a5a;--font-size:18px;}*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Noto Serif JP',serif;background:var(--bg);color:var(--text);min-height:100vh;}.page-bg{background:linear-gradient(160deg,#f7f3ec,#efe8dc);min-height:100vh;padding-bottom:3rem;}.toolbar{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,#f7f3ec,rgba(247,243,236,0.97));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding-bottom:0.4rem;transition:box-shadow 0.3s;}.toolbar.scrolled{box-shadow:0 2px 16px rgba(44,36,22,0.1);}.toolbar-header{display:flex;align-items:center;justify-content:center;padding:0.7rem 1rem 0.15rem;position:relative;}.toolbar-header h1{font-size:1.3rem;font-weight:700;color:var(--accent);letter-spacing:0.06em;}.toolbar-header .sub{font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);margin-left:0.5rem;align-self:flex-end;padding-bottom:0.08rem;}.collapse-btn{position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:2px solid var(--border);border-radius:50%;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-light);transition:all 0.2s;}.collapse-btn:hover{border-color:var(--accent);color:var(--accent);}.collapse-btn svg{transition:transform 0.3s;}.toolbar.collapsed .collapse-btn svg{transform:rotate(180deg);}.toolbar-body{max-height:160px;overflow:hidden;transition:max-height 0.35s ease,opacity 0.25s ease;opacity:1;}.toolbar.collapsed .toolbar-body{max-height:0;opacity:0;}.controls-row1{max-width:720px;margin:0.3rem auto 0;padding:0 1rem;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;}.toggle-btn{font-family:'Source Sans Pro',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0;border-radius:999px;border:2px solid var(--border);background:var(--card-bg);color:var(--text-light);cursor:pointer;transition:all 0.2s;user-select:none;white-space:nowrap;width:5.5rem;text-align:center;}.toggle-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(184,67,58,0.06);}.toggle-btn:hover{border-color:var(--accent);}.controls-row2{max-width:720px;margin:0.35rem auto 0;padding:0 1rem;display:flex;align-items:center;justify-content:space-between;}.slider-group{display:flex;align-items:center;gap:0.4rem;font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);}.slider-group input[type=range]{width:70px;accent-color:var(--accent);cursor:pointer;}.lang-picker-wrap{position:relative;display:inline-flex;align-items:center;}.lang-picker{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.78rem;font-weight:600;padding:0.35rem 2rem 0.35rem 0.7rem;border-radius:999px;border:2px solid #2471a3;background:rgba(36,113,163,0.07);color:#2471a3;cursor:pointer;appearance:none;-webkit-appearance:none;outline:none;transition:all 0.2s;}.lang-picker:hover,.lang-picker:focus{border-color:#1a5276;box-shadow:0 0 0 3px rgba(36,113,163,0.12);}.lang-picker-arrow{position:absolute;right:0.65rem;top:50%;transform:translateY(-50%);pointer-events:none;color:#2471a3;}.legend{display:flex;justify-content:center;gap:0.9rem;padding:0.3rem 1rem 0;flex-wrap:wrap;}.legend-item{font-family:'Source Sans Pro',sans-serif;font-size:0.68rem;color:var(--text-light);display:flex;align-items:center;gap:0.25rem;}.legend-dot{width:8px;height:8px;border-radius:50%;}.legend-dot.vocab{background:var(--accent);opacity:0.4;}.legend-dot.grammar{background:var(--grammar-color);opacity:0.5;}.content{max-width:720px;margin:0 auto;padding:0.8rem 1.2rem 3rem;}.passage-card{background:var(--card-bg);border-radius:12px;padding:2rem 1.8rem;box-shadow:var(--shadow);border:1px solid var(--border);line-height:2.6;font-size:var(--font-size);}.sentence-block{margin-bottom:0.7rem;}.jp-sentence{display:inline;}ruby rt{font-size:0.5em;color:var(--hira-color);font-family:'Noto Sans JP',sans-serif;font-weight:400;}body.hide-furigana ruby rt{visibility:hidden;}.word{cursor:pointer;border-bottom:1.5px dotted rgba(184,67,58,0.3);transition:background 0.15s;border-radius:2px;}.word:hover{background:rgba(184,67,58,0.08);}.grammar{font-weight:700;color:var(--grammar-color);cursor:pointer;border-bottom:2px solid rgba(123,45,142,0.35);border-radius:2px;transition:background 0.15s;}.grammar:hover{background:rgba(123,45,142,0.08);}.hira-line{display:block;font-family:'Noto Sans JP',sans-serif;font-size:0.78em;color:var(--hira-color);margin-top:0.1rem;line-height:1.6;transition:opacity 0.25s,max-height 0.3s;}.hira-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}.trans-line{display:block;font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.78em;color:var(--trans-color);margin-top:0.05rem;line-height:1.6;font-style:italic;transition:opacity 0.25s,max-height 0.3s;}.trans-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}.para-break{height:0.6rem;}.popup-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;}.popup-overlay.show{display:block;}.popup{display:none;position:fixed;z-index:1000;background:var(--popup-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;box-shadow:0 12px 40px rgba(44,36,22,0.18);max-width:360px;min-width:200px;animation:popIn 0.18s ease-out;}.popup.show{display:block;}@keyframes popIn{from{opacity:0;transform:translateY(6px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}.popup .reading{font-family:'Noto Sans JP',sans-serif;font-size:1.05rem;color:var(--accent);font-weight:500;margin-bottom:0.15rem;}.popup .kanji-display{font-size:0.78rem;color:var(--text-light);margin-bottom:0.3rem;}.popup .meaning{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.88rem;color:var(--text);line-height:1.55;}.popup .grammar-tag{display:inline-block;font-family:'Source Sans Pro',sans-serif;font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#fff;background:var(--grammar-color);padding:0.12rem 0.5rem;border-radius:999px;margin-bottom:0.35rem;}.popup .grammar-explain{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.8rem;color:var(--text);line-height:1.55;margin-top:0.25rem;}@media(max-width:520px){.passage-card{padding:1.2rem 1rem;}.toolbar-header h1{font-size:1.15rem;}.popup{max-width:90vw;min-width:170px;}}
+</style>
+</head>
+<body>
+<div class="page-bg">
+<div class="toolbar" id="toolbar">
+  <div class="toolbar-header"><h1>睡眠</h1><span class="sub">第5課</span><button class="collapse-btn" onclick="toggleToolbar()" aria-label="Toggle controls"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button></div>
+  <div class="toolbar-body"><div class="controls-row2"><div class="lang-picker-wrap"><select class="lang-picker" id="langPicker" onchange="setLang(this.value)"></select><svg class="lang-picker-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="slider-group"><span>Aa</span><input type="range" min="14" max="28" value="18" id="fontSlider" oninput="setFontSize(this.value)"><span style="font-size:1.1em;">Aa</span></div></div><div class="controls-row1"><button class="toggle-btn active" id="btnFurigana" onclick="toggleFurigana()">振り仮名</button><button class="toggle-btn active" id="btnHira" onclick="toggleHira()">ひらがな</button><button class="toggle-btn active" id="btnTrans" onclick="toggleTrans()" data-ui="trans_btn"></button></div><div class="legend"><div class="legend-item"><span class="legend-dot vocab"></span> <span data-ui="leg_vocab"></span></div><div class="legend-item"><span class="legend-dot grammar"></span> <b><span data-ui="leg_grammar"></span></b></div></div></div>
+</div>
+<div class="content"><div class="passage-card" id="passage"></div></div>
+<div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div><div class="popup" id="popup"></div>
+</div>
+<script>
+const LANGS=['en','zh','ko','my','vi','ne'];const LANG_LABELS={en:'English',zh:'中文',ko:'한국어',my:'မြန်မာ',vi:'Tiếng Việt',ne:'नेपाली'};const UI={trans_btn:{en:'Translation',zh:'翻译',ko:'번역',my:'ဘာသာပြန်',vi:'Dịch',ne:'अनुवाद'},leg_vocab:{en:'Vocabulary',zh:'词汇',ko:'어휘',my:'ဝေါဟာရ',vi:'Từ vựng',ne:'शब्दावली'},leg_grammar:{en:'Grammar',zh:'语法',ko:'문법',my:'သဒ္ဒါ',vi:'Ngữ pháp',ne:'व्याकरण'},grammar_tag:{en:'Grammar Point',zh:'语法点',ko:'문법 포인트',my:'သဒ္ဒါအချက်',vi:'Điểm ngữ pháp',ne:'व्याकरण बिन्दु'}};let curLang='en';let showHira=true,showTrans=true,showFurigana=true;
+function m(en,zh,ko,my,vi,ne){return{en,zh,ko,my,vi,ne};}function W(s,r,mg){return{w:s,r:r,m:mg};}function G(s,r,mg,x){return{g:s,r:r,m:mg,x:x};}function P(t){return{p:t};}function L(d){return(typeof d==='object'&&d[curLang])?d[curLang]:(typeof d==='string'?d:(d.en||''));}
+
+const sentences=[
+// ---- S1 ----
+{
+  parts:[
+    W("あなた","あなた",m("you","你","당신","သင်","bạn","तपाईं")),
+    P("は"),
+    W("毎晩","まいばん",m("every night","每晚","매일 밤","ညတိုင်း","mỗi tối","हरेक राति")),
+    W("よく","よく",m("well","好好地","잘","ကောင်းကောင်း","tốt","राम्ररी")),
+    W("寝られます","ねられます",m("can sleep (potential)","能睡","잘 수 있습니다","အိပ်နိုင်သည်","có thể ngủ","सुत्न सक्नुहुन्छ")),
+    P("か。"),
+  ],
+  hira:"あなた は まいばん よく ねられます か。",
+  trans:m("Can you sleep well every night?","你每晚都能睡好吗？","당신은 매일 밤 잘 잘 수 있습니까?","သင် ညတိုင်း ကောင်းကောင်း အိပ်နိုင်ပါသလား။","Bạn có ngủ ngon mỗi tối không?","तपाईं हरेक राति राम्ररी सुत्न सक्नुहुन्छ?")
+},
+// ---- S2 ----
+{
+  parts:[
+    W("夜","よる",m("at night","夜里","밤에","ညဘက်","ban đêm","रात")),
+    W("なかなか","なかなか",m("not easily","怎么也","좀처럼","လွယ်လွယ်နဲ့ မ~","khó mà","सजिलै")),
+    W("寝られなかったり","ねられなかったり",m("not being able to sleep (among other things)","睡不着","잠들지 못하거나","မအိပ်နိုင်တာ","không ngủ được","सुत्न नसकेर")),
+    P("、"),
+    W("夜中","よなか",m("middle of the night","半夜","한밤중","သန်းခေါင်","nửa đêm","मध्यरात")),
+    P("に"),
+    W("何回","なんかい",m("many times","好几次","몇 번","အကြိမ်ကြိမ်","nhiều lần","कति पटक")),
+    P("も"),
+    W("目が覚めたり","めがさめたり",m("waking up (among other things)","醒来","잠이 깨거나","နိုးတာ","thức giấc","बिउँझेर")),
+    P("して、"),
+    W("医者","いしゃ",m("doctor","医生","의사","ဆရာဝန်","bác sĩ","डाक्टर")),
+    P("に"),
+    W("相談する","そうだんする",m("to consult","咨询","상담하다","တိုင်ပင်","tư vấn","सल्लाह लिने")),
+    W("人","ひと",m("person","人","사람","လူ","người","मानिस")),
+    P("が"),
+    W("多くなっています","おおくなっています",m("has been increasing","变多了","많아지고 있습니다","များလာနေသည်","đang tăng lên","बढ्दै गइरहेको छ")),
+    P("。"),
+  ],
+  hira:"よる なかなか ねられなかったり、 よなか に なんかい も めがさめたり して、 いしゃ に そうだんする ひと が おおくなっています。",
+  trans:m("More and more people are consulting doctors because they can't fall asleep easily at night, or they wake up many times in the middle of the night.","因为晚上怎么也睡不着，或者半夜多次醒来，去看医生的人越来越多了。","밤에 좀처럼 잠들지 못하거나, 한밤중에 몇 번이나 깨거나 해서 의사에게 상담하는 사람이 많아지고 있습니다.","ညဘက် လွယ်လွယ်နဲ့ မအိပ်နိုင်တာ၊ သန်းခေါင်မှာ အကြိမ်ကြိမ် နိုးတာတွေကြောင့် ဆရာဝန်နဲ့ တိုင်ပင်သူ များလာနေသည်။","Ngày càng nhiều người tư vấn bác sĩ vì ban đêm khó ngủ, hoặc nửa đêm thức giấc nhiều lần.","रातमा सजिलै सुत्न नसकेर, वा मध्यरातमा कतिपटक बिउँझेर, डाक्टरसँग सल्लाह लिने मानिसहरू बढ्दै गइरहेको छ।")
+},
+// ---- S3 ----
+{
+  parts:[
+    W("また","また",m("also, furthermore","另外","또한","ထို့အပြင်","ngoài ra","साथै")),
+    P("、"),
+    W("夜","よる",m("night","晚上","밤","ည","đêm","रात")),
+    W("遅く","おそく",m("late","晚","늦게","နောက်ကျ","muộn","ढिलो")),
+    P("まで"),
+    W("活動する","かつどうする",m("to be active","活动","활동하다","လှုပ်ရှားသည်","hoạt động","क्रियाकलाप गर्ने")),
+    P("ことや、"),
+    W("通勤","つうきん",m("commuting","通勤","통근","အလုပ်သွားခြင်း","đi làm","कार्यालय आउजाउ")),
+    W("時間","じかん",m("time","时间","시간","အချိန်","thời gian","समय")),
+    P("の"),
+    G("長さ","ながさ",
+      m("length","长度","길이","ရှည်ခြင်း","độ dài","लम्बाइ"),
+      m("Aさ (L5) — Nominalizes an i-adjective by replacing い with さ. Here: 長い (long) → 長さ (length). The DURATION of the commute is treated as a noun — it becomes one of the CAUSES of sleep problems.",
+        "Aさ（第5课）— 将い形容词的い替换为さ，使其名词化。此处：長い（长的）→ 長さ（长度）。通勤的时长被名词化，成为睡眠问题的原因之一。",
+        "Aさ (5과) — い형용사의 い를 さ로 바꿔 명사화합니다. 여기서는 長い(긴) → 長さ(길이). 통근 시간의 길이가 수면 문제의 원인 중 하나로 다루어집니다.",
+        "Aさ (သင်ခန်းစာ 5) — い နာမဝိသေသနကို さ ဖြင့် အစားထိုး၍ နာမ်အဖြစ် ပြောင်းသည်။ 長い (ရှည်သော) → 長さ (အရှည်)။",
+        "Aさ (Bài 5) — Danh từ hóa tính từ đuôi い bằng cách thay い thành さ. Ở đây: 長い (dài) → 長さ (độ dài).",
+        "Aさ (पाठ 5) — い विशेषणलाई い को सट्टा さ राखेर नाम बनाउँछ। यहाँ: 長い (लामो) → 長さ (लम्बाइ)।")),
+    P("などが"),
+    W("原因","げんいん",m("cause","原因","원인","အကြောင်းရင်း","nguyên nhân","कारण")),
+    P("で"),
+    W("睡眠","すいみん",m("sleep","睡眠","수면","အိပ်စက်ခြင်း","giấc ngủ","निद्रा")),
+    W("時間","じかん",m("time, hours","时间","시간","အချိန်","thời gian","समय")),
+    P("が"),
+    G("減少し","げんしょうし",
+      m("decreased (and)","减少","감소하여","လျော့ကျပြီး","giảm","घट्यो (र)"),
+      m("連用中止 (L5) — The conjunctive stem form. Instead of 減少して, the stem 減少し connects two clauses in a formal/written style. Here: sleep hours DECREASE, AND people complain about poor health — two related facts presented together.",
+        "連用中止（第5课）— 连用中止形。不用減少して，而用词干減少し来连接两个句子，属于正式/书面风格。此处：睡眠时间减少，而且身体不适的人也在增加。",
+        "連用中止 (5과) — 연용중지형. 減少して 대신 어간 減少し로 두 절을 연결하는 격식체/문어체 표현. 수면 시간이 줄어들고, 건강 이상을 호소하는 사람도 늘고 있습니다.",
+        "連用中止 (သင်ခန်းစာ 5) — ကြိယာပင်မပုံစံဖြင့် ဆက်စပ်ခြင်း။ して မသုံးဘဲ し ဖြင့် ဝါကျနှစ်ခုကို ချိတ်ဆက်သည်။",
+        "連用中止 (Bài 5) — Dạng nối liên dụng. Thay vì 減少して, dùng thân 減少し để nối hai mệnh đề theo văn viết.",
+        "連用中止 (पाठ 5) — क्रियाको संयोजक रूप। 減少して को सट्टा 減少し प्रयोग गरेर दुई वाक्यांशलाई औपचारिक शैलीमा जोड्छ।")),
+    P("、"),
+    W("体","からだ",m("body","身体","몸","ခန္ဓာကိုယ်","cơ thể","शरीर")),
+    P("の"),
+    W("不調","ふちょう",m("poor condition, ill health","不适","부조","ကျန်းမာရေးချို့ယွင်းခြင်း","không khỏe","अस्वस्थता")),
+    P("を"),
+    W("訴える","うったえる",m("to complain of","诉说","호소하다","တိုင်ကြားသည်","than phiền","गुनासो गर्ने")),
+    W("人","ひと",m("person","人","사람","လူ","người","मानिस")),
+    P("も"),
+    W("増えています","ふえています",m("is increasing","也在增加","늘고 있습니다","တိုးပွားနေသည်","đang tăng","बढ्दैछ")),
+    P("。"),
+  ],
+  hira:"また、 よる おそく まで かつどうする こと や、 つうきん じかん の ながさ などが げんいん で すいみん じかん が げんしょうし、 からだ の ふちょう を うったえる ひと も ふえています。",
+  trans:m("Also, due to being active until late at night and the length of commuting time, sleep hours are decreasing, and more people are complaining of poor health.","另外，由于夜晚活动到很晚以及通勤时间长等原因，睡眠时间减少，身体不适的人也在增加。","또한, 밤늦게까지 활동하는 것이나 통근 시간의 길이 등이 원인으로 수면 시간이 감소하고, 몸의 컨디션이 좋지 않다고 호소하는 사람도 늘고 있습니다.","ထို့အပြင် ညနောက်ကျအထိ လှုပ်ရှားခြင်းနှင့် အလုပ်သွားချိန် ကြာခြင်းတို့ကြောင့် အိပ်ချိန် လျော့ကျပြီး ကျန်းမာရေး မကောင်းကြောင်း တိုင်ကြားသူ များလာသည်။","Ngoài ra, do hoạt động đến khuya và thời gian đi làm dài, giờ ngủ giảm, và ngày càng nhiều người phàn nàn về sức khỏe kém.","साथै, रातिसम्म क्रियाकलापमा रहनु र कार्यालय आउजाउ समयको लम्बाइ आदि कारणले निद्राको समय घट्दै गएको छ, र शरीरको अस्वस्थता व्यक्त गर्ने मानिसहरू पनि बढ्दैछन्।")
+},
+// ---- S4 ----
+{
+  parts:[
+    W("人","ひと",m("people","人","사람","လူ","con người","मानिस")),
+    P("は"),
+    W("疲れれば","つかれれば",m("if one gets tired","如果累了","피곤해지면","ပင်ပန်းရင်","nếu mệt","थकित भए")),
+    P("、"),
+    W("自然","しぜん",m("naturally","自然地","자연스럽게","သဘာဝကျကျ","tự nhiên","स्वाभाविक रूपमा")),
+    P("に"),
+    W("眠く","ねむく",m("sleepy","困","졸리게","အိပ်ချင်","buồn ngủ","निद्रा लागेर")),
+    P("なる"),
+    G("ものです","ものです",
+      m("it is natural that, it is common sense that","本来就是这样","~하는 법이다","သဘာဝတရားအရ ဖြစ်သည်","vốn dĩ là","यस्तो हुन्छ"),
+      m("～ものだ (L5) — Expresses a general truth or common-sense fact. Here: it is a NATURAL FACT that if you are tired, you get sleepy. This is presented as universal human experience, not personal opinion.",
+        "～ものだ（第5课）— 表达一般事实或常识。此处：人疲了自然就会困，这是人人皆知的道理，不是个人观点。",
+        "～ものだ (5과) — 일반적인 진리나 상식을 표현합니다. 여기서는 피곤하면 자연스럽게 졸려지는 것은 당연한 사실입니다.",
+        "～ものだ (သင်ခန်းစာ 5) — ယေဘုယျ အမှန်တရားကို ဖော်ပြသည်။ ပင်ပန်းရင် အိပ်ချင်လာတာ သဘာဝတရားဖြစ်သည်။",
+        "～ものだ (Bài 5) — Diễn đạt sự thật chung hoặc lẽ thường. Ở đây: nếu mệt thì TỰ NHIÊN sẽ buồn ngủ — đó là quy luật tự nhiên.",
+        "～ものだ (पाठ 5) — सामान्य सत्य वा सामान्य ज्ञान व्यक्त गर्छ। यहाँ: थकित भए स्वाभाविक रूपमा निद्रा लाग्छ — यो सर्वमान्य तथ्य हो।")),
+    P("。"),
+  ],
+  hira:"ひと は つかれれば、 しぜん に ねむく なる ものです。",
+  trans:m("If you are tired, you naturally become sleepy — that's just how it is.","人疲了，自然就会困——这是理所当然的。","사람은 피곤해지면 자연스럽게 졸려지는 법입니다.","လူသည် ပင်ပန်းလျှင် သဘာဝအလျောက် အိပ်ချင်လာခြင်းမှာ ပုံမှန်ဖြစ်သည်။","Con người mệt thì tự nhiên buồn ngủ — đó là lẽ thường.","मानिस थकित भए स्वाभाविक रूपमा निद्रा लाग्छ — यो त स्वाभाविक कुरा हो।")
+},
+// ---- S5 ----
+{
+  parts:[
+    W("よく","よく",m("well","好好地","잘","ကောင်းကောင်း","ngon","राम्ररी")),
+    W("寝られる","ねられる",m("can sleep","能睡","잘 수 있는","အိပ်နိုင်သော","có thể ngủ","सुत्न सकिने")),
+    W("一番","いちばん",m("the most, number one","最","가장","အကောင်းဆုံး","tốt nhất","सबैभन्दा")),
+    W("いい","いい",m("good","好的","좋은","ကောင်းသော","tốt","राम्रो")),
+    W("方法","ほうほう",m("method","方法","방법","နည်းလမ်း","phương pháp","तरिका")),
+    P("は、"),
+    W("昼間","ひるま",m("daytime","白天","낮","နေ့ဘက်","ban ngày","दिउँसो")),
+    W("十分","じゅうぶん",m("sufficiently","充分地","충분히","လုံလောက်စွာ","đầy đủ","पर्याप्त")),
+    P("に"),
+    W("体","からだ",m("body","身体","몸","ခန္ဓာကိုယ်","cơ thể","शरीर")),
+    P("を"),
+    W("動かす","うごかす",m("to move, to exercise","活动","움직이다","လှုပ်ရှားစေသည်","vận động","चलाउने")),
+    P("ことです。"),
+  ],
+  hira:"よく ねられる いちばん いい ほうほう は、 ひるま じゅうぶん に からだ を うごかす ことです。",
+  trans:m("The best way to sleep well is to move your body sufficiently during the day.","能睡好觉的最好方法是白天充分活动身体。","잘 잘 수 있는 가장 좋은 방법은 낮에 충분히 몸을 움직이는 것입니다.","ကောင်းကောင်း အိပ်နိုင်ဖို့ အကောင်းဆုံး နည်းလမ်းက နေ့ဘက်မှာ ခန္ဓာကိုယ်ကို လုံလောက်စွာ လှုပ်ရှားခြင်းဖြစ်သည်။","Cách tốt nhất để ngủ ngon là vận động cơ thể đầy đủ vào ban ngày.","राम्ररी सुत्ने सबैभन्दा राम्रो तरिका दिउँसो पर्याप्त रूपमा शरीर चलाउनु हो।")
+},
+// ---- S6 ----
+{
+  parts:[
+    W("ある","ある",m("a certain","某个","어느","တစ်ခုသော","một","कुनै")),
+    W("医者","いしゃ",m("doctor","医生","의사","ဆရာဝန်","bác sĩ","डाक्टर")),
+    P("の"),
+    W("話","はなし",m("account, story","说法","이야기","ပြောကြားချက်","lời nói","कुरा")),
+    P("によると、"),
+    W("睡眠","すいみん",m("sleep","睡眠","수면","အိပ်စက်ခြင်း","giấc ngủ","निद्रा")),
+    W("時間","じかん",m("time, hours","时间","시간","အချိန်","thời gian","समय")),
+    P("は5"),
+    W("時間","じかん",m("hours","小时","시간","နာရီ","giờ","घण्टा")),
+    P("で"),
+    W("十分","じゅうぶん",m("sufficient","足够","충분하다","လုံလောက်သည်","đủ","पर्याप्त")),
+    P("だ"),
+    G("ということです","ということです",
+      m("it is said that","据说","~라고 합니다","~ဟု ဆိုသည်","nghe nói rằng","भन्ने कुरा हो"),
+      m("～ということだ (L5) — Reports hearsay or secondhand information. Here: ACCORDING TO a doctor, 5 hours of sleep is enough — the speaker is reporting what they heard, not stating their own opinion.",
+        "～ということだ（第5课）— 转述听来的信息。此处：据某医生说，5小时的睡眠就够了——说话者是在转述，不是自己的观点。",
+        "～ということだ (5과) — 전해 들은 정보를 전달합니다. 여기서는 어느 의사의 말에 따르면 수면 시간은 5시간이면 충분하다고 합니다.",
+        "～ということだ (သင်ခန်းစာ 5) — ကြားသိရသော သတင်းအချက်အလက်ကို ပြန်ပြောသည်။ ဆရာဝန်တစ်ဦး ပြောကြားချက်အရ အိပ်ချိန် 5 နာရီ လုံလောက်ဟု ဆိုသည်။",
+        "～ということだ (Bài 5) — Truyền đạt thông tin gián tiếp. Ở đây: THEO LỜI một bác sĩ, 5 giờ ngủ là đủ — người nói đang thuật lại, không phải ý kiến cá nhân.",
+        "～ということだ (पाठ 5) — सुनेको कुरा वा अप्रत्यक्ष जानकारी रिपोर्ट गर्छ। यहाँ: कुनै डाक्टरको भनाइ अनुसार निद्राको समय ५ घण्टा पर्याप्त छ रे।")),
+    P("。"),
+  ],
+  hira:"ある いしゃ の はなし に よると、 すいみん じかん は 5じかん で じゅうぶん だ ということです。",
+  trans:m("According to one doctor, five hours of sleep is said to be sufficient.","据某位医生说，睡眠时间5小时就足够了。","어느 의사의 말에 따르면, 수면 시간은 5시간이면 충분하다고 합니다.","ဆရာဝန်တစ်ဦးပြောကြားချက်အရ အိပ်ချိန် 5 နာရီ လုံလောက်သည်ဟု ဆိုသည်။","Theo lời một bác sĩ, nghe nói 5 giờ ngủ là đủ.","कुनै डाक्टरको भनाइ अनुसार, निद्राको समय ५ घण्टा पर्याप्त छ रे।")
+},
+// ---- S7 ----
+{
+  parts:[
+    W("ですから","ですから",m("therefore","所以","그러므로","ထို့ကြောင့်","vì vậy","त्यसकारण")),
+    P("、"),
+    W("睡眠","すいみん",m("sleep","睡眠","수면","အိပ်စက်ခြင်း","giấc ngủ","निद्रा")),
+    P("に"),
+    W("関して","かんして",m("regarding","关于","관하여","နှင့် ပတ်သက်၍","về","सम्बन्धमा")),
+    W("神経質","しんけいしつ",m("nervous, neurotic","神经质","신경질적","စိတ်လွယ်သော","thần kinh","चिन्तित")),
+    P("に"),
+    W("なりすぎない","なりすぎない",m("not become too much","不要太过","너무 되지 않다","မဖြစ်လွန်ကဲစေ","không nên quá","बढी नहुने")),
+    W("ほうがいい","ほうがいい",m("it is better to","比较好","편이 좋다","ပိုကောင်းသည်","nên","राम्रो")),
+    P("でしょう。"),
+  ],
+  hira:"ですから、 すいみん に かんして しんけいしつ に なりすぎない ほうがいい でしょう。",
+  trans:m("Therefore, it is probably better not to become too neurotic about sleep.","所以，关于睡眠最好不要太神经质。","그러므로 수면에 관하여 너무 신경질적으로 되지 않는 편이 좋을 것입니다.","ထို့ကြောင့် အိပ်စက်ခြင်းနှင့် ပတ်သက်၍ အလွန်အမင်း စိုးရိမ်မနေသင့်ပေ။","Vì vậy, tốt hơn là không nên quá lo lắng về giấc ngủ.","त्यसकारण, निद्राको बारेमा बढी चिन्तित नहुनु नै राम्रो होला।")
+}
+];
+
+function rubyHTML(s,r){if(/^[\u3040-\u309F\u30A0-\u30FFー\uFF01-\uFF5E「」（）]+$/.test(s))return s;return`<ruby>${s}<rt>${r}</rt></ruby>`;}
+function renderPassage(){const el=document.getElementById('passage');el.innerHTML='';sentences.forEach((s,si)=>{const block=document.createElement('div');block.className='sentence-block';const jpLine=document.createElement('span');jpLine.className='jp-sentence';s.parts.forEach(part=>{if(part.w){const span=document.createElement('span');span.className='word';span.innerHTML=rubyHTML(part.w,part.r);span.onclick=e=>showPopup(e,{type:'word',reading:part.r,word:part.w,meaning:L(part.m)});jpLine.appendChild(span);}else if(part.g){const span=document.createElement('span');span.className='grammar';span.innerHTML=rubyHTML(part.g,part.r);span.onclick=e=>showPopup(e,{type:'grammar',reading:part.r,word:part.g,meaning:L(part.m),explain:L(part.x)});jpLine.appendChild(span);}else if(part.p!==undefined){const span=document.createElement('span');span.innerHTML=part.p;jpLine.appendChild(span);}});block.appendChild(jpLine);const hiraLine=document.createElement('span');hiraLine.className='hira-line'+(showHira?'':' hidden');hiraLine.textContent=s.hira;block.appendChild(hiraLine);const transLine=document.createElement('span');transLine.className='trans-line'+(showTrans?'':' hidden');transLine.textContent=L(s.trans);block.appendChild(transLine);el.appendChild(block);if(si===2){const br=document.createElement('div');br.className='para-break';el.appendChild(br);}});}
+function renderLangPicker(){const sel=document.getElementById('langPicker');sel.innerHTML='';LANGS.forEach(code=>{const opt=document.createElement('option');opt.value=code;opt.textContent=LANG_LABELS[code];if(code===curLang)opt.selected=true;sel.appendChild(opt);});}
+function setLang(code){curLang=code;updateAll();}function updateUI(){document.querySelectorAll('[data-ui]').forEach(el=>{const key=el.getAttribute('data-ui');if(UI[key])el.textContent=L(UI[key]);});}function updateAll(){renderLangPicker();updateUI();renderPassage();}
+function showPopup(e,data){e.stopPropagation();const popup=document.getElementById('popup');const overlay=document.getElementById('popupOverlay');let html='';if(data.type==='grammar'){html+=`<div class="grammar-tag">${L(UI.grammar_tag)}</div>`;html+=`<div class="reading">${data.reading}</div>`;if(data.word!==data.reading)html+=`<div class="kanji-display">${data.word}</div>`;html+=`<div class="meaning"><strong>${data.meaning}</strong></div>`;html+=`<div class="grammar-explain">${data.explain}</div>`;}else{html+=`<div class="reading">${data.reading}</div>`;if(data.word!==data.reading)html+=`<div class="kanji-display">${data.word}</div>`;html+=`<div class="meaning">${data.meaning}</div>`;}popup.innerHTML=html;popup.classList.add('show');overlay.classList.add('show');const rect=e.currentTarget.getBoundingClientRect();const popW=Math.min(340,window.innerWidth-20);let left=rect.left+rect.width/2-popW/2;if(left<10)left=10;if(left+popW>window.innerWidth-10)left=window.innerWidth-popW-10;let top=rect.bottom+10;popup.style.transform='none';if(top+220>window.innerHeight){top=rect.top-10;popup.style.transform='translateY(-100%)';}popup.style.left=left+'px';popup.style.top=top+'px';popup.style.width=popW+'px';}
+function closePopup(){document.getElementById('popup').classList.remove('show');document.getElementById('popupOverlay').classList.remove('show');}
+function toggleFurigana(){showFurigana=!showFurigana;document.body.classList.toggle('hide-furigana',!showFurigana);document.getElementById('btnFurigana').classList.toggle('active',showFurigana);}
+function toggleHira(){showHira=!showHira;document.getElementById('btnHira').classList.toggle('active',showHira);document.querySelectorAll('.hira-line').forEach(el=>el.classList.toggle('hidden',!showHira));}
+function toggleTrans(){showTrans=!showTrans;document.getElementById('btnTrans').classList.toggle('active',showTrans);document.querySelectorAll('.trans-line').forEach(el=>el.classList.toggle('hidden',!showTrans));}
+function setFontSize(val){document.documentElement.style.setProperty('--font-size',val+'px');}function toggleToolbar(){document.getElementById('toolbar').classList.toggle('collapsed');}
+window.addEventListener('scroll',()=>{document.getElementById('toolbar').classList.toggle('scrolled',window.scrollY>5);},{passive:true});
+updateAll();
+</script>
+</body>
+</html>

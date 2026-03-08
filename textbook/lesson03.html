@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第3課 – 最近の子ども</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Sans+Pro:wght@400;600&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+Myanmar:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;--accent:#b8433a;--grammar-color:#7b2d8e;--border:#e0d5c5;--popup-bg:#fffef9;--shadow:0 8px 32px rgba(44,36,22,0.12);--hira-color:#999;--trans-color:#5a7a5a;--font-size:18px;}*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Noto Serif JP',serif;background:var(--bg);color:var(--text);min-height:100vh;}.page-bg{background:linear-gradient(160deg,#f7f3ec,#efe8dc);min-height:100vh;padding-bottom:3rem;}.toolbar{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,#f7f3ec,rgba(247,243,236,0.97));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding-bottom:0.4rem;transition:box-shadow 0.3s;}.toolbar.scrolled{box-shadow:0 2px 16px rgba(44,36,22,0.1);}.toolbar-header{display:flex;align-items:center;justify-content:center;padding:0.7rem 1rem 0.15rem;position:relative;}.toolbar-header h1{font-size:1.3rem;font-weight:700;color:var(--accent);letter-spacing:0.06em;}.toolbar-header .sub{font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);margin-left:0.5rem;align-self:flex-end;padding-bottom:0.08rem;}.collapse-btn{position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:2px solid var(--border);border-radius:50%;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-light);transition:all 0.2s;}.collapse-btn:hover{border-color:var(--accent);color:var(--accent);}.collapse-btn svg{transition:transform 0.3s;}.toolbar.collapsed .collapse-btn svg{transform:rotate(180deg);}.toolbar-body{max-height:160px;overflow:hidden;transition:max-height 0.35s ease,opacity 0.25s ease;opacity:1;}.toolbar.collapsed .toolbar-body{max-height:0;opacity:0;}.controls-row1{max-width:720px;margin:0.3rem auto 0;padding:0 1rem;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;}.toggle-btn{font-family:'Source Sans Pro',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0;border-radius:999px;border:2px solid var(--border);background:var(--card-bg);color:var(--text-light);cursor:pointer;transition:all 0.2s;user-select:none;white-space:nowrap;width:5.5rem;text-align:center;}.toggle-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(184,67,58,0.06);}.toggle-btn:hover{border-color:var(--accent);}.controls-row2{max-width:720px;margin:0.35rem auto 0;padding:0 1rem;display:flex;align-items:center;justify-content:space-between;}.slider-group{display:flex;align-items:center;gap:0.4rem;font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);}.slider-group input[type=range]{width:70px;accent-color:var(--accent);cursor:pointer;}.lang-picker-wrap{position:relative;display:inline-flex;align-items:center;}.lang-picker{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.78rem;font-weight:600;padding:0.35rem 2rem 0.35rem 0.7rem;border-radius:999px;border:2px solid #2471a3;background:rgba(36,113,163,0.07);color:#2471a3;cursor:pointer;appearance:none;-webkit-appearance:none;outline:none;transition:all 0.2s;}.lang-picker:hover,.lang-picker:focus{border-color:#1a5276;box-shadow:0 0 0 3px rgba(36,113,163,0.12);}.lang-picker-arrow{position:absolute;right:0.65rem;top:50%;transform:translateY(-50%);pointer-events:none;color:#2471a3;}.legend{display:flex;justify-content:center;gap:0.9rem;padding:0.3rem 1rem 0;flex-wrap:wrap;}.legend-item{font-family:'Source Sans Pro',sans-serif;font-size:0.68rem;color:var(--text-light);display:flex;align-items:center;gap:0.25rem;}.legend-dot{width:8px;height:8px;border-radius:50%;}.legend-dot.vocab{background:var(--accent);opacity:0.4;}.legend-dot.grammar{background:var(--grammar-color);opacity:0.5;}.content{max-width:720px;margin:0 auto;padding:0.8rem 1.2rem 3rem;}.passage-card{background:var(--card-bg);border-radius:12px;padding:2rem 1.8rem;box-shadow:var(--shadow);border:1px solid var(--border);line-height:2.6;font-size:var(--font-size);}.sentence-block{margin-bottom:0.7rem;}.jp-sentence{display:inline;}ruby rt{font-size:0.5em;color:var(--hira-color);font-family:'Noto Sans JP',sans-serif;font-weight:400;}body.hide-furigana ruby rt{visibility:hidden;}.word{cursor:pointer;border-bottom:1.5px dotted rgba(184,67,58,0.3);transition:background 0.15s;border-radius:2px;}.word:hover{background:rgba(184,67,58,0.08);}.grammar{font-weight:700;color:var(--grammar-color);cursor:pointer;border-bottom:2px solid rgba(123,45,142,0.35);border-radius:2px;transition:background 0.15s;}.grammar:hover{background:rgba(123,45,142,0.08);}.hira-line{display:block;font-family:'Noto Sans JP',sans-serif;font-size:0.78em;color:var(--hira-color);margin-top:0.1rem;line-height:1.6;transition:opacity 0.25s,max-height 0.3s;}.hira-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}.trans-line{display:block;font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.78em;color:var(--trans-color);margin-top:0.05rem;line-height:1.6;font-style:italic;transition:opacity 0.25s,max-height 0.3s;}.trans-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}.para-break{height:0.6rem;}.popup-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;}.popup-overlay.show{display:block;}.popup{display:none;position:fixed;z-index:1000;background:var(--popup-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;box-shadow:0 12px 40px rgba(44,36,22,0.18);max-width:360px;min-width:200px;animation:popIn 0.18s ease-out;}.popup.show{display:block;}@keyframes popIn{from{opacity:0;transform:translateY(6px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}.popup .reading{font-family:'Noto Sans JP',sans-serif;font-size:1.05rem;color:var(--accent);font-weight:500;margin-bottom:0.15rem;}.popup .kanji-display{font-size:0.78rem;color:var(--text-light);margin-bottom:0.3rem;}.popup .meaning{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.88rem;color:var(--text);line-height:1.55;}.popup .grammar-tag{display:inline-block;font-family:'Source Sans Pro',sans-serif;font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#fff;background:var(--grammar-color);padding:0.12rem 0.5rem;border-radius:999px;margin-bottom:0.35rem;}.popup .grammar-explain{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.8rem;color:var(--text);line-height:1.55;margin-top:0.25rem;}@media(max-width:520px){.passage-card{padding:1.2rem 1rem;}.toolbar-header h1{font-size:1.15rem;}.popup{max-width:90vw;min-width:170px;}}
+</style>
+</head>
+<body>
+<div class="page-bg">
+<div class="toolbar" id="toolbar">
+  <div class="toolbar-header"><h1>最近の子ども</h1><span class="sub">第3課</span><button class="collapse-btn" onclick="toggleToolbar()" aria-label="Toggle controls"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button></div>
+  <div class="toolbar-body"><div class="controls-row2"><div class="lang-picker-wrap"><select class="lang-picker" id="langPicker" onchange="setLang(this.value)"></select><svg class="lang-picker-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="slider-group"><span>Aa</span><input type="range" min="14" max="28" value="18" id="fontSlider" oninput="setFontSize(this.value)"><span style="font-size:1.1em;">Aa</span></div></div><div class="controls-row1"><button class="toggle-btn active" id="btnFurigana" onclick="toggleFurigana()">振り仮名</button><button class="toggle-btn active" id="btnHira" onclick="toggleHira()">ひらがな</button><button class="toggle-btn active" id="btnTrans" onclick="toggleTrans()" data-ui="trans_btn"></button></div><div class="legend"><div class="legend-item"><span class="legend-dot vocab"></span> <span data-ui="leg_vocab"></span></div><div class="legend-item"><span class="legend-dot grammar"></span> <b><span data-ui="leg_grammar"></span></b></div></div></div>
+</div>
+<div class="content"><div class="passage-card" id="passage"></div></div>
+<div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div><div class="popup" id="popup"></div>
+</div>
+<script>
+const LANGS=['en','zh','ko','my','vi','ne'];const LANG_LABELS={en:'English',zh:'中文',ko:'한국어',my:'မြန်မာ',vi:'Tiếng Việt',ne:'नेपाली'};const UI={trans_btn:{en:'Translation',zh:'翻译',ko:'번역',my:'ဘာသာပြန်',vi:'Dịch',ne:'अनुवाद'},leg_vocab:{en:'Vocabulary',zh:'词汇',ko:'어휘',my:'ဝေါဟာရ',vi:'Từ vựng',ne:'शब्दावली'},leg_grammar:{en:'Grammar',zh:'语法',ko:'문법',my:'သဒ္ဒါ',vi:'Ngữ pháp',ne:'व्याकरण'},grammar_tag:{en:'Grammar Point',zh:'语法点',ko:'문법 포인트',my:'သဒ္ဒါအချက်',vi:'Điểm ngữ pháp',ne:'व्याकरण बिन्दु'}};let curLang='en';let showHira=true,showTrans=true,showFurigana=true;
+function m(en,zh,ko,my,vi,ne){return{en,zh,ko,my,vi,ne};}function W(s,r,mg){return{w:s,r:r,m:mg};}function G(s,r,mg,x){return{g:s,r:r,m:mg,x:x};}function P(t){return{p:t};}function L(d){return(typeof d==='object'&&d[curLang])?d[curLang]:(typeof d==='string'?d:(d.en||''));}
+
+const sentences=[
+// ---- S1 ----
+{
+  parts:[
+    W("最近","さいきん",m("recently","最近","최근","မကြာသေးမီ","gần đây","हालसालै")),
+    P("、"),
+    W("携帯電話","けいたいでんわ",m("mobile phone","手机","휴대전화","ဖုန်း","điện thoại di động","मोबाइल फोन")),
+    P("や"),
+    W("スマートホン","スマートホン",m("smartphone","智能手机","스마트폰","စမတ်ဖုန်း","điện thoại thông minh","स्मार्टफोन")),
+    P("（スマホ）で"),
+    W("話している","はなしている",m("are talking on","在打电话","통화하고 있는","ဖုန်းပြောနေသော","đang nói chuyện","कुरा गरिरहेको")),
+    W("子ども","こども",m("children","孩子","아이","ကလေး","trẻ em","बालबालिका")),
+    P("をよく"),
+    W("見ませんか","みませんか",m("don't you see?","没有看到吗？","보지 않습니까?","မမြင်ပါသလား","bạn không thấy sao?","देख्नुहुन्न?")),
+    P("。"),
+  ],
+  hira:"さいきん、 けいたいでんわ や スマートホン（スマホ）で はなしている こども を よく みませんか。",
+  trans:m("Recently, don't you often see children talking on mobile phones or smartphones?","最近，你不是经常看到孩子在用手机或智能手机打电话吗？","최근, 휴대전화나 스마트폰으로 통화하고 있는 아이들을 자주 보지 않습니까?","မကြာသေးမီ ဖုန်း သို့မဟုတ် စမတ်ဖုန်းဖြင့် ပြောနေသော ကလေးများကို မကြာခဏ မမြင်ပါသလား။","Gần đây, bạn không thường thấy trẻ em nói chuyện trên điện thoại di động hay smartphone sao?","हालसालै, मोबाइल फोन वा स्मार्टफोनमा कुरा गरिरहेका बालबालिकाहरू प्रायः देख्नुहुन्न?")
+},
+// ---- S2 ----
+{
+  parts:[
+    W("ある","ある",m("a certain","某个","어느","တစ်ခုသော","một","कुनै")),
+    W("調査","ちょうさ",m("survey","调查","조사","စစ်တမ်း","cuộc khảo sát","सर्वेक्षण")),
+    P("によると、"),
+    W("小学生","しょうがくせい",m("elementary students","小学生","초등학생","မူလတန်းကျောင်းသား","học sinh tiểu học","प्राथमिक विद्यार्थी")),
+    P("の36.6％、"),
+    W("中学生","ちゅうがくせい",m("middle school students","中学生","중학생","အလယ်တန်းကျောင်းသား","học sinh trung học cơ sở","माध्यमिक विद्यार्थी")),
+    P("の51.9％が"),
+    W("携帯電話","けいたいでんわ",m("mobile phone","手机","휴대전화","ဖုန်း","điện thoại","मोबाइल")),
+    P("・スマホを"),
+    W("持っている","もっている",m("have, own","持有","가지고 있다","ပိုင်ဆိုင်","có","राखेको")),
+    P("そうです。"),
+  ],
+  hira:"ある ちょうさ に よると、 しょうがくせい の 36.6％、 ちゅうがくせい の 51.9％ が けいたいでんわ・スマホ を もっている そうです。",
+  trans:m("According to a survey, 36.6% of elementary students and 51.9% of middle school students own a mobile phone or smartphone.","据某项调查，36.6%的小学生和51.9%的中学生拥有手机或智能手机。","어느 조사에 따르면, 초등학생의 36.6%, 중학생의 51.9%가 휴대전화·스마트폰을 가지고 있다고 합니다.","စစ်တမ်းတစ်ခုအရ မူလတန်းကျောင်းသား 36.6%၊ အလယ်တန်းကျောင်းသား 51.9% တို့ ဖုန်းပိုင်ဆိုင်ကြသည်။","Theo một cuộc khảo sát, 36.6% học sinh tiểu học và 51.9% học sinh trung học cơ sở sở hữu điện thoại.","एक सर्वेक्षण अनुसार, ३६.६% प्राथमिक र ५१.९% माध्यमिक विद्यार्थीले मोबाइल/स्मार्टफोन राखेका छन्।")
+},
+// ---- S3 ----
+{
+  parts:[
+    W("また","また",m("also","此外","또한","ထို့အပြင်","ngoài ra","साथै")),
+    P("、"),
+    W("自分","じぶん",m("one's own","自己","자기","ကိုယ်ပိုင်","của riêng","आफ्नो")),
+    W("専用","せんよう",m("personal, exclusive","专用","전용","သီးသန့်","riêng","व्यक्तिगत")),
+    P("の"),
+    W("パソコン","パソコン",m("PC, computer","电脑","PC","ကွန်ပျူတာ","máy tính","कम्प्युटर")),
+    P("や"),
+    W("タブレット","タブレット",m("tablet","平板","태블릿","တက်ဘလက်","máy tính bảng","ट्याब्लेट")),
+    P("を"),
+    W("持っている","もっている",m("have, own","持有","가지고 있는","ပိုင်ဆိုင်","có","राखेको")),
+    W("子ども","こども",m("children","孩子","아이","ကလေး","trẻ em","बालबालिका")),
+    P("も"),
+    W("多い","おおい",m("many, a lot","多","많다","များ","nhiều","धेरै")),
+    P("です。"),
+  ],
+  hira:"また、 じぶん せんよう の パソコン や タブレット を もっている こども も おおい です。",
+  trans:m("Also, many children have their own personal computer or tablet.","此外，拥有自己专用电脑或平板的孩子也很多。","또한, 자기 전용 PC나 태블릿을 가지고 있는 아이도 많습니다.","ထို့အပြင် ကိုယ်ပိုင် ကွန်ပျူတာ သို့မဟုတ် တက်ဘလက် ပိုင်ဆိုင်သော ကလေးလည်း များသည်။","Ngoài ra, nhiều trẻ em cũng có máy tính hoặc máy tính bảng riêng.","साथै, आफ्नो व्यक्तिगत कम्प्युटर वा ट्याब्लेट राखेका बालबालिकाहरू पनि धेरै छन्।")
+},
+// ---- S4 ----
+{
+  parts:[
+    W("町","まち",m("town","街上","거리","မြို့","trên phố","सहर")),
+    P("で"),
+    W("大人","おとな",m("adult","大人","어른","လူကြီး","người lớn","वयस्क")),
+    P("が"),
+    G("着るような","きるような",
+      m("the kind that adults wear","穿的那种","입는 것 같은","ဝတ်ဆင်သည့်မျိုး","loại mà người lớn mặc","लगाउने जस्तो"),
+      m("V普通形ようなN (L3) — Describes N by giving an example with a verb. Here: brand clothes OF THE KIND THAT adults wear — children are wearing clothes that you'd expect to see on grown-ups, not kids.",
+        "V普通形ようなN（第3课）— 用动词举例来描述名词。此处：大人穿的那种品牌服装——孩子们穿着你原以为只有大人才穿的衣服。",
+        "V普通形ようなN (3과) — 동사로 예를 들어 명사를 설명합니다. 여기서는 어른이 입는 것 같은 브랜드 옷 — 아이들이 어른용 옷을 입고 있습니다.",
+        "V普通形ようなN (သင်ခန်းစာ 3) — ကြိယာဖြင့် ဥပမာပေး၍ နာမ်ကို ဖော်ပြသည်။",
+        "V普通形ようなN (Bài 3) — Mô tả N bằng ví dụ với động từ. Ở đây: quần áo hàng hiệu LOẠI MÀ NGƯỜI LỚN mặc.",
+        "V普通形ようなN (पाठ 3) — क्रियाद्वारा उदाहरण दिएर नामलाई वर्णन गर्छ। यहाँ: वयस्कले लगाउने जस्ता ब्रान्ड कपडा।")),
+    W("ブランド","ブランド",m("brand","品牌","브랜드","အမှတ်တံဆိပ်","thương hiệu","ब्रान्ड")),
+    P("の"),
+    W("服","ふく",m("clothes","衣服","옷","အဝတ်","quần áo","कपडा")),
+    P("を"),
+    W("着ている","きている",m("are wearing","穿着","입고 있는","ဝတ်ဆင်နေသော","đang mặc","लगाइरहेको")),
+    W("子ども","こども",m("children","孩子","아이","ကလေး","trẻ em","बालबालिका")),
+    P("を"),
+    W("見かけた","みかけた",m("have seen, spotted","见过","본 적이 있는","တွေ့ဖူးသော","đã thấy","देखेको")),
+    P("こともあるでしょう。"),
+  ],
+  hira:"まち で おとな が きるような ブランド の ふく を きている こども を みかけた ことも あるでしょう。",
+  trans:m("You have probably also spotted children in town wearing brand-name clothes of the kind adults wear.","你大概也在街上见过穿着大人穿的那种品牌服装的孩子吧。","거리에서 어른이 입는 것 같은 브랜드 옷을 입고 있는 아이를 본 적도 있을 것입니다.","မြို့ထဲမှာ လူကြီးဝတ်မျိုး အမှတ်တံဆိပ် အဝတ်အစား ဝတ်ဆင်နေသော ကလေးများကို တွေ့ဖူးပေလိမ့်မည်။","Bạn có lẽ cũng đã thấy trẻ em mặc quần áo hàng hiệu loại người lớn mặc trên phố.","सहरमा वयस्कले लगाउने जस्ता ब्रान्ड कपडा लगाइरहेका बालबालिकाहरू देखेको पनि होला।")
+},
+// ---- S5 ----
+{
+  parts:[
+    W("これら","これら",m("these","这些","이것들","ဒါတွေ","những thứ này","यी सबै")),
+    P("はどれも"),
+    W("お金","おかね",m("money","钱","돈","ငွေ","tiền","पैसा")),
+    P("がかかる"),
+    W("物","もの",m("things","东西","물건","အရာ","đồ","सामान")),
+    G("ばかり","ばかり",
+      m("nothing but, only","尽是","뿐이다","ချည်းသာ","toàn là","मात्र"),
+      m("Nばかり (L3) — Emphasizes that ALL items belong to the same category, often with a negative or critical nuance. Here: every single one of these things costs money — it's ALL expensive stuff, without exception.",
+        "Nばかり（第3课）— 强调所有项目都属于同一类别，常带有负面或批评含义。此处：这些东西每一样都要花钱——全是贵东西，无一例外。",
+        "Nばかり (3과) — 모든 항목이 같은 범주에 속함을 강조하며, 종종 부정적 뉘앙스를 갖습니다. 여기서는 이것들 전부 돈이 드는 것뿐입니다.",
+        "Nばかり (သင်ခန်းစာ 3) — အရာအားလုံး အမျိုးအစားတစ်ခုတည်းဖြစ်ကြောင်း အလေးပေးသည်။",
+        "Nばかり (Bài 3) — Nhấn mạnh TẤT CẢ đều thuộc cùng loại, thường mang sắc thái phê phán. Ở đây: mọi thứ đều tốn tiền.",
+        "Nばかり (पाठ 3) — सबै कुरा एउटै श्रेणीमा पर्छन् भन्ने जोड दिन्छ। यहाँ: यी सबै पैसा लाग्ने सामान मात्र हुन्।")),
+    P("です。"),
+  ],
+  hira:"これら は どれも おかね が かかる もの ばかり です。",
+  trans:m("All of these are nothing but things that cost money.","这些全都是花钱的东西。","이것들은 전부 돈이 드는 것뿐입니다.","ဒါတွေ အားလုံး ငွေကုန်ကျသော အရာများ ချည်းသာဖြစ်သည်။","Tất cả đều toàn là những thứ tốn tiền.","यी सबै पैसा लाग्ने सामान मात्र हुन्।")
+},
+// ---- S6 ----
+{
+  parts:[
+    W("どうして","どうして",m("why","为什么","왜","ဘာကြောင့်","tại sao","किन")),
+    W("子どもたち","こどもたち",m("children","孩子们","아이들","ကလေးများ","bọn trẻ","बालबालिकाहरू")),
+    P("がこんなに"),
+    W("高価な","こうかな",m("expensive","昂贵的","고가의","ဈေးကြီးသော","đắt tiền","महँगो")),
+    W("物","もの",m("things","东西","물건","အရာ","đồ","सामान")),
+    P("を"),
+    W("持っている","もっている",m("have, own","持有","가지고 있는","ပိုင်ဆိုင်","có","राखेको")),
+    P("のでしょうか。"),
+  ],
+  hira:"どうして こどもたち が こんなに こうかな もの を もっている のでしょうか。",
+  trans:m("Why do children have such expensive things?","为什么孩子们拥有这么昂贵的东西呢？","왜 아이들이 이렇게 고가의 물건을 가지고 있는 것일까요?","ဘာကြောင့် ကလေးများ ဒီလောက် ဈေးကြီးသော အရာများ ပိုင်ဆိုင်နေကြသလဲ။","Tại sao bọn trẻ lại có những đồ đắt tiền đến vậy?","किन बालबालिकाहरूले यति महँगा सामान राखेका छन्?")
+},
+// ---- S7 ----
+{
+  parts:[
+    W("それ","それ",m("that","那","그것","ဒါ","đó","त्यो")),
+    P("は、"),
+    W("子ども","こども",m("child","孩子","아이","ကလေး","trẻ em","बालबालिका")),
+    P("が"),
+    G("欲しがる","ほしがる",
+      m("want (3rd person)","想要","원하다","လိုချင်","muốn","चाहने"),
+      m("欲しがる (L3) — Expresses a THIRD PERSON's desire. Japanese uses 欲しい for 'I want' but 欲しがる for 'he/she wants.' Here: when a CHILD wants something — we're describing the child's desire from an outside perspective.",
+        "欲しがる（第3课）— 表达第三人称的愿望。日语中"我想要"用欲しい，"他/她想要"用欲しがる。此处：当孩子想要某样东西时——从旁观者角度描述孩子的欲望。",
+        "欲しがる (3과) — 3인칭의 바람을 표현합니다. 일본어에서 '나는 원한다'는 欲しい, '그/그녀가 원한다'는 欲しがる입니다.",
+        "欲しがる (သင်ခန်းစာ 3) — တတိယပုဂ္ဂိုလ်၏ ဆန္ဒကို ဖော်ပြသည်။ ကလေး တစ်ခုခု လိုချင်သောအခါ ပြင်ပရှုထောင့်မှ ဖော်ပြသည်။",
+        "欲しがる (Bài 3) — Diễn đạt mong muốn của NGƯỜI THỨ BA. Ở đây: khi đứa trẻ MUỐN thứ gì đó.",
+        "欲しがる (पाठ 3) — तेस्रो व्यक्तिको इच्छा व्यक्त गर्छ। यहाँ: बालबालिकाले चाहेको सामान।")),
+    W("物","もの",m("things","东西","물건","အရာ","đồ","सामान")),
+    P("を"),
+    W("親","おや",m("parent","父母","부모","မိဘ","cha mẹ","अभिभावक")),
+    P("が"),
+    G("つい買ってしまう","ついかってしまう",
+      m("end up buying without thinking","不由自主地买了","무심코 사 버리다","မသိမသာ ဝယ်မိ","mua mất","अनायासै किनिहाल्ने"),
+      m("ついVテしまう (L3) — Expresses doing something unconsciously or against better judgment, often with regret. Here: parents CARELESSLY END UP buying what the child wants — they know they probably shouldn't, but they do it anyway.",
+        "ついVテしまう（第3课）— 表达无意中或违背更好判断做了某事，常带有后悔。此处：父母不由自主地就买了孩子想要的东西——明知不该买，还是买了。",
+        "ついVテしまう (3과) — 무의식적으로 또는 더 나은 판단에 반하여 행동함을 표현합니다. 부모가 무심코 아이가 원하는 것을 사 버립니다.",
+        "ついVテしまう (သင်ခန်းစာ 3) — မသိမသာ သို့မဟုတ် ပိုကောင်းသော ဆုံးဖြတ်ချက်ကို ဆန့်ကျင်၍ လုပ်မိခြင်းကို ဖော်ပြသည်။",
+        "ついVテしまう (Bài 3) — Diễn đạt việc làm vô thức hoặc trái với phán đoán tốt hơn. Cha mẹ CỨ MUA mất thứ con muốn.",
+        "ついVテしまう (पाठ 3) — अनजानमा वा राम्रो निर्णयविरुद्ध गरेको कुरा जनाउँछ। अभिभावकले अनायासै बालबालिकाले चाहेको किनिहाल्छन्।")),
+    G("からかもしれません","からかもしれません",
+      m("it may be because","也许是因为","~때문일지도 모릅니다","~ကြောင့် ဖြစ်နိုင်သည်","có thể vì","~को कारणले हुनसक्छ"),
+      m("～（の）は〜からだ (L3) — Gives the reason for what was stated before. Here combined with かもしれません (maybe): it MAY BE BECAUSE parents carelessly buy what children want. The からだ structure is softened with uncertainty.",
+        "～（の）は〜からだ（第3课）— 给出之前所述内容的原因。此处与かもしれません（也许）结合：也许是因为父母不由自主地买了孩子想要的东西。",
+        "～（の）は〜からだ (3과) — 앞서 말한 것의 이유를 제시합니다. かもしれません과 결합: 부모가 무심코 사 버리기 때문일지도 모릅니다.",
+        "～（の）は〜からだ (သင်ခန်းစာ 3) — ယခင်ပြောခဲ့သည့်အကြောင်းကို ရှင်းပြသည်။",
+        "～（の）は〜からだ (Bài 3) — Đưa ra lý do cho điều đã nói. Kết hợp với かもしれません: CÓ THỂ VÌ cha mẹ cứ mua thứ con muốn.",
+        "～（の）は〜からだ (पाठ 3) — अघि भनिएको कुराको कारण दिन्छ। यहाँ: अभिभावकले किनिहाल्ने कारणले हुनसक्छ।")),
+    P("。"),
+  ],
+  hira:"それ は、 こども が ほしがる もの を おや が つい かってしまう から かもしれません。",
+  trans:m("That may be because parents end up carelessly buying whatever their children want.","那也许是因为父母不由自主地就买了孩子想要的东西。","그것은 아이가 원하는 물건을 부모가 무심코 사 버리기 때문일지도 모릅니다.","ထိုအကြောင်းမှာ ကလေး လိုချင်သော အရာများကို မိဘများ မသိမသာ ဝယ်မိခြင်းကြောင့် ဖြစ်နိုင်သည်။","Đó có thể là vì cha mẹ cứ mua mất những gì con cái muốn.","त्यो बालबालिकाले चाहेको सामान अभिभावकले अनायासै किनिहालेर हुनसक्छ।")
+},
+// ---- S8 ----
+{
+  parts:[
+    W("子ども","こども",m("children","孩子","아이","ကလေး","trẻ em","बालबालिका")),
+    P("の"),
+    W("数","かず",m("number","数量","수","အရေအတွက်","số lượng","संख्या")),
+    P("が"),
+    W("年々","ねんねん",m("year by year","逐年","해마다","နှစ်စဉ်","hàng năm","वर्षेनि")),
+    W("減っていて","へっていて",m("is decreasing (and)","减少","줄어들고 있어서","လျော့ကျနေပြီး","đang giảm","घट्दै गएकाले")),
+    P("、"),
+    G("王様のような","おうさまのような",
+      m("like a king","像国王一样的","왕 같은","ဘုရင်ကဲ့သို့","như vua","राजा जस्तो"),
+      m("NのようなN (L3) — Likens one thing to another. Here: children who are treated LIKE KINGS — spoiled, given everything they want. The metaphor paints a vivid picture of overindulged children.",
+        "NのようなN（第3课）— 把一样事物比作另一样。此处：被当作国王一样对待的孩子——被宠坏的，什么都给的孩子。",
+        "NのようなN (3과) — 한 가지를 다른 것에 비유합니다. 여기서는 왕 같은 아이 — 원하는 것 다 받는 아이입니다.",
+        "NのようなN (သင်ခန်းစာ 3) — အရာတစ်ခုကို အခြားတစ်ခုနှင့် နှိုင်းယှဉ်သည်။ ဘုရင်ကဲ့သို့ ကလေးများ — အလိုဆန္ဒအတိုင်း ရရှိသော ကလေးများ။",
+        "NのようなN (Bài 3) — So sánh một thứ với thứ khác. Ở đây: trẻ em được đối xử NHƯ VUA — được chiều chuộng hết mực.",
+        "NのようなN (पाठ 3) — एउटा कुरालाई अर्कोसँग तुलना गर्छ। यहाँ: राजा जस्ता बालबालिका — जे चाहे त्यही पाउने।")),
+    W("子ども","こども",m("children","孩子","아이","ကလေး","trẻ em","बालबालिका")),
+    P("が"),
+    W("増えています","ふえています",m("is increasing","在增加","늘고 있습니다","တိုးပွားနေသည်","đang tăng","बढ्दैछ")),
+    P("。"),
+  ],
+  hira:"こども の かず が ねんねん へっていて、 おうさま の ような こども が ふえています。",
+  trans:m("The number of children is decreasing year by year, and children who are treated like kings are increasing.","孩子的数量逐年减少，而像国王一样的孩子却在增多。","아이의 수가 해마다 줄어들고 있어서, 왕 같은 아이가 늘고 있습니다.","ကလေးအရေအတွက် နှစ်စဉ် လျော့ကျနေပြီး ဘုရင်ကဲ့သို့ ကလေးများ တိုးပွားနေသည်။","Số lượng trẻ em giảm dần qua các năm, và những đứa trẻ được đối xử như vua đang tăng lên.","बालबालिकाको संख्या वर्षेनि घट्दै गएको छ, र राजा जस्ता बालबालिकाहरू बढ्दैछन्।")
+}
+];
+
+function rubyHTML(s,r){if(/^[\u3040-\u309F\u30A0-\u30FFー\uFF01-\uFF5E「」（）]+$/.test(s))return s;return`<ruby>${s}<rt>${r}</rt></ruby>`;}
+function renderPassage(){const el=document.getElementById('passage');el.innerHTML='';sentences.forEach((s,si)=>{const block=document.createElement('div');block.className='sentence-block';const jpLine=document.createElement('span');jpLine.className='jp-sentence';s.parts.forEach(part=>{if(part.w){const span=document.createElement('span');span.className='word';span.innerHTML=rubyHTML(part.w,part.r);span.onclick=e=>showPopup(e,{type:'word',reading:part.r,word:part.w,meaning:L(part.m)});jpLine.appendChild(span);}else if(part.g){const span=document.createElement('span');span.className='grammar';span.innerHTML=rubyHTML(part.g,part.r);span.onclick=e=>showPopup(e,{type:'grammar',reading:part.r,word:part.g,meaning:L(part.m),explain:L(part.x)});jpLine.appendChild(span);}else if(part.p!==undefined){const span=document.createElement('span');span.innerHTML=part.p;jpLine.appendChild(span);}});block.appendChild(jpLine);const hiraLine=document.createElement('span');hiraLine.className='hira-line'+(showHira?'':' hidden');hiraLine.textContent=s.hira;block.appendChild(hiraLine);const transLine=document.createElement('span');transLine.className='trans-line'+(showTrans?'':' hidden');transLine.textContent=L(s.trans);block.appendChild(transLine);el.appendChild(block);if(si===3){const br=document.createElement('div');br.className='para-break';el.appendChild(br);}});}
+function renderLangPicker(){const sel=document.getElementById('langPicker');sel.innerHTML='';LANGS.forEach(code=>{const opt=document.createElement('option');opt.value=code;opt.textContent=LANG_LABELS[code];if(code===curLang)opt.selected=true;sel.appendChild(opt);});}
+function setLang(code){curLang=code;updateAll();}function updateUI(){document.querySelectorAll('[data-ui]').forEach(el=>{const key=el.getAttribute('data-ui');if(UI[key])el.textContent=L(UI[key]);});}function updateAll(){renderLangPicker();updateUI();renderPassage();}
+function showPopup(e,data){e.stopPropagation();const popup=document.getElementById('popup');const overlay=document.getElementById('popupOverlay');let html='';if(data.type==='grammar'){html+=`<div class="grammar-tag">${L(UI.grammar_tag)}</div>`;html+=`<div class="reading">${data.reading}</div>`;if(data.word!==data.reading)html+=`<div class="kanji-display">${data.word}</div>`;html+=`<div class="meaning"><strong>${data.meaning}</strong></div>`;html+=`<div class="grammar-explain">${data.explain}</div>`;}else{html+=`<div class="reading">${data.reading}</div>`;if(data.word!==data.reading)html+=`<div class="kanji-display">${data.word}</div>`;html+=`<div class="meaning">${data.meaning}</div>`;}popup.innerHTML=html;popup.classList.add('show');overlay.classList.add('show');const rect=e.currentTarget.getBoundingClientRect();const popW=Math.min(340,window.innerWidth-20);let left=rect.left+rect.width/2-popW/2;if(left<10)left=10;if(left+popW>window.innerWidth-10)left=window.innerWidth-popW-10;let top=rect.bottom+10;popup.style.transform='none';if(top+220>window.innerHeight){top=rect.top-10;popup.style.transform='translateY(-100%)';}popup.style.left=left+'px';popup.style.top=top+'px';popup.style.width=popW+'px';}
+function closePopup(){document.getElementById('popup').classList.remove('show');document.getElementById('popupOverlay').classList.remove('show');}
+function toggleFurigana(){showFurigana=!showFurigana;document.body.classList.toggle('hide-furigana',!showFurigana);document.getElementById('btnFurigana').classList.toggle('active',showFurigana);}
+function toggleHira(){showHira=!showHira;document.getElementById('btnHira').classList.toggle('active',showHira);document.querySelectorAll('.hira-line').forEach(el=>el.classList.toggle('hidden',!showHira));}
+function toggleTrans(){showTrans=!showTrans;document.getElementById('btnTrans').classList.toggle('active',showTrans);document.querySelectorAll('.trans-line').forEach(el=>el.classList.toggle('hidden',!showTrans));}
+function setFontSize(val){document.documentElement.style.setProperty('--font-size',val+'px');}function toggleToolbar(){document.getElementById('toolbar').classList.toggle('collapsed');}
+window.addEventListener('scroll',()=>{document.getElementById('toolbar').classList.toggle('scrolled',window.scrollY>5);},{passive:true});
+updateAll();
+</script>
+</body>
+</html>

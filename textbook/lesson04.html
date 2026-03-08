@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第4課 – 日本のイメージ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Sans+Pro:wght@400;600&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+Myanmar:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;--accent:#b8433a;--grammar-color:#7b2d8e;--border:#e0d5c5;--popup-bg:#fffef9;--shadow:0 8px 32px rgba(44,36,22,0.12);--hira-color:#999;--trans-color:#5a7a5a;--font-size:18px;}*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Noto Serif JP',serif;background:var(--bg);color:var(--text);min-height:100vh;}.page-bg{background:linear-gradient(160deg,#f7f3ec,#efe8dc);min-height:100vh;padding-bottom:3rem;}.toolbar{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,#f7f3ec,rgba(247,243,236,0.97));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding-bottom:0.4rem;transition:box-shadow 0.3s;}.toolbar.scrolled{box-shadow:0 2px 16px rgba(44,36,22,0.1);}.toolbar-header{display:flex;align-items:center;justify-content:center;padding:0.7rem 1rem 0.15rem;position:relative;}.toolbar-header h1{font-size:1.3rem;font-weight:700;color:var(--accent);letter-spacing:0.06em;}.toolbar-header .sub{font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);margin-left:0.5rem;align-self:flex-end;padding-bottom:0.08rem;}.collapse-btn{position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:2px solid var(--border);border-radius:50%;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-light);transition:all 0.2s;}.collapse-btn:hover{border-color:var(--accent);color:var(--accent);}.collapse-btn svg{transition:transform 0.3s;}.toolbar.collapsed .collapse-btn svg{transform:rotate(180deg);}.toolbar-body{max-height:160px;overflow:hidden;transition:max-height 0.35s ease,opacity 0.25s ease;opacity:1;}.toolbar.collapsed .toolbar-body{max-height:0;opacity:0;}.controls-row1{max-width:720px;margin:0.3rem auto 0;padding:0 1rem;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;}.toggle-btn{font-family:'Source Sans Pro',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0;border-radius:999px;border:2px solid var(--border);background:var(--card-bg);color:var(--text-light);cursor:pointer;transition:all 0.2s;user-select:none;white-space:nowrap;width:5.5rem;text-align:center;}.toggle-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(184,67,58,0.06);}.toggle-btn:hover{border-color:var(--accent);}.controls-row2{max-width:720px;margin:0.35rem auto 0;padding:0 1rem;display:flex;align-items:center;justify-content:space-between;}.slider-group{display:flex;align-items:center;gap:0.4rem;font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);}.slider-group input[type=range]{width:70px;accent-color:var(--accent);cursor:pointer;}.lang-picker-wrap{position:relative;display:inline-flex;align-items:center;}.lang-picker{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.78rem;font-weight:600;padding:0.35rem 2rem 0.35rem 0.7rem;border-radius:999px;border:2px solid #2471a3;background:rgba(36,113,163,0.07);color:#2471a3;cursor:pointer;appearance:none;-webkit-appearance:none;outline:none;transition:all 0.2s;}.lang-picker:hover,.lang-picker:focus{border-color:#1a5276;box-shadow:0 0 0 3px rgba(36,113,163,0.12);}.lang-picker-arrow{position:absolute;right:0.65rem;top:50%;transform:translateY(-50%);pointer-events:none;color:#2471a3;}.legend{display:flex;justify-content:center;gap:0.9rem;padding:0.3rem 1rem 0;flex-wrap:wrap;}.legend-item{font-family:'Source Sans Pro',sans-serif;font-size:0.68rem;color:var(--text-light);display:flex;align-items:center;gap:0.25rem;}.legend-dot{width:8px;height:8px;border-radius:50%;}.legend-dot.vocab{background:var(--accent);opacity:0.4;}.legend-dot.grammar{background:var(--grammar-color);opacity:0.5;}.content{max-width:720px;margin:0 auto;padding:0.8rem 1.2rem 3rem;}.passage-card{background:var(--card-bg);border-radius:12px;padding:2rem 1.8rem;box-shadow:var(--shadow);border:1px solid var(--border);line-height:2.6;font-size:var(--font-size);}.sentence-block{margin-bottom:0.7rem;}.jp-sentence{display:inline;}ruby rt{font-size:0.5em;color:var(--hira-color);font-family:'Noto Sans JP',sans-serif;font-weight:400;}body.hide-furigana ruby rt{visibility:hidden;}.word{cursor:pointer;border-bottom:1.5px dotted rgba(184,67,58,0.3);transition:background 0.15s;border-radius:2px;}.word:hover{background:rgba(184,67,58,0.08);}.grammar{font-weight:700;color:var(--grammar-color);cursor:pointer;border-bottom:2px solid rgba(123,45,142,0.35);border-radius:2px;transition:background 0.15s;}.grammar:hover{background:rgba(123,45,142,0.08);}.hira-line{display:block;font-family:'Noto Sans JP',sans-serif;font-size:0.78em;color:var(--hira-color);margin-top:0.1rem;line-height:1.6;transition:opacity 0.25s,max-height 0.3s;}.hira-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}.trans-line{display:block;font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.78em;color:var(--trans-color);margin-top:0.05rem;line-height:1.6;font-style:italic;transition:opacity 0.25s,max-height 0.3s;}.trans-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}.para-break{height:0.6rem;}.popup-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;}.popup-overlay.show{display:block;}.popup{display:none;position:fixed;z-index:1000;background:var(--popup-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;box-shadow:0 12px 40px rgba(44,36,22,0.18);max-width:360px;min-width:200px;animation:popIn 0.18s ease-out;}.popup.show{display:block;}@keyframes popIn{from{opacity:0;transform:translateY(6px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}.popup .reading{font-family:'Noto Sans JP',sans-serif;font-size:1.05rem;color:var(--accent);font-weight:500;margin-bottom:0.15rem;}.popup .kanji-display{font-size:0.78rem;color:var(--text-light);margin-bottom:0.3rem;}.popup .meaning{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.88rem;color:var(--text);line-height:1.55;}.popup .grammar-tag{display:inline-block;font-family:'Source Sans Pro',sans-serif;font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#fff;background:var(--grammar-color);padding:0.12rem 0.5rem;border-radius:999px;margin-bottom:0.35rem;}.popup .grammar-explain{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.8rem;color:var(--text);line-height:1.55;margin-top:0.25rem;}@media(max-width:520px){.passage-card{padding:1.2rem 1rem;}.toolbar-header h1{font-size:1.15rem;}.popup{max-width:90vw;min-width:170px;}}
+</style>
+</head>
+<body>
+<div class="page-bg">
+<div class="toolbar" id="toolbar">
+  <div class="toolbar-header"><h1>日本のイメージ</h1><span class="sub">第4課</span><button class="collapse-btn" onclick="toggleToolbar()" aria-label="Toggle controls"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button></div>
+  <div class="toolbar-body"><div class="controls-row2"><div class="lang-picker-wrap"><select class="lang-picker" id="langPicker" onchange="setLang(this.value)"></select><svg class="lang-picker-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="slider-group"><span>Aa</span><input type="range" min="14" max="28" value="18" id="fontSlider" oninput="setFontSize(this.value)"><span style="font-size:1.1em;">Aa</span></div></div><div class="controls-row1"><button class="toggle-btn active" id="btnFurigana" onclick="toggleFurigana()">振り仮名</button><button class="toggle-btn active" id="btnHira" onclick="toggleHira()">ひらがな</button><button class="toggle-btn active" id="btnTrans" onclick="toggleTrans()" data-ui="trans_btn"></button></div><div class="legend"><div class="legend-item"><span class="legend-dot vocab"></span> <span data-ui="leg_vocab"></span></div><div class="legend-item"><span class="legend-dot grammar"></span> <b><span data-ui="leg_grammar"></span></b></div></div></div>
+</div>
+<div class="content"><div class="passage-card" id="passage"></div></div>
+<div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div><div class="popup" id="popup"></div>
+</div>
+<script>
+const LANGS=['en','zh','ko','my','vi','ne'];const LANG_LABELS={en:'English',zh:'中文',ko:'한국어',my:'မြန်မာ',vi:'Tiếng Việt',ne:'नेपाली'};const UI={trans_btn:{en:'Translation',zh:'翻译',ko:'번역',my:'ဘာသာပြန်',vi:'Dịch',ne:'अनुवाद'},leg_vocab:{en:'Vocabulary',zh:'词汇',ko:'어휘',my:'ဝေါဟာရ',vi:'Từ vựng',ne:'शब्दावली'},leg_grammar:{en:'Grammar',zh:'语法',ko:'문법',my:'သဒ္ဒါ',vi:'Ngữ pháp',ne:'व्याकरण'},grammar_tag:{en:'Grammar Point',zh:'语法点',ko:'문법 포인트',my:'သဒ္ဒါအချက်',vi:'Điểm ngữ pháp',ne:'व्याकरण बिन्दु'}};let curLang='en';let showHira=true,showTrans=true,showFurigana=true;
+function m(en,zh,ko,my,vi,ne){return{en,zh,ko,my,vi,ne};}function W(s,r,mg){return{w:s,r:r,m:mg};}function G(s,r,mg,x){return{g:s,r:r,m:mg,x:x};}function P(t){return{p:t};}function L(d){return(typeof d==='object'&&d[curLang])?d[curLang]:(typeof d==='string'?d:(d.en||''));}
+
+const sentences=[
+// ---- S1 ----
+{
+  parts:[
+    W("日本","にほん",m("Japan","日本","일본","ဂျပန်","Nhật Bản","जापान")),
+    P("を"),
+    W("訪れる","おとずれる",m("to visit","访问","방문하다","သွားရောက်လည်ပတ်","thăm","भ्रमण गर्ने")),
+    W("外国人","がいこくじん",m("foreign","外国","외국인","နိုင်ငံခြားသား","người nước ngoài","विदेशी")),
+    W("旅行者","りょこうしゃ",m("traveler","旅行者","여행자","ခရီးသွား","du khách","यात्री")),
+    P("の"),
+    W("数","かず",m("number","数量","수","အရေအတွက်","số lượng","संख्या")),
+    P("は"),
+    W("年々","ねんねん",m("year by year","逐年","해마다","နှစ်စဉ်","hàng năm","वर्षेनि")),
+    W("多く","おおく",m("more, many","多","많이","များစွာ","nhiều","धेरै")),
+    G("なってきました","なってきました",
+      m("has been becoming (change up to now)","变得越来越","~되어 왔습니다","ဖြစ်လာခဲ့သည်","đã trở nên","हुँदै आयो"),
+      m("Vテきた (L4) — Shows how a situation has changed from the past up to the present. Here: the number of foreign tourists has been GRADUALLY INCREASING over the years — a trend that started in the past and continues to now.",
+        "Vテきた（第4课）— 表示从过去到现在的变化。此处：外国游客的数量这些年一直在逐渐增加——这是一个从过去持续到现在的趋势。",
+        "Vテきた (4과) — 과거부터 현재까지의 변화를 나타냅니다. 여기서는 외국인 여행자의 수가 해마다 점차 늘어왔습니다.",
+        "Vテきた (သင်ခန်းစာ 4) — အတိတ်မှ ပစ္စုပ္ပန်အထိ အခြေအနေ ပြောင်းလဲလာပုံကို ဖော်ပြသည်။",
+        "Vテきた (Bài 4) — Cho thấy sự thay đổi từ quá khứ đến hiện tại. Ở đây: số du khách nước ngoài đã TĂNG DẦN qua các năm.",
+        "Vテきた (पाठ 4) — विगतदेखि वर्तमानसम्मको परिवर्तन देखाउँछ। यहाँ: विदेशी पर्यटकहरूको संख्या वर्षेनि बढ्दै आएको छ।")),
+    P("。"),
+  ],
+  hira:"にほん を おとずれる がいこくじん りょこうしゃ の かず は ねんねん おおく なってきました。",
+  trans:m("The number of foreign tourists visiting Japan has been increasing year by year.","访问日本的外国游客数量逐年增加。","일본을 방문하는 외국인 여행자의 수는 해마다 많아져 왔습니다.","ဂျပန်သို့ လာရောက်လည်ပတ်သော နိုင်ငံခြားသား ခရီးသွားအရေအတွက် နှစ်စဉ် များလာခဲ့သည်။","Số lượng du khách nước ngoài đến thăm Nhật Bản đã tăng dần qua các năm.","जापान भ्रमण गर्ने विदेशी यात्रीहरूको संख्या वर्षेनि बढ्दै आएको छ।")
+},
+// ---- S2 ----
+{
+  parts:[
+    W("実際","じっさい",m("actually","实际上","실제로","တကယ်တော့","thực tế","वास्तवमा")),
+    P("に、"),
+    W("来日した","らいにちした",m("came to Japan","来到日本","일본에 온","ဂျပန်သို့ ရောက်လာသော","đến Nhật","जापान आएको")),
+    W("海外","かいがい",m("overseas","海外","해외","နိုင်ငံရပ်ခြား","nước ngoài","विदेश")),
+    P("の"),
+    W("人","ひと",m("people","人","사람","လူ","người","मानिस")),
+    P("は"),
+    W("日本","にほん",m("Japan","日本","일본","ဂျပန်","Nhật Bản","जापान")),
+    P("に"),
+    W("どんな","どんな",m("what kind of","什么样的","어떤","ဘယ်လိုမျိုး","loại nào","कस्तो")),
+    W("イメージ","イメージ",m("image, impression","印象","이미지","ပုံရိပ်","ấn tượng","छवि")),
+    P("を"),
+    W("持った","もった",m("had, held","持有","가졌을","ရှိခဲ့","có","राखेको")),
+    P("のでしょうか。"),
+  ],
+  hira:"じっさい に、 らいにちした かいがい の ひと は にほん に どんな イメージ を もった のでしょうか。",
+  trans:m("What kind of impression did overseas visitors actually have of Japan?","实际上，来到日本的海外人士对日本有什么样的印象呢？","실제로, 일본에 온 해외 사람들은 일본에 어떤 이미지를 가졌을까요?","တကယ်တော့ ဂျပန်သို့ ရောက်လာသော နိုင်ငံခြားသားများသည် ဂျပန်ကို ဘယ်လိုမျိုး ပုံရိပ်ရခဲ့ပါသလဲ။","Thực tế, những người từ nước ngoài đến Nhật có ấn tượng gì về Nhật Bản?","वास्तवमा, जापान आएका विदेशीहरूले जापानको कस्तो छवि राखे?")
+},
+// ---- S3 ----
+{
+  parts:[
+    W("下","した",m("below","下面","아래","အောက်","dưới","तल")),
+    P("の"),
+    G("表で見ると","ひょうでみると",
+      m("looking at the table","从表中看","표에서 보면","ဇယားကြည့်ရင်","nhìn vào bảng","तालिका हेर्दा"),
+      m("表で見ると〜ことがわかる (L4) — A set phrase for presenting data. Here: LOOKING AT THE TABLE below, we can see that 'Japanese people are kind/polite' scores high. This pattern introduces evidence from visual data.",
+        "表で見ると〜ことがわかる（第4课）— 用于展示数据的固定表达。此处：从下面的表中可以看出，"日本人亲切/有礼貌"的分数很高。",
+        "표で見ると〜ことがわかる (4과) — 데이터를 제시하는 정형 표현. 여기서는 아래 표를 보면 '일본 사람들이 친절/예의 바르다'의 점수가 높다는 것을 알 수 있습니다.",
+        "表で見ると〜ことがわかる (သင်ခန်းစာ 4) — ဒေတာတင်ပြရန် အသုံးပြုသော ပုံသေစကားစု။",
+        "表で見ると〜ことがわかる (Bài 4) — Cụm cố định để trình bày dữ liệu. Ở đây: NHÌN VÀO BẢNG, ta thấy 'người Nhật tử tế/lịch sự' được điểm cao.",
+        "表で見ると〜ことがわかる (पाठ 4) — तथ्यांक प्रस्तुत गर्ने निश्चित वाक्यांश। यहाँ: तालिका हेर्दा 'जापानी मानिसहरू दयालु/शिष्ट छन्' को अंक उच्च छ भन्ने थाहा हुन्छ।")),
+    P("、「"),
+    W("日本","にほん",m("Japan","日本","일본","ဂျပန်","Nhật Bản","जापान")),
+    P("の"),
+    W("人々","ひとびと",m("people","人们","사람들","လူများ","mọi người","मानिसहरू")),
+    P("が"),
+    W("親切","しんせつ",m("kind","亲切","친절","ကြင်နာ","tử tế","दयालु")),
+    P("／"),
+    W("礼儀正しい","れいぎただしい",m("polite","有礼貌","예의 바른","ယဉ်ကျေး","lịch sự","शिष्ट")),
+    P("」の"),
+    W("ポイント","ポイント",m("points, score","分数","포인트","အမှတ်","điểm","अंक")),
+    P("が"),
+    W("高い","たかい",m("high","高","높은","မြင့်","cao","उच्च")),
+    W("ことがわかります","ことがわかります",m("we can see that","可以看出","것을 알 수 있습니다","သိနိုင်သည်","có thể thấy","थाहा हुन्छ")),
+    P("。"),
+  ],
+  hira:"した の ひょう で みると、「にほん の ひとびと が しんせつ ／ れいぎただしい」の ポイント が たかい ことがわかります。",
+  trans:m("Looking at the table below, we can see that 'Japanese people are kind/polite' scores high.","从下面的表中可以看出，"日本人亲切/有礼貌"的得分很高。","아래 표에서 보면, '일본 사람들이 친절/예의 바르다'의 포인트가 높다는 것을 알 수 있습니다.","အောက်ပါ ဇယားကို ကြည့်လျှင် \"ဂျပန်လူများ ကြင်နာ/ယဉ်ကျေး\" အမှတ် မြင့်ကြောင်း သိနိုင်သည်။","Nhìn vào bảng dưới đây, có thể thấy 'người Nhật tử tế/lịch sự' được điểm cao.","तलको तालिका हेर्दा, 'जापानी मानिसहरू दयालु/शिष्ट छन्' को अंक उच्च छ भन्ने थाहा हुन्छ।")
+},
+// ---- S4 ----
+{
+  parts:[
+    W("これ","これ",m("this","这","이것","ဒါ","điều này","यो")),
+    P("に"),
+    W("加えて","くわえて",m("in addition to","加上","더하여","ထပ်ပြီး","thêm vào đó","थपेर")),
+    P("、"),
+    W("第4位","だいよんい",m("4th place","第四位","제4위","စတုတ္ထ","hạng 4","चौथो स्थान")),
+    P("に「"),
+    W("サービス","サービス",m("service","服务","서비스","ဝန်ဆောင်မှု","dịch vụ","सेवा")),
+    P("がいい」"),
+    G("のような","のような",
+      m("such as","像~一样的","~와 같은","~ကဲ့သို့","như là","जस्तो"),
+      m("N1のようなN2 (L4) — Uses N1 as a representative example of N2. Here: things LIKE 'good service' — i.e. the spirit of hospitality. 'Good service' is given as a concrete example of the broader concept おもてなしの心.",
+        "N1のようなN2（第4课）— 用N1作为N2的代表性例子。此处：像"服务好"这样的——即"待客之心"。"服务好"是更广义概念"おもてなしの心"的具体例子。",
+        "N1のようなN2 (4과) — N1을 N2의 대표적 예로 사용합니다. 여기서는 '서비스가 좋다'와 같은 — 즉 오모테나시의 마음입니다.",
+        "N1のようなN2 (သင်ခန်းစာ 4) — N1 ကို N2 ၏ ကိုယ်စားပြု ဥပမာအဖြစ် အသုံးပြုသည်။",
+        "N1のようなN2 (Bài 4) — Dùng N1 làm ví dụ đại diện cho N2. Ở đây: NHƯ 'dịch vụ tốt' — tức là tinh thần hiếu khách.",
+        "N1のようなN2 (पाठ 4) — N1 लाई N2 को प्रतिनिधि उदाहरणको रूपमा प्रयोग गर्छ। यहाँ: 'सेवा राम्रो' जस्तो — अर्थात् आतिथ्यको भावना।")),
+    P("「"),
+    W("おもてなし","おもてなし",m("hospitality","待客之心","오모테나시","ဧည့်ဝတ်ကျေပွန်","lòng hiếu khách","आतिथ्य")),
+    P("の"),
+    W("心","こころ",m("spirit, heart","心","마음","စိတ်နှလုံး","tấm lòng","मन")),
+    P("」が"),
+    W("選ばれています","えらばれています",m("has been chosen","被选中了","선택되고 있습니다","ရွေးချယ်ခံထားသည်","được chọn","छानिएको छ")),
+    P("。"),
+  ],
+  hira:"これ に くわえて、 だいよんい に「サービス が いい」のような「おもてなし の こころ」が えらばれています。",
+  trans:m("In addition, in 4th place, the 'spirit of hospitality' — such as 'good service' — was chosen.","此外，第四位选择了像"服务好"这样的"待客之心"。","이에 더하여, 제4위에는 '서비스가 좋다'와 같은 '오모테나시의 마음'이 선택되고 있습니다.","ထို့အပြင် စတုတ္ထနေရာတွင် \"ဝန်ဆောင်မှုကောင်း\" ကဲ့သို့ \"ဧည့်ဝတ်ကျေပွန်မှု\" ရွေးချယ်ခံထားသည်။","Ngoài ra, ở vị trí thứ 4, 'tinh thần hiếu khách' như 'dịch vụ tốt' đã được chọn.","यसमा थपेर, चौथो स्थानमा 'सेवा राम्रो' जस्तो 'आतिथ्यको भावना' छानिएको छ।")
+},
+// ---- S5 ----
+{
+  parts:[
+    P("「"),
+    W("食事","しょくじ",m("meals, food","饮食","식사","အစားအစာ","bữa ăn","खाना")),
+    P("が"),
+    W("おいしい","おいしい",m("delicious","好吃","맛있다","အရသာရှိ","ngon","स्वादिलो")),
+    P("」は「"),
+    W("都市","とし",m("city","城市","도시","မြို့","đô thị","सहर")),
+    P("の"),
+    W("景観","けいかん",m("scenery, landscape","景观","경관","ရှုခင်း","cảnh quan","दृश्य")),
+    P("が"),
+    W("美しい","うつくしい",m("beautiful","美丽","아름다운","လှပ","đẹp","सुन्दर")),
+    P("」"),
+    G("ほどポイントは高くないです","ほどポイントはたかくないです",
+      m("is not as high in points as","没有~那么高","만큼 포인트가 높지 않습니다","လောက် အမှတ်မမြင့်","không cao bằng","जत्तिको अंक उच्च छैन"),
+      m("XはYほど〜ない (L4) — Compares X and Y, stating X does NOT reach the same level as Y. Here: 'delicious food' is NOT AS highly scored AS 'beautiful cityscapes.' Both are positive, but the food score is lower.",
+        "XはYほど〜ない（第4课）— 比较X和Y，表示X没有达到Y的水平。此处："食物好吃"的得分没有"城市景观美丽"那么高。",
+        "XはYほど〜ない (4과) — X와 Y를 비교하여 X가 Y만큼은 아님을 나타냅니다. '식사가 맛있다'는 '도시 경관이 아름답다'만큼 점수가 높지 않습니다.",
+        "XはYほど〜ない (သင်ခန်းစာ 4) — X နှင့် Y ကို နှိုင်းယှဉ်ပြီး X သည် Y အဆင့်သို့ မရောက်ကြောင်း ဖော်ပြသည်။",
+        "XはYほど〜ない (Bài 4) — So sánh X và Y, nói rằng X KHÔNG CAO BẰNG Y. Ở đây: 'đồ ăn ngon' không được điểm cao bằng 'cảnh đô thị đẹp.'",
+        "XはYほど〜ない (पाठ 4) — X र Y तुलना गर्छ, X ले Y को स्तर पुगेको छैन भन्छ। यहाँ: 'खाना स्वादिलो' को अंक 'सहरको दृश्य सुन्दर' जत्तिको उच्च छैन।")),
+    P("。"),
+  ],
+  hira:"「しょくじ が おいしい」は「とし の けいかん が うつくしい」ほど ポイント は たかくないです。",
+  trans:m("'Delicious food' is not as highly scored as 'beautiful city scenery.'","'饮食好吃'的得分没有'城市景观美丽'那么高。","'식사가 맛있다'는 '도시 경관이 아름답다'만큼 포인트가 높지 않습니다.","\"အစားအစာ အရသာရှိ\" သည် \"မြို့ရှုခင်း လှပ\" လောက် အမှတ်မမြင့်ပေ။","'Đồ ăn ngon' không được điểm cao bằng 'cảnh đô thị đẹp.'","'खाना स्वादिलो' को अंक 'सहरको दृश्य सुन्दर' जत्तिको उच्च छैन।")
+},
+// ---- S6 ----
+{
+  parts:[
+    W("しかし","しかし",m("however","但是","하지만","သို့သော်","tuy nhiên","तथापि")),
+    P("、「"),
+    W("日本","にほん",m("Japan","日本","일본","ဂျပန်","Nhật Bản","जापान")),
+    P("の"),
+    W("食事","しょくじ",m("food, cuisine","饮食","식사","အစားအစာ","ẩm thực","खाना")),
+    P("（"),
+    W("和食","わしょく",m("Japanese cuisine","和食","일식","ဂျပန်အစာ","ẩm thực Nhật","जापानी खाना")),
+    P("）」は2013"),
+    W("年","ねん",m("year","年","년","ခုနှစ်","năm","वर्ष")),
+    P("に"),
+    W("ユネスコ","ユネスコ",m("UNESCO","联合国教科文组织","유네스코","ယူနက်စ်ကို","UNESCO","युनेस्को")),
+    W("無形","むけい",m("intangible","非物质","무형","ရုပ်မဲ့","phi vật thể","अमूर्त")),
+    W("文化","ぶんか",m("cultural","文化","문화","ယဉ်ကျေးမှု","văn hóa","सांस्कृतिक")),
+    W("遺産","いさん",m("heritage","遗产","유산","အမွေအနှစ်","di sản","सम्पदा")),
+    P("に"),
+    W("登録された","とうろくされた",m("was registered","被登记了","등록되었기","မှတ်ပုံတင်ခံရ","được đăng ký","दर्ता भयो")),
+    P("ので、"),
+    W("今後","こんご",m("from now on","今后","앞으로","ယခုမှစ၍","từ nay","अबदेखि")),
+    W("ポイント","ポイント",m("points","分数","포인트","အမှတ်","điểm","अंक")),
+    P("は"),
+    W("高く","たかく",m("high","高","높게","မြင့်","cao","उच्च")),
+    G("なっていくでしょう","なっていくでしょう",
+      m("will probably become (future change)","会变得越来越","~되어 갈 것입니다","ဖြစ်လာပေလိမ့်မည်","sẽ trở nên","हुँदै जानेछ"),
+      m("Vテいく (L4) — Shows how a situation will change going forward from the present. Here: the food score will KEEP RISING in the future — the trend will continue into the years ahead. Contrasts with テきた (past→now).",
+        "Vテいく（第4课）— 表示从现在开始情况将如何变化。此处：美食的分数今后会继续上升——趋势将延续到未来。与テきた（过去→现在）相对。",
+        "Vテいく (4과) — 현재부터 앞으로 상황이 어떻게 변할지 나타냅니다. 식사 점수가 앞으로도 계속 높아져 갈 것입니다. テきた(과거→현재)와 대조됩니다.",
+        "Vテいく (သင်ခန်းစာ 4) — ပစ္စုပ္ပန်မှ အနာဂတ်သို့ အခြေအနေ ပြောင်းလဲမည့်ပုံကို ဖော်ပြသည်။",
+        "Vテいく (Bài 4) — Cho thấy tình hình sẽ thay đổi thế nào trong tương lai. Ở đây: điểm đồ ăn sẽ TIẾP TỤC TĂNG. Đối lập với テきた (quá khứ→hiện tại).",
+        "Vテいく (पाठ 4) — वर्तमानबाट अगाडि अवस्था कसरी परिवर्तन हुनेछ देखाउँछ। यहाँ: खानाको अंक भविष्यमा बढ्दै जानेछ।")),
+    P("。"),
+  ],
+  hira:"しかし、「にほん の しょくじ（わしょく）」は 2013ねん に ユネスコ むけい ぶんか いさん に とうろくされた ので、 こんご ポイント は たかく なっていくでしょう。",
+  trans:m("However, since 'Japanese food (washoku)' was registered as a UNESCO Intangible Cultural Heritage in 2013, its score will probably keep rising.","但是，由于"日本饮食（和食）"在2013年被登记为联合国教科文组织非物质文化遗产，今后得分可能会继续上升。","하지만 '일본 식사(와쇼쿠)'는 2013년에 유네스코 무형문화유산에 등록되었기 때문에, 앞으로 포인트가 높아져 갈 것입니다.","သို့သော် \"ဂျပန်အစာ (ဝါရှောကု)\" ကို 2013 ခုနှစ်တွင် ယူနက်စ်ကို ရုပ်မဲ့ ယဉ်ကျေးမှု အမွေအနှစ်အဖြစ် မှတ်ပုံတင်ခဲ့သောကြောင့် အမှတ် ဆက်လက်မြင့်တက်သွားပေလိမ့်မည်။","Tuy nhiên, vì 'ẩm thực Nhật Bản (washoku)' đã được đăng ký là Di sản Văn hóa Phi vật thể UNESCO năm 2013, điểm số có lẽ sẽ tiếp tục tăng.","तथापि, 'जापानी खाना (वासोकु)' सन् 2013 मा युनेस्को अमूर्त सांस्कृतिक सम्पदामा दर्ता भएकाले, अबदेखि अंक बढ्दै जानेछ होला।")
+}
+];
+
+function rubyHTML(s,r){if(/^[\u3040-\u309F\u30A0-\u30FFー\uFF01-\uFF5E「」（）]+$/.test(s))return s;return`<ruby>${s}<rt>${r}</rt></ruby>`;}
+function renderPassage(){const el=document.getElementById('passage');el.innerHTML='';sentences.forEach((s,si)=>{const block=document.createElement('div');block.className='sentence-block';const jpLine=document.createElement('span');jpLine.className='jp-sentence';s.parts.forEach(part=>{if(part.w){const span=document.createElement('span');span.className='word';span.innerHTML=rubyHTML(part.w,part.r);span.onclick=e=>showPopup(e,{type:'word',reading:part.r,word:part.w,meaning:L(part.m)});jpLine.appendChild(span);}else if(part.g){const span=document.createElement('span');span.className='grammar';span.innerHTML=rubyHTML(part.g,part.r);span.onclick=e=>showPopup(e,{type:'grammar',reading:part.r,word:part.g,meaning:L(part.m),explain:L(part.x)});jpLine.appendChild(span);}else if(part.p!==undefined){const span=document.createElement('span');span.innerHTML=part.p;jpLine.appendChild(span);}});block.appendChild(jpLine);const hiraLine=document.createElement('span');hiraLine.className='hira-line'+(showHira?'':' hidden');hiraLine.textContent=s.hira;block.appendChild(hiraLine);const transLine=document.createElement('span');transLine.className='trans-line'+(showTrans?'':' hidden');transLine.textContent=L(s.trans);block.appendChild(transLine);el.appendChild(block);if(si===2){const br=document.createElement('div');br.className='para-break';el.appendChild(br);}});}
+function renderLangPicker(){const sel=document.getElementById('langPicker');sel.innerHTML='';LANGS.forEach(code=>{const opt=document.createElement('option');opt.value=code;opt.textContent=LANG_LABELS[code];if(code===curLang)opt.selected=true;sel.appendChild(opt);});}
+function setLang(code){curLang=code;updateAll();}function updateUI(){document.querySelectorAll('[data-ui]').forEach(el=>{const key=el.getAttribute('data-ui');if(UI[key])el.textContent=L(UI[key]);});}function updateAll(){renderLangPicker();updateUI();renderPassage();}
+function showPopup(e,data){e.stopPropagation();const popup=document.getElementById('popup');const overlay=document.getElementById('popupOverlay');let html='';if(data.type==='grammar'){html+=`<div class="grammar-tag">${L(UI.grammar_tag)}</div>`;html+=`<div class="reading">${data.reading}</div>`;if(data.word!==data.reading)html+=`<div class="kanji-display">${data.word}</div>`;html+=`<div class="meaning"><strong>${data.meaning}</strong></div>`;html+=`<div class="grammar-explain">${data.explain}</div>`;}else{html+=`<div class="reading">${data.reading}</div>`;if(data.word!==data.reading)html+=`<div class="kanji-display">${data.word}</div>`;html+=`<div class="meaning">${data.meaning}</div>`;}popup.innerHTML=html;popup.classList.add('show');overlay.classList.add('show');const rect=e.currentTarget.getBoundingClientRect();const popW=Math.min(340,window.innerWidth-20);let left=rect.left+rect.width/2-popW/2;if(left<10)left=10;if(left+popW>window.innerWidth-10)left=window.innerWidth-popW-10;let top=rect.bottom+10;popup.style.transform='none';if(top+220>window.innerHeight){top=rect.top-10;popup.style.transform='translateY(-100%)';}popup.style.left=left+'px';popup.style.top=top+'px';popup.style.width=popW+'px';}
+function closePopup(){document.getElementById('popup').classList.remove('show');document.getElementById('popupOverlay').classList.remove('show');}
+function toggleFurigana(){showFurigana=!showFurigana;document.body.classList.toggle('hide-furigana',!showFurigana);document.getElementById('btnFurigana').classList.toggle('active',showFurigana);}
+function toggleHira(){showHira=!showHira;document.getElementById('btnHira').classList.toggle('active',showHira);document.querySelectorAll('.hira-line').forEach(el=>el.classList.toggle('hidden',!showHira));}
+function toggleTrans(){showTrans=!showTrans;document.getElementById('btnTrans').classList.toggle('active',showTrans);document.querySelectorAll('.trans-line').forEach(el=>el.classList.toggle('hidden',!showTrans));}
+function setFontSize(val){document.documentElement.style.setProperty('--font-size',val+'px');}function toggleToolbar(){document.getElementById('toolbar').classList.toggle('collapsed');}
+window.addEventListener('scroll',()=>{document.getElementById('toolbar').classList.toggle('scrolled',window.scrollY>5);},{passive:true});
+updateAll();
+</script>
+</body>
+</html>
