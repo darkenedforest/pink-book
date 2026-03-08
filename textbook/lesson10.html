@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第10課 – ことばの使い方</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Sans+Pro:wght@400;600&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+Myanmar:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;
+  --accent:#b8433a;--grammar-color:#7b2d8e;--border:#e0d5c5;
+  --popup-bg:#fffef9;--shadow:0 8px 32px rgba(44,36,22,0.12);
+  --hira-color:#999;--trans-color:#5a7a5a;--font-size:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Serif JP',serif;background:var(--bg);color:var(--text);min-height:100vh;}
+.page-bg{background:linear-gradient(160deg,#f7f3ec,#efe8dc);min-height:100vh;padding-bottom:3rem;}
+
+/* Sticky toolbar */
+.toolbar{
+  position:sticky;top:0;z-index:100;
+  background:linear-gradient(180deg,#f7f3ec,rgba(247,243,236,0.97));
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);padding-bottom:0.4rem;
+  transition:box-shadow 0.3s;
+}
+.toolbar.scrolled{box-shadow:0 2px 16px rgba(44,36,22,0.1);}
+.toolbar-header{
+  display:flex;align-items:center;justify-content:center;
+  padding:0.7rem 1rem 0.15rem;position:relative;
+}
+.toolbar-header h1{font-size:1.3rem;font-weight:700;color:var(--accent);letter-spacing:0.06em;}
+.toolbar-header .sub{
+  font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);
+  margin-left:0.5rem;align-self:flex-end;padding-bottom:0.08rem;
+}
+.collapse-btn{
+  position:absolute;right:1rem;top:50%;transform:translateY(-50%);
+  background:none;border:2px solid var(--border);border-radius:50%;
+  width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  color:var(--text-light);transition:all 0.2s;
+}
+.collapse-btn:hover{border-color:var(--accent);color:var(--accent);}
+.collapse-btn svg{transition:transform 0.3s;}
+.toolbar.collapsed .collapse-btn svg{transform:rotate(180deg);}
+.toolbar-body{max-height:160px;overflow:hidden;transition:max-height 0.35s ease,opacity 0.25s ease;opacity:1;}
+.toolbar.collapsed .toolbar-body{max-height:0;opacity:0;}
+
+/* Controls row 1: toggle buttons */
+.controls-row1{
+  max-width:720px;margin:0.3rem auto 0;padding:0 1rem;
+  display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;
+}
+.toggle-btn{
+  font-family:'Source Sans Pro',sans-serif;font-size:0.75rem;font-weight:600;
+  padding:0.35rem 0;border-radius:999px;border:2px solid var(--border);
+  background:var(--card-bg);color:var(--text-light);cursor:pointer;
+  transition:all 0.2s;user-select:none;white-space:nowrap;
+  width:5.5rem;text-align:center;
+}
+.toggle-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(184,67,58,0.06);}
+.toggle-btn:hover{border-color:var(--accent);}
+
+/* Controls row 2: lang picker left, slider right */
+.controls-row2{
+  max-width:720px;margin:0.35rem auto 0;padding:0 1rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.slider-group{
+  display:flex;align-items:center;gap:0.4rem;
+  font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);
+}
+.slider-group input[type=range]{width:70px;accent-color:var(--accent);cursor:pointer;}
+
+/* Language picker */
+.lang-picker-wrap{
+  position:relative;display:inline-flex;align-items:center;
+}
+.lang-picker{
+  font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;
+  font-size:0.78rem;font-weight:600;
+  padding:0.35rem 2rem 0.35rem 0.7rem;
+  border-radius:999px;border:2px solid #2471a3;
+  background:rgba(36,113,163,0.07);color:#2471a3;
+  cursor:pointer;appearance:none;-webkit-appearance:none;
+  outline:none;transition:all 0.2s;
+}
+.lang-picker:hover,.lang-picker:focus{border-color:#1a5276;box-shadow:0 0 0 3px rgba(36,113,163,0.12);}
+.lang-picker-arrow{
+  position:absolute;right:0.65rem;top:50%;transform:translateY(-50%);
+  pointer-events:none;color:#2471a3;
+}
+
+/* Legend */
+.legend{
+  display:flex;justify-content:center;gap:0.9rem;padding:0.3rem 1rem 0;flex-wrap:wrap;
+}
+.legend-item{
+  font-family:'Source Sans Pro',sans-serif;font-size:0.68rem;color:var(--text-light);
+  display:flex;align-items:center;gap:0.25rem;
+}
+.legend-dot{width:8px;height:8px;border-radius:50%;}
+.legend-dot.vocab{background:var(--accent);opacity:0.4;}
+.legend-dot.grammar{background:var(--grammar-color);opacity:0.5;}
+
+/* Content */
+.content{max-width:720px;margin:0 auto;padding:0.8rem 1.2rem 3rem;}
+.passage-card{
+  background:var(--card-bg);border-radius:12px;padding:2rem 1.8rem;
+  box-shadow:var(--shadow);border:1px solid var(--border);
+  line-height:2.6;font-size:var(--font-size);
+}
+.sentence-block{margin-bottom:0.7rem;}
+.jp-sentence{display:inline;}
+ruby rt{font-size:0.5em;color:var(--hira-color);font-family:'Noto Sans JP',sans-serif;font-weight:400;}
+body.hide-furigana ruby rt{visibility:hidden;}
+.word{cursor:pointer;border-bottom:1.5px dotted rgba(184,67,58,0.3);transition:background 0.15s;border-radius:2px;}
+.word:hover{background:rgba(184,67,58,0.08);}
+.grammar{
+  font-weight:700;color:var(--grammar-color);cursor:pointer;
+  border-bottom:2px solid rgba(123,45,142,0.35);border-radius:2px;transition:background 0.15s;
+}
+.grammar:hover{background:rgba(123,45,142,0.08);}
+.hira-line{
+  display:block;font-family:'Noto Sans JP',sans-serif;font-size:0.78em;
+  color:var(--hira-color);margin-top:0.1rem;line-height:1.6;
+  transition:opacity 0.25s,max-height 0.3s;
+}
+.hira-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}
+.trans-line{
+  display:block;font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;
+  font-size:0.78em;color:var(--trans-color);margin-top:0.05rem;line-height:1.6;font-style:italic;
+  transition:opacity 0.25s,max-height 0.3s;
+}
+.trans-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}
+.para-break{height:0.6rem;}
+
+/* Popup */
+.popup-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;}
+.popup-overlay.show{display:block;}
+.popup{
+  display:none;position:fixed;z-index:1000;background:var(--popup-bg);
+  border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;
+  box-shadow:0 12px 40px rgba(44,36,22,0.18);max-width:360px;min-width:200px;
+  animation:popIn 0.18s ease-out;
+}
+.popup.show{display:block;}
+@keyframes popIn{from{opacity:0;transform:translateY(6px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+.popup .reading{font-family:'Noto Sans JP',sans-serif;font-size:1.05rem;color:var(--accent);font-weight:500;margin-bottom:0.15rem;}
+.popup .kanji-display{font-size:0.78rem;color:var(--text-light);margin-bottom:0.3rem;}
+.popup .meaning{
+  font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;
+  font-size:0.88rem;color:var(--text);line-height:1.55;
+}
+.popup .grammar-tag{
+  display:inline-block;font-family:'Source Sans Pro',sans-serif;font-size:0.62rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.06em;color:#fff;background:var(--grammar-color);
+  padding:0.12rem 0.5rem;border-radius:999px;margin-bottom:0.35rem;
+}
+.popup .grammar-explain{
+  font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;
+  font-size:0.8rem;color:var(--text);line-height:1.55;margin-top:0.25rem;
+}
+@media(max-width:520px){
+  .passage-card{padding:1.2rem 1rem;}
+  .toolbar-header h1{font-size:1.15rem;}
+  .popup{max-width:90vw;min-width:170px;}
+}
+</style>
+</head>
+<body>
+<div class="page-bg">
+
+<div class="toolbar" id="toolbar">
+  <div class="toolbar-header">
+    <h1>ことばの使い方</h1>
+    <span class="sub">第10課</span>
+    <button class="collapse-btn" onclick="toggleToolbar()" aria-label="Toggle controls">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </div>
+  <div class="toolbar-body">
+    <div class="controls-row2">
+      <div class="lang-picker-wrap">
+        <select class="lang-picker" id="langPicker" onchange="setLang(this.value)"></select>
+        <svg class="lang-picker-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="slider-group">
+        <span class="slider-label">Aa</span>
+        <input type="range" min="14" max="28" value="18" id="fontSlider" oninput="setFontSize(this.value)">
+        <span class="slider-label" style="font-size:1.1em;">Aa</span>
+      </div>
+    </div>
+    <div class="controls-row1">
+      <button class="toggle-btn active" id="btnFurigana" onclick="toggleFurigana()">振り仮名</button>
+      <button class="toggle-btn active" id="btnHira" onclick="toggleHira()">ひらがな</button>
+      <button class="toggle-btn active" id="btnTrans" onclick="toggleTrans()" data-ui="trans_btn"></button>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><span class="legend-dot vocab"></span> <span data-ui="leg_vocab"></span></div>
+      <div class="legend-item"><span class="legend-dot grammar"></span> <b><span data-ui="leg_grammar"></span></b></div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="passage-card" id="passage"></div>
+</div>
+
+<div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div>
+<div class="popup" id="popup"></div>
+</div>
+
+<script>
+// ========== LANGUAGES ==========
+const LANGS = ['en','zh','ko','my','vi','ne'];
+const LANG_LABELS = {en:'English',zh:'中文',ko:'한국어',my:'မြန်မာ',vi:'Tiếng Việt',ne:'नेपाली'};
+
+// UI strings per language
+const UI = {
+  trans_btn:   {en:'Translation',zh:'翻译',ko:'번역',my:'ဘာသာပြန်',vi:'Dịch',ne:'अनुवाद'},
+  leg_vocab:   {en:'Vocabulary',zh:'词汇',ko:'어휘',my:'ဝေါဟာရ',vi:'Từ vựng',ne:'शब्दावली'},
+  leg_grammar: {en:'Grammar',zh:'语法',ko:'문법',my:'သဒ္ဒါ',vi:'Ngữ pháp',ne:'व्याकरण'},
+  grammar_tag: {en:'Grammar Point',zh:'语法点',ko:'문법 포인트',my:'သဒ္ဒါအချက်',vi:'Điểm ngữ pháp',ne:'व्याकरण बिन्दु'},
+};
+
+let curLang = 'en';
+let showHira = true, showTrans = true, showFurigana = true;
+
+// ========== MULTI-LANG HELPER ==========
+function m(en,zh,ko,my,vi,ne){ return {en,zh,ko,my,vi,ne}; }
+function W(surface,reading,meaning){ return {w:surface,r:reading,m:meaning}; }
+function G(surface,reading,meaning,explain){ return {g:surface,r:reading,m:meaning,x:explain}; }
+function P(text){ return {p:text}; }
+function L(data){ return (typeof data==='object' && data[curLang]) ? data[curLang] : (typeof data==='string' ? data : (data.en||'')); }
+
+// ========== SENTENCE DATA ==========
+const sentences = [
+// ---- S1 ----
+{
+  parts:[
+    W("最近","さいきん", m("recently","最近","최근","မကြာသေးမီက","gần đây","हालसालै")),
+    P("の"),
+    W("ある","ある", m("a certain","某个","어떤","တစ်ခု","một","एउटा")),
+    W("調査","ちょうさ", m("survey, investigation","调查","조사","စစ်တမ်း","điều tra","सर्वेक्षण")),
+    G("によって","によって",
+      m("by, through","通过，根据","~에 의해","~ဖြင့်","bằng, thông qua","~द्वारा"),
+      m("N＋によって (L10) — Refers to a means or method. Usually used in writing. Here: the survey is the means by which the finding was made.",
+        "N＋によって（第10课）— 表示手段或方法。通常用于书面语。此处：通过调查得出了结论。",
+        "N＋によって (10과) — 수단이나 방법을 나타냅니다. 주로 문어체에서 사용됩니다. 여기서는 '조사에 의해' 발견되었다는 의미.",
+        "N＋によって (သင်ခန်းစာ 10) — နည်းလမ်း သို့မဟုတ် ကိရိယာကို ဖော်ပြသည်။ စာပေတွင် အများဆုံးသုံးသည်။",
+        "N＋によって (Bài 10) — Chỉ phương tiện hoặc phương pháp. Thường dùng trong văn viết. Ở đây: thông qua cuộc điều tra.",
+        "N＋によって (पाठ 10) — माध्यम वा विधि जनाउँछ। सामान्यतया लिखित भाषामा प्रयोग गरिन्छ।")),
+    P("、「"),
+    W("ことば","ことば", m("words, language","词语，语言","말, 언어","စကားလုံး","từ ngữ","शब्द")),
+    P("の"),
+    W("使い方","つかいかた", m("way of using","使用方法","사용법","သုံးစွဲပုံ","cách sử dụng","प्रयोग गर्ने तरिका")),
+    P("が"),
+    W("乱れている","みだれている", m("is in disorder, is corrupted","混乱着，不规范","어지러워져 있다","ရှုပ်ထွေးနေသည်","đang bị rối loạn","बिग्रिएको छ")),
+    P("」と"),
+    W("感じている","かんじている", m("feel, sense","感觉到","느끼고 있다","ခံစားနေသည်","đang cảm thấy","महसुस गरिरहेको")),
+    W("日本人","にほんじん", m("Japanese person","日本人","일본인","ဂျပန်လူမျိုး","người Nhật","जापानी व्यक्ति")),
+    P("が"),
+    W("多い","おおい", m("many, numerous","多","많다","များသော","nhiều","धेरै")),
+    W("こと","こと", m("fact, thing","事情","것","အရာ","việc","कुरा")),
+    P("が"),
+    W("わかった","わかった", m("was found, became clear","明白了，发现了","알게 되었다","သိရှိလာသည်","đã rõ","थाहा भयो")),
+    P("。"),
+  ],
+  hira:"さいきん の ある ちょうさ によって、「ことば の つかいかた が みだれている」 と かんじている にほんじん が おおい こと が わかった。",
+  trans: m(
+    "Through a recent survey, it was found that many Japanese people feel that the way words are used is in disorder.",
+    "通过最近的一项调查，发现许多日本人感到词语的使用方式混乱。",
+    "최근의 어떤 조사에 의해, '말의 사용법이 어지러워져 있다'고 느끼는 일본인이 많다는 것을 알게 되었다.",
+    "မကြာသေးမီက စစ်တမ်းတစ်ခုဖြင့် 'စကားလုံးများ သုံးစွဲပုံ ရှုပ်ထွေးနေသည်' ဟု ခံစားနေသော ဂျပန်လူမျိုးများ များပြားကြောင်း သိရှိလာသည်။",
+    "Qua một cuộc điều tra gần đây, người ta thấy rằng nhiều người Nhật cảm thấy cách sử dụng từ ngữ đang bị rối loạn.",
+    "हालसालैको एउटा सर्वेक्षणद्वारा, 'शब्दको प्रयोग विधि बिग्रिएको छ' भनी महसुस गर्ने जापानी व्यक्तिहरू धेरै रहेको कुरा थाहा भयो।"
+  )
+},
+// ---- S2 ----
+{
+  parts:[
+    W("以前","いぜん", m("before, previously","以前","이전","ယခင်","trước đây","पहिले")),
+    P("から"),
+    W("特に","とくに", m("especially, particularly","特别","특히","အထူးသဖြင့်","đặc biệt","विशेष गरी")),
+    W("敬語","けいご", m("honorific expression","敬语","경어","ရိုသေစကား","kính ngữ","आदरार्थी अभिव्यक्ति")),
+    P("の"),
+    W("まちがい","まちがい", m("mistake, error","错误","실수","အမှား","lỗi","गल्ती")),
+    P("は"),
+    W("多い","おおい", m("many, numerous","多","많다","များသော","nhiều","धेरै")),
+    P("。"),
+  ],
+  hira:"いぜん から とくに けいご の まちがい は おおい。",
+  trans: m(
+    "Mistakes in honorific language have been particularly common for a long time.",
+    "以前起，敬语的错误就特别多。",
+    "이전부터 특히 경어의 실수가 많다.",
+    "ယခင်ကတည်းက အထူးသဖြင့် ရိုသေစကား အမှားများ များပြားသည်။",
+    "Từ trước đến nay, lỗi trong kính ngữ đặc biệt nhiều.",
+    "पहिलेदेखि नै विशेष गरी आदरार्थी भाषाका गल्तीहरू धेरै छन्।"
+  )
+},
+// ---- S3 ----
+{
+  parts:[
+    W("例えば","たとえば", m("for example","例如","예를 들어","ဥပမာ","ví dụ","उदाहरणका लागि")),
+    P("、"),
+    W("食事","しょくじ", m("meal","用餐","식사","ထမင်းစားခြင်း","bữa ăn","खाना")),
+    P("の"),
+    W("場","ば", m("situation, occasion","场合","자리","အခြေအနေ","trường hợp","अवस्था")),
+    P("で「"),
+    W("皆さん","みなさん", m("everyone","大家","여러분","အားလုံး","mọi người","सबैजना")),
+    P("、"),
+    W("いっしょに","いっしょに", m("together","一起","함께","အတူတူ","cùng nhau","सँगै")),
+    G("いただきましょう","いただきましょう",
+      m("let's eat (correct humble form)","我们吃吧（正确的谦让语）","먹읍시다 (올바른 겸양어)","စားကြပါစို့ (မှန်ကန်သော နှိမ့်ချစကား)","chúng ta ăn đi (khiêm nhường đúng)","खाऔँ (सही विनम्र रूप)"),
+      m("敬語 (L10) — いただく is the humble (謙譲) form of 食べる/もらう. Used for one's own actions. This is CORRECT: the speaker includes themselves, so humble form is appropriate.",
+        "敬语（第10课）— いただく是食べる/もらう的谦让语。用于自己的行为。这是正确的用法——说话人包含自己。",
+        "경어 (10과) — いただく는 食べる/もらう의 겸양어입니다. 자신의 행동에 사용합니다. 이것이 올바른 용법입니다.",
+        "ကျေးဇူးစကား (သင်ခန်းစာ 10) — いただく သည် 食べる/もらう ၏ နှိမ့်ချပုံစံဖြစ်သည်။ မိမိကိုယ်တိုင်၏ လုပ်ဆောင်ချက်အတွက် သုံးသည်။ ဒါ မှန်ကန်သည်။",
+        "Kính ngữ (Bài 10) — いただく là thể khiêm nhường của 食べる/もらう. Dùng cho hành động của bản thân. Đây là cách dùng ĐÚNG.",
+        "केइगो (पाठ 10) — いただく भनेको 食べる/もらう को विनम्र (謙譲) रूप हो। आफ्नो कार्यको लागि प्रयोग गरिन्छ। यो सही प्रयोग हो।")),
+    P("」と"),
+    W("言う","いう", m("to say","说","말하다","ပြောသည်","nói","भन्नु")),
+    G("代わりに","かわりに",
+      m("instead of","代替","대신에","အစား","thay vì","सट्टामा"),
+      m("Vル／Nの＋代わりに (L10) — 'Instead of doing V / Instead of N.' Here: instead of saying the correct いただきましょう, people mistakenly say the wrong form.",
+        "Vル／Nの＋代わりに（第10课）— '代替做V / 代替N'。此处：不说正确的いただきましょう，而错误地说了别的。",
+        "Vル／Nの＋代わりに (10과) — 'V하는 대신 / N 대신에.' 여기서는 올바른 いただきましょう라고 말하는 대신 잘못된 형태를 말합니다.",
+        "Vル／Nの＋代わりに (သင်ခန်းစာ 10) — 'V/N အစား'။ မှန်ကန်သော いただきましょう အစား မှားယွင်းသောပုံစံကို ပြောခြင်း။",
+        "Vル／Nの＋代わりに (Bài 10) — 'Thay vì V/N.' Ở đây: thay vì nói đúng いただきましょう, người ta nói sai.",
+        "Vル／Nの＋代わりに (पाठ 10) — 'V/N को सट्टामा।' यहाँ: सही いただきましょう भन्नुको सट्टा गलत रूप भन्छन्।")),
+    P("、"),
+    W("まちがえて","まちがえて", m("mistakenly","搞错了","실수로","မှားယွင်းစွာ","nhầm lẫn","गल्ती गरेर")),
+    P("「"),
+    W("皆さん","みなさん", m("everyone","大家","여러분","အားလုံး","mọi người","सबैजना")),
+    P("、"),
+    W("いっしょに","いっしょに", m("together","一起","함께","အတူတူ","cùng nhau","सँगै")),
+    G("召し上がりましょう","めしあがりましょう",
+      m("let's eat (INCORRECT honorific)","我们吃吧（错误的尊敬语）","드십시다 (잘못된 존경어)","စားကြပါစို့ (မှားယွင်းသော ရိုသေစကား)","chúng ta ăn đi (tôn kính SAI)","खाऔँ (गलत आदरार्थी रूप)"),
+      m("敬語 (L10) — 召し上がる is the honorific (尊敬) form of 食べる, used for OTHER people's actions. Using it for 'let's eat together' (which includes yourself) is WRONG. The correct form is いただきましょう (humble).",
+        "敬语（第10课）— 召し上がる是食べる的尊敬语，用于他人的行为。用在'一起吃'（包含自己）是错误的。正确的是いただきましょう。",
+        "경어 (10과) — 召し上がる는 食べる의 존경어로, 다른 사람의 행동에 사용합니다. '함께 먹읍시다'에 쓰는 것은 틀립니다. 올바른 형태는 いただきましょう입니다.",
+        "ကျေးဇူးစကား (သင်ခန်းစာ 10) — 召し上がる သည် 食べる ၏ ရိုသေပုံစံဖြစ်ပြီး အခြားသူများ၏ လုပ်ဆောင်ချက်အတွက် သုံးသည်။ 'အတူစားကြစို့' တွင် သုံးခြင်း မှားယွင်းသည်။",
+        "Kính ngữ (Bài 10) — 召し上がる là thể tôn kính của 食べる, dùng cho hành động của NGƯỜI KHÁC. Dùng cho 'chúng ta cùng ăn' là SAI. Dạng đúng là いただきましょう.",
+        "केइगो (पाठ 10) — 召し上がる भनेको 食べる को आदरार्थी (尊敬) रूप हो, अरूको कार्यको लागि। 'सँगै खाऔँ' मा प्रयोग गर्नु गलत हो। सही रूप いただきましょう हो।")),
+    P("」と"),
+    W("言う","いう", m("to say","说","말하다","ပြောသည်","nói","भन्नु")),
+    P("。"),
+  ],
+  hira:"たとえば、 しょくじ の ば で 「みなさん、 いっしょに いただきましょう」 と いう かわりに、 まちがえて 「みなさん、 いっしょに めしあがりましょう」 と いう。",
+  trans: m(
+    "For example, at a meal, instead of correctly saying 'let's eat together' (itadakimashō), people mistakenly use the honorific form 'meshiagarimashō.'",
+    "例如，在用餐时，不说正确的「いただきましょう」，而错误地说「召し上がりましょう」。",
+    "예를 들어, 식사 자리에서 '함께 먹읍시다(いただきましょう)'라고 말하는 대신, 실수로 '함께 드십시다(召し上がりましょう)'라고 말한다.",
+    "ဥပမာ ထမင်းစားချိန်တွင် 'အတူစားကြပါစို့ (いただきましょう)' ဟု မပြောဘဲ မှားယွင်းစွာ '召し上がりましょう' ဟု ပြောကြသည်။",
+    "Ví dụ, trong bữa ăn, thay vì nói đúng 'itadakimashō', người ta nhầm lẫn nói 'meshiagarimashō.'",
+    "उदाहरणका लागि, खाना खाँदा सही 'いただきましょう' भन्नुको सट्टा, गल्ती गरेर '召し上がりましょう' भन्छन्।"
+  )
+},
+// ---- S4 ----
+{
+  parts:[
+    W("また","また", m("also, in addition","另外","또한","ထို့အပြင်","ngoài ra","साथै")),
+    P("、"),
+    W("自分","じぶん", m("oneself","自己","자신","ကိုယ့်ကိုယ်","bản thân","आफू")),
+    P("の"),
+    W("会社","かいしゃ", m("company","公司","회사","ကုမ္ပဏီ","công ty","कम्पनी")),
+    P("を"),
+    G("訪ねてきた","たずねてきた",
+      m("came to visit","来访的","찾아온","လာရောက်သော","đã đến thăm","भ्रमण गर्न आएको"),
+      m("Vテくる (L10) — Indicates movement towards the speaker. 訪ねる (visit) + てくる = came to visit (the customer came TO your company). Vテくる shows direction towards you.",
+        "Vテくる（第10课）— 表示动作方向朝向说话人。訪ねる（拜访）+てくる = 来访。客人来到你的公司。",
+        "Vテくる (10과) — 화자 쪽으로의 움직임을 나타냅니다. 訪ねる (방문하다) + てくる = 찾아오다. 손님이 회사에 찾아왔습니다.",
+        "Vテくる (သင်ခန်းစာ 10) — စကားပြောသူဆီသို့ ရွေ့လျားမှုကို ဖော်ပြသည်။ 訪ねる + てくる = လာရောက်။",
+        "Vテくる (Bài 10) — Chỉ hướng di chuyển về phía người nói. 訪ねる + てくる = đến thăm (khách đến công ty của bạn).",
+        "Vテくर (पाठ 10) — बोल्नेतर्फको चालजनाउँछ। 訪ねる + てくる = भ्रमण गर्न आउनु।")),
+    W("お客さん","おきゃくさん", m("customer, guest","客人","손님","ဧည့်သည်","khách","ग्राहक")),
+    P("に「"),
+    W("受付","うけつけ", m("reception desk","前台","접수처","ဧည့်ကြိုခန်း","quầy lễ tân","स्वागत कक्ष")),
+    P("で"),
+    G("お聞きしてください","おききしてください",
+      m("please ask (INCORRECT humble form)","请问（错误的谦让语）","여쭤 보세요 (잘못된 겸양어)","မေးပါ (မှားယွင်းသော နှိမ့်ချပုံစံ)","xin hãy hỏi (khiêm nhường SAI)","सोध्नुहोस् (गलत विनम्र रूप)"),
+      m("敬語 (L10) — お＋Vマス＋する is the humble (謙譲) pattern for YOUR OWN actions. But the CUSTOMER is the one asking — you should use the honorific form for the customer's action. This usage is WRONG.",
+        "敬语（第10课）— お＋Vマス＋する是谦让语，用于自己的行为。但这里是客人在问，应该用尊敬语。这是错误的用法。",
+        "경어 (10과) — お＋Vマス＋する는 겸양어로, 자신의 행동에 사용합니다. 하지만 여기서는 손님이 묻는 것이므로 존경어를 써야 합니다. 이것은 틀립니다.",
+        "ကျေးဇူးစကား (သင်ခန်းစာ 10) — お＋Vマス＋する သည် နှိမ့်ချပုံစံဖြစ်ပြီး မိမိ၏ လုပ်ဆောင်ချက်အတွက် သုံးသည်။ ဧည့်သည်က မေးနေတာဖြစ်တဲ့အတွက် ရိုသေပုံစံ သုံးသင့်သည်။ ဒါ မှားနေသည်။",
+        "Kính ngữ (Bài 10) — お＋Vマス＋する là mẫu khiêm nhường cho hành động CỦA BẢN THÂN. Nhưng KHÁCH là người hỏi — nên dùng tôn kính ngữ. Đây là SAI.",
+        "केइगो (पाठ 10) — お＋Vマス＋する विनम्र (謙譲) ढाँचा हो, आफ्नो कार्यको लागि। ग्राहक सोध्दैछन् — आदरार्थी रूप चाहिन्छ। यो गलत हो।")),
+    P("」と"),
+    W("言う","いう", m("to say","说","말하다","ပြောသည်","nói","भन्नु")),
+    P("。"),
+  ],
+  hira:"また、 じぶん の かいしゃ を たずねてきた おきゃくさん に 「うけつけ で おききしてください」 と いう。",
+  trans: m(
+    "Also, to a customer who has come to visit one's company, they say 'please ask at the reception' using the humble form incorrectly.",
+    "另外，对来访公司的客人说「受付でお聞きしてください」，错误地使用了谦让语。",
+    "또한, 자신의 회사를 찾아온 손님에게 '접수처에서 여쭤 보세요'라고 말한다 (겸양어를 잘못 사용).",
+    "ထို့အပြင် ကိုယ့်ကုမ္ပဏီသို့ လာရောက်သော ဧည့်သည်ကို 'ဧည့်ကြိုခန်းတွင် မေးပါ' ဟု ပြောကြသည် (နှိမ့်ချစကားကို မှားသုံး)။",
+    "Ngoài ra, với khách đến thăm công ty, họ nói 'xin hãy hỏi ở quầy lễ tân' dùng sai thể khiêm nhường.",
+    "साथै, आफ्नो कम्पनीमा आएको ग्राहकलाई 'स्वागत कक्षमा सोध्नुहोस्' भन्छन् (गलत विनम्र रूप)।"
+  )
+},
+// ---- S5 ----
+{
+  parts:[
+    W("本来","ほんらい", m("normally, properly","本来","본래","မူရင်း","vốn dĩ","मूलतः")),
+    P("なら、「"),
+    W("受付","うけつけ", m("reception desk","前台","접수처","ဧည့်ကြိုခန်း","quầy lễ tân","स्वागत कक्ष")),
+    P("で"),
+    G("お聞きになってください","おききになってください",
+      m("please ask (correct honorific form)","请问（正确的尊敬语）","여쭤 보세요 (올바른 존경어)","မေးပါ (မှန်ကန်သော ရိုသေပုံစံ)","xin hãy hỏi (tôn kính đúng)","सोध्नुहोस् (सही आदरार्थी रूप)"),
+      m("敬語 (L10) — お＋Vマス＋になる is the honorific (尊敬) pattern for OTHER people's actions. Since the customer is the one asking, this is the CORRECT form to use.",
+        "敬语（第10课）— お＋Vマス＋になる是尊敬语，用于他人的行为。因为是客人在问，所以这是正确的形式。",
+        "경어 (10과) — お＋Vマス＋になる는 존경어로, 다른 사람의 행동에 사용합니다. 손님이 묻는 것이므로 이것이 올바른 형태입니다.",
+        "ကျေးဇူးစကား (သင်ခန်းစာ 10) — お＋Vマス＋になる သည် ရိုသေပုံစံဖြစ်ပြီး အခြားသူများ၏ လုပ်ဆောင်ချက်အတွက် သုံးသည်။ ဒါက မှန်ကန်သည်။",
+        "Kính ngữ (Bài 10) — お＋Vマス＋になる là mẫu tôn kính cho hành động của NGƯỜI KHÁC. Vì khách là người hỏi, đây là dạng ĐÚNG.",
+        "केइगो (पाठ 10) — お＋Vマス＋になる आदरार्थी (尊敬) ढाँचा हो, अरूको कार्यको लागि। ग्राहक सोध्दैछन् — यो सही रूप हो।")),
+    P("」と"),
+    G("言うべきである","いうべきである",
+      m("should say","应该说","말해야 한다","ပြောသင့်သည်","nên nói","भन्नुपर्छ"),
+      m("Vルべきだ (L10) — Expresses what is generally appropriate or expected in society. べき conveys moral or social obligation. Here: one SHOULD say the correct honorific form. である is the formal written equivalent of だ.",
+        "Vルべきだ（第10课）— 表示一般认为社会上适当的行为。べき表达道义或社会义务。此处：应该使用正确的尊敬语。である是だ的书面语形式。",
+        "Vルべきだ (10과) — 사회적으로 적절하거나 당연한 행동을 나타냅니다. べき는 도덕적/사회적 의무감을 전달합니다. である는 だ의 문어체.",
+        "Vルべきだ (သင်ခန်းစာ 10) — လူ့အဖွဲ့အစည်းတွင် သင့်တော်သော လုပ်ဆောင်ချက်ကို ဖော်ပြသည်။ べき သည် ကျင့်ဝတ်တာဝန်ကို ဖော်ပြသည်။",
+        "Vルべきだ (Bài 10) — Diễn tả hành vi được coi là phù hợp trong xã hội. べき mang nghĩa nghĩa vụ đạo đức. である là dạng văn viết của だ.",
+        "Vルべきだ (पाठ 10) — समाजमा उचित मानिने कार्य जनाउँछ। べき ले नैतिक दायित्व व्यक्त गर्छ। である भनेको だ को औपचारिक लिखित रूप हो।")),
+    P("。"),
+  ],
+  hira:"ほんらい なら、 「うけつけ で おきき に なって ください」 と いう べき で ある。",
+  trans: m(
+    "Properly, one should say 'please ask at the reception' using the correct honorific form.",
+    "本来应该说「受付でお聞きになってください」，使用正确的尊敬语形式。",
+    "본래라면 '접수처에서 여쭤 보세요 (お聞きになってください)'라고 말해야 한다.",
+    "မူရင်းဆိုလျှင် 'ဧည့်ကြိုခန်းတွင် မေးပါ (お聞きになってください)' ဟု ပြောသင့်သည်။",
+    "Đúng ra nên nói 'xin hãy hỏi ở quầy lễ tân' bằng tôn kính ngữ đúng.",
+    "मूलतः 'स्वागत कक्षमा सोध्नुहोस् (お聞きになってください)' भन्नुपर्छ।"
+  )
+},
+// ---- S6 ----
+{
+  parts:[
+    W("ことば","ことば", m("words, language","词语","말","စကားလုံး","từ ngữ","शब्द")),
+    P("は"),
+    G("変化していく","へんかしていく",
+      m("continues to change","不断变化","변화해 간다","ပြောင်းလဲသွားသည်","tiếp tục thay đổi","परिवर्तन हुँदै जान्छ"),
+      m("Vテいく (L10) — Indicates change moving away from the present into the future. 変化する (change) + ていく = will keep changing going forward. Contrasts with Vテくる (change up to now).",
+        "Vテいく（第10课）— 表示变化从现在向未来延伸。変化する（变化）+ていく = 将持续变化下去。与Vテくる（到目前为止的变化）相对。",
+        "Vテいく (10과) — 현재에서 미래로 나아가는 변화를 나타냅니다. 変化する + ていく = 앞으로 계속 변해간다. Vテくる (지금까지의 변화)와 대조됩니다.",
+        "Vテいく (သင်ခန်းစာ 10) — ပြောင်းလဲမှုသည် အနာဂတ်သို့ ဆက်လက်ရွေ့လျားကြောင်း ဖော်ပြသည်။ Vテくる နှင့် ဆန့်ကျင်ဘက်ဖြစ်သည်။",
+        "Vテいく (Bài 10) — Chỉ sự thay đổi tiến về tương lai. 変化する + ていく = sẽ tiếp tục thay đổi. Đối lập với Vテくる.",
+        "Vテいく (पाठ 10) — वर्तमानबाट भविष्यतर्फ जाने परिवर्तन जनाउँछ। Vテくる (अहिलेसम्मको परिवर्तन) सँग विपरीत।")),
+    W("ものだ","ものだ", m("it is natural that; that's how things are","本来就是这样的","~하는 법이다","ဖြစ်တတ်သည်","vốn là vậy","यस्तै हो")),
+    P("。"),
+  ],
+  hira:"ことば は へんか していく ものだ。",
+  trans: m(
+    "Language is something that continues to change.",
+    "语言是不断变化的东西。",
+    "말이란 변화해 가는 것이다.",
+    "စကားလုံးဆိုတာ ပြောင်းလဲသွားတတ်သည်။",
+    "Từ ngữ là thứ tiếp tục thay đổi.",
+    "भाषा भनेको परिवर्तन हुँदै जाने कुरा हो।"
+  )
+},
+// ---- S7 ----
+{
+  parts:[
+    W("しかし","しかし", m("however","但是","하지만","သို့သော်","tuy nhiên","तथापि")),
+    P("、"),
+    W("使い方","つかいかた", m("way of using","使用方法","사용법","သုံးစွဲပုံ","cách sử dụng","प्रयोग विधि")),
+    P("が"),
+    W("正しい","ただしい", m("correct","正确的","올바른","မှန်ကန်သော","đúng","सही")),
+    P("かどうか、"),
+    G("気にせずに","きにせずに",
+      m("without caring","不在意地","신경 쓰지 않고","ဂရုမစိုက်ဘဲ","không quan tâm","वास्ता नगरी"),
+      m("Vナイずに (L10) — 'Without doing V.' する→せずに (irregular: しない→せずに). 気にする (to care/mind) → 気にせずに (without caring). Equivalent to ～ないで but more formal/written.",
+        "Vナイずに（第10课）— '不做V'。する→せずに（不规则变化）。気にする（在意）→ 気にせずに（不在意地）。相当于～ないで，但更正式。",
+        "Vナイずに (10과) — 'V하지 않고.' する→せずに (불규칙). 気にする (신경 쓰다) → 気にせずに (신경 쓰지 않고). ～ないで와 같지만 더 격식체.",
+        "Vナイずに (သင်ခန်းစာ 10) — 'V မလုပ်ဘဲ'။ する→せずに (မမှန်ကန်)။ 気にする → 気にせずに = ဂရုမစိုက်ဘဲ။ ～ないで နှင့ တူသော်လည်း ပိုတရားဝင်သည်။",
+        "Vナイずに (Bài 10) — 'Không làm V.' する→せずに (bất quy tắc). 気にする → 気にせずに. Tương đương ～ないで nhưng trang trọng hơn.",
+        "Vナイずに (पाठ 10) — 'V नगरी।' する→せずに (अनियमित)। 気にする → 気にせずに = वास्ता नगरी। ～ないで जस्तै तर औपचारिक।")),
+    W("ことば","ことば", m("words, language","词语","말","စကားလုံး","từ ngữ","शब्द")),
+    P("を"),
+    W("使う","つかう", m("to use","使用","사용하다","သုံးသည်","sử dụng","प्रयोग गर्नु")),
+    P("のは"),
+    W("問題","もんだい", m("problem","问题","문제","ပြဿနာ","vấn đề","समस्या")),
+    P("だ。"),
+  ],
+  hira:"しかし、 つかいかた が ただしい か どう か、 き に せず に ことば を つかう のは もんだい だ。",
+  trans: m(
+    "However, using words without caring whether the usage is correct or not is a problem.",
+    "但是，不在意使用方法是否正确就使用词语是有问题的。",
+    "하지만, 사용법이 올바른지 아닌지 신경 쓰지 않고 말을 사용하는 것은 문제다.",
+    "သို့သော် သုံးစွဲပုံ မှန်ကန်မှု ရှိ/မရှိ ဂရုမစိုက်ဘဲ စကားလုံးများ သုံးခြင်းသည် ပြဿနာဖြစ်သည်။",
+    "Tuy nhiên, sử dụng từ ngữ mà không quan tâm cách dùng đúng hay sai là một vấn đề.",
+    "तथापि, प्रयोग विधि सही हो वा नहो वास्ता नगरी शब्द प्रयोग गर्नु समस्या हो।"
+  )
+},
+// ---- S8 ----
+{
+  parts:[
+    W("この機会に","このきかいに", m("taking this opportunity","趁此机会","이 기회에","ဒီအခွင့်အရေးမှာ","nhân dịp này","यस अवसरमा")),
+    P("、"),
+    W("一度","いちど", m("once","一次","한번","တစ်ကြိမ်","một lần","एकपटक")),
+    W("自分","じぶん", m("oneself","自己","자신","ကိုယ့်ကိုယ်","bản thân","आफू")),
+    P("の"),
+    W("ことば","ことば", m("words, language","词语","말","စကားလုံး","từ ngữ","शब्द")),
+    P("の"),
+    W("使い方","つかいかた", m("way of using","使用方法","사용법","သုံးစွဲပုံ","cách sử dụng","प्रयोग विधि")),
+    P("を"),
+    W("確認して","かくにんして", m("check, confirm","确认","확인하고","စစ်ဆေးပြီး","xác nhận","पुष्टि गरी")),
+    W("みよう","みよう", m("let's try","试试看吧","보자","ကြည့်ကြစို့","thử xem","हेरौं")),
+    P("。"),
+  ],
+  hira:"この きかい に、 いちど じぶん の ことば の つかいかた を かくにん して みよう。",
+  trans: m(
+    "Taking this opportunity, let's try checking our own word usage once.",
+    "趁此机会，试着确认一下自己的用词方式吧。",
+    "이 기회에, 한번 자신의 말 사용법을 확인해 보자.",
+    "ဒီအခွင့်အရေးမှာ ကိုယ့်ရဲ့ စကားလုံး သုံးစွဲပုံကို တစ်ကြိမ် စစ်ဆေးကြည့်ကြစို့။",
+    "Nhân dịp này, hãy thử kiểm tra cách sử dụng từ ngữ của bản thân một lần xem.",
+    "यस अवसरमा, एकपटक आफ्नो शब्द प्रयोग विधि पुष्टि गरी हेरौं।"
+  )
+}
+];
+
+// ========== RENDERING ==========
+function rubyHTML(surface, reading) {
+  if (/^[\u3040-\u309F\u30A0-\u30FFー\uFF01-\uFF5E「」（）]+$/.test(surface)) return surface;
+  return `<ruby>${surface}<rt>${reading}</rt></ruby>`;
+}
+
+function renderPassage() {
+  const el = document.getElementById('passage');
+  el.innerHTML = '';
+  sentences.forEach((s, si) => {
+    const block = document.createElement('div');
+    block.className = 'sentence-block';
+    const jpLine = document.createElement('span');
+    jpLine.className = 'jp-sentence';
+    s.parts.forEach(part => {
+      if (part.w) {
+        const span = document.createElement('span');
+        span.className = 'word';
+        span.innerHTML = rubyHTML(part.w, part.r);
+        span.onclick = e => showPopup(e, {type:'word', reading:part.r, word:part.w, meaning:L(part.m)});
+        jpLine.appendChild(span);
+      } else if (part.g) {
+        const span = document.createElement('span');
+        span.className = 'grammar';
+        span.innerHTML = rubyHTML(part.g, part.r);
+        span.onclick = e => showPopup(e, {type:'grammar', reading:part.r, word:part.g, meaning:L(part.m), explain:L(part.x)});
+        jpLine.appendChild(span);
+      } else if (part.p !== undefined) {
+        const span = document.createElement('span');
+        span.innerHTML = part.p;
+        jpLine.appendChild(span);
+      }
+    });
+    block.appendChild(jpLine);
+
+    const hiraLine = document.createElement('span');
+    hiraLine.className = 'hira-line' + (showHira ? '' : ' hidden');
+    hiraLine.textContent = s.hira;
+    block.appendChild(hiraLine);
+
+    const transLine = document.createElement('span');
+    transLine.className = 'trans-line' + (showTrans ? '' : ' hidden');
+    transLine.textContent = L(s.trans);
+    block.appendChild(transLine);
+
+    el.appendChild(block);
+    if (si === 4) { const br = document.createElement('div'); br.className = 'para-break'; el.appendChild(br); }
+  });
+}
+
+function renderLangPicker() {
+  const sel = document.getElementById('langPicker');
+  sel.innerHTML = '';
+  LANGS.forEach(code => {
+    const opt = document.createElement('option');
+    opt.value = code;
+    opt.textContent = LANG_LABELS[code];
+    if (code === curLang) opt.selected = true;
+    sel.appendChild(opt);
+  });
+}
+function setLang(code) { curLang = code; updateAll(); }
+
+function updateUI() {
+  document.querySelectorAll('[data-ui]').forEach(el => {
+    const key = el.getAttribute('data-ui');
+    if (UI[key]) el.textContent = L(UI[key]);
+  });
+}
+
+function updateAll() {
+  renderLangPicker();
+  updateUI();
+  renderPassage();
+}
+
+// ========== POPUP ==========
+function showPopup(e, data) {
+  e.stopPropagation();
+  const popup = document.getElementById('popup');
+  const overlay = document.getElementById('popupOverlay');
+  let html = '';
+  if (data.type === 'grammar') {
+    html += `<div class="grammar-tag">${L(UI.grammar_tag)}</div>`;
+    html += `<div class="reading">${data.reading}</div>`;
+    if (data.word !== data.reading) html += `<div class="kanji-display">${data.word}</div>`;
+    html += `<div class="meaning"><strong>${data.meaning}</strong></div>`;
+    html += `<div class="grammar-explain">${data.explain}</div>`;
+  } else {
+    html += `<div class="reading">${data.reading}</div>`;
+    if (data.word !== data.reading) html += `<div class="kanji-display">${data.word}</div>`;
+    html += `<div class="meaning">${data.meaning}</div>`;
+  }
+  popup.innerHTML = html;
+  popup.classList.add('show');
+  overlay.classList.add('show');
+  const rect = e.currentTarget.getBoundingClientRect();
+  const popW = Math.min(340, window.innerWidth - 20);
+  let left = rect.left + rect.width/2 - popW/2;
+  if (left < 10) left = 10;
+  if (left + popW > window.innerWidth - 10) left = window.innerWidth - popW - 10;
+  let top = rect.bottom + 10;
+  popup.style.transform = 'none';
+  if (top + 220 > window.innerHeight) { top = rect.top - 10; popup.style.transform = 'translateY(-100%)'; }
+  popup.style.left = left + 'px';
+  popup.style.top = top + 'px';
+  popup.style.width = popW + 'px';
+}
+function closePopup() {
+  document.getElementById('popup').classList.remove('show');
+  document.getElementById('popupOverlay').classList.remove('show');
+}
+
+// ========== TOGGLES ==========
+function toggleFurigana() {
+  showFurigana = !showFurigana;
+  document.body.classList.toggle('hide-furigana', !showFurigana);
+  document.getElementById('btnFurigana').classList.toggle('active', showFurigana);
+}
+function toggleHira() {
+  showHira = !showHira;
+  document.getElementById('btnHira').classList.toggle('active', showHira);
+  document.querySelectorAll('.hira-line').forEach(el => el.classList.toggle('hidden', !showHira));
+}
+function toggleTrans() {
+  showTrans = !showTrans;
+  document.getElementById('btnTrans').classList.toggle('active', showTrans);
+  document.querySelectorAll('.trans-line').forEach(el => el.classList.toggle('hidden', !showTrans));
+}
+function setFontSize(val) { document.documentElement.style.setProperty('--font-size', val + 'px'); }
+function toggleToolbar() { document.getElementById('toolbar').classList.toggle('collapsed'); }
+window.addEventListener('scroll', () => {
+  document.getElementById('toolbar').classList.toggle('scrolled', window.scrollY > 5);
+}, {passive:true});
+
+// Init
+updateAll();
+</script>
+</body>
+</html>
