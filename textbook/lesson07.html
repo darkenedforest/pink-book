@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第7課 – リサイクルとフリーマーケット</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Sans+Pro:wght@400;600&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+Myanmar:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;--accent:#b8433a;--grammar-color:#7b2d8e;--border:#e0d5c5;--popup-bg:#fffef9;--shadow:0 8px 32px rgba(44,36,22,0.12);--hira-color:#999;--trans-color:#5a7a5a;--font-size:18px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Noto Serif JP',serif;background:var(--bg);color:var(--text);min-height:100vh;}.page-bg{background:linear-gradient(160deg,#f7f3ec,#efe8dc);min-height:100vh;padding-bottom:3rem;}
+.toolbar{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,#f7f3ec,rgba(247,243,236,0.97));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding-bottom:0.4rem;transition:box-shadow 0.3s;}.toolbar.scrolled{box-shadow:0 2px 16px rgba(44,36,22,0.1);}
+.toolbar-header{display:flex;align-items:center;justify-content:center;padding:0.7rem 1rem 0.15rem;position:relative;}.toolbar-header h1{font-size:1.3rem;font-weight:700;color:var(--accent);letter-spacing:0.06em;}.toolbar-header .sub{font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);margin-left:0.5rem;align-self:flex-end;padding-bottom:0.08rem;}
+.collapse-btn{position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:2px solid var(--border);border-radius:50%;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-light);transition:all 0.2s;}.collapse-btn:hover{border-color:var(--accent);color:var(--accent);}.collapse-btn svg{transition:transform 0.3s;}.toolbar.collapsed .collapse-btn svg{transform:rotate(180deg);}
+.toolbar-body{max-height:160px;overflow:hidden;transition:max-height 0.35s ease,opacity 0.25s ease;opacity:1;}.toolbar.collapsed .toolbar-body{max-height:0;opacity:0;}
+.controls-row1{max-width:720px;margin:0.3rem auto 0;padding:0 1rem;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;}
+.toggle-btn{font-family:'Source Sans Pro',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0;border-radius:999px;border:2px solid var(--border);background:var(--card-bg);color:var(--text-light);cursor:pointer;transition:all 0.2s;user-select:none;white-space:nowrap;width:5.5rem;text-align:center;}.toggle-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(184,67,58,0.06);}.toggle-btn:hover{border-color:var(--accent);}
+.controls-row2{max-width:720px;margin:0.35rem auto 0;padding:0 1rem;display:flex;align-items:center;justify-content:space-between;}
+.slider-group{display:flex;align-items:center;gap:0.4rem;font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);}.slider-group input[type=range]{width:70px;accent-color:var(--accent);cursor:pointer;}
+.lang-picker-wrap{position:relative;display:inline-flex;align-items:center;}.lang-picker{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.78rem;font-weight:600;padding:0.35rem 2rem 0.35rem 0.7rem;border-radius:999px;border:2px solid #2471a3;background:rgba(36,113,163,0.07);color:#2471a3;cursor:pointer;appearance:none;-webkit-appearance:none;outline:none;transition:all 0.2s;}.lang-picker:hover,.lang-picker:focus{border-color:#1a5276;box-shadow:0 0 0 3px rgba(36,113,163,0.12);}.lang-picker-arrow{position:absolute;right:0.65rem;top:50%;transform:translateY(-50%);pointer-events:none;color:#2471a3;}
+.legend{display:flex;justify-content:center;gap:0.9rem;padding:0.3rem 1rem 0;flex-wrap:wrap;}.legend-item{font-family:'Source Sans Pro',sans-serif;font-size:0.68rem;color:var(--text-light);display:flex;align-items:center;gap:0.25rem;}.legend-dot{width:8px;height:8px;border-radius:50%;}.legend-dot.vocab{background:var(--accent);opacity:0.4;}.legend-dot.grammar{background:var(--grammar-color);opacity:0.5;}
+.content{max-width:720px;margin:0 auto;padding:0.8rem 1.2rem 3rem;}.passage-card{background:var(--card-bg);border-radius:12px;padding:2rem 1.8rem;box-shadow:var(--shadow);border:1px solid var(--border);line-height:2.6;font-size:var(--font-size);}.sentence-block{margin-bottom:0.7rem;}.jp-sentence{display:inline;}
+ruby rt{font-size:0.5em;color:var(--hira-color);font-family:'Noto Sans JP',sans-serif;font-weight:400;}body.hide-furigana ruby rt{visibility:hidden;}
+.word{cursor:pointer;border-bottom:1.5px dotted rgba(184,67,58,0.3);transition:background 0.15s;border-radius:2px;}.word:hover{background:rgba(184,67,58,0.08);}
+.grammar{font-weight:700;color:var(--grammar-color);cursor:pointer;border-bottom:2px solid rgba(123,45,142,0.35);border-radius:2px;transition:background 0.15s;}.grammar:hover{background:rgba(123,45,142,0.08);}
+.hira-line{display:block;font-family:'Noto Sans JP',sans-serif;font-size:0.78em;color:var(--hira-color);margin-top:0.1rem;line-height:1.6;transition:opacity 0.25s,max-height 0.3s;}.hira-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}
+.trans-line{display:block;font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.78em;color:var(--trans-color);margin-top:0.05rem;line-height:1.6;font-style:italic;transition:opacity 0.25s,max-height 0.3s;}.trans-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}
+.para-break{height:0.6rem;}
+.popup-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;}.popup-overlay.show{display:block;}
+.popup{display:none;position:fixed;z-index:1000;background:var(--popup-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;box-shadow:0 12px 40px rgba(44,36,22,0.18);max-width:360px;min-width:200px;animation:popIn 0.18s ease-out;}.popup.show{display:block;}
+@keyframes popIn{from{opacity:0;transform:translateY(6px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+.popup .reading{font-family:'Noto Sans JP',sans-serif;font-size:1.05rem;color:var(--accent);font-weight:500;margin-bottom:0.15rem;}.popup .kanji-display{font-size:0.78rem;color:var(--text-light);margin-bottom:0.3rem;}.popup .meaning{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.88rem;color:var(--text);line-height:1.55;}
+.popup .grammar-tag{display:inline-block;font-family:'Source Sans Pro',sans-serif;font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#fff;background:var(--grammar-color);padding:0.12rem 0.5rem;border-radius:999px;margin-bottom:0.35rem;}
+.popup .grammar-explain{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.8rem;color:var(--text);line-height:1.55;margin-top:0.25rem;}
+@media(max-width:520px){.passage-card{padding:1.2rem 1rem;}.toolbar-header h1{font-size:1.15rem;}.popup{max-width:90vw;min-width:170px;}}
+</style>
+</head>
+<body>
+<div class="page-bg">
+<div class="toolbar" id="toolbar">
+  <div class="toolbar-header">
+    <h1>リサイクルとフリーマーケット</h1>
+    <span class="sub">第7課</span>
+    <button class="collapse-btn" onclick="toggleToolbar()" aria-label="Toggle controls"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+  </div>
+  <div class="toolbar-body">
+    <div class="controls-row2"><div class="lang-picker-wrap"><select class="lang-picker" id="langPicker" onchange="setLang(this.value)"></select><svg class="lang-picker-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="slider-group"><span class="slider-label">Aa</span><input type="range" min="14" max="28" value="18" id="fontSlider" oninput="setFontSize(this.value)"><span class="slider-label" style="font-size:1.1em;">Aa</span></div></div>
+    <div class="controls-row1"><button class="toggle-btn active" id="btnFurigana" onclick="toggleFurigana()">振り仮名</button><button class="toggle-btn active" id="btnHira" onclick="toggleHira()">ひらがな</button><button class="toggle-btn active" id="btnTrans" onclick="toggleTrans()" data-ui="trans_btn"></button></div>
+    <div class="legend"><div class="legend-item"><span class="legend-dot vocab"></span> <span data-ui="leg_vocab"></span></div><div class="legend-item"><span class="legend-dot grammar"></span> <b><span data-ui="leg_grammar"></span></b></div></div>
+  </div>
+</div>
+<div class="content"><div class="passage-card" id="passage"></div></div>
+<div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div>
+<div class="popup" id="popup"></div>
+</div>
+<script>
+const LANGS=['en','zh','ko','my','vi','ne'];const LANG_LABELS={en:'English',zh:'中文',ko:'한국어',my:'မြန်မာ',vi:'Tiếng Việt',ne:'नेपाली'};
+const UI={trans_btn:{en:'Translation',zh:'翻译',ko:'번역',my:'ဘာသာပြန်',vi:'Dịch',ne:'अनुवाद'},leg_vocab:{en:'Vocabulary',zh:'词汇',ko:'어휘',my:'ဝေါဟာရ',vi:'Từ vựng',ne:'शब्दावली'},leg_grammar:{en:'Grammar',zh:'语法',ko:'문법',my:'သဒ္ဒါ',vi:'Ngữ pháp',ne:'व्याकरण'},grammar_tag:{en:'Grammar Point',zh:'语法点',ko:'문법 포인트',my:'သဒ္ဒါအချက်',vi:'Điểm ngữ pháp',ne:'व्याकरण बिन्दु'}};
+let curLang='en';let showHira=true,showTrans=true,showFurigana=true;
+function m(en,zh,ko,my,vi,ne){return{en,zh,ko,my,vi,ne};}function W(s,r,meaning){return{w:s,r:r,m:meaning};}function G(s,r,meaning,explain){return{g:s,r:r,m:meaning,x:explain};}function P(t){return{p:t};}function L(d){return(typeof d==='object'&&d[curLang])?d[curLang]:(typeof d==='string'?d:(d.en||''));}
+
+const sentences=[
+// ---- S1 ----
+{
+  parts:[
+    W("最近","さいきん",m("recently","最近","최근","မကြာသေးမီက","gần đây","हालसालै")),
+    P("、"),
+    W("地球","ちきゅう",m("the earth","地球","지구","ကမ္ဘာ","trái đất","पृथ्वी")),
+    P("の"),
+    W("温暖化","おんだんか",m("warming","变暖","온난화","ပူနွေးလာခြင်း","sự nóng lên","तापक्रम वृद्धि")),
+    P("や"),
+    W("砂漠化","さばくか",m("desertification","沙漠化","사막화","သဲကန္တာရဖြစ်လာခြင်း","sa mạc hóa","मरुभूमिकरण")),
+    P("が"),
+    W("問題","もんだい",m("problem","问题","문제","ပြဿနာ","vấn đề","समस्या")),
+    P("になってきている。"),
+  ],
+  hira:"さいきん、 ちきゅう の おんだんか や さばくか が もんだい に なってきている。",
+  trans:m("Recently, global warming and desertification have been becoming problems.","最近，地球变暖和沙漠化逐渐成为问题。","최근, 지구의 온난화와 사막화가 문제가 되어 오고 있다.","မကြာသေးမီက ကမ္ဘာ့ပူနွေးလာခြင်းနှင့် သဲကန္တာရဖြစ်လာခြင်းသည် ပြဿနာဖြစ်လာနေသည်။","Gần đây, sự nóng lên toàn cầu và sa mạc hóa đang trở thành vấn đề.","हालसालै, पृथ्वीको तापक्रम वृद्धि र मरुभूमिकरण समस्या बन्दै आएको छ।")
+},
+// ---- S2 ----
+{
+  parts:[
+    W("それで","それで",m("so, because of that","因此","그래서","ဒါကြောင့်","vì vậy","त्यसैले")),
+    P("、"),
+    W("自分たち","じぶんたち",m("ourselves","自己们","자신들","ကိုယ့်ဘာသာ","chúng ta","हामी")),
+    P("が"),
+    W("住む","すむ",m("to live in","住","사는","နေထိုင်သည်","sống","बस्नु")),
+    W("地球","ちきゅう",m("the earth","地球","지구","ကမ္ဘာ","trái đất","पृथ्वी")),
+    P("を"),
+    W("守ろう","まもろう",m("let's protect (volitional)","保护吧","지키자","ကာကွယ်ကြစို့","hãy bảo vệ","जोगाऔं")),
+    P("という"),
+    W("意識","いしき",m("awareness, consciousness","意识","의식","သတိ","ý thức","चेतना")),
+    P("が"),
+    W("生まれている","うまれている",m("is being born, is developing","正在产生","생겨나고 있다","ပေါ်ပေါက်နေသည်","đang nảy sinh","जन्मिएको छ")),
+    P("。"),
+  ],
+  hira:"それで、 じぶんたち が すむ ちきゅう を まもろう と いう いしき が うまれている。",
+  trans:m("So, an awareness of 'let's protect the earth we live on' is developing.","因此，保护我们居住的地球的意识正在产生。","그래서, 자신들이 사는 지구를 지키자는 의식이 생겨나고 있다.","ဒါကြောင့် ကိုယ်နေထိုင်တဲ့ ကမ္ဘာကို ကာကွယ်ကြစို့ဆိုတဲ့ သတိ ပေါ်ပေါက်နေသည်။","Vì vậy, ý thức 'hãy bảo vệ trái đất nơi chúng ta sống' đang hình thành.","त्यसैले, हामी बस्ने पृथ्वीलाई जोगाऔं भन्ने चेतना जन्मिएको छ।")
+},
+// ---- S3 ----
+{
+  parts:[
+    W("以前","いぜん",m("in the past","以前","이전에는","ယခင်","trước đây","पहिले")),
+    P("は"),
+    W("古くなったり","ふるくなったり",m("become old (and)","变旧","오래되거나","ဟောင်းလာခြင်း","trở nên cũ","पुरानो भएर")),
+    P("、"),
+    W("壊れたりした","こわれたりした",m("break (among other things)","坏掉等","고장나거나 한","ပျက်စီးခြင်း","bị hỏng","भाँचिएर")),
+    W("物","もの",m("thing","东西","물건","အရာ","đồ vật","सामान")),
+    P("は"),
+    W("すぐ","すぐ",m("immediately","马上","바로","ချက်ချင်း","ngay lập tức","तुरुन्तै")),
+    G("捨てたものだ","すてたものだ",
+      m("used to throw away","过去常常扔掉","버리곤 했다","စွန့်ပစ်တတ်ခဲ့သည်","thường vứt đi","फालिदिन्थ्यो"),
+      m("Vタものだ (L7) — Expresses nostalgia or recollection of how things used to be. Here: 'People used to just throw things away.' Reflects on past habits with a sense of 'that's how it was.'",
+        "Vタものだ（第7课）— 表达对过去情况的怀念或回忆。此处：'过去人们总是把东西扔掉。'带有'当时就是那样'的感慨。",
+        "Vタものだ (7과) — 과거 상황에 대한 회상을 나타냅니다. '예전에는 바로 버리곤 했다.' '그때는 그랬다'는 뉘앙스.",
+        "Vタものだ (သင်ခန်းစာ 7) — အတိတ်တွင် ဖြစ်ပျက်ခဲ့ပုံကို ပြန်လည်အမှတ်ရခြင်း။",
+        "Vタものだ (Bài 7) — Diễn tả sự hồi tưởng về quá khứ. 'Ngày xưa người ta thường vứt đi ngay.'",
+        "Vタものだ (पाठ 7) — बितेका दिनको सम्झना व्यक्त गर्छ। 'पहिले मानिसहरू तुरुन्तै फालिदिन्थ्यो।'")),
+    P("。"),
+  ],
+  hira:"いぜん は ふるくなったり、 こわれたりした もの は すぐ すてた ものだ。",
+  trans:m("In the past, things that got old or broke would be thrown away immediately.","以前，变旧或坏掉的东西会马上被扔掉。","이전에는 오래되거나 고장 나거나 한 물건은 바로 버리곤 했다.","ယခင်က ဟောင်းသွားတာ ပျက်သွားတာတွေကို ချက်ချင်း စွန့်ပစ်တတ်ခဲ့သည်။","Trước đây, đồ vật cũ hay hỏng đều bị vứt đi ngay.","पहिले, पुरानो भएका वा भाँचिएका सामानहरू तुरुन्तै फालिदिन्थ्यो।")
+},
+// ---- S4 ----
+{
+  parts:[
+    W("しかし","しかし",m("however","但是","하지만","သို့သော်","tuy nhiên","तथापि")),
+    P("、"),
+    W("今","いま",m("now","现在","지금","ယခု","bây giờ","अहिले")),
+    P("は"),
+    W("できるだけ","できるだけ",m("as much as possible","尽量","될 수 있는 한","တတ်နိုင်သမျှ","càng ~ càng tốt","सकेसम्म")),
+    W("大切に","たいせつに",m("carefully, with care","珍惜地","소중히","ဂရုတစိုက်","cẩn thận","ध्यानपूर्वक")),
+    W("使おう","つかおう",m("let's use (volitional)","来使用吧","쓰자","သုံးကြစို့","hãy sử dụng","प्रयोग गरौं")),
+    P("という"),
+    W("考え","かんがえ",m("thought, idea","想法","생각","အတွေးအခေါ်","suy nghĩ","विचार")),
+    P("に"),
+    W("変わってきた","かわってきた",m("has been changing to","逐渐改变了","바뀌어 왔다","ပြောင်းလဲလာခဲ့သည်","đã thay đổi sang","परिवर्तन भएको छ")),
+    P("。"),
+  ],
+  hira:"しかし、 いま は できるだけ たいせつ に つかおう と いう かんがえ に かわってきた。",
+  trans:m("However, the thinking has changed to 'let's use things as carefully as possible.'","但是，人们的想法已逐渐变成尽量珍惜使用。","하지만, 지금은 될 수 있는 한 소중히 쓰자는 생각으로 바뀌어 왔다.","သို့သော် ယခုအခါ တတ်နိုင်သမျှ ဂရုတစိုက် သုံးကြစို့ဆိုတဲ့ အတွေးအခေါ်သို့ ပြောင်းလဲလာခဲ့သည်။","Tuy nhiên, suy nghĩ đã thay đổi sang 'hãy sử dụng cẩn thận nhất có thể.'","तथापि, अहिले सकेसम्म ध्यानपूर्वक प्रयोग गरौं भन्ने विचारमा परिवर्तन भएको छ।")
+},
+// ---- S5 ----
+{
+  parts:[
+    W("このような","このような",m("this kind of","这样的","이와 같은","ဒီလိုမျိုး","loại này","यस्तो")),
+    W("リサイクル","リサイクル",m("recycling","回收利用","리사이클","ပြန်လည်အသုံးပြုခြင်း","tái chế","पुनःप्रयोग")),
+    W("運動","うんどう",m("movement","运动","운동","လှုပ်ရှားမှု","phong trào","आन्दोलन")),
+    P("の"),
+    W("一つ","ひとつ",m("one (of)","一个","하나","တစ်ခု","một","एउटा")),
+    G("として","として",
+      m("as","作为","~로서","~အနေဖြင့်","với tư cách là","~को रूपमा"),
+      m("～として (L7) — 'As ~.' States the role or category of something. Here: flea markets exist AS one form of recycling movement.",
+        "～として（第7课）— '作为～'。表示某事物的角色或类别。此处：跳蚤市场作为一种回收运动存在。",
+        "～として (7과) — '~로서.' 역할이나 범주를 나타냅니다. 여기서는 프리마켓이 리사이클 운동의 하나로서 존재합니다.",
+        "～として (သင်ခန်းစာ 7) — '~အနေဖြင့်'။ အခန်းကဏ္ဍ သို့မဟုတ် အမျိုးအစားကို ဖော်ပြသည်။",
+        "～として (Bài 7) — 'Với tư cách là ~.' Nêu vai trò hoặc loại hình. Ở đây: chợ trời tồn tại như một hình thức phong trào tái chế.",
+        "～として (पाठ 7) — '~को रूपमा।' भूमिका वा श्रेणी जनाउँछ।")),
+    W("フリーマーケット","フリーマーケット",m("flea market","跳蚤市场","프리마켓","အခမဲ့ဈေး","chợ trời","हाट बजार")),
+    P("がある。"),
+  ],
+  hira:"この よう な リサイクル うんどう の ひとつ として フリーマーケット が ある。",
+  trans:m("As one such recycling movement, there are flea markets.","作为这种回收运动的一种形式，有跳蚤市场。","이와 같은 리사이클 운동의 하나로서 프리마켓이 있다.","ဒီလိုမျိုး ပြန်လည်အသုံးပြုရေး လှုပ်ရှားမှု၏ တစ်ခုအနေဖြင့် အခမဲ့ဈေးရှိသည်။","Một trong những phong trào tái chế như vậy là chợ trời.","यस्तो पुनःप्रयोग आन्दोलनको एउटाको रूपमा हाट बजार छ।")
+},
+// ---- S6 ----
+{
+  parts:[
+    W("使わなくなった","つかわなくなった",m("stopped using","不再使用的","쓰지 않게 된","မသုံးတော့သော","không dùng nữa","नचलाउने भएको")),
+    W("物","もの",m("thing","东西","물건","အရာ","đồ vật","सामान")),
+    P("や"),
+    W("着られなくなった","きられなくなった",m("can no longer wear","穿不下了的","입을 수 없게 된","မဝတ်နိုင်တော့သော","không mặc được nữa","नलाउने भएको")),
+    W("服","ふく",m("clothes","衣服","옷","အဝတ်","quần áo","लुगा")),
+    P("を"),
+    W("公園","こうえん",m("park","公园","공원","ပန်းခြံ","công viên","पार्क")),
+    P("などで"),
+    W("売る","うる",m("to sell","卖","팔다","ရောင်းသည်","bán","बेच्नु")),
+    W("のだ","のだ",m("(explanatory)","（解释性）","~것이다 (설명)","(ရှင်းပြခြင်း)","(giải thích)","(व्याख्या)")),
+    P("。"),
+  ],
+  hira:"つかわなくなった もの や きられなくなった ふく を こうえん など で うる のだ。",
+  trans:m("People sell things they no longer use and clothes they can no longer wear at parks and such.","把不再使用的东西和穿不下的衣服在公园等地方出售。","쓰지 않게 된 물건이나 입을 수 없게 된 옷을 공원 등에서 파는 것이다.","မသုံးတော့တဲ့ အရာတွေ မဝတ်နိုင်တော့တဲ့ အဝတ်တွေကို ပန်းခြံစတဲ့ နေရာတွေမှာ ရောင်းကြတာဖြစ်သည်။","Người ta bán đồ không dùng nữa và quần áo không mặc được nữa ở công viên.","नचलाउने भएका सामान र नलाउने भएका लुगाहरू पार्क आदिमा बेच्ने हो।")
+},
+// ---- S7 ----
+{
+  parts:[
+    W("古い","ふるい",m("old","旧的","오래된","ဟောင်းသော","cũ","पुरानो")),
+    G("といっても","といっても",
+      m("even though I say ~","虽说","~라고 해도","~ဟု ဆိုသော်လည်း","tuy nói là ~","~भने पनि"),
+      m("～といっても (L7) — 'Though I say ~, the reality is different from what you'd expect.' Here: even though they're called 'old,' they're still perfectly usable — not junk.",
+        "～といっても（第7课）— '虽说～，但实际情况与预期不同。'此处：虽说是旧的，但都还完全能用。",
+        "～といっても (7과) — '~라고 해도 실제로는 다르다.' 여기서는 오래됐다고 해도 아직 충분히 쓸 수 있는 물건뿐이다.",
+        "～といっても (သင်ခန်းစာ 7) — '~ဟု ဆိုသော်လည်း တကယ်တော့ ကွဲပြားသည်'။",
+        "～といっても (Bài 7) — 'Dù nói là ~ nhưng thực tế khác với những gì bạn nghĩ.' Dù gọi là 'cũ,' chúng vẫn hoàn toàn dùng được.",
+        "～といっても (पाठ 7) — '~भने पनि वास्तविकता फरक छ।' पुरानो भने पनि अझै राम्ररी चल्ने सामानहरू मात्र हुन्।")),
+    P("、"),
+    W("まだ","まだ",m("still","还","아직","အသေး","vẫn","अझै")),
+    W("十分","じゅうぶん",m("sufficiently, fully","充分","충분히","လုံလောက်စွာ","đầy đủ","पर्याप्त")),
+    W("使える","つかえる",m("can use, usable","能用的","쓸 수 있는","သုံးနိုင်သော","có thể dùng","चल्ने")),
+    W("物","もの",m("thing","东西","물건","အရာ","đồ vật","सामान")),
+    W("ばかり","ばかり",m("nothing but, only","全是","뿐이다","သာဖြစ်သည်","toàn là","मात्र")),
+    P("だ。"),
+  ],
+  hira:"ふるい と いっても、 まだ じゅうぶん つかえる もの ばかりだ。",
+  trans:m("Even though they're called 'old,' they're all still perfectly usable things.","虽说是旧的，但都还是完全能用的东西。","오래됐다고 해도, 아직 충분히 쓸 수 있는 물건뿐이다.","ဟောင်းတယ်ဆိုပေမယ့် အသုံးပြုနိုင်ဆဲ အရာတွေချည်းပဲ ဖြစ်သည်။","Dù nói là 'cũ,' nhưng toàn là đồ vẫn còn dùng tốt.","पुरानो भने पनि, अझै पर्याप्त रूपमा चल्ने सामानहरू मात्र हुन्।")
+},
+// ---- S8 ----
+{
+  parts:[
+    W("店","みせ",m("shop","店","가게","ဆိုင်","cửa hàng","पसल")),
+    P("で"),
+    W("買う","かう",m("to buy","买","사다","ဝယ်သည်","mua","किन्नु")),
+    G("より","より",
+      m("rather than","比","~보다","~ထက်","hơn","भन्दा"),
+      m("V1ルよりV2ルほうが～ (L7) — 'Rather than V1, V2 is more ~.' Compares two actions. Here: buying here (flea market) is much cheaper THAN buying at a store.",
+        "V1ルよりV2ルほうが～（第7课）— '比起V1，V2更～'。比较两种行为。此处：在这里买比在店里买便宜得多。",
+        "V1ルよりV2ルほうが～ (7과) — 'V1하는 것보다 V2하는 쪽이 더 ~.' 두 행동을 비교합니다. 여기서 사는 것이 가게보다 훨씬 싸다.",
+        "V1ルよりV2ルほうが～ (သင်ခန်းစာ 7) — 'V1 ထက် V2 က ပိုပြီး ~'။ လုပ်ဆောင်ချက်နှစ်ခုကို နှိုင်းယှဉ်ခြင်း။",
+        "V1ルよりV2ルほうが～ (Bài 7) — 'So với V1, V2 hơn ~.' So sánh hai hành động. Mua ở đây rẻ hơn nhiều so với mua ở cửa hàng.",
+        "V1ルよりV2ルほうが～ (पाठ 7) — 'V1 गर्नुभन्दा V2 गर्नु बढी ~।' दुई कार्यको तुलना गर्छ।")),
+    W("ここ","ここ",m("here","这里","여기","ဒီမှာ","ở đây","यहाँ")),
+    P("で"),
+    W("買う","かう",m("to buy","买","사다","ဝယ်သည်","mua","किन्नु")),
+    W("ほう","ほう",m("(comparison: this side)","（比较：这边）","쪽","ဘက်","phía","(तुलना)")),
+    P("が"),
+    W("ずっと","ずっと",m("by far, much more","得多","훨씬","များစွာ","hơn nhiều","धेरै")),
+    W("安く","やすく",m("cheaply","便宜地","싸게","စျေးသက်သာစွာ","rẻ","सस्तोमा")),
+    W("買える","かえる",m("can buy","能买","살 수 있다","ဝယ်နိုင်သည်","có thể mua","किन्न सकिन्छ")),
+    P("。"),
+  ],
+  hira:"みせ で かう より ここ で かう ほう が ずっと やすく かえる。",
+  trans:m("Buying here is much cheaper than buying at a store.","在这里买比在店里买便宜得多。","가게에서 사는 것보다 여기에서 사는 쪽이 훨씬 싸게 살 수 있다.","ဆိုင်မှာ ဝယ်တာထက် ဒီမှာ ဝယ်တာက များစွာ စျေးသက်သာသည်။","Mua ở đây rẻ hơn nhiều so với mua ở cửa hàng.","पसलमा किन्नुभन्दा यहाँ किन्नु धेरै सस्तो छ।")
+},
+// ---- S9 ----
+{
+  parts:[
+    W("それで","それで",m("so, because of that","因此","그래서","ဒါကြောင့်","vì vậy","त्यसैले")),
+    P("、"),
+    W("物","もの",m("thing","东西","물건","အရာ","đồ vật","सामान")),
+    P("を"),
+    W("買う","かう",m("to buy","买","사다","ဝယ်သည်","mua","किन्नु")),
+    G("なら","なら",
+      m("if","如果","~라면","~ဆိုရင်","nếu","~भने"),
+      m("～なら (L7) — 'If ~.' Takes up what was just discussed and responds to it. Here: 'If you're going to buy things (as we've been discussing), then...' It sets the flea market as the answer.",
+        "～なら（第7课）— '如果～'。接受之前讨论的内容并做出回应。此处：'如果要买东西的话……'以跳蚤市场为答案。",
+        "～なら (7과) — '~라면.' 앞에서 언급한 것을 받아들여 대응합니다. '물건을 산다면…' 프리마켓을 답으로 제시합니다.",
+        "～なら (သင်ခန်းစာ 7) — '~ဆိုရင်'။ ဆွေးနွေးခဲ့သည်ကို လက်ခံပြီး တုံ့ပြန်ခြင်း။",
+        "～なら (Bài 7) — 'Nếu ~.' Nhận lại điều đã bàn và đáp lại. 'Nếu mua đồ thì...' chọn chợ trời.",
+        "～なら (पाठ 7) — '~भने।' अघि भनेको कुरालाई लिएर जवाफ दिन्छ।")),
+    P("、"),
+    W("フリーマーケット","フリーマーケット",m("flea market","跳蚤市场","프리마켓","အခမဲ့ဈေး","chợ trời","हाट बजार")),
+    P("と"),
+    W("決めている","きめている",m("have decided","已经决定","정해 놓은","ဆုံးဖြတ်ထားသော","đã quyết định","तय गरेका")),
+    W("人","ひと",m("person","人","사람","လူ","người","व्यक्ति")),
+    P("もいる。"),
+  ],
+  hira:"それで、 もの を かう なら、 フリーマーケット と きめている ひと も いる。",
+  trans:m("So, there are people who have decided that if they buy things, it'll be at a flea market.","因此，也有人决定了如果买东西就去跳蚤市场。","그래서, 물건을 산다면 프리마켓이라고 정해 놓은 사람도 있다.","ဒါကြောင့် အရာဝယ်မယ်ဆိုရင် အခမဲ့ဈေးလို့ ဆုံးဖြတ်ထားတဲ့ လူတွေလည်း ရှိသည်။","Vì vậy, có người đã quyết định nếu mua đồ thì sẽ mua ở chợ trời.","त्यसैले, सामान किन्ने भने हाट बजारमा भनेर तय गरेका व्यक्ति पनि छन्।")
+},
+// ---- S10 ----
+{
+  parts:[
+    W("市町村","しちょうそん",m("municipalities","市町村","시정촌","မြို့နယ်","chính quyền địa phương","नगरपालिका")),
+    P("でも「"),
+    W("リサイクル","リサイクル",m("recycling","回收利用","리사이클","ပြန်လည်အသုံးပြုခြင်း","tái chế","पुनःप्रयोग")),
+    W("できる","できる",m("can do","能","할 수 있다","တတ်နိုင်သည်","có thể","सकिन्छ")),
+    P("し、"),
+    W("安く","やすく",m("cheaply","便宜地","싸게","စျေးသက်သာစွာ","rẻ","सस्तोमा")),
+    W("買える","かえる",m("can buy","能买","살 수 있다","ဝယ်နိုင်သည်","có thể mua","किन्न सकिन्छ")),
+    P("し、"),
+    W("ぜひ","ぜひ",m("by all means, please","一定要","꼭","ဖြစ်ဖြစ်ချင်း","nhất định","जरूर")),
+    G("利用して欲しい","りようしてほしい",
+      m("want people to use","希望大家利用","이용해 주었으면 한다","အသုံးပြုစေလိုသည်","mong mọi người sử dụng","प्रयोग गर्नु भन्ने चाहन्छ"),
+      m("Vテ欲しい (L7) — 'I want (someone) to V.' Expresses a request or desire for others to do something. Here: municipalities are urging people, saying they WANT citizens to use flea markets.",
+        "Vテ欲しい（第7课）— '希望（某人）做V'。表达请求或期望他人做某事。此处：市町村呼吁市民利用跳蚤市场。",
+        "Vテ欲しい (7과) — '(누군가가) V해 주었으면 한다.' 타인에게 바라는 것을 나타냅니다. 시정촌이 시민들에게 이용을 촉구합니다.",
+        "Vテ欲しい (သင်ခန်းစာ 7) — '(တစ်စုံတစ်ယောက်ကို) V စေလိုသည်'။ အခြားသူများကို တောင်းဆိုခြင်း။",
+        "Vテ欲しい (Bài 7) — 'Muốn (ai đó) làm V.' Diễn tả yêu cầu hoặc mong muốn. Chính quyền kêu gọi người dân sử dụng chợ trời.",
+        "Vテ欲しい (पाठ 7) — '(कसैले) V गरोस् भन्ने चाहनु।' अरूलाई अनुरोध गर्छ।")),
+    P("」と"),
+    W("呼びかけている","よびかけている",m("are urging, calling on","呼吁着","호소하고 있다","တိုက်တွန်းနေသည်","đang kêu gọi","आह्वान गरिरहेका छन्")),
+    P("。"),
+  ],
+  hira:"しちょうそん でも 「リサイクル できるし、 やすく かえるし、 ぜひ りよう して ほしい」 と よびかけている。",
+  trans:m("Municipalities are also urging people, saying 'You can recycle, buy cheaply — please use them.'","市町村也在呼吁：'既能回收利用，又能便宜买到，请一定要利用。'","시정촌에서도 '리사이클할 수 있고, 싸게 살 수 있으니 꼭 이용해 주었으면 한다'고 호소하고 있다.","မြို့နယ်များကလည်း 'ပြန်လည်အသုံးပြုနိုင်သည်၊ စျေးသက်သာသည်၊ ကျေးဇူးပြု၍ အသုံးပြုပါ' ဟု တိုက်တွန်းနေသည်။","Chính quyền cũng kêu gọi: 'Có thể tái chế, mua rẻ — hãy sử dụng đi.'","नगरपालिकाहरूले पनि 'पुनःप्रयोग गर्न सकिन्छ, सस्तोमा किन्न सकिन्छ, जरूर प्रयोग गर्नुहोस्' भनेर आह्वान गरिरहेका छन्।")
+}
+];
+
+function rubyHTML(s,r){if(/^[\u3040-\u309F\u30A0-\u30FFー\uFF01-\uFF5E「」（）]+$/.test(s))return s;return`<ruby>${s}<rt>${r}</rt></ruby>`;}
+function renderPassage(){const el=document.getElementById('passage');el.innerHTML='';sentences.forEach((s,si)=>{const block=document.createElement('div');block.className='sentence-block';const jpLine=document.createElement('span');jpLine.className='jp-sentence';s.parts.forEach(part=>{if(part.w){const span=document.createElement('span');span.className='word';span.innerHTML=rubyHTML(part.w,part.r);span.onclick=e=>showPopup(e,{type:'word',reading:part.r,word:part.w,meaning:L(part.m)});jpLine.appendChild(span);}else if(part.g){const span=document.createElement('span');span.className='grammar';span.innerHTML=rubyHTML(part.g,part.r);span.onclick=e=>showPopup(e,{type:'grammar',reading:part.r,word:part.g,meaning:L(part.m),explain:L(part.x)});jpLine.appendChild(span);}else if(part.p!==undefined){const span=document.createElement('span');span.innerHTML=part.p;jpLine.appendChild(span);}});block.appendChild(jpLine);const hiraLine=document.createElement('span');hiraLine.className='hira-line'+(showHira?'':' hidden');hiraLine.textContent=s.hira;block.appendChild(hiraLine);const transLine=document.createElement('span');transLine.className='trans-line'+(showTrans?'':' hidden');transLine.textContent=L(s.trans);block.appendChild(transLine);el.appendChild(block);if(si===3){const br=document.createElement('div');br.className='para-break';el.appendChild(br);}});}
+function renderLangPicker(){const sel=document.getElementById('langPicker');sel.innerHTML='';LANGS.forEach(code=>{const opt=document.createElement('option');opt.value=code;opt.textContent=LANG_LABELS[code];if(code===curLang)opt.selected=true;sel.appendChild(opt);});}
+function setLang(code){curLang=code;updateAll();}function updateUI(){document.querySelectorAll('[data-ui]').forEach(el=>{const key=el.getAttribute('data-ui');if(UI[key])el.textContent=L(UI[key]);});}function updateAll(){renderLangPicker();updateUI();renderPassage();}
+function showPopup(e,data){e.stopPropagation();const popup=document.getElementById('popup');const overlay=document.getElementById('popupOverlay');let html='';if(data.type==='grammar'){html+=`<div class="grammar-tag">${L(UI.grammar_tag)}</div>`;html+=`<div class="reading">${data.reading}</div>`;if(data.word!==data.reading)html+=`<div class="kanji-display">${data.word}</div>`;html+=`<div class="meaning"><strong>${data.meaning}</strong></div>`;html+=`<div class="grammar-explain">${data.explain}</div>`;}else{html+=`<div class="reading">${data.reading}</div>`;if(data.word!==data.reading)html+=`<div class="kanji-display">${data.word}</div>`;html+=`<div class="meaning">${data.meaning}</div>`;}popup.innerHTML=html;popup.classList.add('show');overlay.classList.add('show');const rect=e.currentTarget.getBoundingClientRect();const popW=Math.min(340,window.innerWidth-20);let left=rect.left+rect.width/2-popW/2;if(left<10)left=10;if(left+popW>window.innerWidth-10)left=window.innerWidth-popW-10;let top=rect.bottom+10;popup.style.transform='none';if(top+220>window.innerHeight){top=rect.top-10;popup.style.transform='translateY(-100%)';}popup.style.left=left+'px';popup.style.top=top+'px';popup.style.width=popW+'px';}
+function closePopup(){document.getElementById('popup').classList.remove('show');document.getElementById('popupOverlay').classList.remove('show');}
+function toggleFurigana(){showFurigana=!showFurigana;document.body.classList.toggle('hide-furigana',!showFurigana);document.getElementById('btnFurigana').classList.toggle('active',showFurigana);}
+function toggleHira(){showHira=!showHira;document.getElementById('btnHira').classList.toggle('active',showHira);document.querySelectorAll('.hira-line').forEach(el=>el.classList.toggle('hidden',!showHira));}
+function toggleTrans(){showTrans=!showTrans;document.getElementById('btnTrans').classList.toggle('active',showTrans);document.querySelectorAll('.trans-line').forEach(el=>el.classList.toggle('hidden',!showTrans));}
+function setFontSize(val){document.documentElement.style.setProperty('--font-size',val+'px');}function toggleToolbar(){document.getElementById('toolbar').classList.toggle('collapsed');}
+window.addEventListener('scroll',()=>{document.getElementById('toolbar').classList.toggle('scrolled',window.scrollY>5);},{passive:true});
+updateAll();
+</script>
+</body>
+</html>

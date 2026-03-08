@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第8課 – あいづち</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Sans+Pro:wght@400;600&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+KR:wght@400;500&family=Noto+Sans+Myanmar:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;--accent:#b8433a;--grammar-color:#7b2d8e;--border:#e0d5c5;--popup-bg:#fffef9;--shadow:0 8px 32px rgba(44,36,22,0.12);--hira-color:#999;--trans-color:#5a7a5a;--font-size:18px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Noto Serif JP',serif;background:var(--bg);color:var(--text);min-height:100vh;}.page-bg{background:linear-gradient(160deg,#f7f3ec,#efe8dc);min-height:100vh;padding-bottom:3rem;}
+.toolbar{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,#f7f3ec,rgba(247,243,236,0.97));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding-bottom:0.4rem;transition:box-shadow 0.3s;}.toolbar.scrolled{box-shadow:0 2px 16px rgba(44,36,22,0.1);}
+.toolbar-header{display:flex;align-items:center;justify-content:center;padding:0.7rem 1rem 0.15rem;position:relative;}.toolbar-header h1{font-size:1.3rem;font-weight:700;color:var(--accent);letter-spacing:0.06em;}.toolbar-header .sub{font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);margin-left:0.5rem;align-self:flex-end;padding-bottom:0.08rem;}
+.collapse-btn{position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:2px solid var(--border);border-radius:50%;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-light);transition:all 0.2s;}.collapse-btn:hover{border-color:var(--accent);color:var(--accent);}.collapse-btn svg{transition:transform 0.3s;}.toolbar.collapsed .collapse-btn svg{transform:rotate(180deg);}
+.toolbar-body{max-height:160px;overflow:hidden;transition:max-height 0.35s ease,opacity 0.25s ease;opacity:1;}.toolbar.collapsed .toolbar-body{max-height:0;opacity:0;}
+.controls-row1{max-width:720px;margin:0.3rem auto 0;padding:0 1rem;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;}
+.toggle-btn{font-family:'Source Sans Pro',sans-serif;font-size:0.75rem;font-weight:600;padding:0.35rem 0;border-radius:999px;border:2px solid var(--border);background:var(--card-bg);color:var(--text-light);cursor:pointer;transition:all 0.2s;user-select:none;white-space:nowrap;width:5.5rem;text-align:center;}.toggle-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(184,67,58,0.06);}.toggle-btn:hover{border-color:var(--accent);}
+.controls-row2{max-width:720px;margin:0.35rem auto 0;padding:0 1rem;display:flex;align-items:center;justify-content:space-between;}
+.slider-group{display:flex;align-items:center;gap:0.4rem;font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;color:var(--text-light);}.slider-group input[type=range]{width:70px;accent-color:var(--accent);cursor:pointer;}
+.lang-picker-wrap{position:relative;display:inline-flex;align-items:center;}.lang-picker{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.78rem;font-weight:600;padding:0.35rem 2rem 0.35rem 0.7rem;border-radius:999px;border:2px solid #2471a3;background:rgba(36,113,163,0.07);color:#2471a3;cursor:pointer;appearance:none;-webkit-appearance:none;outline:none;transition:all 0.2s;}.lang-picker:hover,.lang-picker:focus{border-color:#1a5276;box-shadow:0 0 0 3px rgba(36,113,163,0.12);}.lang-picker-arrow{position:absolute;right:0.65rem;top:50%;transform:translateY(-50%);pointer-events:none;color:#2471a3;}
+.legend{display:flex;justify-content:center;gap:0.9rem;padding:0.3rem 1rem 0;flex-wrap:wrap;}.legend-item{font-family:'Source Sans Pro',sans-serif;font-size:0.68rem;color:var(--text-light);display:flex;align-items:center;gap:0.25rem;}.legend-dot{width:8px;height:8px;border-radius:50%;}.legend-dot.vocab{background:var(--accent);opacity:0.4;}.legend-dot.grammar{background:var(--grammar-color);opacity:0.5;}
+.content{max-width:720px;margin:0 auto;padding:0.8rem 1.2rem 3rem;}.passage-card{background:var(--card-bg);border-radius:12px;padding:2rem 1.8rem;box-shadow:var(--shadow);border:1px solid var(--border);line-height:2.6;font-size:var(--font-size);}.sentence-block{margin-bottom:0.7rem;}.jp-sentence{display:inline;}
+ruby rt{font-size:0.5em;color:var(--hira-color);font-family:'Noto Sans JP',sans-serif;font-weight:400;}body.hide-furigana ruby rt{visibility:hidden;}
+.word{cursor:pointer;border-bottom:1.5px dotted rgba(184,67,58,0.3);transition:background 0.15s;border-radius:2px;}.word:hover{background:rgba(184,67,58,0.08);}
+.grammar{font-weight:700;color:var(--grammar-color);cursor:pointer;border-bottom:2px solid rgba(123,45,142,0.35);border-radius:2px;transition:background 0.15s;}.grammar:hover{background:rgba(123,45,142,0.08);}
+.hira-line{display:block;font-family:'Noto Sans JP',sans-serif;font-size:0.78em;color:var(--hira-color);margin-top:0.1rem;line-height:1.6;transition:opacity 0.25s,max-height 0.3s;}.hira-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}
+.trans-line{display:block;font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.78em;color:var(--trans-color);margin-top:0.05rem;line-height:1.6;font-style:italic;transition:opacity 0.25s,max-height 0.3s;}.trans-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}
+.para-break{height:0.6rem;}
+.popup-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;}.popup-overlay.show{display:block;}
+.popup{display:none;position:fixed;z-index:1000;background:var(--popup-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;box-shadow:0 12px 40px rgba(44,36,22,0.18);max-width:360px;min-width:200px;animation:popIn 0.18s ease-out;}.popup.show{display:block;}
+@keyframes popIn{from{opacity:0;transform:translateY(6px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+.popup .reading{font-family:'Noto Sans JP',sans-serif;font-size:1.05rem;color:var(--accent);font-weight:500;margin-bottom:0.15rem;}.popup .kanji-display{font-size:0.78rem;color:var(--text-light);margin-bottom:0.3rem;}.popup .meaning{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.88rem;color:var(--text);line-height:1.55;}
+.popup .grammar-tag{display:inline-block;font-family:'Source Sans Pro',sans-serif;font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#fff;background:var(--grammar-color);padding:0.12rem 0.5rem;border-radius:999px;margin-bottom:0.35rem;}
+.popup .grammar-explain{font-family:'Source Sans Pro','Noto Sans SC','Noto Sans KR','Noto Sans Myanmar','Noto Sans Devanagari',sans-serif;font-size:0.8rem;color:var(--text);line-height:1.55;margin-top:0.25rem;}
+@media(max-width:520px){.passage-card{padding:1.2rem 1rem;}.toolbar-header h1{font-size:1.15rem;}.popup{max-width:90vw;min-width:170px;}}
+</style>
+</head>
+<body>
+<div class="page-bg">
+<div class="toolbar" id="toolbar">
+  <div class="toolbar-header">
+    <h1>あいづち</h1>
+    <span class="sub">第8課</span>
+    <button class="collapse-btn" onclick="toggleToolbar()" aria-label="Toggle controls">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </div>
+  <div class="toolbar-body">
+    <div class="controls-row2">
+      <div class="lang-picker-wrap">
+        <select class="lang-picker" id="langPicker" onchange="setLang(this.value)"></select>
+        <svg class="lang-picker-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="slider-group">
+        <span class="slider-label">Aa</span>
+        <input type="range" min="14" max="28" value="18" id="fontSlider" oninput="setFontSize(this.value)">
+        <span class="slider-label" style="font-size:1.1em;">Aa</span>
+      </div>
+    </div>
+    <div class="controls-row1">
+      <button class="toggle-btn active" id="btnFurigana" onclick="toggleFurigana()">振り仮名</button>
+      <button class="toggle-btn active" id="btnHira" onclick="toggleHira()">ひらがな</button>
+      <button class="toggle-btn active" id="btnTrans" onclick="toggleTrans()" data-ui="trans_btn"></button>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><span class="legend-dot vocab"></span> <span data-ui="leg_vocab"></span></div>
+      <div class="legend-item"><span class="legend-dot grammar"></span> <b><span data-ui="leg_grammar"></span></b></div>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="passage-card" id="passage"></div>
+</div>
+<div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div>
+<div class="popup" id="popup"></div>
+</div>
+<script>
+const LANGS=['en','zh','ko','my','vi','ne'];
+const LANG_LABELS={en:'English',zh:'中文',ko:'한국어',my:'မြန်မာ',vi:'Tiếng Việt',ne:'नेपाली'};
+const UI={trans_btn:{en:'Translation',zh:'翻译',ko:'번역',my:'ဘာသာပြန်',vi:'Dịch',ne:'अनुवाद'},leg_vocab:{en:'Vocabulary',zh:'词汇',ko:'어휘',my:'ဝေါဟာရ',vi:'Từ vựng',ne:'शब्दावली'},leg_grammar:{en:'Grammar',zh:'语法',ko:'문법',my:'သဒ္ဒါ',vi:'Ngữ pháp',ne:'व्याकरण'},grammar_tag:{en:'Grammar Point',zh:'语法点',ko:'문법 포인트',my:'သဒ္ဒါအချက်',vi:'Điểm ngữ pháp',ne:'व्याकरण बिन्दु'}};
+let curLang='en';let showHira=true,showTrans=true,showFurigana=true;
+function m(en,zh,ko,my,vi,ne){return{en,zh,ko,my,vi,ne};}
+function W(s,r,meaning){return{w:s,r:r,m:meaning};}
+function G(s,r,meaning,explain){return{g:s,r:r,m:meaning,x:explain};}
+function P(t){return{p:t};}
+function L(d){return(typeof d==='object'&&d[curLang])?d[curLang]:(typeof d==='string'?d:(d.en||''));}
+
+const sentences=[
+// ---- S1 ----
+{
+  parts:[
+    W("日本人","にほんじん",m("Japanese person","日本人","일본인","ဂျပန်လူမျိုး","người Nhật","जापानी व्यक्ति")),
+    P("は"),
+    W("相手","あいて",m("partner, the other person","对方","상대방","အခြားသူ","đối phương","अर्को व्यक्ति")),
+    P("の"),
+    W("話","はなし",m("talk, conversation","话","이야기","စကား","câu chuyện","कुरा")),
+    P("を"),
+    W("聞いている","きいている",m("is listening to","正在听","듣고 있는","နားထောင်နေသော","đang nghe","सुनिरहेको")),
+    G("あいだ","あいだ",
+      m("while, during","期间","동안","အချိန်အတောအတွင်း","trong khi","बीचमा"),
+      m("～あいだ (L8) — Indicates that while one action continues, another action also takes place throughout that period. Here: while listening to the other person's talk, Japanese people keep nodding.",
+        "～あいだ（第8课）— 表示在一个动作持续的期间，另一个动作也在进行。此处：在听对方说话的期间，日本人不断点头。",
+        "～あいだ (8과) — 한 동작이 지속되는 동안 다른 동작도 계속됨을 나타냅니다. 여기서는 상대방의 이야기를 듣는 동안 고개를 끄덕입니다.",
+        "～あいだ (သင်ခန်းစာ 8) — လုပ်ဆောင်ချက်တစ်ခု ဆက်လက်ရှိနေစဉ် အခြားလုပ်ဆောင်ချက်လည်း ဖြစ်ပေါ်ကြောင်း ဖော်ပြသည်။",
+        "～あいだ (Bài 8) — Chỉ rằng trong khi một hành động đang diễn ra, hành động khác cũng xảy ra suốt thời gian đó.",
+        "～あいだ (पाठ 8) — एउटा काम भइरहेको बीचमा अर्को काम पनि भइरहन्छ भन्ने जनाउँछ।")),
+    P("、"),
+    W("何回","なんかい",m("many times","好几次","몇 번이나","အကြိမ်ကြိမ်","nhiều lần","कैपटक")),
+    P("も"),
+    W("うなずいたり","うなずいたり",m("nod (among other things)","点头（等）","고개를 끄덕이거나","ခေါင်းညိတ်ခြင်း","gật đầu","टाउको हल्लाउनु")),
+    P("、「"),
+    W("はい","はい",m("yes","是","네","ဟုတ်ကဲ့","vâng","हो")),
+    P("、"),
+    W("ええ","ええ",m("yes (casual)","嗯","네 (구어)","ဟုတ်ကဲ့ (ပြောစကား)","vâng (thân mật)","हो (अनौपचारिक)")),
+    P("」とか「"),
+    W("うん","うん",m("yeah, uh-huh","嗯","응","အင်း","ừ","उँ")),
+    P("、"),
+    W("うん","うん",m("yeah, uh-huh","嗯","응","အင်း","ừ","उँ")),
+    P("」と"),
+    W("言ったりする","いったりする",m("say (among other things)","说（等）","말하거나 한다","ပြောဆိုခြင်း","nói","भन्नु")),
+    P("。"),
+  ],
+  hira:"にほんじん は あいて の はなし を きいている あいだ、 なんかい も うなずいたり、「はい、 ええ」 とか 「うん、 うん」 と いったりする。",
+  trans:m(
+    "While listening to the other person's talk, Japanese people nod many times and say things like 'hai, ee' or 'un, un.'",
+    "日本人在听对方说话的期间，会多次点头，或说「はい、ええ」「うん、うん」等。",
+    "일본인은 상대방의 이야기를 듣는 동안, 여러 번 고개를 끄덕이거나 '하이, 에에' 또는 '응, 응' 이라고 말하거나 한다.",
+    "ဂျပန်လူမျိုးများသည် အခြားသူ၏ စကားကို နားထောင်နေစဉ် အကြိမ်ကြိမ် ခေါင်းညိတ်ခြင်း၊ 'はい、ええ' သို့မဟုတ် 'うん、うん' ဟု ပြောခြင်းများ ပြုလုပ်ကြသည်။",
+    "Trong khi nghe người khác nói, người Nhật gật đầu nhiều lần và nói những câu như 'hai, ee' hay 'un, un.'",
+    "जापानी व्यक्तिहरू अर्को व्यक्तिको कुरा सुन्दा बीचमा, धेरै पटक टाउको हल्लाउँछन् र 'はい、ええ' वा 'うん、うん' भन्छन्।")
+},
+// ---- S2 ----
+{
+  parts:[
+    W("これ","これ",m("this","这","이것","ဒါ","điều này","यो")),
+    P("を"),
+    W("あいづち","あいづち",m("back-channel cues, nodding responses","附和","맞장구","ခေါင်းညိတ်ခြင်း","sự hưởng ứng","प्रतिक्रिया")),
+    P("という。"),
+  ],
+  hira:"これ を あいづち と いう。",
+  trans:m("This is called 'aizuchi.'","这叫做「あいづち」。","이것을 '아이즈치'라고 한다.","ဒါကို 'あいづち' ဟု ခေါ်သည်။","Điều này được gọi là 'aizuchi.'","यसलाई 'あいづち' भनिन्छ।")
+},
+// ---- S3 ----
+{
+  parts:[
+    W("これ","これ",m("this","这","이것","ဒါ","điều này","यो")),
+    P("は「"),
+    W("あなた","あなた",m("you","你","당신","သင်","bạn","तपाईं")),
+    P("の"),
+    W("話","はなし",m("talk","话","이야기","စကား","câu chuyện","कुरा")),
+    P("を"),
+    W("聞いていますよ","きいていますよ",m("I am listening","正在听呢","듣고 있어요","နားထောင်နေပါတယ်","tôi đang nghe đây","सुनिरहेको छु")),
+    P("。」ということを"),
+    W("伝える","つたえる",m("to convey, communicate","传达","전하다","ပြောကြားသည်","truyền đạt","बुझाउनु")),
+    W("合図","あいず",m("sign, cue, signal","信号，暗号","신호","အချက်ပြ","dấu hiệu","संकेत")),
+    P("だ。"),
+  ],
+  hira:"これ は 「あなた の はなし を きいていますよ。」 と いう こと を つたえる あいず だ。",
+  trans:m(
+    "This is a signal that conveys 'I am listening to what you are saying.'",
+    "这是传达「我在听你说话」的信号。",
+    "이것은 '당신의 이야기를 듣고 있어요'라는 것을 전하는 신호다.",
+    "ဒါက 'သင့်စကားကို နားထောင်နေပါတယ်' ဆိုတာကို ပြောကြားတဲ့ အချက်ပြမှုဖြစ်သည်။",
+    "Đây là dấu hiệu truyền đạt rằng 'tôi đang nghe bạn nói.'",
+    "यो 'तपाईंको कुरा सुनिरहेको छु' भन्ने कुरा बुझाउने संकेत हो।")
+},
+// ---- S4 ----
+{
+  parts:[
+    W("だから","だから",m("so, therefore","所以","그래서","ဒါကြောင့်","vì vậy","त्यसैले")),
+    P("、"),
+    W("うなずいたり","うなずいたり",m("nod (among other things)","点头（等）","고개를 끄덕이거나","ခေါင်းညိတ်ခြင်း","gật đầu","टाउको हल्लाउनु")),
+    P("、「"),
+    W("うん","うん",m("yeah","嗯","응","အင်း","ừ","उँ")),
+    P("、"),
+    W("うん","うん",m("yeah","嗯","응","အင်း","ừ","उँ")),
+    P("」と"),
+    W("言っていて","いっていて",m("even if one is saying","即使说着","말하고 있어도","ပြောနေသော်လည်း","dù đang nói","भनिरहे पनि")),
+    P("も、"),
+    W("相手","あいて",m("the other person","对方","상대방","အခြားသူ","đối phương","अर्को व्यक्ति")),
+    P("の"),
+    W("話","はなし",m("talk","话","이야기","စကား","câu chuyện","कुरा")),
+    P("に100％"),
+    W("賛成している","さんせいしている",m("agree with, approve of","赞成","찬성하고 있는","သဘောတူသော","đồng ý","सहमत")),
+    G("わけではない","わけではない",
+      m("it doesn't mean that","并不是","~한 것은 아니다","ဆိုလိုတာ မဟုတ်ပါ","không có nghĩa là","भन्ने होइन"),
+      m("～わけではない (L8) — Partial negation: 'It is not (necessarily) that ~.' Even though they nod and say 'un un,' it does NOT mean they 100% agree. They may just be signaling they're listening.",
+        "～わけではない（第8课）— 部分否定：'并不是说～'。虽然点头说'嗯嗯'，但并不意味着100%赞同。可能只是表示在听。",
+        "～わけではない (8과) — 부분 부정: '~한 것은 아니다.' 고개를 끄덕이고 '응응' 해도 100% 찬성한다는 뜻은 아닙니다.",
+        "～わけではない (သင်ခန်းစာ 8) — တစ်စိတ်တစ်ပိုင်း ငြင်းဆိုခြင်း။ ခေါင်းညိတ်ပြီး 'うんうん' ပြောလည်း 100% သဘောတူတာ မဟုတ်ပါ။",
+        "～わけではない (Bài 8) — Phủ định một phần: 'Không có nghĩa là ~.' Dù gật đầu và nói 'un un,' không có nghĩa đồng ý 100%.",
+        "～わけではない (पाठ 8) — आंशिक नकार: '~भन्ने होइन।' टाउको हल्लाए पनि र 'うんうん' भने पनि 100% सहमत भन्ने होइन।")),
+    P("。"),
+  ],
+  hira:"だから、 うなずいたり、「うん、 うん」 と いっていても、 あいて の はなし に 100% さんせいしている わけ では ない。",
+  trans:m(
+    "So even if they nod and say 'un, un,' it doesn't mean they 100% agree with what the other person is saying.",
+    "所以，即使点头说「嗯、嗯」，也并不意味着100%赞同对方的话。",
+    "그래서, 고개를 끄덕이거나 '응, 응'이라고 말하고 있어도, 상대방의 이야기에 100% 찬성하고 있는 것은 아니다.",
+    "ဒါကြောင့် ခေါင်းညိတ်ခြင်း၊ 'うん、うん' ပြောခြင်းရှိသော်လည်း အခြားသူ၏ စကားကို 100% သဘောတူနေတာ မဟုတ်ပါ။",
+    "Vì vậy, dù gật đầu và nói 'un, un,' không có nghĩa là họ đồng ý 100% với lời nói của đối phương.",
+    "त्यसैले, टाउको हल्लाए पनि र 'うん、うん' भने पनि, अर्को व्यक्तिको कुरामा 100% सहमत भन्ने होइन।")
+},
+// ---- S5 ----
+{
+  parts:[
+    W("日本人","にほんじん",m("Japanese person","日本人","일본인","ဂျပန်လူမျိုး","người Nhật","जापानी व्यक्ति")),
+    P("は"),
+    W("相手","あいて",m("the other person","对方","상대방","အခြားသူ","đối phương","अर्को व्यक्ति")),
+    P("から"),
+    W("あいづち","あいづち",m("back-channel cues","附和","맞장구","ခေါင်းညိတ်ခြင်း","sự hưởng ứng","प्रतिक्रिया")),
+    P("がないと、"),
+    W("不安","ふあん",m("anxious, uneasy","不安","불안","စိုးရိမ်","lo lắng","चिन्तित")),
+    P("になって、"),
+    W("聞いている","きいている",m("is listening","在听","듣고 있는지","နားထောင်နေသလား","có đang nghe","सुनिरहेको")),
+    P("かどうか、"),
+    W("つい","つい",m("unintentionally, just can't help","不由得","무심코","မတတ်နိုင်ဘဲ","bất giác","अनायासै")),
+    W("確かめたくなる","たしかめたくなる",m("feel like checking","想确认","확인하고 싶어진다","စစ်ဆေးချင်လာသည်","muốn xác nhận","पुष्टि गर्न मन लाग्छ")),
+    P("。"),
+  ],
+  hira:"にほんじん は あいて から あいづち が ないと、 ふあん に なって、 きいている か どう か、 つい たしかめたく なる。",
+  trans:m(
+    "If there is no aizuchi from the other person, Japanese people become uneasy and can't help wanting to check whether they are listening.",
+    "如果对方没有附和，日本人就会不安，忍不住想确认对方是否在听。",
+    "상대방으로부터 맞장구가 없으면, 일본인은 불안해져서 듣고 있는지 무심코 확인하고 싶어진다.",
+    "အခြားသူထံမှ あいづち မရှိလျှင် ဂျပန်လူမျိုးများ စိုးရိမ်လာပြီး နားထောင်နေသလား စစ်ဆေးချင်လာသည်။",
+    "Nếu không có aizuchi từ đối phương, người Nhật trở nên lo lắng và bất giác muốn xác nhận xem họ có đang nghe không.",
+    "अर्को व्यक्तिबाट あいづち नआए, जापानी व्यक्ति चिन्तित हुन्छन् र सुनिरहेको छ कि छैन पुष्टि गर्न मन लाग्छ।")
+},
+// ---- S6 ----
+{
+  parts:[
+    W("また","また",m("also","另外","또한","ထို့အပြင်","ngoài ra","साथै")),
+    P("、"),
+    W("聞いていない","きいていない",m("is not listening","没在听","듣고 있지 않다","နားမထောင်ဘူး","không nghe","सुनिरहेको छैन")),
+    P("と"),
+    W("誤解して","ごかいして",m("misunderstand","误解","오해해서","အထင်လွဲပြီး","hiểu lầm","गलत बुझेर")),
+    W("しまう","しまう",m("end up doing (regrettably)","（遗憾地）做了","~해 버리다","ဖြစ်သွားတတ်သည်","(đáng tiếc)","भइहाल्छ")),
+    G("ことがある","ことがある",
+      m("there are times when","有时候会","~할 때가 있다","တစ်ခါတစ်ရံ ဖြစ်တတ်သည်","có khi","कहिलेकाहीँ हुन्छ"),
+      m("Vることがある (L8) — 'There are times when V happens.' Indicates something occurs occasionally, not always. Here: there are times when people misunderstand and think you're not listening.",
+        "Vることがある（第8课）— '有时会发生V'。表示偶尔发生，并非总是。此处：有时会被误解为没在听。",
+        "Vることがある (8과) — 'V할 때가 있다.' 가끔 일어나는 일을 나타냅니다. 여기서는 듣고 있지 않다고 오해할 때가 있습니다.",
+        "Vることがある (သင်ခန်းစာ 8) — 'V ဖြစ်တတ်ခြင်းရှိသည်'။ တစ်ခါတစ်ရံ ဖြစ်ပေါ်ကြောင်း ဖော်ပြသည်။",
+        "Vることがある (Bài 8) — 'Có lúc V xảy ra.' Chỉ điều gì đó xảy ra thỉnh thoảng. Ở đây: có khi bị hiểu lầm là không nghe.",
+        "Vることがある (पाठ 8) — 'V हुने बेला हुन्छ।' कहिलेकाहीँ हुन्छ भन्ने जनाउँछ।")),
+    P("。"),
+  ],
+  hira:"また、 きいていない と ごかいしてしまう こと が ある。",
+  trans:m(
+    "Also, there are times when they misunderstand and think you are not listening.",
+    "另外，有时也会误解为对方没在听。",
+    "또한, 듣고 있지 않다고 오해해 버리는 경우도 있다.",
+    "ထို့အပြင် နားမထောင်ဘူးဟု အထင်လွဲသွားတတ်သည်။",
+    "Ngoài ra, có khi họ hiểu lầm rằng bạn không nghe.",
+    "साथै, सुनिरहेको छैन भनेर गलत बुझिहाल्ने बेला पनि हुन्छ।")
+},
+// ---- S7 ----
+{
+  parts:[
+    W("しかし","しかし",m("however","但是","하지만","သို့သော်","tuy nhiên","तथापि")),
+    P("、"),
+    W("相手","あいて",m("the other person","对方","상대방","အခြားသူ","đối phương","अर्को व्यक्ति")),
+    P("が"),
+    W("話し終わる","はなしおわる",m("finish talking","说完","말을 끝내다","စကားပြောပြီးဆုံးသည်","nói xong","कुरा सकिनु")),
+    G("まで","まで",
+      m("until","直到","~까지","~အထိ","cho đến khi","~सम्म"),
+      m("V1るまで、V2 (L8) — 'Until V1, V2 continues.' Indicates V2 is maintained until V1 happens. Here: until the other person finishes talking, you stay silent and listen.",
+        "V1るまで、V2（第8课）— '直到V1，V2一直持续'。表示V2一直维持到V1发生。此处：直到对方说完为止，保持沉默地听。",
+        "V1るまで、V2 (8과) — 'V1할 때까지 V2가 계속된다.' V1이 일어날 때까지 V2가 유지됩니다. 상대방이 말을 끝낼 때까지 조용히 듣습니다.",
+        "V1るまで、V2 (သင်ခန်းစာ 8) — 'V1 ဖြစ်သည်အထိ V2 ဆက်လက်ရှိသည်'။ အခြားသူ စကားပြောပြီးသည်အထိ တိတ်ဆိတ်စွာ နားထောင်ခြင်း။",
+        "V1るまで、V2 (Bài 8) — 'Cho đến khi V1, V2 tiếp tục.' Ở đây: im lặng nghe cho đến khi đối phương nói xong.",
+        "V1るまで、V2 (पाठ 8) — 'V1 नभएसम्म V2 जारी रहन्छ।' अर्को व्यक्तिले कुरा नसकेसम्म चुप लागेर सुन्नु।")),
+    P("、"),
+    W("黙って","だまって",m("silently, without speaking","沉默地","잠자코","တိတ်ဆိတ်စွာ","im lặng","चुप लागेर")),
+    W("話","はなし",m("talk","话","이야기","စကား","câu chuyện","कुरा")),
+    P("を"),
+    W("聞く","きく",m("to listen","听","듣다","နားထောင်သည်","nghe","सुन्नु")),
+    W("国","くに",m("country","国家","나라","နိုင်ငံ","quốc gia","देश")),
+    P("もある。"),
+  ],
+  hira:"しかし、 あいて が はなしおわる まで、 だまって はなし を きく くに も ある。",
+  trans:m(
+    "However, there are also countries where people stay silent and listen until the other person finishes talking.",
+    "但是，也有一些国家是沉默地听到对方说完为止。",
+    "하지만, 상대방이 말을 끝낼 때까지 잠자코 이야기를 듣는 나라도 있다.",
+    "သို့သော် အခြားသူ စကားပြောပြီးသည်အထိ တိတ်ဆိတ်စွာ နားထောင်သော နိုင်ငံများလည်း ရှိသည်။",
+    "Tuy nhiên, cũng có những nước mà người ta im lặng nghe cho đến khi đối phương nói xong.",
+    "तथापि, अर्को व्यक्तिले कुरा नसकेसम्म चुप लागेर सुन्ने देश पनि छन्।")
+},
+// ---- S8 ----
+{
+  parts:[
+    W("外国人","がいこくじん",m("foreigner","外国人","외국인","နိုင်ငံခြားသား","người nước ngoài","विदेशी")),
+    P("の"),
+    W("中","なか",m("among","中","중","အထဲ","trong số","बीचमा")),
+    P("には、"),
+    W("自分","じぶん",m("oneself","自己","자신","ကိုယ့်ကိုယ်","bản thân","आफू")),
+    P("が"),
+    W("話している","はなしている",m("is talking","正在说话","말하고 있는","စကားပြောနေသော","đang nói","बोलिरहेको")),
+    G("あいだに","あいだに",
+      m("while, during (punctual)","在…期间","~동안에","~အချိန်အတွင်း","trong khi","~बीचमा"),
+      m("～あいだに (L8) — Unlike ～あいだ (continuous throughout), ～あいだに marks a point event occurring within a period. Here: while I am talking (ongoing), the Japanese person interjects (point event) with aizuchi.",
+        "～あいだに（第8课）— 与～あいだ（全程持续）不同，～あいだに表示在某段时间内发生的瞬间动作。此处：在我说话的期间，日本人插入了附和。",
+        "～あいだに (8과) — ～あいだ (전체 지속)와 달리, ～あいだに는 기간 중 특정 시점의 사건을 나타냅니다. 말하는 동안에 일본인이 맞장구를 칩니다.",
+        "～あいだに (သင်ခန်းစာ 8) — ～あいだ (တစ်လျှောက်လုံး) နှင့်မတူဘဲ ～あいだに သည် ကာလအတွင်း ဖြစ်ပေါ်သော အဖြစ်အပျက်ကို ဖော်ပြသည်။",
+        "～あいだに (Bài 8) — Khác với ～あいだ (liên tục), ～あいだに đánh dấu sự kiện xảy ra tại một thời điểm trong khoảng thời gian. Ở đây: trong khi tôi đang nói, người Nhật chen vào bằng aizuchi.",
+        "～あいだに (पाठ 8) — ～あいだ (लगातार) भन्दा फरक, ～あいだに ले अवधिभित्र एउटा विशेष घटना जनाउँछ।")),
+    P("、"),
+    W("日本人","にほんじん",m("Japanese person","日本人","일본인","ဂျပန်လူမျိုး","người Nhật","जापानी व्यक्ति")),
+    P("が"),
+    W("あいづち","あいづち",m("back-channel cues","附和","맞장구","ခေါင်းညိတ်ခြင်း","sự hưởng ứng","प्रतिक्रिया")),
+    P("を"),
+    W("打つ","うつ",m("to give, strike (aizuchi)","打（附和）","치다 (맞장구를)","ထိုးသည်","đánh (hưởng ứng)","हान्नु")),
+    P("と、"),
+    W("話","はなし",m("talk","话","이야기","စကား","câu chuyện","कुरा")),
+    P("を"),
+    W("止められた","とめられた",m("was stopped (passive)","被打断了","멈추게 되었다","ရပ်တန့်ခံရသည်","bị ngắt","रोकिएको")),
+    P("と"),
+    W("誤解する","ごかいする",m("misunderstand","误解","오해하다","အထင်လွဲသည်","hiểu lầm","गलत बुझ्नु")),
+    W("人","ひと",m("person","人","사람","လူ","người","व्यक्ति")),
+    P("もいる。"),
+  ],
+  hira:"がいこくじん の なか には、 じぶん が はなしている あいだに、 にほんじん が あいづち を うつ と、 はなし を とめられた と ごかいする ひと も いる。",
+  trans:m(
+    "Among foreigners, there are those who, when a Japanese person gives aizuchi while they are talking, misunderstand it as being interrupted.",
+    "在外国人中，也有人在自己说话期间，日本人打了附和，就误解为被打断了。",
+    "외국인 중에는, 자신이 말하고 있는 동안에 일본인이 맞장구를 치면 이야기를 멈추게 한 것이라고 오해하는 사람도 있다.",
+    "နိုင်ငံခြားသားများထဲတွင် မိမိ စကားပြောနေစဉ် ဂျပန်လူမျိုးက あいづち ထိုးသောအခါ စကားကို ရပ်တန့်ခံရသည်ဟု အထင်လွဲသူများလည်း ရှိသည်။",
+    "Trong số người nước ngoài, có người khi đang nói mà người Nhật hưởng ứng thì hiểu lầm rằng bị ngắt lời.",
+    "विदेशीहरूमध्ये, आफू बोलिरहेको बीचमा जापानी व्यक्तिले あいづち गर्दा कुरा रोकिएको भनेर गलत बुझ्ने व्यक्ति पनि छन्।")
+},
+// ---- S9 ----
+{
+  parts:[
+    W("国","くに",m("country","国家","나라","နိုင်ငံ","quốc gia","देश")),
+    G("によって","によって",
+      m("depending on","根据，取决于","~에 따라","~ပေါ်မူတည်ပြီး","tùy theo","~अनुसार"),
+      m("Nによって (L8) — 'Depending on N.' Indicates that something varies based on N. Here: the way people listen to conversations varies depending on the country.",
+        "Nによって（第8课）— '根据N'。表示某事因N而异。此处：听话的方式因国家而异。",
+        "Nによって (8과) — 'N에 따라.' N에 따라 달라짐을 나타냅니다. 여기서는 나라에 따라 듣는 방식이 다양합니다.",
+        "Nによって (သင်ခန်းစာ 8) — 'N ပေါ်မူတည်ပြီး'။ N အပေါ်မူတည်ပြီး ကွဲပြားကြောင်း ဖော်ပြသည်။",
+        "Nによって (Bài 8) — 'Tùy theo N.' Chỉ rằng điều gì đó thay đổi dựa trên N. Ở đây: cách nghe thay đổi tùy theo quốc gia.",
+        "Nによって (पाठ 8) — 'N अनुसार।' N मा भर पर्छ भन्ने जनाउँछ। यहाँ: देश अनुसार सुन्ने तरिका फरक हुन्छ।")),
+    W("話","はなし",m("talk","话","이야기","စကား","câu chuyện","कुरा")),
+    P("の"),
+    W("聞き方","ききかた",m("way of listening","听法","듣는 방법","နားထောင်ပုံ","cách nghe","सुन्ने तरिका")),
+    P("は"),
+    W("さまざまだ","さまざまだ",m("various, diverse","各种各样的","다양하다","အမျိုးမျိုးဖြစ်သည်","đa dạng","विविध छ")),
+    P("。"),
+  ],
+  hira:"くに によって はなし の ききかた は さまざまだ。",
+  trans:m(
+    "The way of listening to conversations varies depending on the country.",
+    "根据国家不同，听话的方式也各种各样。",
+    "나라에 따라 이야기를 듣는 방법은 다양하다.",
+    "နိုင်ငံပေါ်မူတည်ပြီး စကားနားထောင်ပုံ အမျိုးမျိုးဖြစ်သည်။",
+    "Cách nghe câu chuyện khác nhau tùy theo quốc gia.",
+    "देश अनुसार कुरा सुन्ने तरिका विविध छ।")
+}
+];
+
+// ========== RENDERING ==========
+function rubyHTML(s,r){if(/^[\u3040-\u309F\u30A0-\u30FFー\uFF01-\uFF5E「」（）]+$/.test(s))return s;return`<ruby>${s}<rt>${r}</rt></ruby>`;}
+function renderPassage(){
+  const el=document.getElementById('passage');el.innerHTML='';
+  sentences.forEach((s,si)=>{
+    const block=document.createElement('div');block.className='sentence-block';
+    const jpLine=document.createElement('span');jpLine.className='jp-sentence';
+    s.parts.forEach(part=>{
+      if(part.w){const span=document.createElement('span');span.className='word';span.innerHTML=rubyHTML(part.w,part.r);span.onclick=e=>showPopup(e,{type:'word',reading:part.r,word:part.w,meaning:L(part.m)});jpLine.appendChild(span);}
+      else if(part.g){const span=document.createElement('span');span.className='grammar';span.innerHTML=rubyHTML(part.g,part.r);span.onclick=e=>showPopup(e,{type:'grammar',reading:part.r,word:part.g,meaning:L(part.m),explain:L(part.x)});jpLine.appendChild(span);}
+      else if(part.p!==undefined){const span=document.createElement('span');span.innerHTML=part.p;jpLine.appendChild(span);}
+    });
+    block.appendChild(jpLine);
+    const hiraLine=document.createElement('span');hiraLine.className='hira-line'+(showHira?'':' hidden');hiraLine.textContent=s.hira;block.appendChild(hiraLine);
+    const transLine=document.createElement('span');transLine.className='trans-line'+(showTrans?'':' hidden');transLine.textContent=L(s.trans);block.appendChild(transLine);
+    el.appendChild(block);
+    if(si===3){const br=document.createElement('div');br.className='para-break';el.appendChild(br);}
+  });
+}
+function renderLangPicker(){const sel=document.getElementById('langPicker');sel.innerHTML='';LANGS.forEach(code=>{const opt=document.createElement('option');opt.value=code;opt.textContent=LANG_LABELS[code];if(code===curLang)opt.selected=true;sel.appendChild(opt);});}
+function setLang(code){curLang=code;updateAll();}
+function updateUI(){document.querySelectorAll('[data-ui]').forEach(el=>{const key=el.getAttribute('data-ui');if(UI[key])el.textContent=L(UI[key]);});}
+function updateAll(){renderLangPicker();updateUI();renderPassage();}
+function showPopup(e,data){
+  e.stopPropagation();const popup=document.getElementById('popup');const overlay=document.getElementById('popupOverlay');let html='';
+  if(data.type==='grammar'){html+=`<div class="grammar-tag">${L(UI.grammar_tag)}</div>`;html+=`<div class="reading">${data.reading}</div>`;if(data.word!==data.reading)html+=`<div class="kanji-display">${data.word}</div>`;html+=`<div class="meaning"><strong>${data.meaning}</strong></div>`;html+=`<div class="grammar-explain">${data.explain}</div>`;}
+  else{html+=`<div class="reading">${data.reading}</div>`;if(data.word!==data.reading)html+=`<div class="kanji-display">${data.word}</div>`;html+=`<div class="meaning">${data.meaning}</div>`;}
+  popup.innerHTML=html;popup.classList.add('show');overlay.classList.add('show');
+  const rect=e.currentTarget.getBoundingClientRect();const popW=Math.min(340,window.innerWidth-20);let left=rect.left+rect.width/2-popW/2;if(left<10)left=10;if(left+popW>window.innerWidth-10)left=window.innerWidth-popW-10;let top=rect.bottom+10;popup.style.transform='none';if(top+220>window.innerHeight){top=rect.top-10;popup.style.transform='translateY(-100%)';}popup.style.left=left+'px';popup.style.top=top+'px';popup.style.width=popW+'px';
+}
+function closePopup(){document.getElementById('popup').classList.remove('show');document.getElementById('popupOverlay').classList.remove('show');}
+function toggleFurigana(){showFurigana=!showFurigana;document.body.classList.toggle('hide-furigana',!showFurigana);document.getElementById('btnFurigana').classList.toggle('active',showFurigana);}
+function toggleHira(){showHira=!showHira;document.getElementById('btnHira').classList.toggle('active',showHira);document.querySelectorAll('.hira-line').forEach(el=>el.classList.toggle('hidden',!showHira));}
+function toggleTrans(){showTrans=!showTrans;document.getElementById('btnTrans').classList.toggle('active',showTrans);document.querySelectorAll('.trans-line').forEach(el=>el.classList.toggle('hidden',!showTrans));}
+function setFontSize(val){document.documentElement.style.setProperty('--font-size',val+'px');}
+function toggleToolbar(){document.getElementById('toolbar').classList.toggle('collapsed');}
+window.addEventListener('scroll',()=>{document.getElementById('toolbar').classList.toggle('scrolled',window.scrollY>5);},{passive:true});
+updateAll();
+</script>
+</body>
+</html>
