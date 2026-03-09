@@ -84,7 +84,7 @@ body{
 .legend-dot{width:7px;height:7px;border-radius:50%;}
 .legend-dot.vocab{background:var(--accent);opacity:0.4;}
 .legend-dot.grammar{background:var(--grammar-color);opacity:0.5;}
-.legend-dot.core{background:#c97a3a;opacity:0.7;}
+.legend-dot.core{display:none;}
 
 /* ===== PAGE AREA ===== */
 .page-area{
@@ -132,7 +132,7 @@ ruby rt{font-size:0.5em;color:var(--hira-color);font-family:'Noto Sans JP',sans-
 body.hide-furigana ruby rt{visibility:hidden;}
 .word{cursor:pointer;transition:background 0.15s;border-radius:2px;}
 .word:hover{background:rgba(184,67,58,0.08);}
-.word.core{background:rgba(184,67,58,0.06);}
+.word.core{}
 .grammar{
   font-weight:700;color:var(--grammar-color);cursor:pointer;
   border-bottom:2px solid rgba(123,45,142,0.35);border-radius:2px;transition:background 0.15s;
