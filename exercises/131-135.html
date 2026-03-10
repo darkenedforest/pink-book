@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中級へ行こう — Exercises pp. 131–135</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;--accent:#b8433a;--grammar:#7b2d8e;--border:#e0d5c5;--shadow:0 8px 32px rgba(44,36,22,0.12);--green:#5a7a5a;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Source Sans Pro',sans-serif;background:linear-gradient(160deg,#f7f3ec,#efe8dc);color:var(--text);min-height:100vh;}
+.container{max-width:720px;margin:0 auto;padding:1.2rem 1rem 3rem;}
+.toolbar{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,#f7f3ec,rgba(247,243,236,0.97));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0.7rem 1rem;text-align:center;margin-bottom:1rem;}
+.toolbar h1{font-family:'Noto Serif JP',serif;font-size:1.3rem;font-weight:700;color:var(--accent);letter-spacing:0.04em;}
+.toolbar .sub{font-size:0.75rem;color:var(--text-light);}
+
+/* Page nav */
+.page-nav{display:flex;justify-content:center;gap:0.4rem;margin:0.8rem 0 1.2rem;flex-wrap:wrap;}
+.page-nav a{font-size:0.78rem;font-weight:600;padding:0.3rem 0.7rem;border:2px solid var(--border);border-radius:999px;color:var(--text-light);text-decoration:none;transition:all 0.2s;}
+.page-nav a:hover,.page-nav a.active{border-color:var(--accent);color:var(--accent);background:rgba(184,67,58,0.06);}
+
+/* Section headings */
+.page-marker{font-family:'Source Sans Pro',sans-serif;font-size:0.7rem;font-weight:700;color:#fff;background:var(--accent);display:inline-block;padding:0.2rem 0.7rem;border-radius:999px;margin-bottom:0.6rem;letter-spacing:0.04em;}
+.section-title{font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:0.15rem;}
+.section-grammar{font-family:'Noto Sans JP',sans-serif;font-size:0.95rem;font-weight:700;color:var(--grammar);margin-bottom:0.5rem;}
+.section-sub{font-size:0.82rem;color:var(--text-light);font-style:italic;margin-bottom:0.8rem;}
+
+/* Cards */
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.3rem;margin-bottom:1rem;box-shadow:0 3px 12px rgba(44,36,22,0.05);}
+.card:target{box-shadow:0 0 0 3px var(--accent);border-color:var(--accent);}
+
+/* Exercise items */
+.ex-item{margin-bottom:1.3rem;padding-bottom:1.3rem;border-bottom:1px dashed var(--border);}
+.ex-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.ex-num{font-weight:700;color:var(--accent);font-size:0.9rem;margin-bottom:0.3rem;}
+.answer-tag{display:inline-block;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#fff;background:var(--green);padding:0.12rem 0.5rem;border-radius:999px;margin-bottom:0.3rem;}
+.answer{font-family:'Noto Serif JP',serif;font-size:1rem;color:var(--accent);font-weight:700;margin-bottom:0.3rem;}
+.jp{font-family:'Noto Serif JP',serif;font-size:1.05rem;line-height:2;margin-bottom:0.3rem;}
+.en{font-size:0.88rem;color:var(--green);font-style:italic;line-height:1.5;margin-bottom:0.3rem;}
+.explain{font-size:0.82rem;color:var(--text-light);line-height:1.5;}
+.explain code{font-family:'Noto Sans JP',sans-serif;background:rgba(123,45,142,0.08);color:var(--grammar);padding:0.1rem 0.3rem;border-radius:3px;font-size:0.85em;}
+
+/* Tables */
+.keigo-table{width:100%;border-collapse:collapse;font-size:0.88rem;margin:0.5rem 0;}
+.keigo-table th{font-family:'Source Sans Pro',sans-serif;background:rgba(184,67,58,0.06);padding:0.5rem;text-align:left;border:1px solid var(--border);font-weight:700;color:var(--accent);}
+.keigo-table td{padding:0.5rem;border:1px solid var(--border);font-family:'Noto Sans JP',sans-serif;}
+.keigo-table .label{font-weight:700;background:rgba(44,36,22,0.03);}
+
+/* Subsection labels */
+.sub-label{font-size:0.78rem;font-weight:700;color:var(--grammar);margin:0.8rem 0 0.4rem;text-transform:uppercase;letter-spacing:0.04em;}
+
+.ornament{display:block;margin:1.5rem auto;width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);}
+
+@media(max-width:520px){
+  .card{padding:1rem 0.9rem;}
+  .jp{font-size:0.95rem;}
+}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <h1>中級へ行こう 練習問題</h1>
+  <div class="sub">Exercises — Pages 131–135</div>
+</div>
+
+<div class="container">
+
+<div class="page-nav">
+  <a href="#p131">p.131</a>
+  <a href="#p132">p.132</a>
+  <a href="#p133">p.133</a>
+  <a href="#p134">p.134</a>
+  <a href="#p135">p.135</a>
+</div>
+
+<!-- ═══════════════════════════════════════ PAGE 131 ═══════════════════════════════════════ -->
+
+<div id="p131">
+<span class="page-marker">PAGE 131</span>
+
+<!-- 2. 代わりに -->
+<div class="card">
+<div class="section-title">2. 基本練習</div>
+<div class="section-grammar">Vル／Nの代わりに</div>
+<div class="section-sub">Rewrite using 代わりに (instead of)</div>
+
+<div class="ex-item">
+  <div class="ex-num">①</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">マイカーで行く代わりに</div>
+  <div class="jp">最近の旅行はマイカーで<ruby>行<rt>い</rt></ruby>く<ruby>代<rt>か</rt></ruby>わりに、バスツアーに<ruby>参加<rt>さんか</rt></ruby>する<ruby>人<rt>ひと</rt></ruby>が<ruby>多<rt>おお</rt></ruby>くなった。</div>
+  <div class="en">Recently, instead of traveling by personal car, the number of people participating in bus tours has increased.</div>
+  <div class="explain"><code>行きます</code> &rarr; dictionary form <code>行く</code> + <code>代わりに</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">②</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">車を持つ代わりに</div>
+  <div class="jp">このごろ、<ruby>車<rt>くるま</rt></ruby>を<ruby>持<rt>も</rt></ruby>つ<ruby>代<rt>か</rt></ruby>わりに、カーシェアリングを<ruby>利用<rt>りよう</rt></ruby>する<ruby>人<rt>ひと</rt></ruby>が<ruby>増<rt>ふ</rt></ruby>えている。</div>
+  <div class="en">These days, instead of owning a car, the number of people using car-sharing is increasing.</div>
+  <div class="explain"><code>持ちます</code> &rarr; dictionary form <code>持つ</code> + <code>代わりに</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">③</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">残業する代わりに</div>
+  <div class="jp">この<ruby>会社<rt>かいしゃ</rt></ruby>は<ruby>以前<rt>いぜん</rt></ruby><ruby>残業<rt>ざんぎょう</rt></ruby>する<ruby>人<rt>ひと</rt></ruby>が<ruby>多<rt>おお</rt></ruby>かった。しかし、<ruby>今<rt>いま</rt></ruby>は<ruby>残業<rt>ざんぎょう</rt></ruby>する<ruby>代<rt>か</rt></ruby>わりに、<ruby>早朝出勤<rt>そうちょうしゅっきん</rt></ruby>する<ruby>人<rt>ひと</rt></ruby>が<ruby>多<rt>おお</rt></ruby>い。</div>
+  <div class="en">There used to be many people working overtime. But now, instead of overtime, many come to work early.</div>
+  <div class="explain"><code>します</code> &rarr; dictionary form <code>する</code> + <code>代わりに</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">④</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">ラオさんの代わりに</div>
+  <div class="jp"><ruby>今日<rt>きょう</rt></ruby>の<ruby>発表<rt>はっぴょう</rt></ruby>はラオさんの<ruby>代<rt>か</rt></ruby>わりに、リーさんがする。</div>
+  <div class="en">Instead of Rao, Lee will do today's presentation.</div>
+  <div class="explain">"Rao" is a noun &rarr; <code>の</code> before <code>代わりに</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">⑤</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">人の代わりに</div>
+  <div class="jp">ここでは<ruby>危険<rt>きけん</rt></ruby>な<ruby>仕事<rt>しごと</rt></ruby>は<ruby>人<rt>ひと</rt></ruby>の<ruby>代<rt>か</rt></ruby>わりに、ロボットがしている。</div>
+  <div class="en">Here, instead of people, robots are doing the dangerous jobs.</div>
+  <div class="explain"><code>人</code> is a noun &rarr; <code>の</code> before <code>代わりに</code></div>
+</div>
+</div>
+
+<span class="ornament"></span>
+
+<!-- 3. Vテくる・Vテいく -->
+<div class="card">
+<div class="section-title">3. 基本練習 1</div>
+<div class="section-grammar">Vテくる・Vテいく</div>
+<div class="section-sub">Conjugate verbs into て form (送る / する / 帰る / 訪ねる / 落ちる)</div>
+
+<div class="ex-item">
+  <div class="ex-num">①</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">送って</div>
+  <div class="jp"><ruby>母<rt>はは</rt></ruby>は<ruby>毎週<rt>まいしゅう</rt></ruby><ruby>自分<rt>じぶん</rt></ruby>で<ruby>作<rt>つく</rt></ruby>った<ruby>野菜<rt>やさい</rt></ruby>を<ruby>私<rt>わたし</rt></ruby>の<ruby>家<rt>いえ</rt></ruby>に<ruby>送<rt>おく</rt></ruby>ってくる。</div>
+  <div class="en">My mother sends vegetables she grew herself to my house every week.</div>
+  <div class="explain"><code>送る</code> &rarr; <code>送って</code>. <code>〜てくる</code> = action moving <em>toward</em> the speaker.</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">②</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">落ちて</div>
+  <div class="jp"><ruby>道<rt>みち</rt></ruby>を<ruby>歩<rt>ある</rt></ruby>いていたら、<ruby>上<rt>うえ</rt></ruby>から<ruby>紙<rt>かみ</rt></ruby>が<ruby>落<rt>お</rt></ruby>ちてきた。</div>
+  <div class="en">As I was walking down the street, paper fell down from above.</div>
+  <div class="explain"><code>落ちる</code> &rarr; <code>落ちて</code>. Falls <em>toward</em> the speaker.</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">③</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">して</div>
+  <div class="jp"><ruby>昨日<rt>きのう</rt></ruby>の<ruby>晩<rt>ばん</rt></ruby>11<ruby>時<rt>じ</rt></ruby><ruby>過<rt>す</rt></ruby>ぎに<ruby>父<rt>ちち</rt></ruby>が<ruby>電話<rt>でんわ</rt></ruby>をしてきた。</div>
+  <div class="en">My father called me past 11 PM last night.</div>
+  <div class="explain"><code>電話をする</code> &rarr; <code>して</code>. Call directed <em>at</em> the speaker.</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">④</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">訪ねて</div>
+  <div class="jp"><ruby>大学時代<rt>だいがくじだい</rt></ruby>の<ruby>友<rt>とも</rt></ruby>だちが、ある<ruby>日<rt>ひ</rt></ruby>、<ruby>突然<rt>とつぜん</rt></ruby><ruby>私<rt>わたし</rt></ruby>を<ruby>訪<rt>たず</rt></ruby>ねてきた。</div>
+  <div class="en">A friend from my university days suddenly came to visit me one day.</div>
+  <div class="explain"><code>訪ねる</code> &rarr; <code>訪ねて</code>. Friend travels <em>toward</em> the speaker.</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">⑤</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">帰って</div>
+  <div class="jp"><ruby>彼女<rt>かのじょ</rt></ruby>は<ruby>傘<rt>かさ</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れたまま<ruby>帰<rt>かえ</rt></ruby>っていった。</div>
+  <div class="en">She went home, having forgotten her umbrella.</div>
+  <div class="explain"><code>帰る</code> &rarr; <code>帰って</code>. <code>〜ていった</code> = moving <em>away</em> from the speaker.</div>
+</div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ PAGE 132 ═══════════════════════════════════════ -->
+
+<span class="ornament"></span>
+<div id="p132">
+<span class="page-marker">PAGE 132</span>
+
+<div class="card">
+<div class="section-title">3. 基本練習 2</div>
+<div class="section-grammar">Vテくる・Vテいく</div>
+<div class="section-sub">Choose くる/きた or いく/いった based on context</div>
+
+<div class="ex-item">
+  <div class="ex-num">①</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">いった</div>
+  <div class="jp"><ruby>先生<rt>せんせい</rt></ruby>、<ruby>花子<rt>はなこ</rt></ruby>が100<ruby>点<rt>てん</rt></ruby>のテストを<ruby>持<rt>も</rt></ruby>って、うれしそうに<ruby>帰<rt>かえ</rt></ruby>っていったんですよ。</div>
+  <div class="en">Teacher, Hanako happily went home holding her 100-point test.</div>
+  <div class="explain">Hanako is leaving school (moving <em>away</em>) &rarr; <code>ていった</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">②</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">きた</div>
+  <div class="jp"><ruby>花子<rt>はなこ</rt></ruby>ちゃん、<ruby>本当<rt>ほんとう</rt></ruby>にうれしそうに<ruby>帰<rt>かえ</rt></ruby>ってきたんですよ。</div>
+  <div class="en">Hanako came home looking really happy.</div>
+  <div class="explain">Arriving at home (moving <em>toward</em> the speaker) &rarr; <code>てきた</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">③</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">くる</div>
+  <div class="jp">わあ、きれいだな。<ruby>桜<rt>さくら</rt></ruby>の<ruby>花<rt>はな</rt></ruby>びらが<ruby>舞<rt>ま</rt></ruby>い<ruby>落<rt>お</rt></ruby>ちてくる。</div>
+  <div class="en">Wow, how beautiful. Cherry blossom petals are fluttering down (towards me).</div>
+  <div class="explain">Petals falling <em>down toward</em> the speaker &rarr; <code>てくる</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">④</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">いく</div>
+  <div class="jp">あ、<ruby>帽子<rt>ぼうし</rt></ruby>が<ruby>飛<rt>と</rt></ruby>んでいく。</div>
+  <div class="en">Ah, my hat is flying away.</div>
+  <div class="explain">Hat blown <em>away</em> from the speaker &rarr; <code>ていく</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">⑤</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">くる</div>
+  <div class="jp"><ruby>気象衛星<rt>きしょうえいせい</rt></ruby>から<ruby>送<rt>おく</rt></ruby>られてくるデータによって、<ruby>多<rt>おお</rt></ruby>くの<ruby>事実<rt>じじつ</rt></ruby>がわかってきました。</div>
+  <div class="en">Through data sent from weather satellites, many facts have become clear.</div>
+  <div class="explain">Data transmitted from space <em>down to us</em> &rarr; <code>てくる</code></div>
+</div>
+</div>
+
+<span class="ornament"></span>
+
+<!-- 4. べきだ -->
+<div class="card">
+<div class="section-title">4. 基本練習</div>
+<div class="section-grammar">Vルべきだ</div>
+<div class="section-sub">Rewrite using べきだ (should)</div>
+
+<div class="ex-item">
+  <div class="ex-num">①</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">返すべきだ</div>
+  <div class="jp"><ruby>借<rt>か</rt></ruby>りた<ruby>物<rt>もの</rt></ruby>は<ruby>返<rt>かえ</rt></ruby>すべきだ。</div>
+  <div class="en">You should return things you have borrowed.</div>
+  <div class="explain"><code>返します</code> &rarr; <code>返す</code> (dict. form) + <code>べきだ</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">②</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">届けるべきだ</div>
+  <div class="jp"><ruby>財布<rt>さいふ</rt></ruby>を<ruby>拾<rt>ひろ</rt></ruby>ったら、<ruby>交番<rt>こうばん</rt></ruby>に<ruby>届<rt>とど</rt></ruby>けるべきだ。</div>
+  <div class="en">If you find a wallet, you should turn it in to a police box.</div>
+  <div class="explain"><code>届けます</code> &rarr; <code>届ける</code> + <code>べきだ</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">③</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">言うべきだ</div>
+  <div class="jp"><ruby>正<rt>ただ</rt></ruby>しいと<ruby>思<rt>おも</rt></ruby>ったことははっきり<ruby>言<rt>い</rt></ruby>うべきだ。</div>
+  <div class="en">You should clearly say what you think is right.</div>
+  <div class="explain"><code>言います</code> &rarr; <code>言う</code> + <code>べきだ</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">④</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">親切にすべきだ</div>
+  <div class="jp"><ruby>他<rt>ほか</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>には<ruby>親切<rt>しんせつ</rt></ruby>にすべきだ。</div>
+  <div class="en">You should be kind to other people.</div>
+  <div class="explain">For <code>する</code>, both <code>するべきだ</code> and <code>すべきだ</code> are correct.</div>
+</div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ PAGE 133 ═══════════════════════════════════════ -->
+
+<span class="ornament"></span>
+<div id="p133">
+<span class="page-marker">PAGE 133</span>
+
+<div class="card">
+<div class="section-title">5. 基本練習 1</div>
+<div class="section-grammar">「敬語」の整理</div>
+<div class="section-sub">Fill in the missing Keigo forms</div>
+
+<table class="keigo-table">
+  <tr><th></th><th>尊敬 (Respectful)</th><th>謙譲 (Humble)</th></tr>
+  <tr><td class="label">行く・来る</td><td>① いらっしゃいます</td><td>参ります</td></tr>
+  <tr><td class="label">いる</td><td>② いらっしゃいます</td><td>⑤ おります</td></tr>
+  <tr><td class="label">食べる・飲む</td><td>③ 召し上がります</td><td>⑥ いただきます</td></tr>
+  <tr><td class="label">する</td><td>④ なさいます</td><td>⑦ いたします</td></tr>
+  <tr><td class="label">言う</td><td>⑨ おっしゃいます</td><td>⑧ 申します</td></tr>
+  <tr><td class="label">聞く</td><td>お聞きになります</td><td>お聞きします</td></tr>
+  <tr><td class="label">預かる</td><td>—</td><td>⑩ お預かりします</td></tr>
+</table>
+</div>
+
+<span class="ornament"></span>
+
+<div class="card">
+<div class="section-title">5. 基本練習 2</div>
+<div class="section-grammar">「敬語」の整理</div>
+<div class="section-sub">Correct misused polite Japanese into proper Keigo</div>
+
+<div class="ex-item">
+  <div class="ex-num">①</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">お召し上がりください</div>
+  <div class="jp">お<ruby>客<rt>きゃく</rt></ruby>さんに「どうぞお<ruby>茶<rt>ちゃ</rt></ruby>をお<ruby>召<rt>め</rt></ruby>し<ruby>上<rt>あ</rt></ruby>がりください。」と<ruby>言<rt>い</rt></ruby>うべきだ。</div>
+  <div class="en">You should say to a customer: "Please enjoy some tea."</div>
+  <div class="explain">For a superior/customer eating or drinking, use respectful <code>召し上がる</code>.</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">②</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">いらっしゃいますか</div>
+  <div class="jp">お<ruby>客<rt>きゃく</rt></ruby>さんに「どこにいらっしゃいますか。」と<ruby>言<rt>い</rt></ruby>うべきだ。</div>
+  <div class="en">You should say: "Where are you?" (respectfully)</div>
+  <div class="explain"><code>おります</code> is humble (yourself). For a customer, use respectful <code>いらっしゃいます</code>.</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">③</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">なさいますか</div>
+  <div class="jp">お<ruby>客<rt>きゃく</rt></ruby>さんに「どちらになさいますか。」と<ruby>言<rt>い</rt></ruby>うべきだ。</div>
+  <div class="en">You should say: "Which one will you choose?" (respectfully)</div>
+  <div class="explain"><code>します</code> is standard polite. For a customer, use respectful <code>なさいます</code>.</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">④</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">お預かりします</div>
+  <div class="jp">お<ruby>客<rt>きゃく</rt></ruby>さんに「<ruby>荷物<rt>にもつ</rt></ruby>はここでお<ruby>預<rt>あず</rt></ruby>かりします。」と<ruby>言<rt>い</rt></ruby>うべきだ。</div>
+  <div class="en">You should say: "I/We will keep your luggage here."</div>
+  <div class="explain"><code>お〜になる</code> is for the customer's actions. Since <em>you</em> (staff) are keeping it, use humble <code>お〜します</code>.</div>
+</div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ PAGE 134 ═══════════════════════════════════════ -->
+
+<span class="ornament"></span>
+<div id="p134">
+<span class="page-marker">PAGE 134</span>
+
+<div class="card">
+<div class="section-title">6. 基本練習</div>
+<div class="section-grammar">Vナイずに</div>
+<div class="section-sub">Connect the actions using ずに (without V-ing)</div>
+
+<div class="sub-label">A: 模範的な学生 (Model Student)</div>
+
+<div class="ex-item">
+  <div class="ex-num">①</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">私語をせずに</div>
+  <div class="jp"><ruby>友<rt>とも</rt></ruby>だちと<ruby>私語<rt>しご</rt></ruby>をせずに、よく<ruby>勉強<rt>べんきょう</rt></ruby>する。</div>
+  <div class="en">They study hard without whispering with friends.</div>
+  <div class="explain"><code>する</code> &rarr; <code>せずに</code> (irregular)</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">②</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">見ずに</div>
+  <div class="jp"><ruby>授業中<rt>じゅぎょうちゅう</rt></ruby>、スマホを<ruby>見<rt>み</rt></ruby>ずに、よく<ruby>勉強<rt>べんきょう</rt></ruby>する。</div>
+  <div class="en">They study hard without looking at their smartphone during class.</div>
+  <div class="explain"><code>見ない</code> (drop ない) + <code>ずに</code> = <code>見ずに</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">③</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">サボらずに</div>
+  <div class="jp">サボらずに、よく<ruby>勉強<rt>べんきょう</rt></ruby>する。</div>
+  <div class="en">They study hard without skipping class.</div>
+  <div class="explain"><code>サボらない</code> (drop ない) + <code>ずに</code> = <code>サボらずに</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">④</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">嫌がらずに</div>
+  <div class="jp"><ruby>宿題<rt>しゅくだい</rt></ruby>を<ruby>嫌<rt>いや</rt></ruby>がらずに、よく<ruby>勉強<rt>べんきょう</rt></ruby>する。</div>
+  <div class="en">They study hard without complaining about homework.</div>
+  <div class="explain"><code>嫌がらない</code> (drop ない) + <code>ずに</code> = <code>嫌がらずに</code></div>
+</div>
+
+<div class="sub-label">B: 困った学生 (Problem Student)</div>
+
+<div class="ex-item">
+  <div class="ex-num">①</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">宿題をせずに</div>
+  <div class="jp"><ruby>宿題<rt>しゅくだい</rt></ruby>をせずに、<ruby>学校<rt>がっこう</rt></ruby>に<ruby>来<rt>く</rt></ruby>る。</div>
+  <div class="en">They come to school without doing their homework.</div>
+  <div class="explain"><code>する</code> &rarr; <code>せずに</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">②</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">持たずに</div>
+  <div class="jp"><ruby>教科書<rt>きょうかしょ</rt></ruby>を<ruby>持<rt>も</rt></ruby>たずに、<ruby>学校<rt>がっこう</rt></ruby>に<ruby>来<rt>く</rt></ruby>る。</div>
+  <div class="en">They come to school without bringing their textbook.</div>
+  <div class="explain"><code>持たない</code> (drop ない) + <code>ずに</code> = <code>持たずに</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">③</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">予習せずに</div>
+  <div class="jp"><ruby>予習<rt>よしゅう</rt></ruby>せずに、<ruby>学校<rt>がっこう</rt></ruby>に<ruby>来<rt>く</rt></ruby>る。</div>
+  <div class="en">They come to school without preparing for class.</div>
+  <div class="explain"><code>する</code> &rarr; <code>せずに</code></div>
+</div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ PAGE 135 ═══════════════════════════════════════ -->
+
+<span class="ornament"></span>
+<div id="p135">
+<span class="page-marker">PAGE 135</span>
+
+<div class="card">
+<div class="section-title">チェックシート</div>
+<div class="section-sub">Select the correct word to fill in the blank</div>
+
+<div class="ex-item">
+  <div class="ex-num">①</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">場</div>
+  <div class="jp"><ruby>食事<rt>しょくじ</rt></ruby>の（ <ruby>場<rt>ば</rt></ruby> ）で<ruby>話<rt>はな</rt></ruby>してはいけない<ruby>話題<rt>わだい</rt></ruby>がある。</div>
+  <div class="en">There are topics that should not be discussed at a dining setting.</div>
+  <div class="explain"><code>場</code> = a situation or setting</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">②</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">特に</div>
+  <div class="jp">ことばの<ruby>使<rt>つか</rt></ruby>い<ruby>方<rt>かた</rt></ruby>が<ruby>乱<rt>みだ</rt></ruby>れている。（ <ruby>特<rt>とく</rt></ruby>に ）<ruby>敬語<rt>けいご</rt></ruby>のまちがいが<ruby>多<rt>おお</rt></ruby>い。</div>
+  <div class="en">Language use is becoming corrupted. Especially, there are many mistakes with honorifics.</div>
+  <div class="explain"><code>特に</code> = especially, particularly</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">③</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">を</div>
+  <div class="jp"><ruby>兄<rt>あに</rt></ruby>の<ruby>会社<rt>かいしゃ</rt></ruby>（ を ）<ruby>訪<rt>たず</rt></ruby>ねる。</div>
+  <div class="en">I visit my older brother's company.</div>
+  <div class="explain"><code>訪ねる</code> takes <code>を</code> to mark the place visited</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">④</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">によって</div>
+  <div class="jp"><ruby>試験<rt>しけん</rt></ruby>の<ruby>結果<rt>けっか</rt></ruby>（ によって ）、<ruby>学生<rt>がくせい</rt></ruby>を2つのクラスに<ruby>分<rt>わ</rt></ruby>ける。</div>
+  <div class="en">Depending on the test results, students will be divided into two classes.</div>
+  <div class="explain"><code>によって</code> = depending on, based on</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">⑤</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">代わりに</div>
+  <div class="jp"><ruby>最近<rt>さいきん</rt></ruby>、<ruby>車<rt>くるま</rt></ruby>を<ruby>持<rt>も</rt></ruby>つ（ <ruby>代<rt>か</rt></ruby>わりに ）、カーシェアリングを<ruby>利用<rt>りよう</rt></ruby>する<ruby>人<rt>ひと</rt></ruby>が<ruby>多<rt>おお</rt></ruby>い。</div>
+  <div class="en">Recently, instead of owning a car, many people use car-sharing.</div>
+  <div class="explain"><code>〜代わりに</code> = instead of</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">⑥</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">きた</div>
+  <div class="jp">2<ruby>階<rt>かい</rt></ruby>の<ruby>窓<rt>まど</rt></ruby>から<ruby>紙<rt>かみ</rt></ruby>が<ruby>落<rt>お</rt></ruby>ちて（ きた ）。</div>
+  <div class="en">Paper fell down from the second-floor window.</div>
+  <div class="explain">Paper moves from above <em>toward</em> the speaker &rarr; <code>てきた</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">⑦</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">す</div>
+  <div class="jp"><ruby>事故<rt>じこ</rt></ruby>の<ruby>原因<rt>げんいん</rt></ruby>をもっと<ruby>丁寧<rt>ていねい</rt></ruby>に<ruby>調査<rt>ちょうさ</rt></ruby>（ す ）べきだ。</div>
+  <div class="en">We should investigate the cause of the accident more carefully.</div>
+  <div class="explain"><code>する</code> + <code>べきだ</code> = <code>すべきだ</code> or <code>するべきだ</code></div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">⑧</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">お聞きになってください</div>
+  <div class="jp">お<ruby>客様<rt>きゃくさま</rt></ruby>には「<ruby>受付<rt>うけつけ</rt></ruby>でお<ruby>聞<rt>き</rt></ruby>きになってください」と<ruby>言<rt>い</rt></ruby>うべきだ。</div>
+  <div class="en">You should say to the customer: "Please ask at the reception desk."</div>
+  <div class="explain">For a customer, use respectful <code>お〜になってください</code>, not humble <code>お聞きしてください</code>.</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">⑨</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">召し上がってください</div>
+  <div class="jp"><ruby>食事<rt>しょくじ</rt></ruby>の<ruby>場<rt>ば</rt></ruby>でお<ruby>客様<rt>きゃくさま</rt></ruby>には「<ruby>召<rt>め</rt></ruby>し<ruby>上<rt>あ</rt></ruby>がってください」と<ruby>言<rt>い</rt></ruby>うべきだ。</div>
+  <div class="en">At a meal, you should say to the customer: "Please eat."</div>
+  <div class="explain"><code>召し上がる</code> is respectful for eat/drink. <code>いただく</code> is humble (yourself only).</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">⑩</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">せ</div>
+  <div class="jp">ゆうべ<ruby>食事<rt>しょくじ</rt></ruby>を（ せ ）ずに<ruby>寝<rt>ね</rt></ruby>た。</div>
+  <div class="en">Last night, I went to sleep without eating.</div>
+  <div class="explain">The <code>ずに</code> form for <code>する</code> is <code>せずに</code></div>
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+// Smooth scroll for page nav
+document.querySelectorAll('.page-nav a').forEach(function(a){
+  a.addEventListener('click', function(e){
+    e.preventDefault();
+    var target = document.querySelector(this.getAttribute('href'));
+    if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+    document.querySelectorAll('.page-nav a').forEach(function(x){x.classList.remove('active');});
+    this.classList.add('active');
+  });
+});
+// Highlight current page section on scroll
+var sections = document.querySelectorAll('[id^="p13"]');
+var navLinks = document.querySelectorAll('.page-nav a');
+window.addEventListener('scroll', function(){
+  var scrollPos = window.scrollY + 120;
+  sections.forEach(function(sec, i){
+    if(sec.offsetTop <= scrollPos && sec.offsetTop + sec.offsetHeight > scrollPos){
+      navLinks.forEach(function(l){l.classList.remove('active');});
+      navLinks[i].classList.add('active');
+    }
+  });
+});
+</script>
+</body>
+</html>
