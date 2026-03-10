@@ -66,11 +66,14 @@ body{font-family:'Source Sans Pro',sans-serif;background:linear-gradient(160deg,
 <div class="container">
 
 <div class="page-nav">
-  <a href="#p131">p.131</a>
-  <a href="#p132">p.132</a>
-  <a href="#p133">p.133</a>
-  <a href="#p134">p.134</a>
-  <a href="#p135">p.135</a>
+  <a href="#kawari">代わりに</a>
+  <a href="#tekuru">テくる・テいく</a>
+  <a href="#tekuru2">テくる・テいく 2</a>
+  <a href="#beki">べきだ</a>
+  <a href="#keigo1">敬語 表</a>
+  <a href="#keigo2">敬語 訂正</a>
+  <a href="#zuni">ずに</a>
+  <a href="#check">チェック</a>
 </div>
 
 <!-- ═══════════════════════════════════════ PAGE 131 ═══════════════════════════════════════ -->
@@ -79,7 +82,7 @@ body{font-family:'Source Sans Pro',sans-serif;background:linear-gradient(160deg,
 <span class="page-marker">PAGE 131</span>
 
 <!-- 2. 代わりに -->
-<div class="card">
+<div class="card" id="kawari">
 <div class="section-title">2. 基本練習</div>
 <div class="section-grammar">Vル／Nの代わりに</div>
 <div class="section-sub">Rewrite using 代わりに (instead of)</div>
@@ -133,7 +136,7 @@ body{font-family:'Source Sans Pro',sans-serif;background:linear-gradient(160deg,
 <span class="ornament"></span>
 
 <!-- 3. Vテくる・Vテいく -->
-<div class="card">
+<div class="card" id="tekuru">
 <div class="section-title">3. 基本練習 1</div>
 <div class="section-grammar">Vテくる・Vテいく</div>
 <div class="section-sub">Conjugate verbs into て form (送る / する / 帰る / 訪ねる / 落ちる)</div>
@@ -191,7 +194,7 @@ body{font-family:'Source Sans Pro',sans-serif;background:linear-gradient(160deg,
 <div id="p132">
 <span class="page-marker">PAGE 132</span>
 
-<div class="card">
+<div class="card" id="tekuru2">
 <div class="section-title">3. 基本練習 2</div>
 <div class="section-grammar">Vテくる・Vテいく</div>
 <div class="section-sub">Choose くる/きた or いく/いった based on context</div>
@@ -245,7 +248,7 @@ body{font-family:'Source Sans Pro',sans-serif;background:linear-gradient(160deg,
 <span class="ornament"></span>
 
 <!-- 4. べきだ -->
-<div class="card">
+<div class="card" id="beki">
 <div class="section-title">4. 基本練習</div>
 <div class="section-grammar">Vルべきだ</div>
 <div class="section-sub">Rewrite using べきだ (should)</div>
@@ -294,7 +297,7 @@ body{font-family:'Source Sans Pro',sans-serif;background:linear-gradient(160deg,
 <div id="p133">
 <span class="page-marker">PAGE 133</span>
 
-<div class="card">
+<div class="card" id="keigo1">
 <div class="section-title">5. 基本練習 1</div>
 <div class="section-grammar">「敬語」の整理</div>
 <div class="section-sub">Fill in the missing Keigo forms</div>
@@ -313,7 +316,7 @@ body{font-family:'Source Sans Pro',sans-serif;background:linear-gradient(160deg,
 
 <span class="ornament"></span>
 
-<div class="card">
+<div class="card" id="keigo2">
 <div class="section-title">5. 基本練習 2</div>
 <div class="section-grammar">「敬語」の整理</div>
 <div class="section-sub">Correct misused polite Japanese into proper Keigo</div>
@@ -362,7 +365,7 @@ body{font-family:'Source Sans Pro',sans-serif;background:linear-gradient(160deg,
 <div id="p134">
 <span class="page-marker">PAGE 134</span>
 
-<div class="card">
+<div class="card" id="zuni">
 <div class="section-title">6. 基本練習</div>
 <div class="section-grammar">Vナイずに</div>
 <div class="section-sub">Connect the actions using ずに (without V-ing)</div>
@@ -442,7 +445,7 @@ body{font-family:'Source Sans Pro',sans-serif;background:linear-gradient(160deg,
 <div id="p135">
 <span class="page-marker">PAGE 135</span>
 
-<div class="card">
+<div class="card" id="check">
 <div class="section-title">チェックシート</div>
 <div class="section-sub">Select the correct word to fill in the blank</div>
 
@@ -552,7 +555,7 @@ document.querySelectorAll('.page-nav a').forEach(function(a){
   });
 });
 // Highlight current page section on scroll
-var sections = document.querySelectorAll('[id^="p13"]');
+var sections = document.querySelectorAll('.card[id]');
 var navLinks = document.querySelectorAll('.page-nav a');
 window.addEventListener('scroll', function(){
   var scrollPos = window.scrollY + 120;
