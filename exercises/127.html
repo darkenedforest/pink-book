@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中級へ行こう — Exercises p. 127</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;--accent:#b8433a;--grammar:#7b2d8e;--border:#e0d5c5;--shadow:0 8px 32px rgba(44,36,22,0.12);--green:#5a7a5a;--popup-bg:#fffef9;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Source Sans Pro',sans-serif;background:linear-gradient(160deg,#f7f3ec,#efe8dc);color:var(--text);min-height:100vh;}
+.container{max-width:720px;margin:0 auto;padding:1.2rem 1rem 3rem;}
+.toolbar{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,#f7f3ec,rgba(247,243,236,0.97));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0.7rem 1rem;text-align:center;margin-bottom:1rem;}
+.toolbar h1{font-family:'Noto Serif JP',serif;font-size:1.3rem;font-weight:700;color:var(--accent);letter-spacing:0.04em;}
+.toolbar .sub{font-size:0.75rem;color:var(--text-light);}
+.page-nav{display:flex;justify-content:center;gap:0.4rem;margin:0.8rem 0 1.2rem;flex-wrap:wrap;}
+.page-nav a{font-size:0.75rem;font-weight:600;padding:0.3rem 0.6rem;border:2px solid var(--border);border-radius:999px;color:var(--text-light);text-decoration:none;transition:all 0.2s;}
+.page-nav a:hover,.page-nav a.active{border-color:var(--accent);color:var(--accent);background:rgba(184,67,58,0.06);}
+.page-marker{font-family:'Source Sans Pro',sans-serif;font-size:0.7rem;font-weight:700;color:#fff;background:var(--accent);display:inline-block;padding:0.2rem 0.7rem;border-radius:999px;margin-bottom:0.6rem;letter-spacing:0.04em;}
+[id]{scroll-margin-top:80px;}
+.section-title{font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:0.15rem;}
+.section-grammar{font-family:'Noto Sans JP',sans-serif;font-size:0.95rem;font-weight:700;color:var(--grammar);margin-bottom:0.5rem;}
+.section-sub{font-size:0.82rem;color:var(--text-light);font-style:italic;margin-bottom:0.8rem;}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.3rem;margin-bottom:1rem;box-shadow:0 3px 12px rgba(44,36,22,0.05);scroll-margin-top:80px;}
+.ex-item{margin-bottom:1.3rem;padding-bottom:1.3rem;border-bottom:1px dashed var(--border);}
+.ex-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.ex-num{font-weight:700;color:var(--accent);font-size:0.9rem;margin-bottom:0.3rem;}
+.answer-tag{display:inline-block;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#fff;background:var(--green);padding:0.12rem 0.5rem;border-radius:999px;margin-bottom:0.3rem;}
+.answer{font-family:'Noto Serif JP',serif;font-size:1rem;color:var(--accent);font-weight:700;margin-bottom:0.3rem;}
+.jp{font-family:'Noto Serif JP',serif;font-size:1.05rem;line-height:2;margin-bottom:0.3rem;}
+.en{font-size:0.88rem;color:var(--green);font-style:italic;line-height:1.5;margin-bottom:0.3rem;}
+.explain{font-size:0.82rem;color:var(--text-light);line-height:1.5;}
+.explain code{font-family:'Noto Sans JP',sans-serif;background:rgba(123,45,142,0.08);color:var(--grammar);padding:0.1rem 0.3rem;border-radius:3px;font-size:0.85em;}
+.sub-label{font-size:0.78rem;font-weight:700;color:var(--grammar);margin:0.8rem 0 0.4rem;text-transform:uppercase;letter-spacing:0.04em;}
+.ornament{display:block;margin:1.5rem auto;width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);}
+.vocab-grid{display:grid;grid-template-columns:1fr;gap:0.5rem;margin-bottom:0.3rem;}
+.vocab-item{display:flex;align-items:baseline;gap:0.5rem;font-size:0.92rem;line-height:1.6;}
+.vocab-jp{font-family:'Noto Serif JP',serif;font-weight:700;color:var(--text);white-space:nowrap;}
+.vocab-reading{font-family:'Noto Sans JP',sans-serif;font-size:0.8rem;color:var(--grammar);white-space:nowrap;}
+.vocab-en{font-size:0.82rem;color:var(--text-light);}
+/* Tap dictionary */
+.w{cursor:pointer;border-bottom:1.5px dotted rgba(184,67,58,0.3);border-radius:2px;transition:background 0.15s;}
+.w:hover{background:rgba(184,67,58,0.08);}
+.popup-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;}
+.popup-overlay.show{display:block;}
+.popup{display:none;position:fixed;z-index:1000;background:var(--popup-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;box-shadow:0 12px 40px rgba(44,36,22,0.18);max-width:320px;min-width:180px;animation:popIn 0.18s ease-out;}
+.popup.show{display:block;}
+@keyframes popIn{from{opacity:0;transform:translateY(6px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+.popup .reading{font-family:'Noto Sans JP',sans-serif;font-size:1.05rem;color:var(--accent);font-weight:500;margin-bottom:0.15rem;}
+.popup .kanji{font-size:0.78rem;color:var(--text-light);margin-bottom:0.3rem;}
+.popup .meaning{font-family:'Source Sans Pro',sans-serif;font-size:0.88rem;color:var(--text);line-height:1.55;}
+@media(max-width:520px){.card{padding:1rem 0.9rem;}.jp{font-size:0.95rem;}.popup{max-width:90vw;}}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <h1>中級へ行こう 練習問題</h1>
+  <div class="sub">Exercises — Page 127 (Lesson 10)</div>
+</div>
+
+<div class="container">
+<div class="page-nav">
+  <a href="#vocab">ことば</a>
+  <a href="#vocabA">練習A</a>
+  <a href="#vocabB">練習B</a>
+  <a href="#qa">QA</a>
+</div>
+
+<!-- ═══════════ VOCABULARY ═══════════ -->
+<div id="vocab">
+<span class="page-marker">PAGE 127</span>
+
+<div class="card">
+<div class="section-title">ことば</div>
+<div class="section-sub">Vocabulary for Lesson 10</div>
+
+<div class="vocab-grid">
+  <div class="vocab-item">
+    <span class="vocab-jp"><span class="w" data-r="ちょうさ" data-m="survey, investigation">調査</span></span>
+    <span class="vocab-en">survey, investigation</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-jp"><span class="w" data-r="みだれる" data-m="to be disordered, to become corrupted">乱れる</span></span>
+    <span class="vocab-en">to be disordered, to become corrupted</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-jp"><span class="w" data-r="かんじる" data-m="to feel">感じる</span></span>
+    <span class="vocab-en">to feel</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-jp"><span class="w" data-r="とくに" data-m="especially">特に</span></span>
+    <span class="vocab-en">especially</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-jp"><span class="w" data-r="けいご" data-m="honorific language">敬語</span></span>
+    <span class="vocab-en">honorific language</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-jp"><span class="w" data-r="ば" data-m="place, situation">場</span> ［<span class="w" data-r="しょくじ" data-m="meal, dining">食事</span>の〜］</span>
+    <span class="vocab-en">place, situation [dining situation]</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-jp"><span class="w" data-r="たずねる" data-m="to visit">訪ねる</span></span>
+    <span class="vocab-en">to visit</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-jp"><span class="w" data-r="ほんらい" data-m="originally, normally, properly">本来</span></span>
+    <span class="vocab-en">originally, normally, properly</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-jp"><span class="w" data-r="へんかする" data-m="to change">変化する</span></span>
+    <span class="vocab-en">to change</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-jp"><span class="w" data-r="きにする" data-m="to care about, to mind">気にする</span></span>
+    <span class="vocab-en">to care about, to mind</span>
+  </div>
+  <div class="vocab-item">
+    <span class="vocab-jp">この<span class="w" data-r="きかい" data-m="opportunity">機会</span>に</span>
+    <span class="vocab-en">taking this opportunity</span>
+  </div>
+</div>
+</div>
+
+<span class="ornament"></span>
+
+<!-- ═══════════ VOCAB PRACTICE A ═══════════ -->
+<div class="card" id="vocabA">
+<div class="section-title">ことばの練習</div>
+<div class="section-grammar">A: 語彙選択</div>
+<div class="section-sub">Select the correct word to fill in the blanks: 調査・本来・場・敬語</div>
+
+<div class="ex-item">
+  <div class="ex-num">①</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">調査</div>
+  <div class="jp">ことばの（ <span class="w" data-r="ちょうさ" data-m="survey, investigation">調査</span> ）で、おもしろいことがわかった。</div>
+  <div class="en">Through a language survey, something interesting was discovered.</div>
+  <div class="explain">"Survey" fits perfectly to describe how they found out something interesting.</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">②</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">敬語</div>
+  <div class="jp">ことばの<span class="w" data-r="つか" data-m="to use">使</span>い<span class="w" data-r="かた" data-m="way, method">方</span>、<span class="w" data-r="とく" data-m="especially">特</span>に（ <span class="w" data-r="けいご" data-m="honorific language">敬語</span> ）は<span class="w" data-r="むずか" data-m="difficult">難</span>しい。</div>
+  <div class="en">The use of language, especially honorifics, is difficult.</div>
+  <div class="explain">Honorifics (Keigo) are famously considered the most difficult part of Japanese language usage.</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">③</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">場</div>
+  <div class="jp"><span class="w" data-r="しょくじ" data-m="meal, dining">食事</span>の（ <span class="w" data-r="ば" data-m="place, setting">場</span> ）で<span class="w" data-r="はな" data-m="to speak, to talk">話</span>してはいけない<span class="w" data-r="わだい" data-m="topic">話題</span>がある。</div>
+  <div class="en">There are topics that should not be discussed in a dining setting.</div>
+  <div class="explain"><code>場</code> refers to a situation or context, here specifying the "setting of a meal."</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">④</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">本来</div>
+  <div class="jp">これは（ <span class="w" data-r="ほんらい" data-m="originally, normally">本来</span> ）なら、「<span class="w" data-r="うけつけ" data-m="reception desk">受付</span>でお<span class="w" data-r="き" data-m="to listen, to ask">聞</span>きになってください」と<span class="w" data-r="い" data-m="to say">言</span>うべきである。</div>
+  <div class="en">Normally, this should be said as "Please ask at the reception desk."</div>
+  <div class="explain"><code>本来なら</code> translates to "normally" or "properly speaking," indicating the correct way something should be done.</div>
+</div>
+</div>
+
+<span class="ornament"></span>
+
+<!-- ═══════════ VOCAB PRACTICE B ═══════════ -->
+<div class="card" id="vocabB">
+<div class="section-grammar">B: 活用練習</div>
+<div class="section-sub">Conjugate the words to fit the sentences: 乱れる・訪ねる・変化する・気にする</div>
+
+<div class="ex-item">
+  <div class="ex-num">①</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">気にする</div>
+  <div class="jp">「<span class="w" data-r="ちい" data-m="small, little">小</span>さいことを（ <span class="w" data-r="きにする" data-m="to care about, to mind">気にする</span> ）な」と<span class="w" data-r="せんせい" data-m="teacher">先生</span>に<span class="w" data-r="い" data-m="to say">言</span>われた。</div>
+  <div class="en">I was told by my teacher, "Don't worry about the little things."</div>
+  <div class="explain">Attaching <code>な</code> to the dictionary form of a verb (<code>気にする</code>) creates a strong negative command ("Don't worry").</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">②</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">変化して</div>
+  <div class="jp">どんな<span class="w" data-r="くに" data-m="country">国</span>のことばでも、<span class="w" data-r="いみ" data-m="meaning">意味</span>や<span class="w" data-r="つか" data-m="to use">使</span>い<span class="w" data-r="かた" data-m="way, method">方</span>は（ <span class="w" data-r="へんかして" data-m="changing (te-form)">変化して</span> ）いく。</div>
+  <div class="en">In any country's language, meanings and usage change over time.</div>
+  <div class="explain">To express something continuing to change into the future, the <code>て</code> form (<code>変化して</code>) connects to <code>いく</code>.</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">③</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">乱れ</div>
+  <div class="jp"><span class="w" data-r="むかし" data-m="the past, long ago">昔</span>から、<span class="w" data-r="おとな" data-m="adult">大人</span>は「<span class="w" data-r="わか" data-m="young">若</span>い<span class="w" data-r="ひと" data-m="person, people">人</span>のことばの<span class="w" data-r="つか" data-m="to use">使</span>い<span class="w" data-r="かた" data-m="way, method">方</span>が（ <span class="w" data-r="みだれ" data-m="to be disordered (stem)">乱れ</span> ）ている」と<span class="w" data-r="い" data-m="to say">言</span>う。</div>
+  <div class="en">Since the old days, adults have said, "The language use of young people is corrupted."</div>
+  <div class="explain"><code>乱れる</code> drops the <code>る</code> to become <code>乱れ</code> and attaches to <code>ている</code> for the present continuous state.</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">④</div>
+  <span class="answer-tag">Answer</span>
+  <div class="answer">訪ねる</div>
+  <div class="jp"><span class="w" data-r="なつやすみ" data-m="summer vacation">夏休み</span>に<span class="w" data-r="ゆうめい" data-m="famous">有名</span>なドラマのロケ<span class="w" data-r="ち" data-m="place, location">地</span>を（ <span class="w" data-r="たずねる" data-m="to visit">訪ねる</span> ）<span class="w" data-r="よてい" data-m="plan, schedule">予定</span>だ。</div>
+  <div class="en">During summer vacation, I plan to visit the filming location of a famous drama.</div>
+  <div class="explain">Nouns like <code>予定</code> (plan) must be preceded by the dictionary/plain form of a verb (<code>訪ねる</code>).</div>
+</div>
+</div>
+
+<span class="ornament"></span>
+
+<!-- ═══════════ QA ═══════════ -->
+<div class="card" id="qa">
+<div class="section-title">QA</div>
+<div class="section-sub">Questions based on the Lesson 10 reading passage (p. 126)</div>
+
+<div class="ex-item">
+  <div class="ex-num">Q1</div>
+  <div class="jp"><span class="w" data-r="ちょうさ" data-m="survey, investigation">調査</span>によって、どんなことがわかりましたか。</div>
+  <div class="en">What became clear through the survey?</div>
+  <span class="answer-tag">Answer</span>
+  <div class="jp">「ことばの<span class="w" data-r="つか" data-m="to use">使</span>い<span class="w" data-r="かた" data-m="way, method">方</span>が<span class="w" data-r="みだ" data-m="to be disordered">乱</span>れている」と<span class="w" data-r="かん" data-m="to feel">感</span>じている<span class="w" data-r="にほんじん" data-m="Japanese person">日本人</span>が<span class="w" data-r="おお" data-m="many">多</span>いこと（がわかりました）。</div>
+  <div class="en">It became clear that many Japanese people feel that "the use of language is becoming corrupted."</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">Q2</div>
+  <div class="jp">「<span class="w" data-r="うけつけ" data-m="reception desk">受付</span>でお<span class="w" data-r="き" data-m="to listen, to ask">聞</span>きしてください」はどう<span class="w" data-r="い" data-m="to say">言</span>ったらいいですか。</div>
+  <div class="en">How should you say "Uketsuke de okiki shite kudasai"?</div>
+  <span class="answer-tag">Answer</span>
+  <div class="jp">「<span class="w" data-r="うけつけ" data-m="reception desk">受付</span>でお<span class="w" data-r="き" data-m="to listen, to ask">聞</span>きになってください」（と<span class="w" data-r="い" data-m="to say">言</span>うべきです）。</div>
+  <div class="en">You should say, "Uketsuke de okiki ni natte kudasai." (Using the respectful form お〜になる instead of the humble form お〜する).</div>
+</div>
+
+<div class="ex-item">
+  <div class="ex-num">Q3</div>
+  <div class="jp"><span class="w" data-r="なに" data-m="what">何</span>が<span class="w" data-r="もんだい" data-m="problem">問題</span>だと<span class="w" data-r="か" data-m="to write">書</span>いてありますか。</div>
+  <div class="en">What does it say is the problem?</div>
+  <span class="answer-tag">Answer</span>
+  <div class="jp"><span class="w" data-r="つか" data-m="to use">使</span>い<span class="w" data-r="かた" data-m="way, method">方</span>が<span class="w" data-r="ただ" data-m="correct, right">正</span>しいかどうか、<span class="w" data-r="き" data-m="to care about">気</span>にせずにことばを<span class="w" data-r="つか" data-m="to use">使</span>うの（が<span class="w" data-r="もんだい" data-m="problem">問題</span>だと<span class="w" data-r="か" data-m="to write">書</span>いてあります）。</div>
+  <div class="en">It says that using language without caring whether the usage is correct or not is the problem.</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- Popup -->
+<div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div>
+<div class="popup" id="popup"></div>
+
+<script>
+// Tap dictionary
+document.addEventListener('click', function(e) {
+  var el = e.target.closest('.w');
+  if (!el) return;
+  e.stopPropagation();
+  var r = el.getAttribute('data-r');
+  var m = el.getAttribute('data-m');
+  var k = el.textContent;
+  var popup = document.getElementById('popup');
+  var overlay = document.getElementById('popupOverlay');
+  popup.innerHTML =
+    '<div class="reading">' + r + '</div>' +
+    '<div class="kanji">' + k + '</div>' +
+    '<div class="meaning">' + m + '</div>';
+  var rect = el.getBoundingClientRect();
+  var pw = 280;
+  var left = rect.left + rect.width / 2 - pw / 2;
+  if (left < 10) left = 10;
+  if (left + pw > window.innerWidth - 10) left = window.innerWidth - pw - 10;
+  var top = rect.bottom + 8;
+  if (top + 120 > window.innerHeight) top = rect.top - 100;
+  popup.style.left = left + 'px';
+  popup.style.top = top + 'px';
+  popup.style.width = pw + 'px';
+  popup.classList.add('show');
+  overlay.classList.add('show');
+});
+
+function closePopup() {
+  document.getElementById('popup').classList.remove('show');
+  document.getElementById('popupOverlay').classList.remove('show');
+}
+
+// Section nav
+document.querySelectorAll('.page-nav a').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    var target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+    document.querySelectorAll('.page-nav a').forEach(function(x) { x.classList.remove('active'); });
+    this.classList.add('active');
+  });
+});
+var sections = document.querySelectorAll('.card[id]');
+var navLinks = document.querySelectorAll('.page-nav a');
+window.addEventListener('scroll', function() {
+  var scrollPos = window.scrollY + 120;
+  sections.forEach(function(sec, i) {
+    if (sec.offsetTop <= scrollPos && sec.offsetTop + sec.offsetHeight > scrollPos) {
+      navLinks.forEach(function(l) { l.classList.remove('active'); });
+      if (navLinks[i]) navLinks[i].classList.add('active');
+    }
+  });
+});
+</script>
+</body>
+</html>
