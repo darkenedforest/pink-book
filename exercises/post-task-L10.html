@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中級へ行こう — Exercises p. 128</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;--accent:#b8433a;--grammar:#7b2d8e;--border:#e0d5c5;--shadow:0 8px 32px rgba(44,36,22,0.12);--green:#5a7a5a;--popup-bg:#fffef9;--blue:#3a6b8a;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Source Sans Pro',sans-serif;background:linear-gradient(160deg,#f7f3ec,#efe8dc);color:var(--text);min-height:100vh;}
+.container{max-width:720px;margin:0 auto;padding:1.2rem 1rem 3rem;}
+.toolbar{position:sticky;top:0;z-index:100;background:linear-gradient(180deg,#f7f3ec,rgba(247,243,236,0.97));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0.7rem 1rem;text-align:center;margin-bottom:1rem;}
+.toolbar h1{font-family:'Noto Serif JP',serif;font-size:1.3rem;font-weight:700;color:var(--accent);letter-spacing:0.04em;}
+.toolbar .sub{font-size:0.75rem;color:var(--text-light);}
+.page-nav{display:flex;justify-content:center;gap:0.4rem;margin:0.8rem 0 1.2rem;flex-wrap:wrap;}
+.page-nav a{font-size:0.75rem;font-weight:600;padding:0.3rem 0.6rem;border:2px solid var(--border);border-radius:999px;color:var(--text-light);text-decoration:none;transition:all 0.2s;}
+.page-nav a:hover,.page-nav a.active{border-color:var(--accent);color:var(--accent);background:rgba(184,67,58,0.06);}
+.page-marker{font-family:'Source Sans Pro',sans-serif;font-size:0.7rem;font-weight:700;color:#fff;background:var(--accent);display:inline-block;padding:0.2rem 0.7rem;border-radius:999px;margin-bottom:0.6rem;letter-spacing:0.04em;}
+[id]{scroll-margin-top:80px;}
+.section-title{font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:0.15rem;}
+.section-grammar{font-family:'Noto Sans JP',sans-serif;font-size:0.95rem;font-weight:700;color:var(--grammar);margin-bottom:0.5rem;}
+.section-sub{font-size:0.82rem;color:var(--text-light);font-style:italic;margin-bottom:0.8rem;}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.3rem;margin-bottom:1rem;box-shadow:0 3px 12px rgba(44,36,22,0.05);scroll-margin-top:80px;}
+.ex-item{margin-bottom:1.3rem;padding-bottom:1.3rem;border-bottom:1px dashed var(--border);}
+.ex-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.ex-num{font-weight:700;color:var(--accent);font-size:0.9rem;margin-bottom:0.3rem;}
+.answer-tag{display:inline-block;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#fff;background:var(--green);padding:0.12rem 0.5rem;border-radius:999px;margin-bottom:0.3rem;}
+.example-tag{display:inline-block;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#fff;background:var(--blue);padding:0.12rem 0.5rem;border-radius:999px;margin-bottom:0.3rem;}
+.answer{font-family:'Noto Serif JP',serif;font-size:1rem;color:var(--accent);font-weight:700;margin-bottom:0.3rem;}
+.jp{font-family:'Noto Serif JP',serif;font-size:1.05rem;line-height:2;margin-bottom:0.3rem;}
+.en{font-size:0.88rem;color:var(--green);font-style:italic;line-height:1.5;margin-bottom:0.3rem;}
+.explain{font-size:0.82rem;color:var(--text-light);line-height:1.5;}
+.explain code{font-family:'Noto Sans JP',sans-serif;background:rgba(123,45,142,0.08);color:var(--grammar);padding:0.1rem 0.3rem;border-radius:3px;font-size:0.85em;}
+.sub-label{font-size:0.78rem;font-weight:700;color:var(--grammar);margin:0.8rem 0 0.4rem;text-transform:uppercase;letter-spacing:0.04em;}
+.ornament{display:block;margin:1.5rem auto;width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);}
+.prompt-box{background:rgba(184,67,58,0.04);border:1px solid rgba(184,67,58,0.15);border-radius:10px;padding:1rem 1.2rem;margin-bottom:1rem;}
+.prompt-box .jp{margin-bottom:0.2rem;}
+.writing-grid{display:flex;flex-wrap:wrap;gap:0.6rem;margin:0.8rem 0;}
+.writing-variant{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:0.5rem 0.9rem;text-align:center;}
+.writing-variant .main{font-family:'Noto Serif JP',serif;font-size:1.3rem;font-weight:700;color:var(--text);}
+.writing-variant .label{font-size:0.68rem;color:var(--text-light);margin-top:0.1rem;}
+.example-answer{background:rgba(58,107,138,0.04);border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:0.8rem 1rem;margin-bottom:0.8rem;}
+.example-answer:last-child{margin-bottom:0;}
+.example-answer .jp{font-size:1rem;line-height:1.9;margin-bottom:0.2rem;}
+.example-answer .en{margin-bottom:0.15rem;}
+.step-num{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border-radius:50%;background:var(--accent);color:#fff;font-size:0.72rem;font-weight:700;margin-right:0.4rem;}
+.step{margin-bottom:0.8rem;}
+.step .jp{font-size:0.95rem;}
+/* Tap dictionary */
+.w{cursor:pointer;border-bottom:1.5px dotted rgba(184,67,58,0.3);border-radius:2px;transition:background 0.15s;}
+.w:hover{background:rgba(184,67,58,0.08);}
+.popup-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;}
+.popup-overlay.show{display:block;}
+.popup{display:none;position:fixed;z-index:1000;background:var(--popup-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;box-shadow:0 12px 40px rgba(44,36,22,0.18);max-width:320px;min-width:180px;animation:popIn 0.18s ease-out;}
+.popup.show{display:block;}
+@keyframes popIn{from{opacity:0;transform:translateY(6px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+.popup .reading{font-family:'Noto Sans JP',sans-serif;font-size:1.05rem;color:var(--accent);font-weight:500;margin-bottom:0.15rem;}
+.popup .kanji{font-size:0.78rem;color:var(--text-light);margin-bottom:0.3rem;}
+.popup .meaning{font-family:'Source Sans Pro',sans-serif;font-size:0.88rem;color:var(--text);line-height:1.55;}
+@media(max-width:520px){.card{padding:1rem 0.9rem;}.jp{font-size:0.95rem;}.popup{max-width:90vw;}.writing-grid{gap:0.4rem;}}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <h1>中級へ行こう ポストタスク</h1>
+  <div class="sub">Post-Task Activities — Page 128 (Lesson 10)</div>
+</div>
+
+<div class="container">
+<div class="page-nav">
+  <a href="#hanashi">話しましょう</a>
+  <a href="#shirabe">調べて紹介</a>
+  <a href="#examples1">例①</a>
+  <a href="#examples2">例②</a>
+</div>
+
+<!-- ═══════════ 1. 話しましょう ═══════════ -->
+<div id="hanashi">
+<span class="page-marker">PAGE 128</span>
+
+<div class="card">
+<div class="section-title">1. <span class="w" data-r="はな" data-m="to speak, to discuss">話</span>しましょう</div>
+<div class="section-sub">Let's discuss — How are different writing systems used for the same word?</div>
+
+<div class="prompt-box">
+  <div class="jp"><span class="w" data-r="おな" data-m="same">同</span>じ<span class="w" data-r="ことば" data-m="word, language">言葉</span>でも、いろいろな<span class="w" data-r="ひょうき" data-m="notation, written form">表記</span>があります。どのように<span class="w" data-r="つか" data-m="to use">使</span>い<span class="w" data-r="わ" data-m="to divide, to distinguish">分</span>けていると<span class="w" data-r="おも" data-m="to think">思</span>いますか。</div>
+  <div class="en">Even for the same word, there are various ways to write it. How do you think people distinguish when to use each?</div>
+</div>
+
+<div class="writing-grid">
+  <div class="writing-variant">
+    <div class="main">ねこ</div>
+    <div class="label">hiragana</div>
+  </div>
+  <div class="writing-variant">
+    <div class="main">ネコ</div>
+    <div class="label">katakana</div>
+  </div>
+  <div class="writing-variant">
+    <div class="main"><span class="w" data-r="かわいい" data-m="cute">可愛い</span></div>
+    <div class="label">kanji</div>
+  </div>
+  <div class="writing-variant">
+    <div class="main">かわいい</div>
+    <div class="label">hiragana</div>
+  </div>
+  <div class="writing-variant">
+    <div class="main">カワイイ</div>
+    <div class="label">katakana</div>
+  </div>
+  <div class="writing-variant">
+    <div class="main"><span class="w" data-r="ひろしま" data-m="Hiroshima (city)">広島</span></div>
+    <div class="label">kanji</div>
+  </div>
+  <div class="writing-variant">
+    <div class="main">ヒロシマ</div>
+    <div class="label">katakana</div>
+  </div>
+</div>
+</div>
+
+<span class="ornament"></span>
+
+<!-- ═══════════ EXAMPLE ANSWERS FOR Q1 ═══════════ -->
+<div class="card" id="examples1">
+<div class="section-title">話しましょう</div>
+<div class="section-grammar">Example Answers</div>
+
+<div class="sub-label">ねこ vs ネコ</div>
+
+<div class="example-answer">
+  <span class="example-tag">Example 1</span>
+  <div class="jp">「ねこ」はやわらかくて<span class="w" data-r="か" data-m="cute">可愛</span>い<span class="w" data-r="いんしょう" data-m="impression">印象</span>があると<span class="w" data-r="おも" data-m="to think">思</span>います。<span class="w" data-r="えほん" data-m="picture book">絵本</span>や<span class="w" data-r="こども" data-m="children">子供</span><span class="w" data-r="む" data-m="aimed at, for">向</span>けの<span class="w" data-r="ぶん" data-m="sentence, writing">文</span>でよく<span class="w" data-r="つか" data-m="to use">使</span>われます。</div>
+  <div class="en">I think "ねこ" in hiragana gives a soft, cute impression. It's often used in picture books and children's writing.</div>
+</div>
+
+<div class="example-answer">
+  <span class="example-tag">Example 2</span>
+  <div class="jp">「ネコ」はカタカナで<span class="w" data-r="か" data-m="to write">書</span>くと、<span class="w" data-r="かがく" data-m="science">科学</span>や<span class="w" data-r="せいぶつがく" data-m="biology">生物学</span>の<span class="w" data-r="ぶんしょう" data-m="text, document">文章</span>のような<span class="w" data-r="かんじ" data-m="feeling, impression">感じ</span>がします。<span class="w" data-r="どうぶつ" data-m="animal">動物</span>の<span class="w" data-r="しゅるい" data-m="type, kind">種類</span>として<span class="w" data-r="せつめい" data-m="to explain">説明</span>するときに<span class="w" data-r="つか" data-m="to use">使</span>います。</div>
+  <div class="en">"ネコ" in katakana feels scientific or biological. It's used when discussing the animal as a species.</div>
+</div>
+
+<div class="example-answer">
+  <span class="example-tag">Example 3</span>
+  <div class="jp"><span class="w" data-r="かんじ" data-m="kanji">漢字</span>の「<span class="w" data-r="ねこ" data-m="cat">猫</span>」は<span class="w" data-r="しょうせつ" data-m="novel">小説</span>や<span class="w" data-r="しんぶん" data-m="newspaper">新聞</span>など、フォーマルな<span class="w" data-r="ぶんしょう" data-m="text, writing">文章</span>で<span class="w" data-r="つか" data-m="to use">使</span>われると<span class="w" data-r="おも" data-m="to think">思</span>います。</div>
+  <div class="en">The kanji "猫" is used in novels, newspapers, and other formal writing, I think.</div>
+</div>
+
+<div class="sub-label">可愛い vs かわいい vs カワイイ</div>
+
+<div class="example-answer">
+  <span class="example-tag">Example 1</span>
+  <div class="jp">「<span class="w" data-r="かわい" data-m="cute, adorable">可愛</span>い」は<span class="w" data-r="ふつう" data-m="normal, standard">普通</span>の<span class="w" data-r="ぶんしょう" data-m="text, writing">文章</span>で<span class="w" data-r="つか" data-m="to use">使</span>います。「かわいい」はやさしい<span class="w" data-r="いんしょう" data-m="impression">印象</span>を<span class="w" data-r="あた" data-m="to give">与</span>えます。</div>
+  <div class="en">"可愛い" is used in standard writing. "かわいい" gives a softer impression.</div>
+</div>
+
+<div class="example-answer">
+  <span class="example-tag">Example 2</span>
+  <div class="jp">「カワイイ」は<span class="w" data-r="わかもの" data-m="young people">若者</span>がSNSやメッセージで<span class="w" data-r="つか" data-m="to use">使</span>います。<span class="w" data-r="きょうちょう" data-m="emphasis">強調</span>したいときや、ポップな<span class="w" data-r="かんじ" data-m="feeling">感じ</span>を<span class="w" data-r="だ" data-m="to put out, to express">出</span>したいときに<span class="w" data-r="つか" data-m="to use">使</span>うと<span class="w" data-r="おも" data-m="to think">思</span>います。</div>
+  <div class="en">"カワイイ" is used by young people on social media and messaging. I think it's used when you want to emphasize or create a pop feel.</div>
+</div>
+
+<div class="example-answer">
+  <span class="example-tag">Example 3</span>
+  <div class="jp">「カワイイ」は<span class="w" data-r="せかいてき" data-m="worldwide, global">世界的</span>にも<span class="w" data-r="ゆうめい" data-m="famous">有名</span>です。<span class="w" data-r="にほん" data-m="Japan">日本</span>の「カワイイ<span class="w" data-r="ぶんか" data-m="culture">文化</span>」として<span class="w" data-r="がいこくじん" data-m="foreigner">外国人</span>にも<span class="w" data-r="し" data-m="to know">知</span>られています。</div>
+  <div class="en">"カワイイ" is known worldwide. It's recognized by foreigners as part of Japan's "kawaii culture."</div>
+</div>
+
+<div class="sub-label">広島 vs ヒロシマ</div>
+
+<div class="example-answer">
+  <span class="example-tag">Example 1</span>
+  <div class="jp">「<span class="w" data-r="ひろしま" data-m="Hiroshima">広島</span>」は<span class="w" data-r="ちめい" data-m="place name">地名</span>として<span class="w" data-r="ふつう" data-m="normal, standard">普通</span>に<span class="w" data-r="つか" data-m="to use">使</span>います。<span class="w" data-r="りょこう" data-m="travel">旅行</span>や<span class="w" data-r="ちり" data-m="geography">地理</span>の<span class="w" data-r="はなし" data-m="topic, talk">話</span>をするときは<span class="w" data-r="かんじ" data-m="kanji">漢字</span>で<span class="w" data-r="か" data-m="to write">書</span>きます。</div>
+  <div class="en">"広島" in kanji is used normally as a place name — when talking about travel or geography.</div>
+</div>
+
+<div class="example-answer">
+  <span class="example-tag">Example 2</span>
+  <div class="jp">「ヒロシマ」とカタカナで<span class="w" data-r="か" data-m="to write">書</span>くと、<span class="w" data-r="げんばく" data-m="atomic bomb">原爆</span>や<span class="w" data-r="へいわ" data-m="peace">平和</span>の<span class="w" data-r="いみ" data-m="meaning">意味</span>が<span class="w" data-r="つよ" data-m="strong">強</span>くなります。<span class="w" data-r="せんそう" data-m="war">戦争</span>の<span class="w" data-r="れきし" data-m="history">歴史</span>について<span class="w" data-r="はな" data-m="to talk, to speak">話</span>すときに<span class="w" data-r="つか" data-m="to use">使</span>います。</div>
+  <div class="en">"ヒロシマ" in katakana carries a strong association with the atomic bomb and peace. It's used when discussing wartime history.</div>
+</div>
+
+<div class="example-answer">
+  <span class="example-tag">Example 3</span>
+  <div class="jp">カタカナの「ヒロシマ」は<span class="w" data-r="とくべつ" data-m="special">特別</span>な<span class="w" data-r="きも" data-m="feeling, emotion">気持</span>ちをこめて<span class="w" data-r="つか" data-m="to use">使</span>うと<span class="w" data-r="おも" data-m="to think">思</span>います。<span class="w" data-r="ただ" data-m="merely, simply">単</span>なる<span class="w" data-r="ちめい" data-m="place name">地名</span>ではなく、シンボルとしての<span class="w" data-r="いみ" data-m="meaning">意味</span>があります。</div>
+  <div class="en">I think katakana "ヒロシマ" is used with special feeling. It carries meaning not just as a place name, but as a symbol.</div>
+</div>
+</div>
+</div>
+
+<span class="ornament"></span>
+
+<!-- ═══════════ 2. 調べて紹介しましょう ═══════════ -->
+<div class="card" id="shirabe">
+<div class="section-title">2. <span class="w" data-r="しら" data-m="to look up, to research">調</span>べて<span class="w" data-r="しょうかい" data-m="to introduce, to present">紹介</span>しましょう</div>
+<div class="section-sub">Research and present — Kanji, hiragana, and katakana usage differences</div>
+
+<div class="prompt-box">
+  <div class="jp"><span class="w" data-r="かんじ" data-m="kanji">漢字</span>・ひらがな・カタカナの<span class="w" data-r="つか" data-m="to use">使</span>い<span class="w" data-r="わ" data-m="to divide, to distinguish">分</span>けについて、インターネットで<span class="w" data-r="しら" data-m="to look up, to research">調</span>べて<span class="w" data-r="しょうかい" data-m="to introduce, to present">紹介</span>しましょう。</div>
+  <div class="en">Let's research how kanji, hiragana, and katakana are used differently, and present our findings.</div>
+</div>
+
+<div class="step">
+  <span class="step-num">1</span>
+  <div class="jp" style="display:inline;">いろいろな<span class="w" data-r="ひょうき" data-m="notation, written form">表記</span>が<span class="w" data-r="つか" data-m="to use">使</span>われている<span class="w" data-r="ことば" data-m="word">言葉</span>の<span class="w" data-r="れい" data-m="example">例</span>をインターネットで<span class="w" data-r="さが" data-m="to search, to look for">探</span>しましょう。</div>
+  <div class="en" style="margin-left:2rem;">Find examples of words written in various notations on the internet.</div>
+</div>
+
+<div class="step">
+  <div class="explain" style="margin-left:2rem;"><span class="w" data-r="れい" data-m="example">例</span>：「コーヒー」の<span class="w" data-r="ひょうき" data-m="notation, written form">表記</span>。カタカナの<span class="w" data-r="とき" data-m="time, case">時</span>もあるし、<span class="w" data-r="かんじ" data-m="kanji">漢字</span>の<span class="w" data-r="とき" data-m="time, case">時</span>もあります。</div>
+  <div class="writing-grid" style="margin-left:2rem;">
+    <div class="writing-variant">
+      <div class="main">コーヒー</div>
+      <div class="label">katakana</div>
+    </div>
+    <div class="writing-variant">
+      <div class="main"><span class="w" data-r="コーヒー" data-m="coffee (kanji)">珈琲</span></div>
+      <div class="label">kanji</div>
+    </div>
+  </div>
+</div>
+
+<div class="step">
+  <span class="step-num">2</span>
+  <div class="jp" style="display:inline;">その<span class="w" data-r="ひょうき" data-m="notation, written form">表記</span>を<span class="w" data-r="つか" data-m="to use">使</span>っている<span class="w" data-r="りゆう" data-m="reason">理由</span>や、<span class="w" data-r="つか" data-m="to use">使</span>い<span class="w" data-r="わ" data-m="to divide">分</span>けの<span class="w" data-r="りゆう" data-m="reason">理由</span>を<span class="w" data-r="かんが" data-m="to think about, to consider">考</span>えましょう。</div>
+  <div class="en" style="margin-left:2rem;">Think about the reasons for using each notation and why they are used differently.</div>
+</div>
+
+<div class="step">
+  <span class="step-num">3</span>
+  <div class="jp" style="display:inline;"><span class="w" data-r="み" data-m="to find">見</span>つけた<span class="w" data-r="れい" data-m="example">例</span>を<span class="w" data-r="しょうかい" data-m="to introduce, to present">紹介</span>しましょう。</div>
+  <div class="en" style="margin-left:2rem;">Present the examples you found.</div>
+</div>
+</div>
+
+<span class="ornament"></span>
+
+<!-- ═══════════ EXAMPLE ANSWERS FOR Q2 ═══════════ -->
+<div class="card" id="examples2">
+<div class="section-title">調べて紹介しましょう</div>
+<div class="section-grammar">Example Presentations</div>
+
+<div class="sub-label">Example A: 珈琲 vs コーヒー</div>
+
+<div class="example-answer">
+  <span class="example-tag">Presentation</span>
+  <div class="jp">「コーヒー」は<span class="w" data-r="ふだん" data-m="usually, normally">普段</span>カタカナで<span class="w" data-r="か" data-m="to write">書</span>きます。<span class="w" data-r="がいらいご" data-m="loanword">外来語</span>なので、カタカナが<span class="w" data-r="ふつう" data-m="normal, standard">普通</span>です。でも、<span class="w" data-r="きっさてん" data-m="coffee shop, cafe">喫茶店</span>のメニューや<span class="w" data-r="かんばん" data-m="signboard">看板</span>では「<span class="w" data-r="コーヒー" data-m="coffee (kanji)">珈琲</span>」と<span class="w" data-r="かんじ" data-m="kanji">漢字</span>で<span class="w" data-r="か" data-m="to write">書</span>くことがあります。<span class="w" data-r="かんじ" data-m="kanji">漢字</span>で<span class="w" data-r="か" data-m="to write">書</span>くと、<span class="w" data-r="でんとうてき" data-m="traditional">伝統的</span>で<span class="w" data-r="こきゅう" data-m="high-class, elegant">高級</span>な<span class="w" data-r="いんしょう" data-m="impression">印象</span>を<span class="w" data-r="あた" data-m="to give">与</span>えます。</div>
+  <div class="en">"コーヒー" is normally written in katakana because it's a loanword. But on cafe menus and signs, the kanji "珈琲" is sometimes used. Writing it in kanji gives a traditional, high-class impression.</div>
+</div>
+
+<div class="sub-label">Example B: 薔薇 vs バラ vs ばら</div>
+
+<div class="example-answer">
+  <span class="example-tag">Presentation</span>
+  <div class="jp">「バラ」は<span class="w" data-r="はな" data-m="flower">花</span>の<span class="w" data-r="なまえ" data-m="name">名前</span>です。<span class="w" data-r="かんじ" data-m="kanji">漢字</span>では「<span class="w" data-r="ばら" data-m="rose">薔薇</span>」と<span class="w" data-r="か" data-m="to write">書</span>きますが、とても<span class="w" data-r="むずか" data-m="difficult">難</span>しい<span class="w" data-r="かんじ" data-m="kanji">漢字</span>なので、<span class="w" data-r="ほとんど" data-m="almost, nearly">ほとんど</span>の<span class="w" data-r="ひと" data-m="person, people">人</span>はカタカナで「バラ」と<span class="w" data-r="か" data-m="to write">書</span>きます。<span class="w" data-r="しょうせつ" data-m="novel">小説</span>などでは<span class="w" data-r="ふんいき" data-m="atmosphere, mood">雰囲気</span>を<span class="w" data-r="だ" data-m="to create, to put out">出</span>すために<span class="w" data-r="かんじ" data-m="kanji">漢字</span>を<span class="w" data-r="つか" data-m="to use">使</span>うこともあります。</div>
+  <div class="en">"Bara" (rose) can be written as "薔薇" in kanji, but the characters are very difficult, so most people write it as "バラ" in katakana. In novels, the kanji may be used to create atmosphere.</div>
+</div>
+
+<div class="sub-label">Example C: 寿司 vs すし vs スシ</div>
+
+<div class="example-answer">
+  <span class="example-tag">Presentation</span>
+  <div class="jp">「<span class="w" data-r="すし" data-m="sushi">寿司</span>」は<span class="w" data-r="かんじ" data-m="kanji">漢字</span>で<span class="w" data-r="か" data-m="to write">書</span>くと<span class="w" data-r="せいしき" data-m="formal, official">正式</span>な<span class="w" data-r="かんじ" data-m="feeling">感じ</span>がして、<span class="w" data-r="こきゅう" data-m="high-class">高級</span>な<span class="w" data-r="すしや" data-m="sushi restaurant">寿司屋</span>の<span class="w" data-r="かんばん" data-m="signboard">看板</span>に<span class="w" data-r="つか" data-m="to use">使</span>われます。「すし」はひらがなで<span class="w" data-r="か" data-m="to write">書</span>くと<span class="w" data-r="したし" data-m="familiar, friendly">親</span>しみやすい<span class="w" data-r="いんしょう" data-m="impression">印象</span>です。「スシ」は<span class="w" data-r="がいこくじん" data-m="foreigner">外国人</span><span class="w" data-r="む" data-m="aimed at">向</span>けのレストランなどで<span class="w" data-r="み" data-m="to see">見</span>ます。</div>
+  <div class="en">"寿司" in kanji feels formal and is used on signs for upscale sushi restaurants. "すし" in hiragana feels friendlier. "スシ" in katakana is seen at restaurants aimed at foreigners.</div>
+</div>
+
+<div class="sub-label">Example D: 煙草 vs タバコ vs たばこ</div>
+
+<div class="example-answer">
+  <span class="example-tag">Presentation</span>
+  <div class="jp">「たばこ」にも<span class="w" data-r="い" data-m="various">色</span>々な<span class="w" data-r="ひょうき" data-m="notation, written form">表記</span>があります。「<span class="w" data-r="たばこ" data-m="tobacco, cigarette">煙草</span>」は<span class="w" data-r="ふる" data-m="old">古</span>い<span class="w" data-r="ぶんしょう" data-m="text, document">文章</span>や<span class="w" data-r="しょうせつ" data-m="novel">小説</span>で<span class="w" data-r="つか" data-m="to use">使</span>います。「タバコ」はカタカナで<span class="w" data-r="いちばん" data-m="most, number one">一番</span>よく<span class="w" data-r="み" data-m="to see">見</span>ます。<span class="w" data-r="ほうりつ" data-m="law">法律</span>の<span class="w" data-r="ぶんしょう" data-m="text, document">文章</span>では「たばこ」とひらがなで<span class="w" data-r="か" data-m="to write">書</span>かれています。</div>
+  <div class="en">"Tabako" (tobacco/cigarette) has various forms. "煙草" in kanji appears in old texts and novels. "タバコ" in katakana is most common. In legal documents, it's written as "たばこ" in hiragana.</div>
+</div>
+</div>
+
+</div>
+
+<!-- Popup -->
+<div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div>
+<div class="popup" id="popup"></div>
+
+<script>
+// Tap dictionary
+document.addEventListener('click', function(e) {
+  var el = e.target.closest('.w');
+  if (!el) return;
+  e.stopPropagation();
+  var r = el.getAttribute('data-r');
+  var m = el.getAttribute('data-m');
+  var k = el.textContent;
+  var popup = document.getElementById('popup');
+  var overlay = document.getElementById('popupOverlay');
+  popup.innerHTML =
+    '<div class="reading">' + r + '</div>' +
+    '<div class="kanji">' + k + '</div>' +
+    '<div class="meaning">' + m + '</div>';
+  var rect = el.getBoundingClientRect();
+  var pw = 280;
+  var left = rect.left + rect.width / 2 - pw / 2;
+  if (left < 10) left = 10;
+  if (left + pw > window.innerWidth - 10) left = window.innerWidth - pw - 10;
+  var top = rect.bottom + 8;
+  if (top + 120 > window.innerHeight) top = rect.top - 100;
+  popup.style.left = left + 'px';
+  popup.style.top = top + 'px';
+  popup.style.width = pw + 'px';
+  popup.classList.add('show');
+  overlay.classList.add('show');
+});
+
+function closePopup() {
+  document.getElementById('popup').classList.remove('show');
+  document.getElementById('popupOverlay').classList.remove('show');
+}
+
+// Section nav
+document.querySelectorAll('.page-nav a').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    var target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+    document.querySelectorAll('.page-nav a').forEach(function(x) { x.classList.remove('active'); });
+    this.classList.add('active');
+  });
+});
+var sections = document.querySelectorAll('.card[id]');
+var navLinks = document.querySelectorAll('.page-nav a');
+window.addEventListener('scroll', function() {
+  var scrollPos = window.scrollY + 120;
+  sections.forEach(function(sec, i) {
+    if (sec.offsetTop <= scrollPos && sec.offsetTop + sec.offsetHeight > scrollPos) {
+      navLinks.forEach(function(l) { l.classList.remove('active'); });
+      if (navLinks[i]) navLinks[i].classList.add('active');
+    }
+  });
+});
+</script>
+</body>
+</html>
