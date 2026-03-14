@@ -199,8 +199,12 @@ body{
         <div class="book-tagline">A midnight shop that trades in memories and emotions</div>
       </div>
     </div>
-    <div class="book-slot empty">
-      <div class="empty-label">More books<br>coming soon</div>
+    <div class="book-slot" onclick="openBook('last-train')">
+      <img class="book-cover" src="last-train-cover.png" alt="The Last Train">
+      <div class="book-info">
+        <div class="book-title">最終電車</div>
+        <div class="book-tagline">A student trapped on an infinite train through surreal worlds</div>
+      </div>
     </div>
   </div>
 </div>
@@ -213,7 +217,8 @@ body{
 <script>
 var books = [
   {"id":"kirihama","title_jp":"霧浜の秘密","title_en":"The Secrets of Kirihama","tagline":"A supernatural mystery in a foggy coastal village","meta":"20 chapters \u00b7 12,385 sentences","cover":"kirihama-cover.png","url":"../kirihama/index.html","synopsis":"Five university students arrive in the remote fishing village of Kirihama for a summer research project\u2014but the fog that rolls in off the sea carries more than moisture. Strange lights flicker over the water at night, an old fisherman warns them to stay away from the shore, and a pentagon etched into ancient stone hints at secrets the villagers have guarded for generations."},
-  {"id":"shadow-shop","title_jp":"影の店","title_en":"The Shadow Shop","tagline":"A midnight shop that trades in memories and emotions","meta":"20 chapters \u00b7 13,730 sentences","cover":"shadow-shop-cover.png","url":"../shadow-shop/index.html","synopsis":"Ren is twenty-one and numb. He goes to class, works his konbini shift, and sleeps\u2014feeling nothing. Then one night he stumbles into a shop that shouldn\u2019t exist, run by an ancient being called Kagen who trades in bottled memories and emotions. Each visit pulls Ren deeper into a world where the price of feeling is paid in pieces of yourself."}
+  {"id":"shadow-shop","title_jp":"影の店","title_en":"The Shadow Shop","tagline":"A midnight shop that trades in memories and emotions","meta":"20 chapters \u00b7 13,730 sentences","cover":"shadow-shop-cover.png","url":"../shadow-shop/index.html","synopsis":"Ren is twenty-one and numb. He goes to class, works his konbini shift, and sleeps\u2014feeling nothing. Then one night he stumbles into a shop that shouldn\u2019t exist, run by an ancient being called Kagen who trades in bottled memories and emotions. Each visit pulls Ren deeper into a world where the price of feeling is paid in pieces of yourself."},
+  {"id":"last-train","title_jp":"最終電車","title_en":"The Last Train","tagline":"A student trapped on an infinite train through surreal worlds","meta":"Coming soon \u00b7 In production","cover":"last-train-cover.png","url":"#","synopsis":"Takahashi Haruki boards the last train home after his konbini shift\u2014but the train doesn\u2019t stop. Each car opens into a surreal world shaped by a trapped passenger\u2019s unresolved pain: an endless corporate meeting, a dying garden, a frozen summer festival. To help them, Haruki must do what he cannot do for himself\u2014be present, listen, and face what\u2019s buried underneath. His ticket reads 156. Every time he helps someone, the number drops. But what waits at zero is the one thing he\u2019s spent two years running from."}
 ];
 
 // ─── Reviews (localStorage) ───
