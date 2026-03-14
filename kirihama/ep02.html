@@ -497,9 +497,9 @@ var sentences = [
         "m": "with, by means of"
       },
       {
-        "w": "騒がしい",
-        "r": "さわがしい",
-        "m": "noisy, rowdy"
+        "w": "うるさい",
+        "r": "うるさい",
+        "m": "noisy, loud"
       },
       {
         "w": "が",
@@ -591,8 +591,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "ひるまはがくせいのこえやこぴーきのおとでさわがしいが、へいかんちかくになると、ふるいかみとほこりのにおいだけがのこる",
-    "trans": "During the day it buzzes with students' voices and the hum of copy machines, but as closing time approaches, only the smell of old paper and dust remains."
+    "hira": "ひるまはがくせいのこえやこぴーきのおとでうるさいが、へいかんちかくになると、ふるいかみとほこりのにおいだけがのこる",
+    "trans": "During the day it buzzes with students's voices and the hum of copy machines, but as closing time approaches, only the smell of old paper and dust remains."
   },
   {
     "parts": [
@@ -791,9 +791,10 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "単純",
-        "r": "たんじゅん",
-        "m": "simple, straightforward"
+        "w": "簡単",
+        "r": "かんたん",
+        "m": "simple, easy",
+        "core": true
       },
       {
         "w": "な",
@@ -814,7 +815,7 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "たんじゅんなさぎょうだった",
+    "hira": "かんたんなさぎょうだった",
     "trans": "It was simple, mechanical work."
   },
   {
@@ -1116,14 +1117,10 @@ var sentences = [
         "m": "subject marker"
       },
       {
-        "w": "描いて",
-        "r": "えがいて",
-        "m": "drawn (te-form of 描く)"
-      },
-      {
-        "w": "あった",
-        "r": "あった",
-        "m": "was done (resultant state, てある)"
+        "g": "描いてあった",
+        "r": "えがいてあった",
+        "m": "had been drawn (intentional resultant state)",
+        "x": "てあった shows the coastline was deliberately drawn by someone — emphasizing the intentional, careful creation of this map."
       },
       {
         "p": "。"
@@ -1203,14 +1200,10 @@ var sentences = [
         "m": "subject marker"
       },
       {
-        "w": "つけて",
-        "r": "つけて",
-        "m": "attached, marked (te-form of つける)"
-      },
-      {
-        "w": "あった",
-        "r": "あった",
-        "m": "was done (resultant state, てある)"
+        "g": "つけてあった",
+        "r": "つけてあった",
+        "m": "had been marked (intentional resultant state)",
+        "x": "てあった indicates someone deliberately marked these five locations — the circles weren't random but placed with intent."
       },
       {
         "p": "。"
@@ -1283,14 +1276,10 @@ var sentences = [
         "m": "with, by means of"
       },
       {
-        "w": "つなぐ",
-        "r": "つなぐ",
-        "m": "to connect, link"
-      },
-      {
-        "w": "と",
-        "r": "と",
-        "m": "if, when"
+        "g": "つなげば",
+        "r": "つなげば",
+        "m": "if you connect them",
+        "x": "つなげば — 'if you were to connect them.' The ば conditional expresses a hypothetical precondition."
       },
       {
         "p": "、"
@@ -1319,7 +1308,7 @@ var sentences = [
       {
         "w": "よう",
         "r": "よう",
-        "m": "appears to, seems like (appearance)"
+        "m": "appears to, seems like"
       },
       {
         "w": "に",
@@ -1335,7 +1324,7 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "せんでつなぐと、きれいなごかくけいになるようにみえた",
+    "hira": "せんでつなげば、きれいなごかくけいになるようにみえた",
     "trans": "If you connected them with lines, they seemed to form a perfect pentagon."
   },
   {
@@ -1381,14 +1370,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "書いて",
-        "r": "かいて",
-        "m": "written (te-form of 書く)"
-      },
-      {
-        "w": "あった",
-        "r": "あった",
-        "m": "was done (resultant state, てある)"
+        "g": "書いてあった",
+        "r": "かいてあった",
+        "m": "had been written (intentional resultant state)",
+        "x": "てあった indicates that someone deliberately wrote something in the center of the map — an intentional inscription."
       },
       {
         "p": "。"
@@ -1400,14 +1385,20 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "かすれて",
-        "r": "かすれて",
-        "m": "faded, blurred (te-form of かすれる)"
+        "w": "かすれ",
+        "r": "かすれ",
+        "m": "faded (stem of かすれる)"
       },
       {
-        "w": "いて",
-        "r": "いて",
-        "m": "being (te-form of いる, expressing state)"
+        "w": "て",
+        "r": "て",
+        "m": "te-form connective"
+      },
+      {
+        "g": "しまっていて",
+        "r": "しまっていて",
+        "m": "had completely (done), ended up (in a state)",
+        "x": "てしまう here emphasizes that the fading was complete and irreversible — the text had faded away beyond recovery."
       },
       {
         "w": "読めなかった",
@@ -1418,8 +1409,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "かすれていてよめなかった",
-    "trans": "It had faded and was unreadable."
+    "hira": "かすれてしまっていてよめなかった",
+    "trans": "It had completely faded and was unreadable."
   },
   {
     "parts": [
@@ -1526,9 +1517,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "べき",
+        "g": "べき",
         "r": "べき",
-        "m": "should be, ought to be"
+        "m": "should, ought to",
+        "x": "べき expresses what should normally be the case — this map is not something that should be in this location."
       },
       {
         "w": "もの",
@@ -1590,17 +1582,18 @@ var sentences = [
       {
         "w": "間",
         "r": "あいだ",
-        "m": "between, among"
+        "m": "between, among",
+        "core": true
       },
       {
         "w": "に",
         "r": "に",
-        "m": "in, among"
+        "m": "in"
       },
       {
         "w": "挟まって",
         "r": "はさまって",
-        "m": "sandwiched, tucked (te-form of 挟まる)"
+        "m": "tucked, sandwiched (te-form)"
       },
       {
         "w": "いた",
@@ -1608,9 +1601,10 @@ var sentences = [
         "m": "was (past progressive)"
       },
       {
-        "w": "が",
-        "r": "が",
-        "m": "but"
+        "g": "のに",
+        "r": "のに",
+        "m": "even though, despite",
+        "x": "のに expresses the speaker's surprise or frustration that despite being filed among the other maps, this one had no classification number."
       },
       {
         "p": "、"
@@ -1618,12 +1612,13 @@ var sentences = [
       {
         "w": "分類",
         "r": "ぶんるい",
-        "m": "classification, category"
+        "m": "classification, sorting"
       },
       {
         "w": "番号",
         "r": "ばんごう",
-        "m": "number"
+        "m": "number",
+        "core": true
       },
       {
         "w": "が",
@@ -1638,14 +1633,14 @@ var sentences = [
       {
         "w": "なかった",
         "r": "なかった",
-        "m": "was not (past negative of ある/いる)"
+        "m": "was not (past negative)"
       },
       {
         "p": "。"
       }
     ],
-    "hira": "ほかのちずのあいだにはさまっていたが、ぶんるいばんごうがかいてなかった",
-    "trans": "It had been tucked among the other maps, but had no classification number written on it."
+    "hira": "ほかのちずのあいだにはさまっていたのに、ぶんるいばんごうがかいてなかった",
+    "trans": "It had been tucked among the other maps, and yet had no classification number written on it."
   },
   {
     "parts": [
@@ -1746,10 +1741,19 @@ var sentences = [
   {
     "parts": [
       {
-        "g": "不思議に思った",
-        "r": "ふしぎにおもった",
-        "m": "found it strange / thought it odd",
-        "x": "〜に思う means 'to feel/find something ~.' The な-adjective 不思議 takes に before 思う to express how something felt: 不思議に思った = 'felt it was strange.' Compare: 変に思った (found it weird), 大切に思った (felt it was precious)."
+        "w": "不思議",
+        "r": "ふしぎ",
+        "m": "strange, mysterious"
+      },
+      {
+        "w": "に",
+        "r": "に",
+        "m": "adverbial particle"
+      },
+      {
+        "w": "思った",
+        "r": "おもった",
+        "m": "thought, felt (past of 思う)"
       },
       {
         "w": "が",
@@ -2113,14 +2117,15 @@ var sentences = [
         "p": "、"
       },
       {
-        "w": "巨大",
-        "r": "きょだい",
-        "m": "huge, massive"
+        "w": "とても",
+        "r": "とても",
+        "m": "very, extremely",
+        "core": true
       },
       {
-        "w": "な",
-        "r": "な",
-        "m": "な (adjective connector)"
+        "w": "大きな",
+        "r": "おおきな",
+        "m": "large, big"
       },
       {
         "w": "スポーツバッグ",
@@ -2144,9 +2149,15 @@ var sentences = [
         "m": "on"
       },
       {
-        "w": "掛けて",
-        "r": "かけて",
-        "m": "hanging, wearing (te-form of 掛ける)"
+        "w": "掛けた",
+        "r": "かけた",
+        "m": "hung, slung (past of 掛ける)"
+      },
+      {
+        "g": "まま",
+        "r": "まま",
+        "m": "as it is, unchanged",
+        "x": "まま indicates Ren kept the bag on his shoulder without taking it off — he got off the bus with it still slung there."
       },
       {
         "w": "降りて",
@@ -2162,8 +2173,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "なかむられんが、きょだいなすぽーつばっぐをかたにかけておりてきた",
-    "trans": "Nakamura Ren stepped off the bus with an enormous sports bag slung over his shoulder."
+    "hira": "なかむられんが、とてもおおきなすぽーつばっぐをかたにかけたままおりてきた",
+    "trans": "Nakamura Ren stepped off the bus with a very large sports bag still slung over his shoulder."
   },
   {
     "parts": [
@@ -2399,10 +2410,9 @@ var sentences = [
         "m": "onto"
       },
       {
-        "g": "落として",
+        "w": "落として",
         "r": "おとして",
-        "m": "dropping (te-form of 落とす)",
-        "x": "〜として (Intermediate L7) — as N, in the role of N. Here in: 「蓮はバッグを地面に落として、腰を伸ばした。」 (Ren dropped his bag on the ground and stretched out his back...)"
+        "m": "dropping (te-form of 落とす)"
       },
       {
         "p": "、"
@@ -2924,9 +2934,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "も",
+        "g": "も",
         "r": "も",
-        "m": "as many as, even (emphasis on quantity)"
+        "m": "even, as much as (emphasis)",
+        "x": "も emphasizes the surprising length — two whole days alone is a lot for someone to handle."
       },
       {
         "w": "い",
@@ -3652,14 +3663,15 @@ var sentences = [
         "m": "topic marker"
       },
       {
-        "w": "笑っ",
-        "r": "わらっ",
-        "m": "laughed (te-form stem of 笑う)"
+        "w": "笑い",
+        "r": "わらい",
+        "m": "laughing (stem of 笑う)"
       },
       {
-        "w": "て",
-        "r": "て",
-        "m": "te-form connective"
+        "g": "ながら",
+        "r": "ながら",
+        "m": "while doing",
+        "x": "ながら shows that Tanaka was laughing at the same time as he walked to the back of the store."
       },
       {
         "w": "奥",
@@ -3679,14 +3691,14 @@ var sentences = [
       {
         "w": "ていった",
         "r": "ていった",
-        "m": "Vていく (past)"
+        "m": "went (progressive + direction away)"
       },
       {
         "p": "。"
       }
     ],
-    "hira": "たなかはわらっておくにはいっていった。",
-    "trans": "Tanaka laughed and headed to the back of the store."
+    "hira": "たなかはわらいながらおくにはいっていった。",
+    "trans": "Tanaka headed to the back of the store, laughing as he went."
   },
   {
     "parts": [
@@ -3863,19 +3875,10 @@ var sentences = [
         "p": "、"
       },
       {
-        "w": "潰れ",
-        "r": "つぶれ",
-        "m": "went under, closed down (te-form stem of 潰れる)"
-      },
-      {
-        "w": "ちゃっ",
-        "r": "ちゃっ",
-        "m": "ended up (contracted te-form of てしまう)"
-      },
-      {
-        "w": "た",
-        "r": "た",
-        "m": "past tense"
+        "g": "潰れちゃった",
+        "r": "つぶれちゃった",
+        "m": "ended up closing down (contracted てしまった)",
+        "x": "ちゃった (contracted てしまった) expresses regret — the shop closing down was unfortunate and irreversible."
       },
       {
         "w": "ん",
@@ -3962,15 +3965,6 @@ var sentences = [
         "m": "topic marker"
       },
       {
-        "w": "時々",
-        "r": "ときどき",
-        "m": "sometimes",
-        "core": true
-      },
-      {
-        "p": "、"
-      },
-      {
         "w": "こういう",
         "r": "こういう",
         "m": "this kind of, like this"
@@ -3992,10 +3986,16 @@ var sentences = [
         "core": true
       },
       {
+        "g": "ことがある",
+        "r": "ことがある",
+        "m": "sometimes happens, there are times when",
+        "x": "ことがある indicates that Ren saying things like this is something that happens from time to time — an occasional occurrence."
+      },
+      {
         "p": "。"
       }
     ],
-    "hira": "れんはときどき、こういうことをいう。",
+    "hira": "れんはこういうことをいうことがある。",
     "trans": "Ren sometimes says things like this."
   },
   {
@@ -4306,10 +4306,9 @@ var sentences = [
         "m": "neatly, properly, tidily"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "done (te-form stem of する)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「もう一人は小さめで、きちんとしたスーツケースを引いていた。」 (The other was smaller, pulling a neat, proper suitcase.)"
+        "m": "done (conjunctive form of する)"
       },
       {
         "w": "た",
@@ -4329,7 +4328,7 @@ var sentences = [
       {
         "w": "引い",
         "r": "ひい",
-        "m": "pulling (te-form stem of 引く)"
+        "m": "pulling (stem of 引く)"
       },
       {
         "w": "て",
@@ -4337,21 +4336,17 @@ var sentences = [
         "m": "te-form connective"
       },
       {
-        "w": "い",
-        "r": "い",
-        "m": "progressive auxiliary (い form)"
-      },
-      {
-        "w": "た",
-        "r": "た",
-        "m": "past tense"
+        "g": "きていた",
+        "r": "きていた",
+        "m": "had been coming (doing), was in the process of",
+        "x": "てきていた shows the action of pulling the suitcase as an ongoing motion approaching the speaker's viewpoint."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "もうひとりはちいさめで、きちんとしたすーつけーすをひいていた。",
-    "trans": "The other was smaller, pulling a neat, proper suitcase.",
+    "hira": "もうひとりはちいさめで、きちんとしたすーつけーすをひいてきていた。",
+    "trans": "The other was smaller, pulling a neat, proper suitcase along.",
     "_scene_break": true
   },
   {
@@ -4718,10 +4713,9 @@ var sentences = [
         "core": true
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "did (te-form stem of する)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「おれ一時間かけて歓迎スピーチ準備したのに。」 (I spent a whole hour preparing a welcome speech for you.)"
+        "m": "did (conjunctive form of する)"
       },
       {
         "w": "た",
@@ -5014,9 +5008,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "が",
-        "r": "が",
-        "m": "but (contrasting conjunction)"
+        "g": "といっても",
+        "r": "といっても",
+        "m": "even though one says; that said",
+        "x": "といっても qualifies the statement — even though her suitcase was small, she had a separate large bag, so 'small' doesn't mean she packed light."
       },
       {
         "p": "、"
@@ -5065,7 +5060,7 @@ var sentences = [
       {
         "w": "い",
         "r": "い",
-        "m": "progressive auxiliary (い form)"
+        "m": "progressive auxiliary"
       },
       {
         "w": "た",
@@ -5076,8 +5071,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "すーつけーすはちいさいが、べつにおおきなほんのばっぐをもっていた。",
-    "trans": "Her suitcase was small, but she had a large separate bag of books.",
+    "hira": "すーつけーすはちいさいといっても、べつにおおきなほんのばっぐをもっていた。",
+    "trans": "Even though her suitcase was small, she had a large separate bag of books.",
     "_scene_break": true
   },
   {
@@ -5637,9 +5632,15 @@ var sentences = [
         "m": "when, upon (conditional)"
       },
       {
-        "w": "立ち止まって",
-        "r": "たちどまって",
-        "m": "stopped (te-form of 立ち止まる)"
+        "w": "立ち",
+        "r": "たち",
+        "m": "stand (stem of 立つ)"
+      },
+      {
+        "g": "止まり",
+        "r": "どまり",
+        "m": "stopping (continuative form)",
+        "x": "連用中止形 (continuative form) — the verb stem 止まり connects two sequential actions in a literary, written style: he stopped, then looked up."
       },
       {
         "p": "、"
@@ -5663,7 +5664,7 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "たけしはげんかんにはいるとたちどまって、てんじょうをみあげた。",
+    "hira": "たけしはげんかんにはいるとたちどまり、てんじょうをみあげた。",
     "trans": "When Takeshi stepped into the entryway, he stopped and looked up at the ceiling.",
     "_scene_break": true
   },
@@ -6149,22 +6150,22 @@ var sentences = [
         "m": "object particle"
       },
       {
-        "w": "使って",
-        "r": "つかって",
-        "m": "using (te-form of 使う)"
+        "w": "使う",
+        "r": "つかう",
+        "m": "to use"
       },
       {
-        "w": "いる",
-        "r": "いる",
-        "m": "is (progressive, animate)",
-        "core": true
+        "g": "ことにしている",
+        "r": "ことにしている",
+        "m": "has decided to, makes it a practice to",
+        "x": "ことにしている indicates that Yuki made a deliberate decision to use her grandmother's room and continues to do so."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "ゆきはそぼのへやをつかっている。",
-    "trans": "Yuki is using her grandmother's room.",
+    "hira": "ゆきはそぼのへやをつかうことにしている。",
+    "trans": "Yuki has decided to use her grandmother's room.",
     "_scene_break": true
   },
   {
@@ -6510,19 +6511,15 @@ var sentences = [
         "m": "bag, sack"
       },
       {
+        "g": "ばかり",
+        "r": "ばかり",
+        "m": "nothing but, only",
+        "x": "ばかり emphasizes that beyond clothes, the bag was stuffed with nothing but snack bags — highlighting Ren's priorities."
+      },
+      {
         "w": "が",
         "r": "が",
         "m": "subject particle"
-      },
-      {
-        "w": "大量",
-        "r": "たいりょう",
-        "m": "large quantity, large amount"
-      },
-      {
-        "w": "に",
-        "r": "に",
-        "m": "particle (manner)"
       },
       {
         "w": "入っていた",
@@ -6533,8 +6530,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "ぱーかーがさんまい、てぃーしゃつがごまい、じーんずがいっぽん、あとはおかしのふくろがたいりょうにはいっていた。",
-    "trans": "Three hoodies, five T-shirts, one pair of jeans, and on top of that a large number of snack bags.",
+    "hira": "ぱーかーがさんまい、てぃーしゃつがごまい、じーんずがいっぽん、あとはおかしのふくろばかりがはいっていた。",
+    "trans": "Three hoodies, five T-shirts, one pair of jeans, and beyond that nothing but bags of snacks.",
     "_scene_break": true
   },
   {
@@ -6955,9 +6952,26 @@ var sentences = [
         "m": "topic particle"
       },
       {
-        "w": "黙って",
-        "r": "だまって",
-        "m": "silently, without speaking (te-form of 黙る)"
+        "w": "何",
+        "r": "なに",
+        "m": "what, anything",
+        "core": true
+      },
+      {
+        "w": "も",
+        "r": "も",
+        "m": "even, at all (with negative)"
+      },
+      {
+        "w": "言わ",
+        "r": "いわ",
+        "m": "say (negative stem of 言う)"
+      },
+      {
+        "g": "ずに",
+        "r": "ずに",
+        "m": "without doing",
+        "x": "ずに indicates Takeshi put away his things without saying anything — the negative te-form equivalent of 言わないで."
       },
       {
         "w": "荷物",
@@ -6978,8 +6992,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "たけしはだまってにもつをかたづけていた。",
-    "trans": "Takeshi was quietly putting away his things."
+    "hira": "たけしはなにもいわずににもつをかたづけていた。",
+    "trans": "Takeshi was putting away his things without saying a word."
   },
   {
     "parts": [
@@ -7067,10 +7081,9 @@ var sentences = [
         "m": "particle (within, in the span of)"
       },
       {
-        "g": "終わった",
+        "w": "終わった",
         "r": "おわった",
-        "m": "finished (past of 終わる)",
-        "x": "Vマス始める・Vマス終わる (Intermediate L1) — start to V / finish V-ing. Here in: 「五分で終わった。」 (He was done in five minutes.)"
+        "m": "finished (past of 終わる)"
       },
       {
         "p": "。"
@@ -8121,19 +8134,26 @@ var sentences = [
         "m": "(topic particle)"
       },
       {
-        "w": "何も",
-        "r": "なにも",
-        "m": "nothing, (not) anything"
+        "w": "何",
+        "r": "なに",
+        "m": "what, anything",
+        "core": true
       },
       {
-        "w": "言わず",
-        "r": "いわず",
-        "m": "without saying (negative conjunctive)"
+        "w": "も",
+        "r": "も",
+        "m": "even, at all (with negative)"
       },
       {
-        "w": "に",
-        "r": "に",
-        "m": "(manner particle)"
+        "w": "言わ",
+        "r": "いわ",
+        "m": "say (negative stem of 言う)"
+      },
+      {
+        "g": "ずに",
+        "r": "ずに",
+        "m": "without doing",
+        "x": "ずに shows that Takeshi began washing the rice without saying anything — the negative te-form equivalent of 言わないで."
       },
       {
         "w": "米",
@@ -8911,14 +8931,10 @@ var sentences = [
         "m": "(な-adj attributive)"
       },
       {
-        "w": "こと",
-        "r": "こと",
-        "m": "thing, what"
-      },
-      {
-        "w": "は",
-        "r": "は",
-        "m": "(topic particle)"
+        "g": "のは",
+        "r": "のは",
+        "m": "the fact that... is (nominalizer + topic)",
+        "x": "のは nominalizes the preceding adjective, turning 'important' into 'what is important' — setting up the topic for what follows."
       },
       {
         "p": "——"
@@ -8926,7 +8942,7 @@ var sentences = [
       {
         "w": "おばあちゃん",
         "r": "おばあちゃん",
-        "m": "grandma's"
+        "m": "grandma"
       },
       {
         "w": "の",
@@ -8959,7 +8975,7 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "たいせつなことは——おばあちゃんのことばをしんじることだ。",
+    "hira": "たいせつなのは——おばあちゃんのことばをしんじることだ。",
     "trans": "What mattered was — to trust her grandmother's words."
   },
   {
@@ -9181,9 +9197,10 @@ var sentences = [
         "m": "doing (te-form)"
       },
       {
-        "w": "きた",
+        "g": "きた",
         "r": "きた",
-        "m": "has been doing (up to now)"
+        "m": "has been doing (up to now)",
+        "x": "てきた shows that cooking is something Takeshi has been doing continuously since childhood up to the present."
       },
       {
         "p": "。"
@@ -9211,9 +9228,10 @@ var sentences = [
         "m": "ramen shop"
       },
       {
-        "w": "なのに",
+        "g": "なのに",
         "r": "なのに",
-        "m": "even though, despite being"
+        "m": "even though, despite being",
+        "x": "なのに expresses Ren's frustration — even though his family runs a ramen shop, Takeshi is still better at cooking."
       },
       {
         "p": "、"
@@ -9319,7 +9337,7 @@ var sentences = [
       {
         "w": "で",
         "r": "で",
-        "m": "(instrumental particle, together)"
+        "m": "together (particle)"
       },
       {
         "w": "料理",
@@ -9330,12 +9348,12 @@ var sentences = [
       {
         "w": "を",
         "r": "を",
-        "m": "(object particle)"
+        "m": "object marker"
       },
       {
         "w": "して",
         "r": "して",
-        "m": "doing (te-form)"
+        "m": "doing (te-form of する)"
       },
       {
         "w": "いる",
@@ -9344,9 +9362,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "と",
-        "r": "と",
-        "m": "(conditional/temporal particle, when, as)"
+        "g": "あいだに",
+        "r": "あいだに",
+        "m": "while, during",
+        "x": "あいだに marks the time period during which something else happened — while the four of them were cooking, the kitchen gradually grew warm."
       },
       {
         "p": "、"
@@ -9359,7 +9378,7 @@ var sentences = [
       {
         "w": "が",
         "r": "が",
-        "m": "(subject particle)"
+        "m": "subject marker"
       },
       {
         "w": "暖かく",
@@ -9369,19 +9388,20 @@ var sentences = [
       {
         "w": "なって",
         "r": "なって",
-        "m": "became (te-form)"
+        "m": "became (te-form of なる)"
       },
       {
-        "w": "きた",
+        "g": "きた",
         "r": "きた",
-        "m": "has become (change over time, toward speaker)"
+        "m": "has been (gradual change up to now)",
+        "x": "てきた expresses a gradual change — the kitchen had been getting warmer over time as they cooked."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "よにんでりょうりをしていると、だいどころがあたたかくなってきた。",
-    "trans": "As the four of them cooked together, the kitchen gradually grew warm."
+    "hira": "よにんでりょうりをしているあいだに、だいどころがあたたかくなってきた。",
+    "trans": "While the four of them cooked together, the kitchen gradually grew warm."
   },
   {
     "parts": [
@@ -9569,6 +9589,12 @@ var sentences = [
         "core": true
       },
       {
+        "g": "ような",
+        "r": "ような",
+        "m": "like, as if",
+        "x": "ような compares the sound to fog hitting the window — it sounded like fog was striking the glass."
+      },
+      {
         "w": "音",
         "r": "おと",
         "m": "sound",
@@ -9588,8 +9614,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "きりがまどにあたっているおとがきこえた。",
-    "trans": "The sound of fog hitting the window could be heard."
+    "hira": "きりがまどにあたっているようなおとがきこえた。",
+    "trans": "A sound like fog hitting the window could be heard."
   },
   {
     "parts": [
@@ -9801,9 +9827,15 @@ var sentences = [
         "m": "(object particle)"
       },
       {
-        "w": "ついて",
-        "r": "ついて",
-        "m": "leaning on, using (te-form)"
+        "w": "つき",
+        "r": "つき",
+        "m": "using (stem of つく)"
+      },
+      {
+        "g": "ながら",
+        "r": "ながら",
+        "m": "while doing",
+        "x": "ながら shows the old man was leaning on his cane at the same time as he glared at them — two simultaneous actions."
       },
       {
         "p": "、"
@@ -9833,8 +9865,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "つえをついて、こちらをにらんでいた。",
-    "trans": "He leaned on a cane and glared at them."
+    "hira": "つえをつきながら、こちらをにらんでいた。",
+    "trans": "Leaning on a cane, he glared at them."
   },
   {
     "parts": [
@@ -10136,6 +10168,12 @@ var sentences = [
         "m": "noisy, rowdy"
       },
       {
+        "g": "はずだ",
+        "r": "はずだ",
+        "m": "it must be, expected that",
+        "x": "はずだ expresses the old woman's reasoning — she expected it would be noisy, and now confirms it."
+      },
+      {
         "w": "と",
         "r": "と",
         "m": "quotation particle"
@@ -10154,8 +10192,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "さわがしいとおもったわ。",
-    "trans": "I thought it seemed noisy.",
+    "hira": "さわがしいはずだとおもったわ。",
+    "trans": "I figured it must be noisy.",
     "_scene_break": true
   },
   {
@@ -10659,9 +10697,10 @@ var sentences = [
         "m": "returned home (past of 帰る)"
       },
       {
-        "w": "方がいい",
+        "g": "方がいい",
         "r": "ほうがいい",
-        "m": "it's better to"
+        "m": "had better, it's better to",
+        "x": "方がいい gives strong advice — Kawaguchi firmly tells the group they'd better go home if they're just here to play around."
       },
       {
         "w": "ぞ",
@@ -11010,9 +11049,10 @@ var sentences = [
         "m": "possessive particle"
       },
       {
-        "w": "表情",
-        "r": "ひょうじょう",
-        "m": "facial expression"
+        "w": "顔",
+        "r": "かお",
+        "m": "face, expression",
+        "core": true
       },
       {
         "w": "が",
@@ -11033,7 +11073,7 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "かわぐちのひょうじょうがわずかにかわった。",
+    "hira": "かわぐちのかおがわずかにかわった",
     "trans": "Kawaguchi's expression changed slightly.",
     "_scene_break": true
   },
@@ -11227,25 +11267,33 @@ var sentences = [
         "m": "small (adverbial form of 小さい)"
       },
       {
-        "w": "なった",
-        "r": "なった",
-        "m": "became (past of なる)"
+        "w": "なって",
+        "r": "なって",
+        "m": "became (te-form of なる)"
+      },
+      {
+        "g": "いった",
+        "r": "いった",
+        "m": "went on (gradual change continuing away)",
+        "x": "ていった expresses a gradual change moving away from the observer — the sound of the cane kept getting quieter as the old man walked off."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "つえのおとがだんだんちいさくなった。",
-    "trans": "The sound of his cane gradually grew quieter.",
+    "hira": "つえのおとがだんだんちいさくなっていった。",
+    "trans": "The sound of his cane gradually grew quieter and quieter.",
     "_scene_break": true
   },
   {
     "parts": [
       {
-        "g": "……なんだ",
+        "p": "……"
+      },
+      {
+        "w": "なんだ",
         "r": "なんだ",
-        "m": "what is (colloquial)",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「……なんだあのじいさん。」 (……What's with that old man.)"
+        "m": "what is (colloquial)"
       },
       {
         "w": "あの",
@@ -11319,19 +11367,10 @@ var sentences = [
         "m": "grandmother, old woman"
       },
       {
-        "w": "の",
-        "r": "の",
-        "m": "possessive particle"
-      },
-      {
-        "w": "こと",
-        "r": "こと",
-        "m": "thing, matter, about"
-      },
-      {
-        "w": "を",
-        "r": "を",
-        "m": "object marker"
+        "g": "について",
+        "r": "について",
+        "m": "about, concerning",
+        "x": "について marks the topic of knowledge — he knows about Yuki's grandmother, with について framing what the knowledge is about."
       },
       {
         "w": "知ってる",
@@ -11347,7 +11386,7 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "おばあさんのことをしってるみたい。",
+    "hira": "おばあさんについてしってるみたい。",
     "trans": "He seems to know about your grandmother.",
     "_scene_break": true
   },
@@ -11366,26 +11405,22 @@ var sentences = [
         "core": true
       },
       {
-        "w": "じゃ",
-        "r": "じゃ",
-        "m": "is not (copula)"
+        "w": "という",
+        "r": "という",
+        "m": "called, that"
       },
       {
-        "w": "なさそう",
-        "r": "なさそう",
-        "m": "doesn't seem to be"
-      },
-      {
-        "w": "だ",
-        "r": "だ",
-        "m": "copula"
+        "g": "わけではなさそうだ",
+        "r": "わけではなさそうだ",
+        "m": "doesn't seem to be the case that",
+        "x": "わけではない softens the judgment — rather than flatly saying he's not a bad person, it expresses 'it doesn't seem to be the case that he's a bad person,' leaving room for nuance."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "わるいひとじゃなさそうだ。",
-    "trans": "He doesn't seem like a bad person.",
+    "hira": "わるいひとというわけではなさそうだ。",
+    "trans": "It doesn't seem like he's exactly a bad person.",
     "speaker": "武",
     "_scene_break": true
   },
@@ -11547,6 +11582,20 @@ var sentences = [
         "p": "、"
       },
       {
+        "w": "答え",
+        "r": "こたえ",
+        "m": "answer (volitional stem of 答える)"
+      },
+      {
+        "g": "ようとしても",
+        "r": "ようとしても",
+        "m": "even if one tries to",
+        "x": "ようとしても expresses that even when she attempted to answer the question, she couldn't — the effort itself failed."
+      },
+      {
+        "p": "、"
+      },
+      {
         "w": "答えられなかった",
         "r": "こたえられなかった",
         "m": "could not answer (past negative potential of 答える)"
@@ -11555,8 +11604,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "そのといに、こたえられなかった。",
-    "trans": "She couldn't answer that question.",
+    "hira": "そのといに、こたえようとしても、こたえられなかった。",
+    "trans": "Even when she tried to answer that question, she couldn't.",
     "_scene_break": true
   },
   {
@@ -11819,10 +11868,9 @@ var sentences = [
         "m": "dividing up work, splitting tasks"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "do (conjunctive form of する)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「みんなで手分けしよう。」 (Let's split up the work between everyone.)"
+        "m": "do (conjunctive form of する)"
       },
       {
         "w": "よう",
@@ -12359,10 +12407,9 @@ var sentences = [
         "m": "cleaning"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "did (conjunctive form of する)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「ゆきは廊下と玄関を掃除した。」 (Yuki cleaned the hallway and entryway.)"
+        "m": "did (conjunctive form of する)"
       },
       {
         "w": "た",
@@ -12418,10 +12465,9 @@ var sentences = [
         "m": "tidying up, organizing"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "did (conjunctive form of する)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「窓を拭いて、靴箱を整理した。」 (She wiped the windows and organized the shoe cabinet.)"
+        "m": "did (conjunctive form of する)"
       },
       {
         "w": "た",
@@ -12459,24 +12505,10 @@ var sentences = [
         "m": "subject particle"
       },
       {
-        "w": "掛け",
-        "r": "かけ",
-        "m": "hung (stem of 掛ける)"
-      },
-      {
-        "w": "て",
-        "r": "て",
-        "m": "and (conjunctive)"
-      },
-      {
-        "w": "あっ",
-        "r": "あっ",
-        "m": "is (resultant state, te-form of ある)"
-      },
-      {
-        "w": "た",
-        "r": "た",
-        "m": "past tense"
+        "g": "掛けてあった",
+        "r": "かけてあった",
+        "m": "had been hung (intentional resultant state)",
+        "x": "てあった shows the painting was deliberately hung on the wall by someone — it didn't end up there by accident."
       },
       {
         "p": "。"
@@ -12583,24 +12615,10 @@ var sentences = [
         "m": "subject particle"
       },
       {
-        "w": "書い",
-        "r": "かい",
-        "m": "written (te-form of 書く)"
-      },
-      {
-        "w": "て",
-        "r": "て",
-        "m": "and (conjunctive)"
-      },
-      {
-        "w": "あっ",
-        "r": "あっ",
-        "m": "is (resultant state, te-form of ある)"
-      },
-      {
-        "w": "た",
-        "r": "た",
-        "m": "past tense"
+        "g": "書いてあった",
+        "r": "かいてあった",
+        "m": "had been written (intentional resultant state)",
+        "x": "てあった indicates the name was intentionally written in the corner — a deliberate inscription, though now faded."
       },
       {
         "w": "が",
@@ -13018,14 +13036,15 @@ var sentences = [
         "m": "no longer, stopped (adverbial negative)"
       },
       {
-        "w": "なっ",
-        "r": "なっ",
+        "w": "なって",
+        "r": "なって",
         "m": "became (te-form of なる)"
       },
       {
-        "w": "た",
-        "r": "た",
-        "m": "past tense"
+        "g": "きた",
+        "r": "きた",
+        "m": "has been (gradual change up to now)",
+        "x": "てきた shows this as a gradual change — the cats didn't disappear all at once but have been coming less and less over time."
       },
       {
         "w": "と",
@@ -13036,8 +13055,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "むかしはこのいえのまえにねこがたくさんいたのに、さいきんはこなくなったと。",
-    "trans": "That in the past there used to be many cats in front of this house, but lately they stopped coming."
+    "hira": "むかしはこのいえのまえにねこがたくさんいたのに、さいきんはこなくなってきたと。",
+    "trans": "That in the past there used to be many cats in front of this house, but lately they had been coming less and less."
   },
   {
     "parts": [
@@ -13482,10 +13501,9 @@ var sentences = [
         "m": "cleaning"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "doing (conjunctive form of する)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「蓮は居間で畳を拭きながら、囲炉裏の周りを掃除していた。」 (Ren was wiping the tatami in the living room while cleaning ...)"
+        "m": "doing (conjunctive form of する)"
       },
       {
         "w": "て",
@@ -13932,20 +13950,10 @@ var sentences = [
         "m": "subject particle"
       },
       {
-        "w": "彫っ",
-        "r": "ほっ",
-        "m": "carved (te-form of 彫る)"
-      },
-      {
-        "w": "て",
-        "r": "て",
-        "m": "and (conjunctive)"
-      },
-      {
-        "w": "ある",
-        "r": "ある",
-        "m": "is (resultant state, てある)",
-        "core": true
+        "g": "彫ってある",
+        "r": "ほってある",
+        "m": "are carved (intentional resultant state)",
+        "x": "てある shows the characters were deliberately carved into the surface — someone intentionally inscribed them."
       },
       {
         "p": "。"
@@ -14397,20 +14405,10 @@ var sentences = [
         "m": "subject particle"
       },
       {
-        "w": "彫っ",
-        "r": "ほっ",
-        "m": "carved (te-form of 彫る)"
-      },
-      {
-        "w": "て",
-        "r": "て",
-        "m": "and (conjunctive)"
-      },
-      {
-        "w": "ある",
-        "r": "ある",
-        "m": "is (resultant state, てある)",
-        "core": true
+        "g": "彫ってある",
+        "r": "ほってある",
+        "m": "are carved (intentional resultant state)",
+        "x": "てある indicates the characters were intentionally carved into the irori stone — a deliberate marking."
       },
       {
         "p": "。"
@@ -15605,9 +15603,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "うちに",
-        "r": "うちに",
-        "m": "while, in the course of"
+        "g": "あいだに",
+        "r": "あいだに",
+        "m": "while, during",
+        "x": "あいだに marks the time period — while Yuki was continuing to clean, she came to the small back room."
       },
       {
         "p": "、"
@@ -15677,8 +15676,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "そうじをつづけているうちに、ゆきはいっかいのおくのちいさなへやにきた。",
-    "trans": "As she continued cleaning, Yuki came to a small room at the back of the first floor."
+    "hira": "そうじをつづけているあいだに、ゆきはいっかいのおくのちいさなへやにきた。",
+    "trans": "While she continued cleaning, Yuki came to a small room at the back of the first floor."
   },
   {
     "parts": [
@@ -15693,14 +15692,10 @@ var sentences = [
         "m": "(possessive/appositive particle)"
       },
       {
-        "w": "よう",
-        "r": "よう",
-        "m": "like, similar to"
-      },
-      {
-        "w": "な",
-        "r": "な",
-        "m": "(adjective connector)"
+        "g": "ような",
+        "r": "ような",
+        "m": "like, similar to",
+        "x": "ような compares the room to a storage area — it looked like a storage room, with old furniture lined up."
       },
       {
         "w": "部屋",
@@ -15847,14 +15842,10 @@ var sentences = [
         "m": "unlike, compared to"
       },
       {
-        "w": "違っ",
-        "r": "ちがっ",
-        "m": "different"
-      },
-      {
-        "w": "て",
-        "r": "て",
-        "m": "(te-form connective)"
+        "g": "違い",
+        "r": "ちがい",
+        "m": "differing (continuative form)",
+        "x": "連用中止形 — the continuative form 違い connects to the next clause in a written, literary style: 'differing from the other furniture, it was locked.'"
       },
       {
         "p": "、"
@@ -15894,7 +15885,7 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "ほかのかぐとちがって、かぎがかかっていた。",
+    "hira": "ほかのかぐとちがい、かぎがかかっていた。",
     "trans": "Unlike the other furniture, it was locked."
   },
   {
@@ -16181,10 +16172,9 @@ var sentences = [
         "m": "(subject marker)"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "made (a sound)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「試しに差し込んでみると、かちりと音がして、鍵が回った。」 (When she tried inserting it, there was a click and the key t...)"
+        "m": "made (a sound; te-form stem of する)"
       },
       {
         "w": "て",
@@ -16502,24 +16492,10 @@ var sentences = [
         "m": "(subject marker)"
       },
       {
-        "w": "彫っ",
-        "r": "ほっ",
-        "m": "carved, engraved"
-      },
-      {
-        "w": "て",
-        "r": "て",
-        "m": "(te-form connective)"
-      },
-      {
-        "w": "あっ",
-        "r": "あっ",
-        "m": "was (resultant state)"
-      },
-      {
-        "w": "た",
-        "r": "た",
-        "m": "(past tense)"
+        "g": "彫ってあった",
+        "r": "ほってあった",
+        "m": "had been carved (intentional resultant state)",
+        "x": "てあった shows the intricate pattern was deliberately carved onto the back — an intentional crafting."
       },
       {
         "p": "。"
@@ -17235,14 +17211,10 @@ var sentences = [
         "m": "to let go of, release"
       },
       {
-        "w": "よう",
-        "r": "よう",
-        "m": "like, as if"
-      },
-      {
-        "w": "で",
-        "r": "で",
-        "m": "[manner particle]"
+        "g": "ようで",
+        "r": "ようで",
+        "m": "it felt as if, seemed like",
+        "x": "ようで expresses how talking about the letter felt to Yuki — it was as if she would be giving up her own secret, which frightened her."
       },
       {
         "w": "怖かっ",
@@ -17947,6 +17919,12 @@ var sentences = [
         "core": true
       },
       {
+        "g": "ようだ",
+        "r": "ようだ",
+        "m": "it seems, appears to be",
+        "x": "ようだ expresses Sakura's tentative observation — the pattern appears to resemble the kaijuu budou mirror, but she's not certain."
+      },
+      {
         "w": "けど",
         "r": "けど",
         "m": "but, though"
@@ -17969,8 +17947,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "このもよう……かいじゅうぶどうきょうににているけど、ちがうわ。",
-    "trans": "This pattern... it looks like a kaijuu budou mirror, but it's different.",
+    "hira": "このもよう……かいじゅうぶどうきょうににているようだけど、ちがうわ。",
+    "trans": "This pattern... it seems to resemble a kaijuu budou mirror, but it's different.",
     "speaker": "さくら"
   },
   {
@@ -18345,21 +18323,17 @@ var sentences = [
         "m": "stored, kept"
       },
       {
-        "w": "て",
-        "r": "て",
-        "m": "[te-form connector]"
-      },
-      {
-        "w": "いた",
-        "r": "いた",
-        "m": "[past progressive/state]"
+        "g": "てあった",
+        "r": "てあった",
+        "m": "had been done (resultant state, past)",
+        "x": "てあった shows the mirror was deliberately placed in the locked cabinet by someone — the resultant state of an intentional action."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "でも、このかがみをかぎのかかったとだなにほかんしていた。",
-    "trans": "But she kept this mirror locked away in a cabinet."
+    "hira": "でも、このかがみをかぎのかかったとだなにほかんしてあった。",
+    "trans": "But this mirror had been stored away in a locked cabinet."
   },
   {
     "parts": [
@@ -20599,14 +20573,10 @@ var sentences = [
         "m": "is surprised; is startled"
       },
       {
-        "w": "よう",
-        "r": "よう",
-        "m": "appears; seems (appearance/inference)"
-      },
-      {
-        "w": "だった",
-        "r": "だった",
-        "m": "was (past copula)"
+        "g": "ようだった",
+        "r": "ようだった",
+        "m": "seemed, appeared (past)",
+        "x": "ようだった expresses the narrator's inference — she appeared to be a little startled by how loud Ren's voice was."
       },
       {
         "w": "が",
@@ -21294,9 +21264,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "ように",
+        "g": "ように",
         "r": "ように",
-        "m": "as if, as though, like"
+        "m": "as if, as though",
+        "x": "ように expresses the appearance of her action — she closed her eyes as if she was sensing something."
       },
       {
         "p": "、"
@@ -22313,6 +22284,12 @@ var sentences = [
         "m": "this much, so many"
       },
       {
+        "g": "も",
+        "r": "も",
+        "m": "even, as much as (emphasis)",
+        "x": "も adds emphasis to こんなに — stressing how remarkable it is to have this many people in the house after so many years."
+      },
+      {
         "w": "たくさん",
         "r": "たくさん",
         "m": "a lot, many",
@@ -22372,8 +22349,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "このいえにこんなにたくさんのひとがいるのは、なんねんぶりだろう。",
-    "trans": "I wonder how many years it's been since this house had so many people in it."
+    "hira": "このいえにこんなにもたくさんのひとがいるのは、なんねんぶりだろう。",
+    "trans": "I wonder how many years it's been since this house had this many people in it."
   },
   {
     "parts": [
@@ -22564,13 +22541,14 @@ var sentences = [
         "m": "used to come, were coming (past progressive, casual)"
       },
       {
-        "w": "みたい",
-        "r": "みたい",
-        "m": "apparently, it seems like (casual hearsay/inference)"
+        "g": "ようだ",
+        "r": "ようだ",
+        "m": "it seems, appears",
+        "x": "ようだ expresses inference based on indirect evidence — Yuki infers from what she's heard that there used to be many guests."
       },
       {
-        "w": "だけど",
-        "r": "だけど",
+        "w": "けど",
+        "r": "けど",
         "m": "but, though (casual)"
       },
       {
@@ -22614,16 +22592,17 @@ var sentences = [
         "m": "was (past copula)"
       },
       {
-        "w": "みたい",
-        "r": "みたい",
-        "m": "apparently, it seems like (casual hearsay/inference)"
+        "g": "ようだ",
+        "r": "ようだ",
+        "m": "it seems, appears",
+        "x": "ようだ again expresses secondhand inference — Yuki surmises from available information that her grandmother spent the last few years alone."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "むかしはおきゃくさんもたくさんきてたみたいだけど……さいごのなんねんかはひとりだったみたい。",
-    "trans": "It seems like there used to be a lot of guests back in the day, but...the last few years she was alone.",
+    "hira": "むかしはおきゃくさんもたくさんきてたようだけど……さいごのなんねんかはひとりだったようだ。",
+    "trans": "It seems like there used to be a lot of guests back in the day, but...the last few years she was apparently alone.",
     "_scene_break": true
   },
   {
@@ -22794,9 +22773,10 @@ var sentences = [
         "m": "object marker"
       },
       {
-        "w": "置いて",
-        "r": "おいて",
-        "m": "set down, placed"
+        "g": "置き",
+        "r": "おき",
+        "m": "setting down (continuative form)",
+        "x": "連用中止形 — the continuative form 置き connects two sequential actions in a literary style: Sakura set down her tea, then her expression changed."
       },
       {
         "p": "、"
@@ -22826,7 +22806,7 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "さくらがおちゃをおいて、まじめなかおになった。",
+    "hira": "さくらがおちゃをおき、まじめなかおになった。",
     "trans": "Sakura set down her tea and her expression turned serious.",
     "_scene_break": true
   },
@@ -23369,9 +23349,10 @@ var sentences = [
         "m": "subject marker"
       },
       {
-        "w": "多すぎて",
+        "g": "多すぎて",
         "r": "おおすぎて",
-        "m": "too many, excessive (te-form)"
+        "m": "too many (te-form of 多すぎる)",
+        "x": "すぎる expresses excess — there have been too many changes since coming to this town, more than Yuki can easily process."
       },
       {
         "p": "。"
@@ -25204,10 +25185,15 @@ var sentences = [
         "m": "comparison / contrast particle"
       },
       {
-        "w": "違う",
-        "r": "ちがう",
-        "m": "different, unlike",
-        "core": true
+        "w": "は",
+        "r": "は",
+        "m": "contrastive topic marker"
+      },
+      {
+        "g": "違い",
+        "r": "ちがい",
+        "m": "differing (continuative form)",
+        "x": "連用中止形 — the continuative form 違い elegantly connects the contrast ('different from usual') with the description that follows."
       },
       {
         "p": "、"
@@ -25232,8 +25218,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "いつもとちがう、しずかなめだった。",
-    "trans": "It was a quiet look, different from usual."
+    "hira": "いつもとはちがい、しずかなめだった。",
+    "trans": "Different from usual, it was a quiet look."
   },
   {
     "parts": [
@@ -26292,7 +26278,7 @@ var sentences = [
       {
         "w": "かけた",
         "r": "かけた",
-        "m": "was about to, on the verge of (た form of かける)"
+        "m": "was about to, on the verge of"
       },
       {
         "w": "図書館",
@@ -26326,6 +26312,12 @@ var sentences = [
         "core": true
       },
       {
+        "g": "ような",
+        "r": "ような",
+        "m": "like, similar to",
+        "x": "ような adds nuance — the shape isn't necessarily identical, but similar enough to draw comparison with the library map."
+      },
+      {
         "w": "形",
         "r": "かたち",
         "m": "shape, form"
@@ -26339,8 +26331,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "とうきょうの、しまりかけたとしょかんのちずと、おなじかたちだった。",
-    "trans": "It was the same shape as the map in the Tokyo library that had been about to close."
+    "hira": "とうきょうの、しまりかけたとしょかんのちずと、おなじようなかたちだった。",
+    "trans": "It was a similar shape to the map in the Tokyo library that had been about to close."
   }
 ];
 

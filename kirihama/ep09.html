@@ -448,10 +448,9 @@ var sentences = [
         "m": "stability, steadiness"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do (verb stem)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「手は安定していた。」 (His hands were steady.)"
+        "m": "to do (verb stem)"
       },
       {
         "w": "て",
@@ -548,9 +547,10 @@ var sentences = [
         "m": "te-form connector"
       },
       {
-        "w": "き",
+        "g": "き",
         "r": "き",
-        "m": "to have done (directional auxiliary)"
+        "m": "to have done (directional auxiliary)",
+        "x": "Vtekita (Int L4)."
       },
       {
         "w": "た",
@@ -601,9 +601,10 @@ var sentences = [
         "m": "te-form connector"
       },
       {
-        "w": "あっ",
+        "g": "あっ",
         "r": "あっ",
-        "m": "resultant state (てある)"
+        "m": "resultant state (てある)",
+        "x": "Vtearu (Int L2)."
       },
       {
         "w": "た",
@@ -699,9 +700,10 @@ var sentences = [
         "m": "te-form connector"
       },
       {
-        "w": "あっ",
+        "g": "あっ",
         "r": "あっ",
-        "m": "resultant state (てある)"
+        "m": "resultant state (てある)",
+        "x": "Vtearu (Int L2)."
       },
       {
         "w": "た",
@@ -736,10 +738,10 @@ var sentences = [
         "m": "past tense modifier"
       },
       {
-        "p": "よう"
-      },
-      {
-        "p": "に"
+        "g": "ように",
+        "r": "ように",
+        "m": "as if, like",
+        "x": "youni (Int L3)."
       },
       {
         "p": "、"
@@ -922,10 +924,9 @@ var sentences = [
         "m": "agreement, match, coincidence"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do (verb stem)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「一つ一つが——火事の日付と一致していた。」 (Each and every one matched a date of a fire.)"
+        "m": "to do (verb stem)"
       },
       {
         "w": "て",
@@ -1005,10 +1006,9 @@ var sentences = [
         "p": "が"
       },
       {
-        "g": "つい",
+        "w": "つい",
         "r": "つい",
-        "m": "to become attached, to be affixed",
-        "x": "ついVテしまう (Intermediate L3) — carelessly/unconsciously V (with regret). Here in: 「次の日付にはまだ×がついていない。」 (The next date did not yet have an X.)"
+        "m": "to become attached"
       },
       {
         "w": "て",
@@ -1094,10 +1094,9 @@ var sentences = [
         "core": true
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do (verb stem)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「「質問してる奴らがいる。外部の人間だ。」」 (\"There are people asking questions. Outsiders.\")"
+        "m": "to do (verb stem)"
       },
       {
         "w": "てる",
@@ -1255,6 +1254,34 @@ var sentences = [
   {
     "parts": [
       {
+        "w": "表情",
+        "r": "ひょうじょう",
+        "m": "facial expression"
+      },
+      {
+        "p": "を"
+      },
+      {
+        "w": "変え",
+        "r": "かえ",
+        "m": "to change",
+        "core": true
+      },
+      {
+        "w": "ない",
+        "r": "ない",
+        "m": "negation"
+      },
+      {
+        "g": "まま",
+        "r": "まま",
+        "m": "while remaining same",
+        "x": "mama (Int L6)."
+      },
+      {
+        "p": "、"
+      },
+      {
         "w": "液体",
         "r": "えきたい",
         "m": "liquid"
@@ -1270,19 +1297,19 @@ var sentences = [
       {
         "w": "続け",
         "r": "つづけ",
-        "m": "to continue doing"
+        "m": "to continue"
       },
       {
         "w": "た",
         "r": "た",
-        "m": "past tense"
+        "m": "past"
       },
       {
         "p": "。"
       }
     ],
-    "hira": "えきたいをまぜつづけた。",
-    "trans": "He kept on mixing the liquid.",
+    "hira": "ひょうじょうをかえないまま、えきたいをまぜつづけた。",
+    "trans": "Without changing expression, he kept on mixing the liquid.",
     "_scene_break": true
   },
   {
@@ -1774,9 +1801,17 @@ var sentences = [
   {
     "parts": [
       {
+        "w": "ただ",
+        "r": "ただ",
+        "m": "mere"
+      },
+      {
+        "p": "の"
+      },
+      {
         "w": "衝動的",
         "r": "しょうどうてき",
-        "m": "impulsive, acting on impulse"
+        "m": "impulsive"
       },
       {
         "p": "な"
@@ -1787,19 +1822,20 @@ var sentences = [
         "m": "arsonist"
       },
       {
-        "p": "じゃ"
+        "p": "な"
       },
       {
-        "w": "ない",
-        "r": "ない",
-        "m": "negation, not"
+        "g": "わけではない",
+        "r": "わけではない",
+        "m": "not the case that",
+        "x": "wakedewanai (M2 L46)."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "しょうどうてきなほうかはんじゃない。",
-    "trans": "Not an impulsive arsonist."
+    "hira": "ただのしょうどうてきなほうかはんなわけではない。",
+    "trans": "This is not just some impulsive arsonist."
   },
   {
     "parts": [
@@ -1953,30 +1989,40 @@ var sentences = [
       {
         "w": "メモ",
         "r": "めも",
-        "m": "memo, note"
+        "m": "memo"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do (verb stem)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「昨日メモした内容。」 (Notes she had taken yesterday.)"
+        "m": "stem"
+      },
+      {
+        "w": "て",
+        "r": "て",
+        "m": "te"
+      },
+      {
+        "g": "おい",
+        "r": "おい",
+        "m": "advance",
+        "x": "teoku (M2 L30)."
       },
       {
         "w": "た",
         "r": "た",
-        "m": "past tense modifier"
+        "m": "past"
       },
       {
         "w": "内容",
         "r": "ないよう",
-        "m": "content, details"
+        "m": "content"
       },
       {
         "p": "。"
       }
     ],
-    "hira": "きのうめもしたないよう。",
-    "trans": "Notes she had taken yesterday.",
+    "hira": "きのうめもしておいたないよう。",
+    "trans": "Details she had taken care to note down yesterday.",
     "_scene_break": true
   },
   {
@@ -2229,9 +2275,10 @@ var sentences = [
         "p": "の"
       },
       {
-        "w": "はず",
+        "g": "はず",
         "r": "はず",
-        "m": "should be, expected to be"
+        "m": "should be, expected to be",
+        "x": "hazu (M2 L32)."
       },
       {
         "p": "。"
@@ -2513,30 +2560,36 @@ var sentences = [
       {
         "w": "は",
         "r": "は",
-        "m": "[topic marker]"
+        "m": "t"
       },
       {
         "w": "二手",
         "r": "ふたて",
-        "m": "two groups, two directions"
+        "m": "two groups"
       },
       {
         "w": "に",
         "r": "に",
-        "m": "[direction marker]"
+        "m": "d"
       },
       {
-        "w": "分かれる",
-        "r": "わかれる",
-        "m": "to split up, to divide",
+        "w": "分かれ",
+        "r": "わかれ",
+        "m": "split",
         "core": true
+      },
+      {
+        "g": "なければならない",
+        "r": "なければならない",
+        "m": "must",
+        "x": "nakereba (M1 L17)."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "きょうはふたてにわかれる。",
-    "trans": "Today we split into two groups.",
+    "hira": "きょうはふたてにわかれなければならない。",
+    "trans": "Today we have to split into two groups.",
     "speaker": "さくら"
   },
   {
@@ -2851,9 +2904,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "かもしれない",
+        "g": "かもしれない",
         "r": "かもしれない",
-        "m": "might, may"
+        "m": "might, may",
+        "x": "kamoshirenai (M2 L32)."
       },
       {
         "p": "。"
@@ -3013,9 +3067,10 @@ var sentences = [
         "m": "sense, feel"
       },
       {
-        "w": "やすい",
+        "g": "やすい",
         "r": "やすい",
-        "m": "easy to ~"
+        "m": "easy to ~",
+        "x": "yasui (M2 L44)."
       },
       {
         "w": "から",
@@ -3035,18 +3090,10 @@ var sentences = [
       {
         "w": "さくら",
         "r": "さくら",
-        "m": "Sakura (name)"
+        "m": "Sakura"
       },
       {
-        "w": "は",
-        "r": "は",
-        "m": "[topic marker]"
-      },
-      {
-        "w": "少し",
-        "r": "すこし",
-        "m": "a little",
-        "core": true
+        "p": "は"
       },
       {
         "w": "眉",
@@ -3055,19 +3102,23 @@ var sentences = [
         "core": true
       },
       {
-        "w": "を",
-        "r": "を",
-        "m": "[object marker]"
+        "p": "を"
       },
       {
-        "w": "ひそめた",
-        "r": "ひそめた",
-        "m": "frowned, knitted [brows, past]"
+        "w": "ひそめ",
+        "r": "ひそめ",
+        "m": "furrow"
       },
       {
-        "w": "が",
-        "r": "が",
-        "m": "but"
+        "g": "ながら",
+        "r": "ながら",
+        "m": "while",
+        "x": "nagara (M2 L28)."
+      },
+      {
+        "w": "も",
+        "r": "も",
+        "m": "even"
       },
       {
         "p": "——"
@@ -3075,14 +3126,14 @@ var sentences = [
       {
         "w": "うなずいた",
         "r": "うなずいた",
-        "m": "nodded [past]"
+        "m": "nodded"
       },
       {
         "p": "。"
       }
     ],
-    "hira": "さくらはすこしまゆをひそめたが——うなずいた。",
-    "trans": "Sakura furrowed her brows slightly—but nodded.",
+    "hira": "さくらはまゆをひそめながらも——うなずいた。",
+    "trans": "Even while furrowing her brows, Sakura nodded.",
     "_scene_break": true
   },
   {
@@ -3195,37 +3246,47 @@ var sentences = [
         "core": true
       },
       {
-        "w": "の",
-        "r": "の",
-        "m": "[possessive]"
+        "p": "の"
       },
       {
         "w": "伏見",
         "r": "ふしみ",
-        "m": "Fushimi (place name)"
+        "m": "Fushimi"
       },
       {
-        "w": "は",
-        "r": "は",
-        "m": "[topic marker]"
+        "p": "の"
       },
       {
-        "w": "静か",
-        "r": "しずか",
-        "m": "quiet",
-        "core": true
+        "g": "静かさ",
+        "r": "しずかさ",
+        "m": "quietness",
+        "x": "Nasa (Int L5)."
       },
       {
-        "w": "だった",
-        "r": "だった",
-        "m": "[past copula]"
+        "p": "が"
+      },
+      {
+        "p": "、"
+      },
+      {
+        "w": "霧浜",
+        "r": "きりはま",
+        "m": "Kirihama"
+      },
+      {
+        "p": "を"
+      },
+      {
+        "w": "思い出させた",
+        "r": "おもいださせた",
+        "m": "reminded"
       },
       {
         "p": "。"
       }
     ],
-    "hira": "あさのふしみはしずかだった。",
-    "trans": "Morning Fushimi was quiet."
+    "hira": "あさのふしみのしずかさが、きりはまをおもいださせた。",
+    "trans": "The quietness of morning Fushimi reminded them of Kirihama."
   },
   {
     "parts": [
@@ -3506,9 +3567,10 @@ var sentences = [
         "m": "small"
       },
       {
-        "w": "すぎる",
+        "g": "すぎる",
         "r": "すぎる",
-        "m": "too [excessive degree]"
+        "m": "too [excessive degree]",
+        "x": "sugiru (M2 L44)."
       },
       {
         "p": "。"
@@ -4011,9 +4073,10 @@ var sentences = [
         "m": "[subject marker]"
       },
       {
-        "w": "正しければ",
+        "g": "正しければ",
         "r": "ただしければ",
-        "m": "if it's correct [conditional]"
+        "m": "if it's correct [conditional]",
+        "x": "ba (M1 L25)."
       },
       {
         "p": "。"
@@ -4029,29 +4092,41 @@ var sentences = [
       {
         "w": "さくら",
         "r": "さくら",
-        "m": "Sakura (name)"
+        "m": "Sakura"
       },
       {
-        "w": "は",
-        "r": "は",
-        "m": "[topic marker]"
+        "p": "は"
+      },
+      {
+        "w": "犯人",
+        "r": "はんにん",
+        "m": "culprit"
+      },
+      {
+        "g": "について",
+        "r": "について",
+        "m": "about",
+        "x": "nitsuite (M2 L40)."
+      },
+      {
+        "p": "、"
       },
       {
         "w": "さらに",
         "r": "さらに",
-        "m": "further, even more"
+        "m": "further"
       },
       {
         "w": "検索した",
         "r": "けんさくした",
-        "m": "searched [past]"
+        "m": "searched"
       },
       {
         "p": "。"
       }
     ],
-    "hira": "さくらはさらにけんさくした。",
-    "trans": "Sakura searched further."
+    "hira": "さくらははんにんについて、さらにけんさくした。",
+    "trans": "Sakura searched further about the culprit."
   },
   {
     "parts": [
@@ -4383,10 +4458,9 @@ var sentences = [
         "m": "[object marker]"
       },
       {
-        "g": "読んだ",
+        "w": "読んだ",
         "r": "よんだ",
-        "m": "read [past]",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「さくらは記事を読んだ。」 (Sakura read the article.)"
+        "m": "read [past]"
       },
       {
         "p": "。"
@@ -5090,29 +5164,52 @@ var sentences = [
       {
         "w": "火災",
         "r": "かさい",
-        "m": "fire, blaze"
+        "m": "fire"
       },
       {
         "w": "報告書",
         "r": "ほうこくしょ",
-        "m": "written report"
+        "m": "report"
       },
       {
-        "w": "を",
-        "r": "を",
-        "m": "[object marker]"
+        "p": "を"
       },
       {
         "w": "確認する",
         "r": "かくにんする",
-        "m": "to confirm, to check"
+        "m": "confirm"
+      },
+      {
+        "g": "ために",
+        "r": "ために",
+        "m": "in order to",
+        "x": "tameni (Int L6)."
+      },
+      {
+        "w": "消防署",
+        "r": "しょうぼうしょ",
+        "m": "fire station"
+      },
+      {
+        "p": "に"
+      },
+      {
+        "w": "行く",
+        "r": "いく",
+        "m": "go",
+        "core": true
+      },
+      {
+        "w": "わ",
+        "r": "わ",
+        "m": "[fem]"
       },
       {
         "p": "。"
       }
     ],
-    "hira": "かさいほうこくしょをかくにんする。",
-    "trans": "I'll check the fire reports.",
+    "hira": "かさいほうこくしょをかくにんするためにしょうぼうしょにいくわ。",
+    "trans": "I am going to the fire station to check the fire reports.",
     "_scene_break": true
   },
   {
@@ -5318,9 +5415,10 @@ var sentences = [
         "p": "——"
       },
       {
-        "w": "使われた",
+        "g": "使われた",
         "r": "つかわれた",
-        "m": "used [passive past]"
+        "m": "used [passive past]",
+        "x": "passive (M2 L37)."
       },
       {
         "w": "加速剤",
@@ -6031,9 +6129,10 @@ var sentences = [
         "m": "[subject marker]"
       },
       {
-        "w": "正しければ",
+        "g": "正しければ",
         "r": "ただしければ",
-        "m": "if correct [conditional]"
+        "m": "if correct [conditional]",
+        "x": "ba (M1 L25)."
       },
       {
         "p": "——"
@@ -6291,29 +6390,43 @@ var sentences = [
       {
         "w": "鳥居",
         "r": "とりい",
-        "m": "torii gate"
+        "m": "torii"
       },
       {
-        "w": "が",
-        "r": "が",
-        "m": "[subject marker]"
+        "p": "が"
       },
       {
         "w": "古く",
         "r": "ふるく",
-        "m": "older [adverbial]"
+        "m": "older"
       },
       {
-        "w": "なった",
-        "r": "なった",
-        "m": "became [past]"
+        "w": "なっ",
+        "r": "なっ",
+        "m": "become"
+      },
+      {
+        "w": "て",
+        "r": "て",
+        "m": "te"
+      },
+      {
+        "g": "いっ",
+        "r": "いっ",
+        "m": "progressively",
+        "x": "teiku (Int L4)."
+      },
+      {
+        "w": "た",
+        "r": "た",
+        "m": "past"
       },
       {
         "p": "。"
       }
     ],
-    "hira": "とりいがふるくなった。",
-    "trans": "The torii gates grew older."
+    "hira": "とりいがふるくなっていった。",
+    "trans": "The torii gates grew progressively older."
   },
   {
     "parts": [
@@ -6390,21 +6503,30 @@ var sentences = [
         "m": "moss"
       },
       {
-        "w": "が",
-        "r": "が",
-        "m": "[subject marker]"
+        "p": "も"
       },
       {
-        "w": "増えた",
-        "r": "ふえた",
-        "m": "increased [past]"
+        "w": "増え",
+        "r": "ふえ",
+        "m": "increase"
+      },
+      {
+        "w": "て",
+        "r": "て",
+        "m": "te"
+      },
+      {
+        "g": "きた",
+        "r": "きた",
+        "m": "gradually",
+        "x": "tekita (Int L4)."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "こけがふえた。",
-    "trans": "The moss thickened."
+    "hira": "こけもふえてきた。",
+    "trans": "The moss had gradually thickened."
   },
   {
     "parts": [
@@ -6847,9 +6969,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "よう",
+        "g": "よう",
         "r": "よう",
-        "m": "as if, like"
+        "m": "as if, like",
+        "x": "youna (Int L3)."
       },
       {
         "w": "な",
@@ -7611,9 +7734,10 @@ var sentences = [
         "m": "[subject marker]"
       },
       {
-        "w": "外されて",
+        "g": "外されて",
         "r": "はずされて",
-        "m": "was removed [passive te-form]"
+        "m": "was removed [passive te-form]",
+        "x": "passive (M2 L37)."
       },
       {
         "p": "、"
@@ -8010,9 +8134,10 @@ var sentences = [
         "m": "[with, using]"
       },
       {
-        "w": "言えば",
+        "g": "言えば",
         "r": "いえば",
-        "m": "if one were to say"
+        "m": "if one were to say",
+        "x": "ba (M1 L25)."
       },
       {
         "p": "——"
@@ -8403,9 +8528,10 @@ var sentences = [
         "m": "written [te-form]"
       },
       {
-        "w": "あった",
+        "g": "あった",
         "r": "あった",
-        "m": "was there [resultant state]"
+        "m": "was there [resultant state]",
+        "x": "tearu (Int L2)."
       },
       {
         "w": "こと",
@@ -8806,9 +8932,10 @@ var sentences = [
         "m": "does not exist"
       },
       {
-        "w": "よう",
+        "g": "よう",
         "r": "よう",
-        "m": "as if, in such a way that"
+        "m": "as if, in such a way that",
+        "x": "youninaru (M2 L36)."
       },
       {
         "w": "に",
@@ -10598,10 +10725,9 @@ var sentences = [
         "m": "topic particle"
       },
       {
-        "g": "微笑んだ",
+        "w": "微笑んだ",
         "r": "ほほえんだ",
-        "m": "smiled (past)",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「老女は微笑んだ。」 (The old woman smiled.)"
+        "m": "smiled (past)"
       },
       {
         "p": "。"
@@ -13661,10 +13787,9 @@ var sentences = [
         "m": "subject particle"
       },
       {
-        "g": "選んだ",
+        "w": "選んだ",
         "r": "えらんだ",
-        "m": "chose, selected (past of 選ぶ)",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「さくらが選んだ場所は、七つ目の跡のすぐ上。」 (The spot Sakura had chosen was just above the seventh site.)"
+        "m": "chose, selected (past of 選ぶ)"
       },
       {
         "w": "場所",
@@ -14959,10 +15084,9 @@ var sentences = [
         "m": "location particle"
       },
       {
-        "g": "しゃがんだ",
+        "w": "しゃがんだ",
         "r": "しゃがんだ",
-        "m": "crouched down (past of しゃがむ)",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「男は祠の前にしゃがんだ。」 (The man crouched in front of the small shrine.)"
+        "m": "crouched down"
       },
       {
         "p": "。"
@@ -15466,10 +15590,9 @@ var sentences = [
         "m": "object particle"
       },
       {
-        "g": "掴んだ",
+        "w": "掴んだ",
         "r": "つかんだ",
-        "m": "grabbed, seized (past of 掴む)",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「さくらが蓮の腕を掴んだ。」 (Sakura grabbed Ren's arm.)"
+        "m": "grabbed, seized (past of 掴む)"
       },
       {
         "p": "。"
@@ -15710,10 +15833,9 @@ var sentences = [
         "m": "object particle"
       },
       {
-        "g": "掴んだ",
+        "w": "掴んだ",
         "r": "つかんだ",
-        "m": "grabbed, seized (past of 掴む)",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「木の陰から一歩で男の後ろに回り、男の手首を掴んだ。」 (In one step from the tree's shadow he came around behind the...)"
+        "m": "grabbed, seized (past of 掴む)"
       },
       {
         "p": "。"
@@ -16337,10 +16459,9 @@ var sentences = [
         "m": "subject particle"
       },
       {
-        "g": "歪んだ",
+        "w": "歪んだ",
         "r": "ゆがんだ",
-        "m": "twisted, distorted (past of 歪む)",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「小川の顔が歪んだ。」 (Ogawa's face twisted.)"
+        "m": "twisted, distorted (past of 歪む)"
       },
       {
         "p": "。"
@@ -16717,10 +16838,9 @@ var sentences = [
         "m": "object particle"
       },
       {
-        "g": "落として",
+        "w": "落として",
         "r": "おとして",
-        "m": "damaging, bringing down (te-form of 落とす)",
-        "x": "〜として (Intermediate L7) — as N, in the role of N. Here in: 「神社の評判を落として、宮司を解任させる。」 (To damage the shrine's reputation and force the head priest ...)"
+        "m": "damaging (te of otosu)"
       },
       {
         "p": "、"
@@ -17134,10 +17254,9 @@ var sentences = [
         "m": "topic particle"
       },
       {
-        "g": "座り込んだ",
+        "w": "座り込んだ",
         "r": "すわりこんだ",
-        "m": "sank down, slumped (past of 座り込む)",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「小川は座り込んだ。」 (Ogawa slumped down.)"
+        "m": "sank down"
       },
       {
         "p": "。"
@@ -17813,10 +17932,9 @@ var sentences = [
         "m": "contact, notification"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "do (stem of する)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「警察に連絡します。」 (I'm calling the police.)"
+        "m": "do (stem of する)"
       },
       {
         "w": "ます",
@@ -18911,10 +19029,10 @@ var sentences = [
         "m": "with this, by this"
       },
       {
-        "g": "終わり",
+        "w": "終わり",
         "r": "おわり",
         "m": "end, finish",
-        "x": "Vマス始める・Vマス終わる (Intermediate L1) — start to V / finish V-ing. Here in: 「でも——これで終わりじゃないわ。」 (But — this isn't the end.)"
+        "core": true
       },
       {
         "w": "じゃ",
@@ -23682,10 +23800,9 @@ var sentences = [
         "m": "endurance, holding back"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "did",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「ずっと、ずっと我慢していたものが全部出てきた。」 (Everything she had been holding back for so long, all of it ...)"
+        "m": "did"
       },
       {
         "w": "て",
@@ -26615,10 +26732,9 @@ var sentences = [
         "core": true
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "doing",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「さくらが電車の時刻を確認していた。」 (Sakura was checking the train schedule.)"
+        "m": "doing"
       },
       {
         "w": "て",
@@ -28280,10 +28396,9 @@ var sentences = [
         "m": "adverbial marker"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「無駄にしない。」 (I won't let it be in vain.)"
+        "m": "do"
       },
       {
         "w": "ない",

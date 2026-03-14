@@ -681,10 +681,9 @@ var sentences = [
         "m": "(object particle)"
       },
       {
-        "g": "含んだ",
+        "w": "含んだ",
         "r": "ふくんだ",
-        "m": "containing",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「鉄分を含んだ溶岩。」 (Lava containing iron.)"
+        "m": "containing"
       },
       {
         "w": "溶岩",
@@ -733,7 +732,7 @@ var sentences = [
         "g": "なら",
         "r": "なら",
         "m": "if one is (conditional)",
-        "x": "〜なら (Intermediate L7) — if ~ (used to express opinion/judgment). Here in: 「ハイカーなら誰でも知っている。」 (Any hiker knows this.)"
+        "x": ""
       },
       {
         "w": "誰でも",
@@ -748,15 +747,20 @@ var sentences = [
       {
         "w": "いる",
         "r": "いる",
-        "m": "knows (progressive state)",
-        "core": true
+        "m": "knows (progressive state)"
+      },
+      {
+        "g": "ものだ",
+        "r": "ものだ",
+        "m": "it is generally the case that",
+        "x": "〜ものだ (Intermediate L5) — Expresses something that is considered normal or expected. Here: it is common knowledge among hikers."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "ハイカーならだれでもしっている。",
-    "trans": "Any hiker knows this."
+    "hira": "ハイカーならだれでもしっているものだ。",
+    "trans": "Any hiker would know this — it’s common knowledge."
   },
   {
     "parts": [
@@ -1290,8 +1294,7 @@ var sentences = [
       {
         "w": "後ろ",
         "r": "うしろ",
-        "m": "behind, back",
-        "core": true
+        "m": "behind, back"
       },
       {
         "w": "を",
@@ -1301,19 +1304,32 @@ var sentences = [
       {
         "w": "振り返ら",
         "r": "ふりかえら",
-        "m": "turning back (negative stem)"
+        "m": "looking back (negative stem)"
       },
       {
-        "w": "なかった",
-        "r": "なかった",
-        "m": "did not"
+        "g": "ずに",
+        "r": "ずに",
+        "m": "without ~ing",
+        "x": "Vないずに (Intermediate L10) — Without doing ~. Here: without looking back."
+      },
+      {
+        "w": "歩いて",
+        "r": "あるいて",
+        "m": "walking",
+        "core": true
+      },
+      {
+        "g": "しまった",
+        "r": "しまった",
+        "m": "ended up doing (regret/completion)",
+        "x": "Vてしまう (Minna2 L29) — Indicates completion or regret. Here: he ended up walking on without looking back."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "うしろをふりかえらなかった。",
-    "trans": "He did not look back.",
+    "hira": "うしろをふりかえらずにあるいてしまった。",
+    "trans": "He walked on without looking back.",
     "_scene_break": true
   },
   {
@@ -1397,6 +1413,30 @@ var sentences = [
   {
     "parts": [
       {
+        "w": "この",
+        "r": "この",
+        "m": "this"
+      },
+      {
+        "w": "森",
+        "r": "もり",
+        "m": "forest"
+      },
+      {
+        "g": "について",
+        "r": "について",
+        "m": "about, regarding",
+        "x": "Nについて (Task-based L1-1) — Indicates the subject of discussion or thought. Here: speaking about this forest."
+      },
+      {
+        "w": "いえば",
+        "r": "いえば",
+        "m": "if one says, speaking of"
+      },
+      {
+        "p": "——"
+      },
+      {
         "w": "千年",
         "r": "せんねん",
         "m": "a thousand years"
@@ -1404,42 +1444,14 @@ var sentences = [
       {
         "w": "以上",
         "r": "いじょう",
-        "m": "more than, or more",
-        "core": true
-      },
-      {
-        "w": "の",
-        "r": "の",
-        "m": "(possessive particle)"
-      },
-      {
-        "w": "歴史",
-        "r": "れきし",
-        "m": "history"
-      },
-      {
-        "w": "が",
-        "r": "が",
-        "m": "(subject particle)"
-      },
-      {
-        "w": "ある",
-        "r": "ある",
-        "m": "there is",
-        "core": true
-      },
-      {
-        "w": "森",
-        "r": "もり",
-        "m": "forest",
-        "core": true
+        "m": "more than, or more"
       },
       {
         "p": "。"
       }
     ],
-    "hira": "せんねんいじょうのれきしがあるもり。",
-    "trans": "A forest with over a thousand years of history."
+    "hira": "このもりについていえば——せんねんいじょう。",
+    "trans": "Speaking about this forest — over a thousand years."
   },
   {
     "parts": [
@@ -2030,28 +2042,27 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "普通の",
-        "r": "ふつうの",
-        "m": "ordinary, normal"
-      },
-      {
         "w": "森",
         "r": "もり",
-        "m": "forest",
-        "core": true
+        "m": "forest"
       },
       {
-        "g": "なら",
-        "r": "なら",
-        "m": "if it were",
-        "x": "〜なら (Intermediate L7) — if ~ (used to express opinion/judgment). Here in: 「普通の森なら。」 (If it were a normal forest.)"
+        "g": "といっても",
+        "r": "といっても",
+        "m": "though one says ~",
+        "x": "〜といっても (Intermediate L7) — The reality is different from what is expected. Here: though we call it a forest, it is not a normal one."
+      },
+      {
+        "w": "普通じゃない",
+        "r": "ふつうじゃない",
+        "m": "not normal"
       },
       {
         "p": "。"
       }
     ],
-    "hira": "ふつうのもりなら。",
-    "trans": "If it were a normal forest.",
+    "hira": "もりといってもふつうじゃない。",
+    "trans": "Though it is called a forest, it is not a normal one.",
     "speaker": "さくら"
   },
   {
@@ -2124,26 +2135,27 @@ var sentences = [
         "m": "landmark, marker"
       },
       {
-        "w": "が",
-        "r": "が",
-        "m": "(subject particle)"
+        "w": "を",
+        "r": "を",
+        "m": "(object particle)"
       },
       {
-        "w": "ないと",
-        "r": "ないと",
-        "m": "if there aren't"
+        "w": "つける",
+        "r": "つける",
+        "m": "to place, to attach"
       },
       {
-        "w": "迷う",
-        "r": "まよう",
-        "m": "to get lost"
+        "g": "べきだ",
+        "r": "べきだ",
+        "m": "should",
+        "x": "Vるべきだ (Intermediate L10) — Expresses that an action is deemed appropriate or necessary. Here: we should place markers."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "めじるしがないとまよう。",
-    "trans": "Without markers, you'll get lost.",
+    "hira": "めじるしをつけるべきだ。",
+    "trans": "We should place markers.",
     "_scene_break": true
   },
   {
@@ -2222,16 +2234,22 @@ var sentences = [
         "m": "(object particle)"
       },
       {
-        "w": "出した",
-        "r": "だした",
-        "m": "took out"
+        "w": "用意して",
+        "r": "よういして",
+        "m": "prepared"
+      },
+      {
+        "g": "おいた",
+        "r": "おいた",
+        "m": "had done in advance",
+        "x": "Vておきます (Minna2 L30) — Indicates a necessary action performed in advance. Here: Takeshi had prepared tape from his backpack beforehand."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "たけしはリュックからテープをだした。",
-    "trans": "Takeshi took tape out of his backpack."
+    "hira": "たけしはリュックからテープをよういしておいた。",
+    "trans": "Takeshi had prepared tape from his backpack."
   },
   {
     "parts": [
@@ -2382,10 +2400,10 @@ var sentences = [
         "m": "going out, fading"
       },
       {
-        "w": "そう",
+        "g": "そう",
         "r": "そう",
         "m": "looks like, seems about to",
-        "core": true
+        "x": "Vます-form そうです (Minna2 L43) — Expresses the speaker’s belief that something is about to happen. Here 「消えそう」 means the flame looks like it’s about to go out."
       },
       {
         "w": "だって",
@@ -2419,20 +2437,28 @@ var sentences = [
         "core": true
       },
       {
-        "w": "は",
-        "r": "は",
-        "m": "(topic particle)"
+        "w": "の",
+        "r": "の",
+        "m": "(possessive particle)"
       },
       {
-        "w": "静かだったが",
-        "r": "しずかだったが",
-        "m": "was quiet, but"
+        "g": "静かさ",
+        "r": "しずかさ",
+        "m": "quietness",
+        "x": "A/Naさ (Intermediate L5) — Nominalizes an adjective. Here: the quietness of Yuki’s voice."
       },
       {
-        "p": "——"
+        "w": "の",
+        "r": "の",
+        "m": "(possessive particle)"
       },
       {
-        "w": "焦り",
+        "w": "中に",
+        "r": "なかに",
+        "m": "within, inside"
+      },
+      {
+        "w": "焚り",
         "r": "あせり",
         "m": "impatience, anxiety"
       },
@@ -2455,8 +2481,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "ゆきのこえはしずかだったが——あせりがまじっていた。",
-    "trans": "Yuki's voice was quiet — but there was urgency mixed into it.",
+    "hira": "ゆきのこえのしずかさのなかにあせりがまじっていた。",
+    "trans": "Within the quietness of Yuki’s voice, there was urgency mixed in.",
     "_scene_break": true
   },
   {
@@ -2628,9 +2654,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "かもしれない",
+        "g": "かもしれない",
         "r": "かもしれない",
-        "m": "might"
+        "m": "might",
+        "x": "かもしれません (Minna2 L32) — Expresses possibility. Here: they might not be able to get back."
       },
       {
         "w": "から",
@@ -2821,21 +2848,17 @@ var sentences = [
         "m": "roots"
       },
       {
-        "w": "と",
-        "r": "と",
-        "m": "(and particle)"
-      },
-      {
-        "w": "苔",
-        "r": "こけ",
-        "m": "moss"
+        "g": "ばかりだった",
+        "r": "ばかりだった",
+        "m": "nothing but, only",
+        "x": "Nばかり (Intermediate L3) — Focuses on one thing exclusively. Here: there was nothing but lava and roots."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "ようがんとねとこけ。",
-    "trans": "Lava, roots, and moss."
+    "hira": "ようがんとねばかりだった。",
+    "trans": "There was nothing but lava and roots."
   },
   {
     "parts": [
@@ -2850,16 +2873,27 @@ var sentences = [
         "m": "(subject particle)"
       },
       {
-        "w": "不安定だった",
-        "r": "ふあんていだった",
-        "m": "was unstable"
+        "w": "不安定に",
+        "r": "ふあんていに",
+        "m": "unstable"
+      },
+      {
+        "w": "なって",
+        "r": "なって",
+        "m": "becoming"
+      },
+      {
+        "g": "いった",
+        "r": "いった",
+        "m": "went on (gradual change)",
+        "x": "Vていく (Intermediate L4) — Shows gradual change continuing away from the present. Here: the footing grew increasingly unstable."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "あしもとがふあんていだった。",
-    "trans": "The footing was unstable."
+    "hira": "あしもとがふあんていになっていった。",
+    "trans": "The footing grew increasingly unstable."
   },
   {
     "parts": [
@@ -2905,36 +2939,25 @@ var sentences = [
       {
         "w": "森",
         "r": "もり",
-        "m": "forest",
-        "core": true
-      },
-      {
-        "w": "の",
-        "r": "の",
-        "m": "(possessive particle)"
-      },
-      {
-        "g": "暗さ",
-        "r": "くらさ",
-        "m": "darkness",
-        "x": "A／Na さ (Intermediate L5) — Nominalizes an adjective. Here in: 「この森の暗さは普通じゃない。」 (The darkness of this forest was not normal.)"
+        "m": "forest"
       },
       {
         "w": "は",
         "r": "は",
-        "m": "A/Naさ: adjective nominalization"
+        "m": "(topic particle)"
       },
       {
-        "w": "普通じゃない",
-        "r": "ふつうじゃない",
-        "m": "is not normal"
+        "g": "暗すぎる",
+        "r": "くらすぎる",
+        "m": "too dark",
+        "x": "〜すぎます (Minna2 L44) — Indicates excessive degree. Here: this forest is too dark."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "このもりのくらさはふつうじゃない。",
-    "trans": "The darkness of this forest was not normal."
+    "hira": "このもりはくらすぎる。",
+    "trans": "This forest is too dark."
   },
   {
     "parts": [
@@ -2945,9 +2968,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "なのに",
+        "g": "なのに",
         "r": "なのに",
-        "m": "even though it is"
+        "m": "even though it is",
+        "x": "のに (Minna2 L45) — Expresses contradiction: what follows is unexpected given the first clause. Here: it was dim even though it was daytime."
       },
       {
         "p": "——"
@@ -3217,14 +3241,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "の",
-        "r": "の",
-        "m": "(nominalizer)"
-      },
-      {
-        "w": "は",
-        "r": "は",
-        "m": "(topic particle)"
+        "g": "のは",
+        "r": "のは",
+        "m": "it is ~ that ~ (cleft sentence)",
+        "x": "〜のは〜だ (Intermediate L2) — Cleft sentence structure that focuses on the latter part. Here: what could be heard was only the sound of wind."
       },
       {
         "p": "——"
@@ -3357,10 +3377,9 @@ var sentences = [
         "core": true
       },
       {
-        "g": "しか",
+        "w": "しか",
         "r": "しか",
-        "m": "(only — with negative)",
-        "x": "しか (Minna II L5) — only (negates everything except attached word). Here in: 「風の音しか聞こえない。」 (Nothing could be heard but the wind.)"
+        "m": "(only — with negative)"
       },
       {
         "w": "聞こえない",
@@ -4967,21 +4986,48 @@ var sentences = [
   {
     "parts": [
       {
+        "w": "歩いて",
+        "r": "あるいて",
+        "m": "walking",
+        "core": true
+      },
+      {
+        "w": "いる",
+        "r": "いる",
+        "m": "(progressive)"
+      },
+      {
+        "g": "あいだに",
+        "r": "あいだに",
+        "m": "while, during",
+        "x": "〜あいだに (Intermediate L8) — Indicates that something happened during the time of an ongoing action. Here: two hours passed while they were walking."
+      },
+      {
         "w": "二時間",
         "r": "にじかん",
         "m": "two hours"
       },
       {
-        "w": "歩いた",
-        "r": "あるいた",
-        "m": "walked"
+        "w": "が",
+        "r": "が",
+        "m": "(subject particle)"
+      },
+      {
+        "w": "過ぎて",
+        "r": "すぎて",
+        "m": "passed"
+      },
+      {
+        "w": "いた",
+        "r": "いた",
+        "m": "had (past progressive)"
       },
       {
         "p": "。"
       }
     ],
-    "hira": "にじかんあるいた。",
-    "trans": "They walked for two hours."
+    "hira": "あるいているあいだににじかんがすぎていた。",
+    "trans": "Two hours had passed while they were walking."
   },
   {
     "parts": [
@@ -5006,21 +5052,27 @@ var sentences = [
         "m": "(from particle)"
       },
       {
-        "w": "機能して",
-        "r": "きのうして",
-        "m": "functioning"
+        "w": "機能",
+        "r": "きのう",
+        "m": "function"
       },
       {
-        "w": "いなかった",
-        "r": "いなかった",
-        "m": "was not (progressive negative)"
+        "g": "せずに",
+        "r": "せずに",
+        "m": "without functioning",
+        "x": "Vないずに (Intermediate L10) — Without doing ~. Here: the GPS had been in a state of not functioning."
+      },
+      {
+        "w": "いた",
+        "r": "いた",
+        "m": "was (ongoing state)"
       },
       {
         "p": "。"
       }
     ],
-    "hira": "GPSはさんじゅっぷんまえからきのうしていなかった。",
-    "trans": "The GPS had not been working for thirty minutes."
+    "hira": "ジーピーエスはさんじゅっぷんまえからきのうせずにいた。",
+    "trans": "The GPS had been not functioning for thirty minutes."
   },
   {
     "parts": [
@@ -5188,16 +5240,22 @@ var sentences = [
         "m": "(subject particle)"
       },
       {
-        "w": "なかった",
-        "r": "なかった",
-        "m": "did not have"
+        "w": "ある",
+        "r": "ある",
+        "m": "there is"
+      },
+      {
+        "g": "わけではなかった",
+        "r": "わけではなかった",
+        "m": "it was not that",
+        "x": "〜わけではない (Intermediate L8) — Expresses partial negation. Here: it was not that she had confidence (implying partial doubt)."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "でも——じしんがなかった。",
-    "trans": "But — she was not confident.",
+    "hira": "でも——じしんがあるわけではなかった。",
+    "trans": "But — it was not that she had confidence.",
     "_scene_break": true
   },
   {
@@ -5307,9 +5365,10 @@ var sentences = [
         "m": "should be right, is correct"
       },
       {
-        "w": "はず",
+        "g": "はず",
         "r": "はず",
-        "m": "should be (expectation)"
+        "m": "should be (expectation)",
+        "x": "はずです (Minna2 L46) — States a conclusion the speaker is confident about. Here: the distance should be correct."
       },
       {
         "p": "。"
@@ -5698,9 +5757,10 @@ var sentences = [
         "m": "would be appearing (colloquial)"
       },
       {
-        "w": "はず",
+        "g": "はず",
         "r": "はず",
-        "m": "should (expectation)"
+        "m": "should (expectation)",
+        "x": "はずです (Minna2 L46) — States a conclusion the speaker is confident about. Here: if it broke, the entire barrier should be showing effects."
       },
       {
         "p": "。"
@@ -5796,9 +5856,10 @@ var sentences = [
         "m": "(by particle — passive agent)"
       },
       {
-        "w": "覆われてる",
+        "g": "覆われてる",
         "r": "おおわれてる",
-        "m": "is being covered (colloquial)"
+        "m": "is being covered (colloquial)",
+        "x": "Passive form (Minna2 L37) — Used when it is not necessary to mention who performs the action. Here: the stone is being covered by something."
       },
       {
         "p": "。"
@@ -6007,9 +6068,10 @@ var sentences = [
         "m": "approaching"
       },
       {
-        "w": "きた",
+        "g": "きた",
         "r": "きた",
-        "m": "Vてくる: to come doing V (movement toward speaker)"
+        "m": "Vてくる: to come doing V (movement toward speaker)",
+        "x": "Vてくる (Intermediate L10) — Indicates the direction of the action is towards the speaker. Here: the mist approached from between the trees towards them."
       },
       {
         "p": "。"
@@ -6052,9 +6114,10 @@ var sentences = [
         "m": "there was not"
       },
       {
-        "w": "のに",
+        "g": "のに",
         "r": "のに",
-        "m": "even though"
+        "m": "even though",
+        "x": "のに (Minna2 L45) — Expresses contradiction. Here: even though there was no mist in this forest, suddenly white mist appeared."
       },
       {
         "p": "——"
@@ -6140,9 +6203,10 @@ var sentences = [
         "m": "vanishing"
       },
       {
-        "w": "いった",
+        "g": "いった",
         "r": "いった",
-        "m": "Vていく: to go doing V (movement away from speaker)"
+        "m": "Vていく: to go doing V (movement away from speaker)",
+        "x": "Vていく (Intermediate L4) — Shows change moving away from the present/speaker. Here: the shadow vanished away into the forest depths."
       },
       {
         "p": "。"
@@ -6344,10 +6408,9 @@ var sentences = [
         "m": "(subject particle)"
       },
       {
-        "g": "沈んだ",
+        "w": "沈んだ",
         "r": "しずんだ",
-        "m": "sank, subsided",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「溶岩が沈んだ場所。」 (A place where the lava had subsided.)"
+        "m": "sank, subsided"
       },
       {
         "w": "場所",
@@ -7092,10 +7155,9 @@ var sentences = [
   {
     "parts": [
       {
-        "g": "叫んだ",
+        "w": "叫んだ",
         "r": "さけんだ",
-        "m": "screaming",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「叫んだまま。」 (Still screaming.)"
+        "m": "screaming"
       },
       {
         "g": "まま",
@@ -7235,9 +7297,10 @@ var sentences = [
         "m": "(by particle)"
       },
       {
-        "w": "覆われて",
+        "g": "覆われて",
         "r": "おおわれて",
-        "m": "covered by"
+        "m": "covered by",
+        "x": "Passive form (Minna2 L37) — Used when it is not necessary to mention who performs the action. Here: it was covered by bones."
       },
       {
         "w": "いた",
@@ -7331,9 +7394,10 @@ var sentences = [
         "m": "(subject particle)"
       },
       {
-        "w": "壊されたんじゃない",
+        "g": "壊されたんじゃない",
         "r": "こわされたんじゃない",
-        "m": "it wasn't broken"
+        "m": "it wasn't broken",
+        "x": "Passive form (Minna2 L37) — Passive verb used without specifying the agent. Here: the stone was not broken (by anyone)."
       },
       {
         "p": "。"
@@ -7473,9 +7537,10 @@ var sentences = [
         "m": "(by particle)"
       },
       {
-        "w": "養われてる",
+        "g": "養われてる",
         "r": "やしなわれてる",
-        "m": "is being nourished, sustained by (colloquial)"
+        "m": "is being nourished, sustained by (colloquial)",
+        "x": "Passive form (Minna2 L37) — Passive verb without specifying the agent. Here: it is being sustained by the stone."
       },
       {
         "p": "。"
@@ -7892,10 +7957,9 @@ var sentences = [
         "m": "(subject particle)"
       },
       {
-        "g": "軋んだ",
+        "w": "軋んだ",
         "r": "きしんだ",
-        "m": "creaked, groaned",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「骨が軋んだ。」 (The bones creaked.)"
+        "m": "creaked, groaned"
       },
       {
         "p": "。"
@@ -8041,9 +8105,10 @@ var sentences = [
         "p": "——"
       },
       {
-        "w": "振り下ろされた",
+        "g": "振り下ろされた",
         "r": "ふりおろされた",
-        "m": "was swung down"
+        "m": "was swung down",
+        "x": "Passive form (Minna2 L37) — Passive verb emphasizing the action itself. Here: the gashadokuro’s arm swung down."
       },
       {
         "p": "。"
@@ -8175,15 +8240,15 @@ var sentences = [
         "m": "(topic particle)"
       },
       {
-        "w": "振り下ろされた",
+        "g": "振り下ろされた",
         "r": "ふりおろされた",
-        "m": "swung down"
+        "m": "swung down",
+        "x": "Passive form (Minna2 L37) — Passive verb emphasizing the action. Here: Takeshi dodged the arm that was swung down."
       },
       {
         "w": "腕",
         "r": "うで",
-        "m": "arm",
-        "core": true
+        "m": "arm"
       },
       {
         "w": "を",
@@ -8219,8 +8284,7 @@ var sentences = [
       {
         "w": "上",
         "r": "うえ",
-        "m": "surface",
-        "core": true
+        "m": "surface"
       },
       {
         "w": "で",
@@ -8230,8 +8294,7 @@ var sentences = [
       {
         "w": "足",
         "r": "あし",
-        "m": "foot",
-        "core": true
+        "m": "foot"
       },
       {
         "w": "を",
@@ -8239,16 +8302,22 @@ var sentences = [
         "m": "(object particle)"
       },
       {
-        "w": "滑らせた",
-        "r": "すべらせた",
-        "m": "slipped"
+        "w": "滑らせて",
+        "r": "すべらせて",
+        "m": "slipping"
+      },
+      {
+        "g": "しまった",
+        "r": "しまった",
+        "m": "ended up doing (regret)",
+        "x": "Vてしまう (Minna2 L29) — Indicates an unfortunate result. Here: he ended up slipping on the lava."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "たけしはふりおろされたうでをさけた——が、ようがんのうえであしをすべらせた。",
-    "trans": "Takeshi dodged the swinging arm — but slipped on the lava."
+    "hira": "たけしはふりおろされたうでをさけた——が、ようがんのうえであしをすべらせてしまった。",
+    "trans": "Takeshi dodged the swinging arm — but ended up slipping on the lava."
   },
   {
     "parts": [
@@ -8535,10 +8604,9 @@ var sentences = [
         "m": "(location particle)"
       },
       {
-        "g": "滑り込んだ",
+        "w": "滑り込んだ",
         "r": "すべりこんだ",
-        "m": "slid into, dove",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「武の横に滑り込んだ。」 (He slid in beside Takeshi.)"
+        "m": "slid into, dove"
       },
       {
         "p": "。"
@@ -13110,10 +13178,10 @@ var sentences = [
         "p": "——"
       },
       {
-        "g": "終わり",
+        "w": "終わり",
         "r": "おわり",
         "m": "end, ending",
-        "x": "Vマス始める・Vマス終わる (Intermediate L1) — start to V / finish V-ing. Here in: 「おれは——終わりを知っ〜てるから。」 (Because I—— know what an ending is.)"
+        "core": true
       },
       {
         "w": "を",
@@ -13147,10 +13215,10 @@ var sentences = [
   {
     "parts": [
       {
-        "g": "終わり",
+        "w": "終わり",
         "r": "おわり",
         "m": "ending",
-        "x": "Vマス始める・Vマス終わる (Intermediate L1) — start to V / finish V-ing. Here in: 「終わり？」 (Ending?)"
+        "core": true
       },
       {
         "p": "？"
@@ -13375,10 +13443,10 @@ var sentences = [
   {
     "parts": [
       {
-        "g": "終わり",
+        "w": "終わり",
         "r": "おわり",
         "m": "end",
-        "x": "Vマス始める・Vマス終わる (Intermediate L1) — start to V / finish V-ing. Here in: 「終わりが来て。」 (The end came.)"
+        "core": true
       },
       {
         "w": "が",

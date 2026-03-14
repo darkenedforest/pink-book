@@ -429,21 +429,22 @@ var sentences = [
         "m": "even"
       },
       {
-        "w": "高かっ",
-        "r": "たかかっ",
-        "m": "was tall"
+        "w": "高",
+        "r": "たか",
+        "m": "tall"
       },
       {
-        "w": "た",
-        "r": "た",
-        "m": "past tense"
+        "g": "すぎた",
+        "r": "すぎた",
+        "m": "was too ~, excessively ~",
+        "x": "Vます/A(drop い)/Na すぎます (m2_L44_1) — indicates something is excessive. Here 高すぎた means was far too tall, emphasizing the overwhelming size."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "きよりもたかかった。",
-    "trans": "It was taller than the trees."
+    "hira": "きよりもたかすぎた。",
+    "trans": "It was far too tall for the trees."
   },
   {
     "parts": [
@@ -606,15 +607,21 @@ var sentences = [
         "m": "lifted up, rose"
       },
       {
-        "w": "た",
-        "r": "た",
-        "m": "past tense"
+        "w": "て",
+        "r": "て",
+        "m": "te-form connective"
+      },
+      {
+        "g": "しまった",
+        "r": "しまった",
+        "m": "ended up ~ing (unintended result)",
+        "x": "Vて しまいます (m2_L29_2) — emphasizes completion or conveys regret/dismay. Here the roots heaving up is presented as an alarming, uncontrollable event."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "ねがもちあがった。",
+    "hira": "ねがもちあがってしまった。",
     "trans": "The roots heaved up."
   },
   {
@@ -913,10 +920,9 @@ var sentences = [
         "m": "direct object marker"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "doing",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「それは狩りをしていなかった。」 (It was not hunting.)"
+        "m": "doing"
       },
       {
         "w": "て",
@@ -1085,24 +1091,10 @@ var sentences = [
         "m": "past tense"
       },
       {
-        "w": "こと",
-        "r": "こと",
-        "m": "the fact of"
-      },
-      {
-        "w": "が",
-        "r": "が",
-        "m": "subject marker"
-      },
-      {
-        "w": "なかっ",
-        "r": "なかっ",
-        "m": "had never"
-      },
-      {
-        "w": "た",
-        "r": "た",
-        "m": "past tense"
+        "g": "ことがなかった",
+        "r": "ことがなかった",
+        "m": "have never ~",
+        "x": "Vることがある (int_L8_3) — there are times when ~. Here in the negative past ことがなかった, meaning it had never (stopped)."
       },
       {
         "p": "。"
@@ -1253,25 +1245,10 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "誰",
-        "r": "だれ",
-        "m": "anyone",
-        "core": true
-      },
-      {
-        "w": "に",
-        "r": "に",
-        "m": "by"
-      },
-      {
-        "w": "も",
-        "r": "も",
-        "m": "not by anyone (with negative)"
-      },
-      {
         "w": "聞い",
         "r": "きい",
-        "m": "heard"
+        "m": "heard",
+        "core": true
       },
       {
         "w": "て",
@@ -1281,12 +1258,18 @@ var sentences = [
       {
         "w": "もらえ",
         "r": "もらえ",
-        "m": "receive (the favor of)"
+        "m": "able to have someone do"
       },
       {
-        "w": "ない",
-        "r": "ない",
-        "m": "cannot"
+        "g": "ずに",
+        "r": "ずに",
+        "m": "without ~ing",
+        "x": "Vないずに (int_L10_6) — means without doing. Here 聞いてもらえずに means without being heard by anyone."
+      },
+      {
+        "w": "続く",
+        "r": "つづく",
+        "m": "continuing"
       },
       {
         "w": "叫び",
@@ -1302,8 +1285,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "だれにもきいてもらえないさけびを。",
-    "trans": "A scream no one could hear.",
+    "hira": "きいてもらえずにつづくさけびを。",
+    "trans": "An unheard, unending scream.",
     "_scene_break": true
   },
   {
@@ -1324,14 +1307,25 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "五人",
-        "r": "ごにん",
-        "m": "five people"
+        "w": "がしゃどくろ",
+        "r": "がしゃどくろ",
+        "m": "gashadokuro"
       },
       {
-        "w": "は",
-        "r": "は",
-        "m": "topic marker"
+        "w": "に",
+        "r": "に",
+        "m": "to"
+      },
+      {
+        "w": "近づく",
+        "r": "ちかづく",
+        "m": "to approach"
+      },
+      {
+        "g": "ために",
+        "r": "ために",
+        "m": "in order to ~",
+        "x": "Vる/Nの ために (int_L6_2) — expresses purpose. Here 近づくために means in order to approach, stating why they prepared."
       },
       {
         "w": "準備",
@@ -1358,8 +1352,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "ごにんはじゅんびをととのえた。",
-    "trans": "The five of them got ready."
+    "hira": "がしゃどくろにちかづくためにじゅんびをととのえた。",
+    "trans": "They prepared in order to approach the gashadokuro."
   },
   {
     "parts": [
@@ -1511,17 +1505,9 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "戦う",
-        "r": "たたかう",
-        "m": "to fight"
-      },
-      {
-        "w": "より",
-        "r": "より",
-        "m": "than (comparison)"
-      },
-      {
-        "p": "、"
+        "w": "だから",
+        "r": "だから",
+        "m": "therefore"
       },
       {
         "w": "名前",
@@ -1541,38 +1527,17 @@ var sentences = [
         "core": true
       },
       {
-        "w": "ほうが",
-        "r": "ほうが",
-        "m": "the way of ~ is more"
-      },
-      {
-        "w": "効果",
-        "r": "こうか",
-        "m": "effect, effectiveness"
-      },
-      {
-        "w": "が",
-        "r": "が",
-        "m": "subject marker"
-      },
-      {
-        "w": "ある",
-        "r": "ある",
-        "m": "there is, has",
-        "core": true
+        "g": "べきだ",
+        "r": "べきだ",
+        "m": "should ~",
+        "x": "Vるべきだ (int_L10_4) — expresses an action deemed appropriate or necessary. Here 呼ぶべきだ means we should call their names."
       },
       {
         "p": "。"
-      },
-      {
-        "g": "V1るよりV2るほうが",
-        "r": "たたかうよりなまえをよぶほうが",
-        "m": "Rather than V1, V2 is more ~",
-        "x": "This grammar (L7.4) compares two actions — here, 'calling names is more effective than fighting.'"
       }
     ],
-    "hira": "たたかうより、なまえをよぶほうがこうかがある。",
-    "trans": "Calling out their names is more effective than fighting."
+    "hira": "だからなまえをよぶべきだ。",
+    "trans": "That is why we should call their names."
   },
   {
     "parts": [
@@ -1628,14 +1593,25 @@ var sentences = [
         "m": "by means of"
       },
       {
-        "w": "壊し",
-        "r": "こわし",
-        "m": "destroyed"
+        "w": "壊せ",
+        "r": "こわせ",
+        "m": "can break"
       },
       {
-        "w": "たら",
-        "r": "たら",
-        "m": "if"
+        "w": "ない",
+        "r": "ない",
+        "m": "not"
+      },
+      {
+        "g": "わけではない",
+        "r": "わけではない",
+        "m": "it is not that ~",
+        "x": "〜わけではない (int_L8_2) — partial negation. Here 壊せないわけではないけど means it is not that we cannot break it, but..."
+      },
+      {
+        "w": "けど",
+        "r": "けど",
+        "m": "but"
       },
       {
         "p": "——"
@@ -1690,8 +1666,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "ぼうりょくでこわしたら——れいがちって、もっときけんになる。",
-    "trans": "If we destroy it with violence — the spirits will scatter and it'll become more dangerous.",
+    "hira": "ぼうりょくでこわせないわけではないけど——れいがちって、もっときけんになる。",
+    "trans": "It is not that we cannot break it by force -- but the spirits would scatter and become even more dangerous.",
     "_scene_break": true
   },
   {
@@ -1798,10 +1774,9 @@ var sentences = [
         "m": "guide, channel"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "and (connective)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「まおちゃんは境のエネルギーを誘導して——霊をがしゃどくろから分離する。」 (Mao will channel the boundary's energy and separate the spir...)"
+        "m": "and (connective)"
       },
       {
         "w": "て",
@@ -1903,7 +1878,7 @@ var sentences = [
       {
         "w": "の",
         "r": "の",
-        "m": "'s"
+        "m": "of"
       },
       {
         "w": "顔",
@@ -1917,24 +1892,19 @@ var sentences = [
         "m": "topic marker"
       },
       {
-        "w": "青白かっ",
-        "r": "あおじろかっ",
-        "m": "was pale"
+        "w": "青白",
+        "r": "あおじろ",
+        "m": "pale"
       },
       {
-        "w": "た",
-        "r": "た",
-        "m": "past tense"
+        "g": "く",
+        "r": "く",
+        "m": "conjunctive form (listing)",
+        "x": "連用中止 (int_L5_2) — i-adjective stem + く connects clauses, showing parallel facts or reasons. Here 青白く links was pale with had nosebleeds as related observations."
       },
       {
-        "p": "。"
-      }
-    ],
-    "hira": "まおのかおはあおじろかった。",
-    "trans": "Mao's face was pale."
-  },
-  {
-    "parts": [
+        "p": "、"
+      },
       {
         "w": "昨夜",
         "r": "ゆうべ",
@@ -1980,18 +1950,43 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "ゆうべもはなぢがでていた。",
-    "trans": "She'd had a nosebleed the night before too."
+    "hira": "まおのかおはあおじろく、ゆうべもはなぢがでていた。",
+    "trans": "Mao was pale, and she had had another nosebleed last night."
   },
   {
     "parts": [
       {
-        "w": "でも",
-        "r": "でも",
-        "m": "but"
+        "w": "体",
+        "r": "からだ",
+        "m": "body",
+        "core": true
       },
       {
-        "p": "——"
+        "w": "は",
+        "r": "は",
+        "m": "topic marker"
+      },
+      {
+        "w": "限界",
+        "r": "げんかい",
+        "m": "limit"
+      },
+      {
+        "w": "に",
+        "r": "に",
+        "m": "to"
+      },
+      {
+        "w": "近い",
+        "r": "ちかい",
+        "m": "close, near",
+        "core": true
+      },
+      {
+        "g": "のに",
+        "r": "のに",
+        "m": "even though ~, despite ~",
+        "x": "Plain form のに (m2_L45_2) — expresses a contradiction between expectation and reality. Here 限界に近いのに means even though her body was near its limit, contrasting with her determined eyes."
       },
       {
         "w": "目",
@@ -2028,8 +2023,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "でも——めはすわっていた。",
-    "trans": "But — her eyes were steady.",
+    "hira": "からだはげんかいにちかいのにめはすわっていた。",
+    "trans": "Even though her body was near its limit, her eyes were set with determination.",
     "_scene_break": true
   },
   {
@@ -2326,6 +2321,22 @@ var sentences = [
         "m": "light"
       },
       {
+        "w": "の",
+        "r": "の",
+        "m": "of"
+      },
+      {
+        "w": "強",
+        "r": "つよ",
+        "m": "strong"
+      },
+      {
+        "g": "さ",
+        "r": "さ",
+        "m": "~ness (nominalized adjective)",
+        "x": "A さ (int_L5_1) — nominalizes an adjective. Here 強さ means strength/intensity, turning the adjective 強い into a noun."
+      },
+      {
         "w": "と",
         "r": "と",
         "m": "and"
@@ -2367,16 +2378,17 @@ var sentences = [
         "m": "dictionary form"
       },
       {
-        "w": "かもしれない",
+        "g": "かもしれない",
         "r": "かもしれない",
-        "m": "might, perhaps"
+        "m": "might, perhaps",
+        "x": "Plain form かもしれません (m2_L32_3) — indicates a possibility. Here expressing that the intensity of light and heat might slow the gashadokuro."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "ひかりとねつでうごきをおそくできるかもしれない。",
-    "trans": "The light and heat might slow it down.",
+    "hira": "ひかりのつよさとねつでうごきをおそくできるかもしれない。",
+    "trans": "The intensity of the light and the heat might slow its movements.",
     "_scene_break": true
   },
   {
@@ -2451,6 +2463,18 @@ var sentences = [
   {
     "parts": [
       {
+        "w": "火",
+        "r": "ひ",
+        "m": "fire",
+        "core": true
+      },
+      {
+        "g": "といっても",
+        "r": "といっても",
+        "m": "though ~, having said ~",
+        "x": "〜といっても (int_L7_3) — though I say ~, the reality is... Here 火といっても qualifies the plan — as for fire, there are plenty of dry branches."
+      },
+      {
         "w": "乾い",
         "r": "かわい",
         "m": "dry"
@@ -2486,8 +2510,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "かわいたえだはたくさんある。",
-    "trans": "There are plenty of dry branches.",
+    "hira": "ひといってもかわいたえだはたくさんある。",
+    "trans": "As for fire -- there are plenty of dry branches.",
     "_scene_break": true
   },
   {
@@ -2799,14 +2823,10 @@ var sentences = [
         "m": "pulsing, beating"
       },
       {
-        "w": "よう",
-        "r": "よう",
-        "m": "as if, like"
-      },
-      {
-        "w": "に",
-        "r": "に",
-        "m": "in a manner"
+        "g": "ように",
+        "r": "ように",
+        "m": "like ~, as if ~",
+        "x": "N のように (int_L3_6) — likens one thing to another. Here 脈打つように means as if pulsing, describing the faint glow."
       },
       {
         "p": "——"
@@ -2975,21 +2995,32 @@ var sentences = [
         "m": "subject marker"
       },
       {
+        "w": "一気に",
+        "r": "いっきに",
+        "m": "all at once"
+      },
+      {
         "w": "立ち上っ",
         "r": "たちのぼっ",
         "m": "rose, billowed"
       },
       {
-        "w": "た",
-        "r": "た",
-        "m": "past tense"
+        "w": "て",
+        "r": "て",
+        "m": "te-form connective"
+      },
+      {
+        "g": "しまった",
+        "r": "しまった",
+        "m": "ended up ~ing (unintended result)",
+        "x": "Vて しまいます (m2_L29_2) — emphasizes completion or conveys regret/dismay. Here the smoke billowing up all at once is an unintended consequence that draws attention."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "けむりがたちのぼった。",
-    "trans": "Smoke rose up."
+    "hira": "けむりがいっきにたちのぼってしまった。",
+    "trans": "The smoke billowed up all at once."
   },
   {
     "parts": [
@@ -3085,6 +3116,55 @@ var sentences = [
   {
     "parts": [
       {
+        "w": "火",
+        "r": "ひ",
+        "m": "fire",
+        "core": true
+      },
+      {
+        "w": "に",
+        "r": "に",
+        "m": "by"
+      },
+      {
+        "w": "気",
+        "r": "き",
+        "m": "attention",
+        "core": true
+      },
+      {
+        "w": "を",
+        "r": "を",
+        "m": "direct object marker"
+      },
+      {
+        "w": "取ら",
+        "r": "とら",
+        "m": "taken, caught"
+      },
+      {
+        "w": "れ",
+        "r": "れ",
+        "m": "passive"
+      },
+      {
+        "w": "て",
+        "r": "て",
+        "m": "te-form connective"
+      },
+      {
+        "w": "いる",
+        "r": "いる",
+        "m": "is (progressive)",
+        "core": true
+      },
+      {
+        "g": "あいだに",
+        "r": "あいだに",
+        "m": "while ~, during ~",
+        "x": "〜あいだに (int_L8_1) — indicates that while one thing is happening, another event occurs. Here 気を取られているあいだに means while it was distracted by the fire."
+      },
+      {
         "w": "まお",
         "r": "まお",
         "m": "Mao"
@@ -3118,8 +3198,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "まおがいきをすった。",
-    "trans": "Mao drew a breath.",
+    "hira": "ひにきをとられているあいだにまおがいきをすった。",
+    "trans": "While it was distracted by the fire, Mao took a breath.",
     "_scene_break": true
   },
   {
@@ -3568,10 +3648,9 @@ var sentences = [
         "core": true
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "and (connective)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「でも——はっきりしていた。」 (But — it was clear.)"
+        "m": "and (connective)"
       },
       {
         "w": "て",
@@ -3924,6 +4003,22 @@ var sentences = [
   {
     "parts": [
       {
+        "w": "蛍",
+        "r": "ほたる",
+        "m": "firefly"
+      },
+      {
+        "w": "の",
+        "r": "の",
+        "m": "of"
+      },
+      {
+        "g": "ような",
+        "r": "ような",
+        "m": "like ~, such as ~",
+        "x": "N のような N (int_L3_6) — likens one noun to another. Here 蛍のような薄い光 means a faint light like a firefly."
+      },
+      {
         "w": "薄い",
         "r": "うすい",
         "m": "thin, faint",
@@ -3938,8 +4033,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "うすいひかり。",
-    "trans": "A faint light."
+    "hira": "ほたるのようなうすいひかり。",
+    "trans": "A faint light, like a firefly."
   },
   {
     "parts": [
@@ -3965,10 +4060,9 @@ var sentences = [
         "m": "direct object marker"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "in the shape of",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「人の形をした光が——骨から浮き上がった。」 (A human-shaped light — floated up from the bones.)"
+        "m": "in the shape of"
       },
       {
         "w": "た",
@@ -4416,9 +4510,10 @@ var sentences = [
         "m": "past tense"
       },
       {
-        "w": "はず",
+        "g": "はず",
         "r": "はず",
-        "m": "should have, must have"
+        "m": "is expected to, must have",
+        "x": "Plain form はずです (m2_L46_3) — the speaker states a decisive conclusion. Here: you must have had things you wanted to do."
       },
       {
         "w": "だ",
@@ -4660,14 +4755,9 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "武",
-        "r": "たけし",
-        "m": "Takeshi"
-      },
-      {
-        "w": "の",
-        "r": "の",
-        "m": "'s"
+        "w": "それでも",
+        "r": "それでも",
+        "m": "even so"
       },
       {
         "w": "声",
@@ -4686,20 +4776,15 @@ var sentences = [
         "m": "going hoarse"
       },
       {
-        "g": "始め",
-        "r": "はじめ",
-        "m": "start to ~",
-        "x": "Vマス始める (L1.4) indicates an action is beginning — here, Takeshi's voice is starting to go hoarse."
-      },
-      {
         "w": "て",
         "r": "て",
         "m": "te-form connective"
       },
       {
-        "w": "い",
-        "r": "い",
-        "m": "was (progressive)"
+        "g": "いっ",
+        "r": "いっ",
+        "m": "went on ~ing (gradual change)",
+        "x": "Vていく (int_L4_1) — shows how things change going forward. Here 枯れていった describes his voice gradually growing hoarser over time."
       },
       {
         "w": "た",
@@ -4710,8 +4795,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "たけしのこえはかれはじめていた。",
-    "trans": "Takeshi's voice was beginning to go hoarse."
+    "hira": "それでもこえはかれていった。",
+    "trans": "Even so, his voice went on growing hoarser."
   },
   {
     "parts": [
@@ -5180,14 +5265,10 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "投げ",
-        "r": "なげ",
-        "m": "throw, pitch"
-      },
-      {
-        "w": "られ",
-        "r": "られ",
-        "m": "passive marker"
+        "g": "投げられ",
+        "r": "なげられ",
+        "m": "was thrown (passive form)",
+        "x": "Passive verbs (m2_L37_1) — passive conjugation of 投げる. Here 投げられなくなって means became unable to pitch."
       },
       {
         "w": "なく",
@@ -5439,10 +5520,10 @@ var sentences = [
         "p": "——"
       },
       {
-        "g": "終わり",
+        "w": "終わり",
         "r": "おわり",
         "m": "an end",
-        "x": "Vマス始める・Vマス終わる (Intermediate L1) — start to V / finish V-ing. Here in: 「でも——終わりを知ってる。」 (But — I know what an ending feels like.)"
+        "core": true
       },
       {
         "w": "を",
@@ -5500,10 +5581,10 @@ var sentences = [
         "m": "cannot"
       },
       {
-        "g": "終わり",
+        "w": "終わり",
         "r": "おわり",
         "m": "end",
-        "x": "Vマス始める・Vマス終わる (Intermediate L1) — start to V / finish V-ing. Here in: 「自分ではどうにもできない終わりを。」 (An end you can't do anything about on your own.)"
+        "core": true
       },
       {
         "w": "を",
@@ -5589,14 +5670,10 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "止め",
-        "r": "とめ",
-        "m": "was stopped"
-      },
-      {
-        "w": "られ",
-        "r": "られ",
-        "m": "passive marker"
+        "g": "止められ",
+        "r": "とめられ",
+        "m": "was stopped (passive)",
+        "x": "N1 は N2 に passive V (m2_L37_2) — expresses an action from the receiver standpoint. Here 止められた means was stopped."
       },
       {
         "w": "た",
@@ -6294,9 +6371,10 @@ var sentences = [
         "m": "te-form connective"
       },
       {
-        "w": "いっ",
+        "g": "いっ",
         "r": "いっ",
-        "m": "went (directional)"
+        "m": "went on ~ing (gradual change)",
+        "x": "Vていく (int_L4_1) — shows how things change going forward. Here 散っていった describes lights gradually scattering away."
       },
       {
         "w": "た",
@@ -7373,9 +7451,10 @@ var sentences = [
         "m": "past tense"
       },
       {
-        "w": "はず",
+        "g": "はず",
         "r": "はず",
-        "m": "must have"
+        "m": "must have, is expected to",
+        "x": "Plain form はずです (m2_L46_3) — the speaker states a decisive conclusion. Here: you must have had a name."
       },
       {
         "w": "だ",
@@ -7764,9 +7843,10 @@ var sentences = [
         "m": "te-form connective"
       },
       {
-        "w": "いっ",
+        "g": "いっ",
         "r": "いっ",
-        "m": "went (directional)"
+        "m": "went on ~ing (gradual change)",
+        "x": "Vていく (int_L4_1) — shows how things change going forward. Here 崩れていった describes the massive body crumbling away progressively."
       },
       {
         "w": "た",
@@ -7857,14 +7937,10 @@ var sentences = [
         "m": "melting, dissolving"
       },
       {
-        "w": "よう",
-        "r": "よう",
-        "m": "as if"
-      },
-      {
-        "w": "に",
-        "r": "に",
-        "m": "manner marker"
+        "g": "ように",
+        "r": "ように",
+        "m": "as if ~",
+        "x": "N のように (int_L3_6) — likens one thing to another. Here 溶けるように means as if melting."
       },
       {
         "p": "。"
@@ -7891,14 +7967,10 @@ var sentences = [
         "m": "returning, going back"
       },
       {
-        "w": "よう",
-        "r": "よう",
-        "m": "as if"
-      },
-      {
-        "w": "に",
-        "r": "に",
-        "m": "manner marker"
+        "g": "ように",
+        "r": "ように",
+        "m": "as if ~",
+        "x": "N のように (int_L3_6) — likens one thing to another. Here 還るように means as if returning to the earth."
       },
       {
         "p": "。"
@@ -8156,7 +8228,7 @@ var sentences = [
       {
         "w": "の",
         "r": "の",
-        "m": "'s"
+        "m": "of"
       },
       {
         "w": "声",
@@ -8173,6 +8245,33 @@ var sentences = [
         "w": "かすれ",
         "r": "かすれ",
         "m": "hoarse, raspy"
+      },
+      {
+        "w": "た",
+        "r": "た",
+        "m": "past tense (modifying)"
+      },
+      {
+        "w": "音",
+        "r": "おと",
+        "m": "sound",
+        "core": true
+      },
+      {
+        "g": "ばかり",
+        "r": "ばかり",
+        "m": "nothing but ~, only ~",
+        "x": "N ばかり (int_L3_2) — focuses on one thing, often with a negative nuance. Here 音ばかり means nothing but raspy sounds, emphasizing how worn out his voice had become."
+      },
+      {
+        "w": "に",
+        "r": "に",
+        "m": "to"
+      },
+      {
+        "w": "なっ",
+        "r": "なっ",
+        "m": "became"
       },
       {
         "w": "て",
@@ -8193,8 +8292,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "たけしのこえはかすれていた。",
-    "trans": "Takeshi's voice was hoarse."
+    "hira": "たけしのこえはかすれたおとばかりになっていた。",
+    "trans": "Takeshi had become nothing but raspy sounds."
   },
   {
     "parts": [
@@ -8563,10 +8662,9 @@ var sentences = [
         "core": true
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "and (connective)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「石を確認した。」 (They confirmed the stone.)"
+        "m": "and (connective)"
       },
       {
         "w": "た",
@@ -8655,10 +8753,9 @@ var sentences = [
         "m": "existence"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "and (connective)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「エネルギーが弱っていたが——存在していた。」 (The energy was weakened — but it was still there.)"
+        "m": "and (connective)"
       },
       {
         "w": "て",
@@ -9874,10 +9971,9 @@ var sentences = [
         "m": "direct object marker"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "had",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「武は疲れた顔をしていた。」 (Takeshi had a tired face.)"
+        "m": "had"
       },
       {
         "w": "て",
@@ -10049,10 +10145,9 @@ var sentences = [
         "m": "direct object marker"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "done",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「武は——あんなすごいことをした直後だ。」 (Takeshi — just did something incredible.)"
+        "m": "done"
       },
       {
         "w": "た",

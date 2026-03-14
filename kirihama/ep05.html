@@ -490,6 +490,31 @@ var sentences = [
   {
     "parts": [
       {
+        "w": "ドア",
+        "r": "どあ",
+        "m": "door",
+        "core": true
+      },
+      {
+        "w": "が",
+        "r": "が",
+        "m": "subject marker"
+      },
+      {
+        "w": "開いた",
+        "r": "あいた",
+        "m": "opened"
+      },
+      {
+        "g": "ままだったために",
+        "r": "ままだったために",
+        "m": "because it had been left ~",
+        "x": "～ために (Intermediate L6) — reason/cause. ドアが開いたままだったために — 'because the door had been left open,' explaining why snow blew inside."
+      },
+      {
+        "p": "、"
+      },
+      {
         "w": "雪",
         "r": "ゆき",
         "m": "snow",
@@ -519,14 +544,14 @@ var sentences = [
       {
         "w": "いた",
         "r": "いた",
-        "m": "had been (ongoing state)"
+        "m": "was (ongoing state)"
       },
       {
         "p": "。"
       }
     ],
-    "hira": "ゆきがなかまでふきこんでいた。",
-    "trans": "Snow had blown all the way inside."
+    "hira": "どあがあいたままだったために、ゆきがなかまでふきこんでいた。",
+    "trans": "Because the door had been left open, snow had blown all the way inside."
   },
   {
     "parts": [
@@ -1147,7 +1172,8 @@ var sentences = [
       {
         "w": "ペン",
         "r": "ぺん",
-        "m": "pen"
+        "m": "pen",
+        "core": true
       },
       {
         "w": "が",
@@ -1157,7 +1183,8 @@ var sentences = [
       {
         "w": "床",
         "r": "ゆか",
-        "m": "floor"
+        "m": "floor",
+        "core": true
       },
       {
         "w": "に",
@@ -1165,20 +1192,16 @@ var sentences = [
         "m": "location particle"
       },
       {
-        "w": "落ちて",
-        "r": "おちて",
-        "m": "had fallen"
-      },
-      {
-        "w": "いた",
-        "r": "いた",
-        "m": "had been (ongoing state)"
+        "g": "落ちてしまっていた",
+        "r": "おちてしまっていた",
+        "m": "had fallen (unfortunately)",
+        "x": "～てしまう (Minna II L29) — expressing regret or completion of an unfortunate action. The pen had fallen to the floor — an unintended, regrettable state."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "ぺんがゆかにおちていた。",
+    "hira": "ぺんがゆかにおちてしまっていた。",
     "trans": "A pen had fallen to the floor."
   },
   {
@@ -1205,16 +1228,32 @@ var sentences = [
         "m": "topic marker"
       },
       {
-        "w": "暗かった",
-        "r": "くらかった",
-        "m": "was dark"
+        "g": "暗さ",
+        "r": "くらさ",
+        "m": "darkness",
+        "x": "Aさ (Intermediate L5) — nominalizing adjective. 暗い → 暗さ — converts the adjective 'dark' into the noun 'darkness.'"
+      },
+      {
+        "w": "に",
+        "r": "に",
+        "m": "by (passive agent)"
+      },
+      {
+        "w": "包まれて",
+        "r": "つつまれて",
+        "m": "wrapped, enveloped"
+      },
+      {
+        "w": "いた",
+        "r": "いた",
+        "m": "was (ongoing state)"
       },
       {
         "p": "。"
       }
     ],
-    "hira": "こやのそとはくらかった。",
-    "trans": "Outside the cabin was dark."
+    "hira": "こやのそとはくらさにつつまれていた。",
+    "trans": "The outside of the cabin was enveloped in darkness."
   },
   {
     "parts": [
@@ -1376,29 +1415,25 @@ var sentences = [
       {
         "w": "途中",
         "r": "とちゅう",
-        "m": "on the way, partway"
+        "m": "midway, partway"
       },
       {
         "w": "で",
         "r": "で",
-        "m": "at (location of action)"
+        "m": "at (location)"
       },
       {
-        "w": "消えて",
-        "r": "きえて",
-        "m": "disappeared, vanished"
-      },
-      {
-        "w": "いた",
-        "r": "いた",
-        "m": "had been (ongoing state)"
+        "g": "消えてしまっていた",
+        "r": "きえてしまっていた",
+        "m": "had vanished (regrettably)",
+        "x": "～てしまう (Minna II L29) — expressing completion of an unfortunate event. The footprints had completely vanished partway along — an eerie, irreversible disappearance."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "とちゅうできえていた。",
-    "trans": "They vanished partway along.",
+    "hira": "とちゅうできえてしまっていた。",
+    "trans": "They had vanished partway along.",
     "_scene_break": true
   },
   {
@@ -1990,9 +2025,10 @@ var sentences = [
         "m": "to be located, to be situated"
       },
       {
-        "w": "はず",
+        "g": "はず",
         "r": "はず",
-        "m": "should be, expected to be"
+        "m": "should be, expected to be",
+        "x": "はずです (Minna II L46) — expressing expectation or certainty. 位置するはず — \"should be located,\" the speaker expects this to be the case based on the grandmother's notebook."
       },
       {
         "p": "。"
@@ -2334,15 +2370,21 @@ var sentences = [
         "m": "topic marker"
       },
       {
-        "w": "提案する",
-        "r": "ていあんする",
-        "m": "to suggest, propose"
+        "w": "提案",
+        "r": "ていあん",
+        "m": "suggestion, proposal"
+      },
+      {
+        "g": "するものだ",
+        "r": "するものだ",
+        "m": "would normally do",
+        "x": "～ものだ (Intermediate L5) — expressing what is natural/expected. いつもの武は提案するものだ — 'The usual Takeshi would make a suggestion,' describing his normal, expected behavior."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "いつものたけしはていあんする。",
+    "hira": "いつものたけしはていあんするものだ。",
     "trans": "The usual Takeshi would make a suggestion."
   },
   {
@@ -2443,21 +2485,17 @@ var sentences = [
         "m": "order, command"
       },
       {
-        "w": "に",
-        "r": "に",
-        "m": "dative particle"
-      },
-      {
-        "w": "近かった",
-        "r": "ちかかった",
-        "m": "was close to, resembled"
+        "g": "のようだった",
+        "r": "のようだった",
+        "m": "it was like ~",
+        "x": "～のようだ (Intermediate L3) — comparison/simile. 命令のようだった — 'it was like an order,' comparing the tone to a command."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "めいれいにちかかった。",
-    "trans": "It was close to an order.",
+    "hira": "めいれいのようだった。",
+    "trans": "It was like an order.",
     "_scene_break": true
   },
   {
@@ -2928,6 +2966,12 @@ var sentences = [
         "core": true
       },
       {
+        "g": "ような",
+        "r": "ような",
+        "m": "like ~, similar to ~",
+        "x": "～ような (Intermediate L3) — modifying noun with comparison. 同じような光景 — 'a scene similar to (yesterday's),' softening the assertion with a simile."
+      },
+      {
         "w": "光景",
         "r": "こうけい",
         "m": "scene, view"
@@ -2941,8 +2985,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "きのうとおなじこうけいだった。",
-    "trans": "It was the same scene as yesterday."
+    "hira": "きのうとおなじようなこうけいだった。",
+    "trans": "It was a scene similar to yesterday's."
   },
   {
     "parts": [
@@ -3050,9 +3094,10 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "迷わず",
+        "g": "迷わず",
         "r": "まよわず",
-        "m": "without hesitating"
+        "m": "without hesitating",
+        "x": "～ずに (Intermediate L10) — doing something without V-ing. 迷わず — 'without hesitating,' she advanced without any indecision."
       },
       {
         "w": "北",
@@ -3179,10 +3224,9 @@ var sentences = [
         "m": "(subject marker)"
       },
       {
-        "g": "終わった",
+        "w": "終わった",
         "r": "おわった",
-        "m": "ended",
-        "x": "Vマス始める・Vマス終わる (Intermediate L1) — start to V / finish V-ing. Here in: 「地蔵の列が終わった場所に、空き地があった。」 (At the spot where the row of Jizo statues ended, there was a...)"
+        "m": "ended"
       },
       {
         "w": "場所",
@@ -3886,16 +3930,17 @@ var sentences = [
         "m": "(subject marker)"
       },
       {
-        "w": "悪かった",
-        "r": "わるかった",
-        "m": "was bad, was poor"
+        "g": "悪くなっていた",
+        "r": "わるくなっていた",
+        "m": "had become bad/pale",
+        "x": "～ていく (Intermediate L4) — gradual change. 顔色が悪くなっていた — 'her complexion had been growing pale,' indicating a progressive worsening."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "まおのかおいろがわるかった。",
-    "trans": "Mao's face had gone pale."
+    "hira": "まおのかおいろがわるくなっていた。",
+    "trans": "Mao's face had been growing pale."
   },
   {
     "parts": [
@@ -4164,16 +4209,17 @@ var sentences = [
         "m": "(subject marker)"
       },
       {
-        "w": "変わった",
-        "r": "かわった",
-        "m": "changed"
+        "g": "変わってしまった",
+        "r": "かわってしまった",
+        "m": "changed (suddenly/regrettably)",
+        "x": "～てしまう (Minna II L29) — expressing an involuntary or regrettable change. Sakura's expression changed suddenly — an unintended, noticeable shift."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "さくらのかおがかわった。",
-    "trans": "Sakura's expression changed.",
+    "hira": "さくらのかおがかわってしまった。",
+    "trans": "Sakura's expression changed suddenly.",
     "_scene_break": true
   },
   {
@@ -4947,17 +4993,7 @@ var sentences = [
       {
         "w": "観光客",
         "r": "かんこうきゃく",
-        "m": "tourist"
-      },
-      {
-        "w": "の",
-        "r": "の",
-        "m": "possessive marker"
-      },
-      {
-        "w": "姿",
-        "r": "すがた",
-        "m": "figure, form, presence"
+        "m": "tourist, sightseer"
       },
       {
         "w": "は",
@@ -4965,16 +5001,28 @@ var sentences = [
         "m": "topic marker"
       },
       {
-        "w": "なかった",
-        "r": "なかった",
-        "m": "was not"
+        "w": "一人",
+        "r": "ひとり",
+        "m": "one person",
+        "core": true
+      },
+      {
+        "w": "も",
+        "r": "も",
+        "m": "even, (not) a single"
+      },
+      {
+        "g": "見えなかった",
+        "r": "みえなかった",
+        "m": "could not be seen",
+        "x": "～見える (Minna II L27) — potential/spontaneous visibility. 一人も見えなかった — 'not a single person could be seen,' expressing the absence through the inability to perceive."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "かんこうきゃくのすがたはなかった。",
-    "trans": "There were no tourists in sight."
+    "hira": "かんこうきゃくはひとりもみえなかった。",
+    "trans": "Not a single tourist could be seen."
   },
   {
     "parts": [
@@ -4991,9 +5039,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "から",
-        "r": "から",
-        "m": "because, since"
+        "g": "ため",
+        "r": "ため",
+        "m": "because of",
+        "x": "～ため (Intermediate L6) — reason/cause. 朝早いためか — 'perhaps because it was early morning,' presenting a possible reason with uncertainty."
       },
       {
         "w": "か",
@@ -5015,7 +5064,7 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "あさはやいからか、それとも——。",
+    "hira": "あさはやいためか、それとも——。",
     "trans": "Was it because it was early morning, or was it——.",
     "_scene_break": true
   },
@@ -5764,15 +5813,16 @@ var sentences = [
         "m": "subject marker"
       },
       {
-        "w": "曇った",
-        "r": "くもった",
-        "m": "clouded over, darkened"
+        "g": "曇ってしまった",
+        "r": "くもってしまった",
+        "m": "clouded over (regrettably)",
+        "x": "～てしまう (Minna II L29) — expressing an involuntary or regrettable change. The monk's expression darkened — an involuntary, visible reaction."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "そうりょのかおがくもった。",
+    "hira": "そうりょのかおがくもってしまった。",
     "trans": "The monk's expression darkened.",
     "_scene_break": true
   },
@@ -6233,9 +6283,10 @@ var sentences = [
         "m": "was quiet"
       },
       {
-        "w": "が",
-        "r": "が",
-        "m": "but"
+        "g": "といっても",
+        "r": "といっても",
+        "m": "even though, having said that",
+        "x": "～といっても (Intermediate L7) — concessive. 静かだったといっても — 'even though it was quiet,' acknowledging the quietness while emphasizing the clarity."
       },
       {
         "p": "、"
@@ -6249,8 +6300,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "たけしのこえはしずかだったが、はっきりしていた。",
-    "trans": "Takeshi's voice was quiet, but clear."
+    "hira": "たけしのこえはしずかだったといっても、はっきりしていた。",
+    "trans": "Even though Takeshi's voice was quiet, it was clear."
   },
   {
     "parts": [
@@ -6690,10 +6741,9 @@ var sentences = [
         "m": "object marker"
       },
       {
-        "g": "読んだ",
+        "w": "読んだ",
         "r": "よんだ",
-        "m": "read",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「「ただ、去年、民俗学の学会で東北の境界信仰についての発表概要を読んだことがあって...」 (It's just that last year, at a folklore conference, I happen...)"
+        "m": "read (past)"
       },
       {
         "w": "こと",
@@ -7082,12 +7132,13 @@ var sentences = [
       {
         "w": "おかしく",
         "r": "おかしく",
-        "m": "strange"
+        "m": "strangely"
       },
       {
-        "w": "なって",
-        "r": "なって",
-        "m": "became (te-form)"
+        "g": "なっていって",
+        "r": "なっていって",
+        "m": "gradually became",
+        "x": "～ていく (Intermediate L4) — progressive change. だんだんおかしくなっていって — 'gradually became stranger,' showing the change progressing over time."
       },
       {
         "p": "。"
@@ -7096,8 +7147,8 @@ var sentences = [
         "p": "」"
       }
     ],
-    "hira": "「でも、だんだんようすがおかしくなって。」",
-    "trans": "But gradually her behavior became strange."
+    "hira": "「でも、だんだんようすがおかしくなっていって。」",
+    "trans": "But gradually her behavior became stranger and stranger."
   },
   {
     "parts": [
@@ -7180,24 +7231,15 @@ var sentences = [
         "p": "「"
       },
       {
-        "w": "注意した",
-        "r": "ちゅういした",
-        "m": "warned, cautioned"
+        "w": "注意",
+        "r": "ちゅうい",
+        "m": "caution, warning"
       },
       {
-        "w": "ん",
-        "r": "ん",
-        "m": "explanatory particle (spoken)"
-      },
-      {
-        "w": "です",
-        "r": "です",
-        "m": "is (polite copula)"
-      },
-      {
-        "w": "が",
-        "r": "が",
-        "m": "but"
+        "g": "しようとしても",
+        "r": "しようとしても",
+        "m": "even though (I) tried to",
+        "x": "～ようとしても (Intermediate L2) — even when trying to V. 注意しようとしても — 'even though I tried to warn her,' expressing attempted but futile effort."
       },
       {
         "p": "、"
@@ -7205,7 +7247,8 @@ var sentences = [
       {
         "w": "聞かなかった",
         "r": "きかなかった",
-        "m": "did not listen"
+        "m": "wouldn't listen",
+        "core": true
       },
       {
         "p": "。"
@@ -7214,8 +7257,8 @@ var sentences = [
         "p": "」"
       }
     ],
-    "hira": "「ちゅういしたんですが、きかなかった。」",
-    "trans": "I warned her, but she wouldn't listen.",
+    "hira": "ちゅういしようとしても、きかなかった。",
+    "trans": "Even though I tried to warn her, she wouldn't listen.",
     "_scene_break": true
   },
   {
@@ -7641,20 +7684,10 @@ var sentences = [
         "m": "present/plain form"
       },
       {
-        "w": "こと",
-        "r": "こと",
-        "m": "fact, thing (nominalizer)"
-      },
-      {
-        "w": "が",
-        "r": "が",
-        "m": "subject marker"
-      },
-      {
-        "w": "ある",
-        "r": "ある",
-        "m": "there is, sometimes happens",
-        "core": true
+        "g": "ことがある",
+        "r": "ことがある",
+        "m": "sometimes happens",
+        "x": "～ことがある (Intermediate L8) — expressing that something occasionally happens. 泊めることがある — 'sometimes takes in travelers.'"
       },
       {
         "p": "。"
@@ -7933,9 +7966,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "な",
+        "g": "な",
         "r": "な",
-        "m": "prohibition (な imperative)"
+        "m": "don't! (prohibition)",
+        "x": "～な (Tobira L1-2) — plain negative command/prohibition. 触るな — 'don't touch!' — a direct prohibition."
       },
       {
         "w": "と",
@@ -7943,29 +7977,10 @@ var sentences = [
         "m": "quotation particle"
       },
       {
-        "w": "言わ",
-        "r": "いわ",
-        "m": "said (passive stem)"
-      },
-      {
-        "w": "れ",
-        "r": "れ",
-        "m": "passive form"
-      },
-      {
-        "w": "て",
-        "r": "て",
-        "m": "te-form connector"
-      },
-      {
-        "w": "い",
-        "r": "い",
-        "m": "ongoing state"
-      },
-      {
-        "w": "た",
-        "r": "た",
-        "m": "past tense"
+        "g": "言われていた",
+        "r": "いわれていた",
+        "m": "had been said/told",
+        "x": "～と言われている (Minna II L33) — passive of reported speech, expressing what has long been said. 触るなと言われていた — 'it had been said not to touch (that place).'"
       },
       {
         "w": "場所",
@@ -8798,10 +8813,9 @@ var sentences = [
         "m": "adverbial particle"
       },
       {
-        "g": "つい",
+        "w": "つい",
         "r": "つい",
-        "m": "just, simply (emphasis)",
-        "x": "ついVテしまう (Intermediate L3) — carelessly/unconsciously V (with regret). Here in: 「いつもの武は静かについてくる。」 (The usual Takeshi just followed along quietly.)"
+        "m": "to attach, to stick (stem of 付く)"
       },
       {
         "w": "て",
@@ -8809,16 +8823,17 @@ var sentences = [
         "m": "te-form connector"
       },
       {
-        "w": "くる",
-        "r": "くる",
-        "m": "to come, follow (along)"
+        "g": "くるものだ",
+        "r": "くるものだ",
+        "m": "would normally come/follow",
+        "x": "～ものだ (Intermediate L5) — expressing what is natural/expected. ついてくるものだ — 'would normally follow along,' describing Takeshi's expected, habitual behavior."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "いつものたけしはしずかについてくる。",
-    "trans": "The usual Takeshi just followed along quietly."
+    "hira": "いつものたけしはしずかについてくるものだ。",
+    "trans": "The usual Takeshi would just follow along quietly."
   },
   {
     "parts": [
@@ -9055,19 +9070,10 @@ var sentences = [
         "m": "captain, squad leader"
       },
       {
-        "w": "の",
-        "r": "の",
-        "m": "possessive particle"
-      },
-      {
-        "w": "よう",
-        "r": "よう",
-        "m": "like, as if"
-      },
-      {
-        "w": "に",
-        "r": "に",
-        "m": "adverbial particle"
+        "g": "のように",
+        "r": "のように",
+        "m": "like ~",
+        "x": "～のように (Intermediate L3) — comparison. 隊長のように — 'like a captain,' comparing Takeshi's walking style to that of a squad leader."
       },
       {
         "w": "歩い",
@@ -9184,14 +9190,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "よう",
-        "r": "よう",
-        "m": "as if, in order to"
-      },
-      {
-        "w": "に",
-        "r": "に",
-        "m": "adverbial particle"
+        "g": "ように",
+        "r": "ように",
+        "m": "as if ~, so that ~",
+        "x": "～ように (Minna II L36) — purpose/manner. 感じるように目を閉じた — 'closed her eyes as if to feel (the air),' expressing the manner of the action."
       },
       {
         "w": "目",
@@ -9699,29 +9701,10 @@ var sentences = [
         "m": "into, to (direction of change)"
       },
       {
-        "w": "変わっ",
-        "r": "かわっ",
-        "m": "changed"
-      },
-      {
-        "w": "て",
-        "r": "て",
-        "m": "te-form connector"
-      },
-      {
-        "w": "い",
-        "r": "い",
-        "m": "ongoing state"
-      },
-      {
-        "w": "っ",
-        "r": "っ",
-        "m": "contracted form"
-      },
-      {
-        "w": "た",
-        "r": "た",
-        "m": "past tense"
+        "g": "変わっていった",
+        "r": "かわっていった",
+        "m": "gradually changed",
+        "x": "～ていく (Intermediate L4) — gradual change moving away from the present. The volcanic terrain gradually transitioned into an ordinary mountain trail."
       },
       {
         "p": "。"
@@ -10668,19 +10651,10 @@ var sentences = [
         "m": "shield"
       },
       {
-        "w": "の",
-        "r": "の",
-        "m": "possessive particle"
-      },
-      {
-        "w": "よう",
-        "r": "よう",
-        "m": "like, as if"
-      },
-      {
-        "w": "に",
-        "r": "に",
-        "m": "manner particle"
+        "g": "のように",
+        "r": "のように",
+        "m": "like ~",
+        "x": "～のように (Intermediate L3) — simile. 盾のように — 'like a shield,' describing the manner of protection."
       },
       {
         "p": "。"
@@ -11109,9 +11083,15 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "疑っている",
-        "r": "うたがっている",
-        "m": "is doubting, is suspicious"
+        "w": "疑う",
+        "r": "うたがう",
+        "m": "to doubt, suspect"
+      },
+      {
+        "g": "ような",
+        "r": "ような",
+        "m": "like ~, as if ~",
+        "x": "～ような (Intermediate L3) — modifying a noun with simile. 疑うような目 — 'eyes as if doubting,' describing the quality of the gaze."
       },
       {
         "w": "目",
@@ -11128,8 +11108,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "うたがっているめだった。",
-    "trans": "It was a suspicious look."
+    "hira": "うたがうようなめだった。",
+    "trans": "It was a look as if doubting."
   },
   {
     "parts": [
@@ -11142,9 +11122,15 @@ var sentences = [
         "p": "、"
       },
       {
-        "w": "怖がっている",
-        "r": "こわがっている",
-        "m": "is afraid, is scared"
+        "w": "怖がる",
+        "r": "こわがる",
+        "m": "to be afraid"
+      },
+      {
+        "g": "ような",
+        "r": "ような",
+        "m": "like ~, as if ~",
+        "x": "～ような (Intermediate L3) — modifying a noun with simile. 怖がるような目 — 'eyes as if frightened,' describing the quality of the gaze."
       },
       {
         "w": "目",
@@ -11166,8 +11152,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "でも、こわがっているめでもあった。",
-    "trans": "But it was also a frightened look.",
+    "hira": "でも、こわがるようなめでもあった。",
+    "trans": "But it was also a look as if frightened.",
     "_scene_break": true
   },
   {
@@ -12862,21 +12848,17 @@ var sentences = [
         "m": "subject particle"
       },
       {
-        "w": "混じって",
-        "r": "まじって",
-        "m": "were mixed together (te-form of 混じる)"
-      },
-      {
-        "w": "いた",
-        "r": "いた",
-        "m": "was (past progressive auxiliary)"
+        "g": "混じっているようだった",
+        "r": "まじっているようだった",
+        "m": "seemed to be mixed",
+        "x": "～ようだった (Intermediate L3) — expressing appearance/conjecture. 混じっているようだった — 'seemed to be mixed together,' the speaker's observation about the emotions present."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "おどろきと、あんどがまじっていた。",
-    "trans": "Surprise and relief were mixed together.",
+    "hira": "おどろきと、あんどがまじっているようだった。",
+    "trans": "Surprise and relief seemed to be mixed together.",
     "_scene_break": true
   },
   {
@@ -13021,15 +13003,16 @@ var sentences = [
         "m": "quotative particle (casual form of と)"
       },
       {
-        "w": "言われて",
-        "r": "いわれて",
-        "m": "was told, was said to (te-form passive of 言う)"
+        "g": "言われてしまって",
+        "r": "いわれてしまって",
+        "m": "was told (unfortunately)",
+        "x": "～てしまう (Minna II L29) — expressing regret about a completed action. 言われてしまって — 'was told (and it was discouraging),' the passive criticism felt like an irreversible blow."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "きょうじゅにろんぶんのはなしをしたら、「みんぞくがくてきにこんきょがない」っていわれて。",
+    "hira": "きょうじゅにろんぶんのはなしをしたら、「みんぞくがくてきにこんきょがない」っていわれてしまって。",
     "trans": "When I told my professor about the thesis, I was told 'There's no folkloristic basis for it.'",
     "_scene_break": true
   },
@@ -13353,14 +13336,10 @@ var sentences = [
         "m": "explanatory particle"
       },
       {
-        "w": "かも",
-        "r": "かも",
-        "m": "maybe, might be (casual abbreviation of かもしれない)"
-      },
-      {
-        "w": "しれない",
-        "r": "しれない",
-        "m": "might, perhaps (negative potential of 知れる, expressing conjecture)"
+        "g": "かもしれない",
+        "r": "かもしれない",
+        "m": "might, perhaps",
+        "x": "～かもしれない (Minna II L32) — expressing possibility/uncertainty. Rumi's university stories may have reminded Takeshi of his own — the speaker speculates."
       },
       {
         "p": "。"
@@ -13964,15 +13943,10 @@ var sentences = [
         "m": "to bring back, take home"
       },
       {
-        "w": "つもり",
-        "r": "つもり",
-        "m": "intending to, planning to",
-        "core": true
-      },
-      {
-        "w": "だった",
-        "r": "だった",
-        "m": "was (past copula)"
+        "g": "つもりだった",
+        "r": "つもりだった",
+        "m": "had intended to",
+        "x": "～つもりだった (Minna II L31) — past intention that may not have been fulfilled. She had intended to take the stone back as a historical artifact."
       },
       {
         "p": "。"
@@ -14606,14 +14580,10 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "怖く",
-        "r": "こわく",
-        "m": "frightening, scared (adverbial form)"
-      },
-      {
-        "w": "なって",
-        "r": "なって",
-        "m": "連用中止 (て-form as connective)"
+        "g": "怖くなってしまって",
+        "r": "こわくなってしまって",
+        "m": "got scared (couldn't help it)",
+        "x": "～てしまう (Minna II L29) — expressing an involuntary emotional change. 怖くなってしまって — 'I got scared (and couldn't help it),' the fear was beyond the speaker's control."
       },
       {
         "p": "、"
@@ -14663,7 +14633,7 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "こわくなって、いしをもってやまをおりた。",
+    "hira": "こわくなってしまって、いしをもってやまをおりた。",
     "trans": "I got scared, grabbed the stone, and came down the mountain.",
     "speaker": "留美"
   },
@@ -14678,10 +14648,9 @@ var sentences = [
         "p": "——"
       },
       {
-        "g": "つい",
+        "w": "つい",
         "r": "つい",
-        "m": "just, close by",
-        "x": "ついVテしまう (Intermediate L3) — carelessly/unconsciously V (with regret). Here in: 「でも——ついてくるの。」 (But — it follows me.)"
+        "m": "to attach, to stick (stem of 付く)"
       },
       {
         "w": "て",
@@ -14761,10 +14730,9 @@ var sentences = [
         "m": "subject particle"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to feel, sense (連用中止)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「ずっと後ろにいる感じがして。」 (I kept feeling like something was right behind me.)"
+        "m": "to feel, sense (連用中止)"
       },
       {
         "w": "て",
@@ -14782,10 +14750,9 @@ var sentences = [
   {
     "parts": [
       {
-        "g": "つい",
+        "w": "つい",
         "r": "つい",
-        "m": "following",
-        "x": "ついVテしまう (Intermediate L3) — carelessly/unconsciously V (with regret). Here in: 「ついてくるって——」 (Follow you — ?)"
+        "m": "to attach, to stick (stem of 付く)"
       },
       {
         "w": "て",
@@ -15074,10 +15041,9 @@ var sentences = [
         "m": "quotation/attempt particle"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to try (連用中止)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「大学に戻ろうとしたけど、電車のホームで——なんて言えばいいんだろう——空気が引っ...」 (I tried to go back to university, but at the train platform ...)"
+        "m": "to try (連用中止)"
       },
       {
         "w": "たけど",
@@ -15307,24 +15273,10 @@ var sentences = [
         "m": "direction particle"
       },
       {
-        "w": "逃げ",
-        "r": "にげ",
-        "m": "to flee, escape"
-      },
-      {
-        "w": "て",
-        "r": "て",
-        "m": "te-form (connective)"
-      },
-      {
-        "w": "き",
-        "r": "き",
-        "m": "to come (motion toward)"
-      },
-      {
-        "w": "た",
-        "r": "た",
-        "m": "past tense"
+        "g": "逃げてきた",
+        "r": "にげてきた",
+        "m": "fled (toward here)",
+        "x": "～てくる (Intermediate L10) — motion toward the speaker/current location. 逃げてきた — 'fled here,' indicating movement toward the current place."
       },
       {
         "p": "。"
@@ -15717,10 +15669,9 @@ var sentences = [
         "m": "warning, caution"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do (連用中止)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「境界の番人——石を守る霊が、石を元の場所に戻せと警告していたんだわ。」 (The guardian of the boundary — the spirit protecting the sto...)"
+        "m": "to do (連用中止)"
       },
       {
         "w": "ていたんだわ",
@@ -16411,19 +16362,10 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "重そう",
-        "r": "おもそう",
-        "m": "looks heavy (そう = appears to be)"
-      },
-      {
-        "w": "だっ",
-        "r": "だっ",
-        "m": "copula (past)"
-      },
-      {
-        "w": "た",
-        "r": "た",
-        "m": "past tense"
+        "g": "重そうだった",
+        "r": "おもそうだった",
+        "m": "looked heavy",
+        "x": "～そうだ (Minna II L43) — appearance/conjecture based on observation. 重そうだった — 'it looked heavy,' judging by appearance."
       },
       {
         "p": "。"
@@ -17181,10 +17123,9 @@ var sentences = [
         "m": "object marker particle"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "made (連用中止 form of する)",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「留美が驚いた顔をした。」 (Rumi made a surprised face.)"
+        "m": "made (連用中止 form of する)"
       },
       {
         "w": "た",
@@ -17269,14 +17210,10 @@ var sentences = [
         "m": "to identify, to pinpoint"
       },
       {
-        "w": "の",
-        "r": "の",
-        "m": "nominalizer"
-      },
-      {
-        "w": "に",
-        "r": "に",
-        "m": "in order to, for (purpose particle)"
+        "g": "のに",
+        "r": "のに",
+        "m": "for ~, in order to ~",
+        "x": "～のに (Minna II L42) — expressing the effort/time needed. 特定するのに三週間かかった — 'it took three weeks to identify,' のに marks what the time was spent on."
       },
       {
         "w": "三",
@@ -17290,14 +17227,9 @@ var sentences = [
         "m": "weeks"
       },
       {
-        "w": "かかっ",
-        "r": "かかっ",
-        "m": "it took (stem of かかる)"
-      },
-      {
-        "w": "た",
-        "r": "た",
-        "m": "past tense"
+        "w": "かかった",
+        "r": "かかった",
+        "m": "it took (time/cost)"
       },
       {
         "w": "の",
@@ -17408,14 +17340,10 @@ var sentences = [
         "m": "object marker particle"
       },
       {
-        "w": "見せ",
-        "r": "みせ",
-        "m": "shown (stem of 見せる, causative/passive usage here)"
-      },
-      {
-        "w": "〜られてた",
-        "r": "られてた",
-        "m": "causative-passive (te-ita)"
+        "g": "見せられてた",
+        "r": "みせられてた",
+        "m": "was made to look at (colloquial)",
+        "x": "使役受身 (Intermediate L9) — causative-passive. 見せられてた — 'was shown/made to look at,' the speaker was compelled by someone else to view ancient manuscripts since childhood."
       },
       {
         "w": "から",
@@ -18825,14 +18753,10 @@ var sentences = [
         "m": "subject marker particle"
       },
       {
-        "w": "欠けれ",
-        "r": "かけれ",
-        "m": "if (they) are lacking (conditional ば-form of 欠ける)"
-      },
-      {
-        "w": "ば",
-        "r": "ば",
-        "m": "if (conditional particle)"
+        "g": "欠ければ",
+        "r": "かければ",
+        "m": "if (they) are missing",
+        "x": "～ば (Minna II L35) — conditional form. 五つが欠ければ — 'if five are missing,' setting up a hypothetical condition."
       },
       {
         "p": "？"
@@ -19291,10 +19215,9 @@ var sentences = [
         "m": "object marker"
       },
       {
-        "g": "確認し",
+        "w": "確認し",
         "r": "かくにんし",
-        "m": "confirm (連用中止)",
-        "x": "連用中止 (Intermediate L5) — Conjunctive stem — connects clauses in formal/written style. Here in: 「『石を散らしたるものは、石を調べ、文献を確認し、場所を特定した上で——元の座に戻...」 ('One who has scattered the stones must investigate the stone...)"
+        "m": "confirm (stem of 確認する)"
       },
       {
         "p": "、"
@@ -20790,9 +20713,10 @@ var sentences = [
         "m": "to break, destroy"
       },
       {
-        "w": "わけ",
+        "g": "わけ",
         "r": "わけ",
-        "m": "reason, meaning"
+        "m": "it's not that ~ (partial negation)",
+        "x": "～わけではない (Intermediate L8) — partial negation. 壊すわけじゃない — \"it's not that we're destroying it,\" clarifying that destruction is not the intent."
       },
       {
         "w": "じゃ",
@@ -20819,10 +20743,10 @@ var sentences = [
         "m": "to return, restore"
       },
       {
-        "g": "ため",
+        "w": "ため",
         "r": "ため",
         "m": "in order to, for the purpose of",
-        "x": "〜ため（に） (Intermediate L6) — because of ~ / in order to ~. Here in: 「戻すためため（に）に持っていく。」 (We're taking it in order to return it.)"
+        "core": true
       },
       {
         "g": "ため（に）",
@@ -20902,19 +20826,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "の",
-        "r": "の",
-        "m": "possessive"
-      },
-      {
-        "w": "よう",
-        "r": "よう",
-        "m": "like, such as"
-      },
-      {
-        "w": "に",
-        "r": "に",
-        "m": "adverbial particle"
+        "g": "のように",
+        "r": "のように",
+        "m": "like ~, as usual",
+        "x": "～のように (Intermediate L3) — comparison. いつものように — 'as usual, like always,' comparing to habitual behavior."
       },
       {
         "p": "「"
@@ -21140,9 +21055,10 @@ var sentences = [
         "m": "object marker"
       },
       {
-        "w": "照らし合わせれば",
+        "g": "照らし合わせれば",
         "r": "てらしあわせれば",
-        "m": "if we cross-reference"
+        "m": "if we cross-reference",
+        "x": "～ば (Minna II L35) — conditional form. 照らし合わせれば — 'if we cross-reference,' expressing the condition needed to find the words."
       },
       {
         "p": "、"
@@ -21431,14 +21347,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "かも",
-        "r": "かも",
-        "m": "might"
-      },
-      {
-        "w": "しれない",
-        "r": "しれない",
-        "m": "might (possibility)"
+        "g": "かもしれない",
+        "r": "かもしれない",
+        "m": "might, perhaps",
+        "x": "～かもしれない (Minna II L32) — expressing possibility. 'Things might get even worse' — uncertain but worrying outcome."
       },
       {
         "p": "。"
@@ -21901,10 +21813,9 @@ var sentences = [
         "m": "subject marker"
       },
       {
-        "g": "浮かんだ",
+        "w": "浮かんだ",
         "r": "うかんだ",
-        "m": "welled up, appeared",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「留美の目に涙が浮かんだ。」 (Tears welled up in Rumi's eyes.)"
+        "m": "welled up, appeared"
       },
       {
         "p": "。"
@@ -22275,9 +22186,10 @@ var sentences = [
         "m": "progressive (contraction of いる)"
       },
       {
-        "w": "はず",
+        "g": "はず",
         "r": "はず",
-        "m": "should (expectation)"
+        "m": "should, expected to (certainty)",
+        "x": "はずです (Minna II L46) — expressing certainty. 間違ってるはずないわ — \"there's no way she's wrong,\" expressing the speaker's strong conviction."
       },
       {
         "w": "ない",
@@ -23421,10 +23333,9 @@ var sentences = [
         "m": "subject marker"
       },
       {
-        "g": "終わった",
+        "w": "終わった",
         "r": "おわった",
-        "m": "finished",
-        "x": "Vマス始める・Vマス終わる (Intermediate L1) — start to V / finish V-ing. Here in: 「撮影が終わった後、留美が言った。」 (After the photography was done, Rumi spoke.)"
+        "m": "finished"
       },
       {
         "w": "後",
@@ -24276,10 +24187,9 @@ var sentences = [
         "m": "object marker"
       },
       {
-        "g": "つぐんだ",
+        "w": "つぐんだ",
         "r": "つぐんだ",
-        "m": "closed, clamped shut",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「蓮は口をつぐんだ。」 (Ren shut his mouth.)"
+        "m": "shut, clamped shut (past of つぐむ)"
       },
       {
         "p": "。"
@@ -25032,10 +24942,10 @@ var sentences = [
         "x": "子供たちのための expresses purpose/beneficiary — the pinwheels exist 'for the sake of the children.' This is the beneficiary meaning of ため, not cause/reason."
       },
       {
-        "g": "ため",
+        "w": "ため",
         "r": "ため",
         "m": "for, sake",
-        "x": "〜ため（に） (Intermediate L6) — because of ~ / in order to ~. Here in: 「子供たちのため（に）ための風車が、午後の風に回っていた。」 (Pinwheels placed for the children were spinning in the after...)"
+        "core": true
       },
       {
         "w": "の",
@@ -25244,14 +25154,10 @@ var sentences = [
         "m": "heavier (adverbial form)"
       },
       {
-        "w": "なって",
-        "r": "なって",
-        "m": "becoming"
-      },
-      {
-        "w": "いく",
-        "r": "いく",
-        "m": "going (progressive change)"
+        "g": "なっていく",
+        "r": "なっていく",
+        "m": "gradually becoming",
+        "x": "～ていく (Intermediate L4) — gradual change progressing forward. 重くなっていく — 'growing heavier,' describing a progressive change felt with each step."
       },
       {
         "w": "よう",

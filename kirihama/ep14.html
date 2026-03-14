@@ -384,10 +384,9 @@ var sentences = [
         "m": "check"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「ダイビングのインストラクターが機材をチェックしていた。」 (A diving instructor was checking his equipment.)"
+        "m": "to do"
       },
       {
         "w": "て",
@@ -647,10 +646,9 @@ var sentences = [
         "core": true
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「インストラクターはBCDのバルブを確認した。」 (The instructor checked the BCD valve.)"
+        "m": "to do"
       },
       {
         "w": "た",
@@ -808,10 +806,9 @@ var sentences = [
         "m": "blink"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「インストラクターは瞬きした。」 (The instructor blinked.)"
+        "m": "to do"
       },
       {
         "w": "た",
@@ -1551,6 +1548,28 @@ var sentences = [
   {
     "parts": [
       {
+        "w": "何",
+        "r": "なに",
+        "m": "anything",
+        "core": true
+      },
+      {
+        "w": "も",
+        "r": "も",
+        "m": "nothing (with negative context)"
+      },
+      {
+        "w": "言わ",
+        "r": "いわ",
+        "m": "to say"
+      },
+      {
+        "g": "ずに",
+        "r": "ずに",
+        "m": "without doing ~",
+        "x": "Vない stem + ずに (Intermediate L10) — without doing."
+      },
+      {
         "w": "予約",
         "r": "よやく",
         "m": "reservation, booking"
@@ -1566,10 +1585,9 @@ var sentences = [
         "m": "cancellation, cancel"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「予約をキャンセルした。」 (He cancelled the reservation.)"
+        "m": "to do"
       },
       {
         "w": "た",
@@ -1580,8 +1598,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "よやくをキャンセルした。",
-    "trans": "He cancelled the reservation.",
+    "hira": "なにもいわずによやくをキャンセルした。",
+    "trans": "He cancelled the reservation without saying anything.",
     "_scene_break": true
   },
   {
@@ -2080,9 +2098,15 @@ var sentences = [
         "core": true
       },
       {
-        "w": "暖かさ",
-        "r": "あたたかさ",
-        "m": "warmth"
+        "w": "暖か",
+        "r": "あたたか",
+        "m": "warm"
+      },
+      {
+        "g": "Aさ",
+        "r": "さ",
+        "m": "noun-forming suffix (degree of ~)",
+        "x": "い-adj stem + さ (Intermediate L5). 「霧浜とは違う暖かさ。」"
       },
       {
         "p": "。"
@@ -2520,10 +2544,9 @@ var sentences = [
         "m": "printing, print"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「事前に印刷してきたもの。」 (Something she had printed in advance.)"
+        "m": "to do"
       },
       {
         "w": "て",
@@ -2772,21 +2795,15 @@ var sentences = [
         "m": "reservation, booking"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「レンタカーを予約してある。」 (I've already booked a rental car.)"
+        "m": "to do"
       },
       {
-        "w": "て",
-        "r": "て",
-        "m": "te-form connector"
-      },
-      {
-        "w": "ある",
-        "r": "ある",
-        "m": "to exist (result state)",
-        "core": true
+        "g": "てある",
+        "r": "てある",
+        "m": "state resulting from deliberate action",
+        "x": "Vてある (Minna II L30 / Intermediate L2) — indicates a state resulting from a deliberate prior action."
       },
       {
         "p": "。"
@@ -2826,6 +2843,17 @@ var sentences = [
         "m": "businesslike, matter-of-fact"
       },
       {
+        "w": "な",
+        "r": "な",
+        "m": "na-adjective connector"
+      },
+      {
+        "g": "まま",
+        "r": "まま",
+        "m": "as it is, remaining in a state",
+        "x": "な-adj + なまま (Intermediate L6) — unchanged state."
+      },
+      {
         "w": "だっ",
         "r": "だっ",
         "m": "was (copula past)"
@@ -2839,8 +2867,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "さくらのこえはじむてきだった。",
-    "trans": "Sakura's voice was businesslike."
+    "hira": "さくらのこえはじむてきなままだった。",
+    "trans": "Sakura’s voice remained businesslike."
   },
   {
     "parts": [
@@ -3640,16 +3668,6 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "普段",
-        "r": "ふだん",
-        "m": "normally, usually"
-      },
-      {
-        "w": "の",
-        "r": "の",
-        "m": "of"
-      },
-      {
         "w": "気楽",
         "r": "きらく",
         "m": "carefree, easygoing"
@@ -3665,19 +3683,10 @@ var sentences = [
         "m": "silence"
       },
       {
-        "w": "で",
-        "r": "で",
-        "m": "copula negative te-form"
-      },
-      {
-        "w": "は",
-        "r": "は",
-        "m": "contrastive topic marker"
-      },
-      {
-        "w": "なかっ",
-        "r": "なかっ",
-        "m": "was not"
+        "g": "というわけではない",
+        "r": "というわけではなかっ",
+        "m": "it is not that ~",
+        "x": "というわけではない (Intermediate L8) — negates an assumption."
       },
       {
         "w": "た",
@@ -3688,8 +3697,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "ふだんのきらくなちんもくではなかった。",
-    "trans": "It wasn't the easy, comfortable silence they usually shared."
+    "hira": "きらくなちんもくというわけではなかった。",
+    "trans": "It was not that it was a comfortable silence."
   },
   {
     "parts": [
@@ -4183,6 +4192,12 @@ var sentences = [
         "m": "to run away, escape"
       },
       {
+        "g": "V続ける",
+        "r": "つづけ",
+        "m": "to continue doing ~",
+        "x": "Verb stem + 続ける (Intermediate L1) — action continues without stopping."
+      },
+      {
         "w": "て",
         "r": "て",
         "m": "te-form connector"
@@ -4197,8 +4212,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "たいせつなひとからにげている。",
-    "trans": "Running away from someone important to them."
+    "hira": "たいせつなひとからにげつづけている。",
+    "trans": "Continuing to run away from someone important."
   },
   {
     "parts": [
@@ -4217,6 +4232,12 @@ var sentences = [
         "w": "認め",
         "r": "みとめ",
         "m": "to acknowledge, admit"
+      },
+      {
+        "g": "てしまう",
+        "r": "てしまっ",
+        "m": "to end up doing ~, regrettably ~",
+        "x": "Vてしまう (Minna II L29) — completion with regret or irreversibility."
       },
       {
         "w": "たら",
@@ -4276,8 +4297,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "それをみとめたら——じぶんのうそもみとめなくてはならない。",
-    "trans": "If he admitted that — he would have to admit his own lies too."
+    "hira": "それをみとめてしまったら——じぶんのうそもみとめなくてはならない。",
+    "trans": "If he ended up admitting that, he would have to admit his own lies too."
   },
   {
     "parts": [
@@ -5027,10 +5048,9 @@ var sentences = [
         "core": true
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「はっきりしていた。」 (It was clear and direct.)"
+        "m": "to do"
       },
       {
         "w": "て",
@@ -5062,9 +5082,10 @@ var sentences = [
         "m": "vague, ambiguous"
       },
       {
-        "w": "さ",
+        "g": "Aさ",
         "r": "さ",
-        "m": "noun-forming suffix"
+        "m": "noun-forming suffix (degree of ~)",
+        "x": "い-adj / な-adj stem + さ (Intermediate L5) — converts an adjective into a noun. 「曖昧さがなかった。」"
       },
       {
         "w": "が",
@@ -5444,14 +5465,16 @@ var sentences = [
         "m": "to slide, slip"
       },
       {
-        "w": "すぎる",
+        "g": "Vすぎる",
         "r": "すぎる",
-        "m": "too much, excessively"
+        "m": "too much, excessively",
+        "x": "Verb stem + すぎる (Minna II L44) — indicates doing something excessively. 「鉛筆だと滑りすぎるかも。」"
       },
       {
-        "w": "かも",
+        "g": "かもしれない",
         "r": "かも",
-        "m": "might, perhaps"
+        "m": "might, perhaps",
+        "x": "かもしれない (Minna II L32) — expresses possibility. Shortened to かも in casual speech."
       },
       {
         "p": "。"
@@ -5494,29 +5517,10 @@ var sentences = [
         "m": "to show"
       },
       {
-        "w": "て",
-        "r": "て",
-        "m": "te-form connector"
-      },
-      {
-        "w": "いただけ",
-        "r": "いただけ",
-        "m": "to receive (humble)"
-      },
-      {
-        "w": "ませ",
-        "r": "ませ",
-        "m": "polite auxiliary"
-      },
-      {
-        "w": "ん",
-        "r": "ん",
-        "m": "negative"
-      },
-      {
-        "w": "か",
-        "r": "か",
-        "m": "question marker"
+        "g": "ていただけませんか",
+        "r": "ていただけませんか",
+        "m": "could you please ~ (humble request)",
+        "x": "Vていただけませんか (Minna II L26) — very polite request form."
       },
       {
         "p": "。"
@@ -5914,10 +5918,9 @@ var sentences = [
         "m": "concentration, focus"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「集中していた。」 (She was focused.)"
+        "m": "to do"
       },
       {
         "w": "て",
@@ -6002,14 +6005,10 @@ var sentences = [
         "core": true
       },
       {
-        "w": "よう",
-        "r": "よう",
-        "m": "like, as if"
-      },
-      {
-        "w": "な",
-        "r": "な",
-        "m": "na-adjective connector"
+        "g": "ような",
+        "r": "ような",
+        "m": "like, as if, resembling",
+        "x": "Verb/Noun + ような (Intermediate L3) — expresses similarity or likeness."
       },
       {
         "w": "目",
@@ -6136,10 +6135,9 @@ var sentences = [
         "core": true
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「このスケッチブックと、この色鉛筆をお願いします。」 (I'll take this sketchbook and these colored pencils, please.)"
+        "m": "to do"
       },
       {
         "w": "ます",
@@ -6585,9 +6583,10 @@ var sentences = [
         "m": "to draw"
       },
       {
-        "w": "れ",
+        "g": "受身",
         "r": "れ",
-        "m": "passive marker"
+        "m": "passive form",
+        "x": "Passive られる (Minna II L37). 「何も描かれていない。」"
       },
       {
         "w": "て",
@@ -6909,14 +6908,10 @@ var sentences = [
         "m": "automation"
       },
       {
-        "w": "さ",
-        "r": "さ",
-        "m": "passive/causative stem"
-      },
-      {
-        "w": "れ",
-        "r": "れ",
-        "m": "passive marker"
+        "g": "受身",
+        "r": "され",
+        "m": "passive form",
+        "x": "Passive される (Minna II L37). 「灯台自体は自動化されていた。」"
       },
       {
         "w": "て",
@@ -6969,9 +6964,13 @@ var sentences = [
         "core": true
       },
       {
-        "w": "が",
-        "r": "が",
-        "m": "but, however"
+        "g": "といっても",
+        "r": "といっても",
+        "m": "even though ~, although ~",
+        "x": "といっても (Intermediate L7) — qualifies a preceding statement."
+      },
+      {
+        "p": "、"
       },
       {
         "w": "手入れ",
@@ -6979,14 +6978,10 @@ var sentences = [
         "m": "maintenance, upkeep"
       },
       {
-        "w": "さ",
-        "r": "さ",
-        "m": "passive/causative stem"
-      },
-      {
-        "w": "れ",
-        "r": "れ",
-        "m": "passive marker"
+        "g": "受身",
+        "r": "され",
+        "m": "passive form",
+        "x": "Passive される (Minna II L37)."
       },
       {
         "w": "て",
@@ -7007,8 +7002,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "ふるいがていれされていた。",
-    "trans": "Old but well-maintained."
+    "hira": "ふるいといっても、ていれされていた。",
+    "trans": "Old, yes, but it had been maintained."
   },
   {
     "parts": [
@@ -7074,14 +7069,10 @@ var sentences = [
         "m": "time marker"
       },
       {
-        "w": "なれ",
-        "r": "なれ",
-        "m": "to become"
-      },
-      {
-        "w": "ば",
-        "r": "ば",
-        "m": "conditional (if)"
+        "g": "ば conditional",
+        "r": "なれば",
+        "m": "if (conditional)",
+        "x": "Verb ば-form (Minna II L35) — conditional."
       },
       {
         "w": "自動的",
@@ -7099,14 +7090,14 @@ var sentences = [
         "m": "to shine, light up"
       },
       {
-        "p": "。"
-      }
-    ],
-    "hira": "よるになればじどうてきにひかる。",
-    "trans": "When night fell, it would light up automatically."
-  },
-  {
-    "parts": [
+        "g": "ため",
+        "r": "ため",
+        "m": "because, in order to",
+        "x": "ため (Intermediate L6) — expresses reason or purpose."
+      },
+      {
+        "p": "、"
+      },
       {
         "w": "人",
         "r": "ひと",
@@ -7133,8 +7124,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "ひとはひつようない。",
-    "trans": "No person was needed."
+    "hira": "よるになればじどうてきにひかるため、ひとはひつようない。",
+    "trans": "Because it lights up automatically at night, no one is needed."
   },
   {
     "parts": [
@@ -7261,38 +7252,28 @@ var sentences = [
         "m": "to crack, shatter"
       },
       {
-        "w": "て",
-        "r": "て",
-        "m": "te-form connector"
-      },
-      {
-        "w": "い",
-        "r": "い",
-        "m": "ongoing state"
-      },
-      {
         "w": "た",
         "r": "た",
         "m": "past tense"
       },
       {
-        "p": "。"
-      }
-    ],
-    "hira": "まどがわれていた。",
-    "trans": "The windows were broken."
-  },
-  {
-    "parts": [
+        "g": "まま",
+        "r": "まま",
+        "m": "as it is, remaining in a state",
+        "x": "Vたまま (Intermediate L6) — remains in completed state."
+      },
+      {
+        "p": "、"
+      },
       {
         "w": "扉",
         "r": "とびら",
         "m": "door"
       },
       {
-        "w": "が",
-        "r": "が",
-        "m": "subject marker"
+        "w": "も",
+        "r": "も",
+        "m": "also, too"
       },
       {
         "w": "錆び",
@@ -7318,8 +7299,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "とびらがさびていた。",
-    "trans": "The door had rusted.",
+    "hira": "まどがわれたまま、とびらもさびていた。",
+    "trans": "The windows remained broken, and the door too had rusted.",
     "_scene_break": true
   },
   {
@@ -7394,14 +7375,10 @@ var sentences = [
         "m": "to write"
       },
       {
-        "w": "て",
-        "r": "て",
-        "m": "te-form connector"
-      },
-      {
-        "w": "あっ",
-        "r": "あっ",
-        "m": "to exist (result state)"
+        "g": "てある",
+        "r": "てあっ",
+        "m": "state resulting from deliberate action (past)",
+        "x": "Vてある (Minna II L30) — state from prior deliberate action. 「おばあさんのノートに書いてあった。」"
       },
       {
         "w": "た",
@@ -7454,19 +7431,10 @@ var sentences = [
         "m": "past tense"
       },
       {
-        "w": "こと",
-        "r": "こと",
-        "m": "experience, fact"
-      },
-      {
-        "w": "が",
-        "r": "が",
-        "m": "subject marker"
-      },
-      {
-        "w": "あっ",
-        "r": "あっ",
-        "m": "to exist"
+        "g": "ことがある",
+        "r": "ことがあっ",
+        "m": "to have the experience of ~",
+        "x": "Vたことがある (Intermediate L8 / Task-based L1-2) — past experience."
       },
       {
         "w": "た",
@@ -7643,10 +7611,9 @@ var sentences = [
         "m": "corrosion, rust"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「潮風で腐食した金属の匂い。」 (The smell of metal corroded by the sea breeze.)"
+        "m": "to do"
       },
       {
         "w": "た",
@@ -7916,13 +7883,7 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "全部",
-        "r": "ぜんぶ",
-        "m": "all, everything",
-        "core": true
-      },
-      {
-        "w": "埃",
+        "w": "ほこり",
         "r": "ほこり",
         "m": "dust"
       },
@@ -7937,14 +7898,20 @@ var sentences = [
         "m": "to be covered with"
       },
       {
-        "w": "て",
-        "r": "て",
-        "m": "te-form connector"
+        "w": "た",
+        "r": "た",
+        "m": "past tense"
       },
       {
-        "w": "い",
-        "r": "い",
-        "m": "ongoing state"
+        "g": "まま",
+        "r": "まま",
+        "m": "as it is, remaining in a state",
+        "x": "Vたまま (Intermediate L6) — unchanged state."
+      },
+      {
+        "w": "だっ",
+        "r": "だっ",
+        "m": "was (copula past)"
       },
       {
         "w": "た",
@@ -7955,8 +7922,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "ぜんぶほこりをかぶっていた。",
-    "trans": "Everything was covered in dust."
+    "hira": "ほこりをかぶったままだった。",
+    "trans": "Everything remained covered in dust."
   },
   {
     "parts": [
@@ -7986,9 +7953,10 @@ var sentences = [
         "m": "to investigate, examine"
       },
       {
-        "w": "始め",
+        "g": "V始める",
         "r": "はじめ",
-        "m": "to begin"
+        "m": "to begin to ~",
+        "x": "Verb stem + 始める (Intermediate L1) — beginning of an action. 「さくらは棚を調べ始めた。」"
       },
       {
         "w": "た",
@@ -8115,14 +8083,10 @@ var sentences = [
         "m": "automation"
       },
       {
-        "w": "さ",
-        "r": "さ",
-        "m": "passive stem"
-      },
-      {
-        "w": "れる",
-        "r": "れる",
-        "m": "passive marker"
+        "g": "受身",
+        "r": "される",
+        "m": "passive form",
+        "x": "Passive される (Minna II L37). 「灯台が自動化される前の。」"
       },
       {
         "w": "前",
@@ -8416,10 +8380,9 @@ var sentences = [
         "m": "suntan, sunburn"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「日焼けした顔。」 (A sun-tanned face.)"
+        "m": "to do"
       },
       {
         "w": "た",
@@ -8874,10 +8837,9 @@ var sentences = [
         "m": "opening and closing"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「誰かが——何度も開け閉めした跡。」 (Signs that someone had opened and closed it many times.)"
+        "m": "to do"
       },
       {
         "w": "た",
@@ -11592,10 +11554,9 @@ var sentences = [
         "m": "installation, placement"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「他の石は繋ぎが設置した。」 (The other stones were installed by the Tsunagi.)"
+        "m": "to do"
       },
       {
         "w": "た",
@@ -12482,10 +12443,9 @@ var sentences = [
         "m": "purpose marker"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「誰かが目印にしたもの。」 (Something someone had used as a marker.)"
+        "m": "to do"
       },
       {
         "w": "た",
@@ -12686,10 +12646,9 @@ var sentences = [
         "m": "summary, summarize"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「古い日記の内容を要約してる。」 (It's a summary of the older diary's contents.)"
+        "m": "to do"
       },
       {
         "w": "てる",
@@ -15048,10 +15007,9 @@ var sentences = [
         "m": "adjustment"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「芯を調整した。」 (She adjusted the wick.)"
+        "m": "to do"
       },
       {
         "w": "た",
@@ -15585,10 +15543,9 @@ var sentences = [
         "m": "failure"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「「儀式は失敗した。」」 (\"The ritual failed.\")"
+        "m": "to do"
       },
       {
         "w": "た",
@@ -15641,10 +15598,9 @@ var sentences = [
         "m": "death"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「「五名のうち三名が死亡した。」」 (\"Three of the five died.\")"
+        "m": "to do"
       },
       {
         "w": "た",
@@ -15964,10 +15920,9 @@ var sentences = [
         "m": "insufficient, lacking"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「二、錨となる者の霊力が不足していた。」 (Second, the one serving as an anchor had insufficient spirit...)"
+        "m": "to do"
       },
       {
         "w": "て",
@@ -16145,10 +16100,9 @@ var sentences = [
         "m": "weakening"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「三、最も重要なことは——五つの石のうち二つがすでに弱体化しており、結界全体を支え...」 (Third, and most importantly — two of the five stones had alr...)"
+        "m": "to do"
       },
       {
         "w": "て",
@@ -16291,10 +16245,9 @@ var sentences = [
         "m": "survival"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「「生存した二名のうち一名は——」」 (\"Of the two survivors, one —\")"
+        "m": "to do"
       },
       {
         "w": "た",
@@ -17018,10 +16971,9 @@ var sentences = [
         "m": "quotation/intention marker"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「同じことをやろうとして。」 (While trying to do the same thing.)"
+        "m": "to do"
       },
       {
         "w": "て",
@@ -17351,10 +17303,9 @@ var sentences = [
         "core": true
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to make",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「音もほとんどしなかった。」 (It made almost no sound.)"
+        "m": "to make"
       },
       {
         "w": "なかっ",
@@ -18050,10 +18001,10 @@ var sentences = [
         "m": "conditional (if, when)"
       },
       {
-        "g": "終わり",
+        "w": "終わり",
         "r": "おわり",
         "m": "end, over",
-        "x": "Vマス始める・Vマス終わる (Intermediate L1) — start to V / finish V-ing. Here in: 「でも——やめたら終わりだ。」 (But — if they stopped, it would be over.)"
+        "core": true
       },
       {
         "w": "だ",
@@ -18288,10 +18239,9 @@ var sentences = [
         "m": "object marker"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「正しいことをしている。」 (She was doing the right thing.)"
+        "m": "to do"
       },
       {
         "w": "て",
@@ -18305,11 +18255,17 @@ var sentences = [
         "core": true
       },
       {
+        "g": "はずだ",
+        "r": "はずだ",
+        "m": "it should be, expected",
+        "x": "はずだ (Minna II L46) — confident expectation."
+      },
+      {
         "p": "。"
       }
     ],
-    "hira": "ただしいことをしている。",
-    "trans": "She was doing the right thing."
+    "hira": "ただしいことをしているはずだ。",
+    "trans": "She should be doing the right thing."
   },
   {
     "parts": [
@@ -18335,10 +18291,9 @@ var sentences = [
         "m": "object marker"
       },
       {
-        "g": "し",
+        "w": "し",
         "r": "し",
-        "m": "to do",
-        "x": "plain form し、plain form し (Minna II L28) — listing similar things or giving reasons. Here in: 「必要なことをしている。」 (She was doing what was necessary.)"
+        "m": "to do"
       },
       {
         "w": "て",
@@ -20061,10 +20016,9 @@ var sentences = [
         "m": "が"
       },
       {
-        "g": "浮かんだ",
+        "w": "浮かんだ",
         "r": "うかんだ",
-        "m": "welled up, floated up",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「ゆきの目に涙が浮かんだ。」 (Tears welled up in Yuki's eyes.)"
+        "m": "welled up, floated up"
       },
       {
         "p": "。"
@@ -24513,10 +24467,9 @@ var sentences = [
         "m": "が"
       },
       {
-        "g": "沈んだ",
+        "w": "沈んだ",
         "r": "しずんだ",
-        "m": "set, sank",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「月が沈んだ西の海。」 (The western sea where the moon had set.)"
+        "m": "set, sank"
       },
       {
         "w": "西",

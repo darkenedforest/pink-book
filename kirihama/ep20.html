@@ -430,10 +430,9 @@ var sentences = [
         "m": "through"
       },
       {
-        "g": "差し込んだ",
+        "w": "差し込んだ",
         "r": "さしこんだ",
-        "m": "shone in, streamed in",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「朝日が霧を通して差し込んだ。」 (Morning sunlight streamed in through the fog.)"
+        "m": "shone in, streamed in"
       },
       {
         "p": "。"
@@ -528,9 +527,10 @@ var sentences = [
         "p": "の"
       },
       {
-        "w": "ように",
+        "g": "ように",
         "r": "ように",
-        "m": "like, as if"
+        "m": "like, as if",
+        "x": "N のように (Intermediate L3) — simile: likens one thing to another. Here: 虹のように輝いていた — the fog was glowing like a rainbow."
       },
       {
         "w": "輝いていた",
@@ -1272,9 +1272,10 @@ var sentences = [
         "p": "が"
       },
       {
-        "w": "重そう",
+        "g": "重そう",
         "r": "おもそう",
-        "m": "looked heavy, seemed heavy"
+        "m": "looked heavy, seemed heavy",
+        "x": "い-adj そうです (Minna II L43) — inferring from appearance. Here: 体が重そうだった — his body looked heavy (judging by how he moved)."
       },
       {
         "w": "だった",
@@ -1473,16 +1474,22 @@ var sentences = [
         "m": "warmly"
       },
       {
-        "w": "漂っていた",
-        "r": "ただよっていた",
-        "m": "was drifting, was floating"
+        "w": "漂っている",
+        "r": "ただよっている",
+        "m": "drifting, floating"
+      },
+      {
+        "g": "ようだった",
+        "r": "ようだった",
+        "m": "it seemed that",
+        "x": "Plain form ようです (Minna II L47) — conclusion from observation. Here: 温かく漂っているようだった — it seemed as though the fog was drifting warmly (observed impression)."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "きりがあたたかくただよっていた。",
-    "trans": "The fog drifted warmly.",
+    "hira": "きりがあたたかくただよっているようだった。",
+    "trans": "The fog seemed to drift warmly.",
     "_scene_break": true
   },
   {
@@ -1632,9 +1639,10 @@ var sentences = [
         "p": "を"
       },
       {
-        "w": "閉じれば",
+        "g": "閉じれば",
         "r": "とじれば",
-        "m": "if I closed"
+        "m": "if I closed",
+        "x": "Conditional form ～ば (Minna II L35) — expresses a precondition. Here: 目を閉じれば——見えた — if I closed my eyes, I could see her."
       },
       {
         "p": "——"
@@ -1877,10 +1885,9 @@ var sentences = [
         "p": "が"
       },
       {
-        "g": "浮かんだ",
+        "w": "浮かんだ",
         "r": "うかんだ",
-        "m": "welled up, floated up",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「ゆきの目に涙が浮かんだ。」 (Tears welled up in Yuki's eyes.)"
+        "m": "welled up, floated up"
       },
       {
         "p": "。"
@@ -1939,10 +1946,9 @@ var sentences = [
         "p": "——"
       },
       {
-        "g": "微笑んだ",
+        "w": "微笑んだ",
         "r": "ほほえんだ",
-        "m": "smiled gently",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「源治は——微笑んだ。」 (Genji — smiled gently.)"
+        "m": "smiled gently"
       },
       {
         "p": "。"
@@ -2121,16 +2127,22 @@ var sentences = [
         "p": "は"
       },
       {
-        "w": "忘れた",
-        "r": "わすれた",
+        "w": "忘れて",
+        "r": "わすれて",
         "m": "forgot"
+      },
+      {
+        "g": "しまった",
+        "r": "しまった",
+        "m": "ended up ~ing (regret/completion)",
+        "x": "Vて しまいました (Minna II L29) — completion with regret. Here: 顔は忘れてしまった — I ended up forgetting her face (with a tinge of regret)."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "かおはわすれた。",
-    "trans": "I've forgotten her face.",
+    "hira": "かおはわすれてしまった。",
+    "trans": "I have gone and forgotten her face.",
     "speaker": "源治"
   },
   {
@@ -2464,24 +2476,35 @@ var sentences = [
       {
         "w": "昨夜",
         "r": "さくや",
-        "m": "last night",
-        "core": true
+        "m": "last night"
       },
       {
         "p": "から"
       },
       {
-        "w": "ずっと",
-        "r": "ずっと",
-        "m": "all along, this whole time",
+        "w": "朝",
+        "r": "あさ",
+        "m": "morning",
         "core": true
+      },
+      {
+        "p": "まで"
+      },
+      {
+        "p": "の"
+      },
+      {
+        "g": "あいだ",
+        "r": "あいだ",
+        "m": "during, interval",
+        "x": "～あいだ (Intermediate L8) — indicates a continuous period. Here: 昨夜から朝までのあいだ — throughout the interval from last night to morning."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "さくやからずっと。",
-    "trans": "Since last night."
+    "hira": "さくやからあさまでのあいだ。",
+    "trans": "Throughout the night until morning."
   },
   {
     "parts": [
@@ -2548,18 +2571,10 @@ var sentences = [
         "m": "was heavy"
       },
       {
-        "p": "。"
-      }
-    ],
-    "hira": "からだがおもかった。",
-    "trans": "Their bodies felt heavy."
-  },
-  {
-    "parts": [
-      {
-        "w": "でも",
-        "r": "でも",
-        "m": "but, however"
+        "g": "のに",
+        "r": "のに",
+        "m": "even though, despite",
+        "x": "Plain form のに (Minna II L45) — contradiction. Here: 体が重かったのに——心は軽かった — even though their bodies were heavy, their hearts felt light."
       },
       {
         "p": "——"
@@ -2581,8 +2596,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "でも——こころはかるかった。",
-    "trans": "But — their hearts were light.",
+    "hira": "からだがおもかったのに——こころはかるかった。",
+    "trans": "Even though their bodies were heavy — their hearts felt light.",
     "_scene_break": true
   },
   {
@@ -2591,10 +2606,9 @@ var sentences = [
         "p": "……"
       },
       {
-        "g": "終わった",
+        "w": "終わった",
         "r": "おわった",
-        "m": "ended, finished",
-        "x": "Vマス始める・Vマス終わる (Intermediate L1) — start to V / finish V-ing. Here in: 「……終わったのか？」 (… Is it over?)"
+        "m": "ended, finished"
       },
       {
         "p": "の"
@@ -2625,10 +2639,9 @@ var sentences = [
         "core": true
       },
       {
-        "g": "終わって",
+        "w": "終わって",
         "r": "おわって",
-        "m": "ended, finished",
-        "x": "Vマス始める・Vマス終わる (Intermediate L1) — start to V / finish V-ing. Here in: 「……全部終わっててしまった。」 (… It's all completely over.)"
+        "m": "ended, finished"
       },
       {
         "g": "てしまった",
@@ -2682,9 +2695,10 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "泣きすぎた",
+        "g": "泣きすぎた",
         "r": "なきすぎた",
-        "m": "cried too much"
+        "m": "cried too much",
+        "x": "～すぎます (Minna II L44) — excessive degree. Here: 泣きすぎたのか — had she cried too much?"
       },
       {
         "p": "の"
@@ -2704,9 +2718,10 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "叫びすぎた",
+        "g": "叫びすぎた",
         "r": "さけびすぎた",
-        "m": "screamed too much"
+        "m": "screamed too much",
+        "x": "～すぎます (Minna II L44) — excessive degree. Here: 叫びすぎたのか — had she screamed too much?"
       },
       {
         "p": "の"
@@ -2822,6 +2837,17 @@ var sentences = [
   {
     "parts": [
       {
+        "w": "こぼれない",
+        "r": "こぼれない",
+        "m": "will not spill"
+      },
+      {
+        "g": "ように",
+        "r": "ように",
+        "m": "so that, in order to",
+        "x": "V ように、V2 (Minna II L36) — purpose clause. Here: こぼれないように一つ一つに — pouring into each one so as not to spill."
+      },
+      {
         "w": "一つ一つ",
         "r": "ひとつひとつ",
         "m": "one by one, each one"
@@ -2830,19 +2856,11 @@ var sentences = [
         "p": "に"
       },
       {
-        "p": "——"
-      },
-      {
-        "w": "丁寧に",
-        "r": "ていねいに",
-        "m": "carefully, with care"
-      },
-      {
         "p": "。"
       }
     ],
-    "hira": "ひとつひとつに——ていねいに。",
-    "trans": "Into each one — with care.",
+    "hira": "こぼれないようにひとつひとつに。",
+    "trans": "Into each one — so as not to spill.",
     "_scene_break": true
   },
   {
@@ -2895,10 +2913,9 @@ var sentences = [
         "p": "を"
       },
       {
-        "g": "飲んだ",
+        "w": "飲んだ",
         "r": "のんだ",
-        "m": "drank",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「五人は茶を飲んだ。」 (The five of them drank their tea.)"
+        "m": "drank"
       },
       {
         "p": "。"
@@ -3111,16 +3128,22 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "見えてる",
-        "r": "みえてる",
-        "m": "can see, is visible (ongoing)"
+        "w": "見える",
+        "r": "みえる",
+        "m": "can see, is visible"
+      },
+      {
+        "g": "ようになった",
+        "r": "ようになった",
+        "m": "came to be able to",
+        "x": "V ように なります (Minna II L36) — change of state to ability. Here: 見えるようになった — I became able to see (what was previously invisible)."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "みえてる。",
-    "trans": "I can see it.",
+    "hira": "みえるようになった。",
+    "trans": "I can see it now.",
     "speaker": "まお"
   },
   {
@@ -3248,14 +3271,6 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "たぶん",
-        "r": "たぶん",
-        "m": "probably, I think"
-      },
-      {
-        "p": "——"
-      },
-      {
         "w": "もう",
         "r": "もう",
         "m": "already, anymore",
@@ -3264,14 +3279,20 @@ var sentences = [
       {
         "w": "消えない",
         "r": "きえない",
-        "m": "won't disappear"
+        "m": "will not disappear"
+      },
+      {
+        "g": "はずだ",
+        "r": "はずだ",
+        "m": "must be, is bound to",
+        "x": "Plain form はずです (Minna II L46) — confident conclusion. Here: もう消えないはずだ — it will not disappear anymore, I am sure of it."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "たぶん——もうきえない。",
-    "trans": "Probably — it won't disappear anymore.",
+    "hira": "もうきえないはずだ。",
+    "trans": "It will not disappear anymore — I am sure of it.",
     "_scene_break": true
   },
   {
@@ -3340,10 +3361,9 @@ var sentences = [
         "p": "は"
       },
       {
-        "g": "微笑んだ",
+        "w": "微笑んだ",
         "r": "ほほえんだ",
-        "m": "smiled gently",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「まおは微笑んだ。」 (Mao smiled.)"
+        "m": "smiled gently"
       },
       {
         "p": "。"
@@ -3480,6 +3500,17 @@ var sentences = [
   {
     "parts": [
       {
+        "w": "眠れ",
+        "r": "ねむれ",
+        "m": "able to sleep"
+      },
+      {
+        "g": "ずに",
+        "r": "ずに",
+        "m": "without ~ing",
+        "x": "Vナイ ずに (Intermediate L10) — without doing. Here: 眠れずに一晩中起きていた — she stayed up all night without being able to sleep."
+      },
+      {
         "w": "一晩中",
         "r": "ひとばんじゅう",
         "m": "all night, throughout the night"
@@ -3501,8 +3532,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "ひとばんじゅうおきていたのだ。",
-    "trans": "She had been up all night.",
+    "hira": "ねむれずにひとばんじゅうおきていたのだ。",
+    "trans": "She had stayed up all night, unable to sleep.",
     "_scene_break": true
   },
   {
@@ -3726,9 +3757,10 @@ var sentences = [
         "p": "が"
       },
       {
-        "w": "守られた",
+        "g": "守られた",
         "r": "まもられた",
-        "m": "were protected"
+        "m": "were protected",
+        "x": "N が/は passive V (Minna II L37) — passive used when the agent is unimportant. Here: 町の人たちが守られた — the townspeople were protected."
       },
       {
         "p": "。"
@@ -3775,10 +3807,9 @@ var sentences = [
   {
     "parts": [
       {
-        "g": "終わった",
+        "w": "終わった",
         "r": "おわった",
-        "m": "ended, finished",
-        "x": "Vマス始める・Vマス終わる (Intermediate L1) — start to V / finish V-ing. Here in: 「終わったよ。」 (It's over.)"
+        "m": "ended, finished"
       },
       {
         "w": "よ",
@@ -3859,12 +3890,24 @@ var sentences = [
   {
     "parts": [
       {
-        "w": "十七歳",
-        "r": "じゅうななさい",
-        "m": "seventeen years old"
+        "w": "子供",
+        "r": "こども",
+        "m": "child",
+        "core": true
       },
       {
-        "p": "の"
+        "p": "に"
+      },
+      {
+        "w": "戻った",
+        "r": "もどった",
+        "m": "returned to"
+      },
+      {
+        "g": "ような",
+        "r": "ような",
+        "m": "such as, like",
+        "x": "V ような N (Intermediate L3) — describes N with an example/simile. Here: 子供に戻ったような泣き方 — a way of crying as if she had returned to being a child."
       },
       {
         "w": "泣き方",
@@ -3880,8 +3923,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "じゅうななさいのなきかただった。",
-    "trans": "It was the cry of a seventeen-year-old.",
+    "hira": "こどもにもどったようななきかただった。",
+    "trans": "It was the cry of someone who had become a child again.",
     "_scene_break": true
   },
   {
@@ -4106,9 +4149,10 @@ var sentences = [
         "p": "の"
       },
       {
-        "w": "間",
+        "g": "間",
         "r": "あいだ",
-        "m": "during, while"
+        "m": "during, while",
+        "x": "～あいだ (Intermediate L8) — indicates duration. Here: 儀式の間——一度も口を開かなかった — during the ritual, he never once opened his mouth."
       },
       {
         "p": "——"
@@ -4809,37 +4853,22 @@ var sentences = [
         "p": "——"
       },
       {
-        "w": "閉じ込める",
-        "r": "とじこめる",
-        "m": "to confine, to shut in"
+        "w": "閉じ込めたかった",
+        "r": "とじこめたかった",
+        "m": "wanted to confine"
       },
       {
-        "p": "の"
-      },
-      {
-        "w": "では",
-        "r": "では",
-        "m": "rather than (contrast)"
-      },
-      {
-        "w": "なく",
-        "r": "なく",
-        "m": "not, without"
-      },
-      {
-        "p": "——"
-      },
-      {
-        "w": "迎え入れたかった",
-        "r": "むかえいれたかった",
-        "m": "wanted to welcome in"
+        "g": "わけではない",
+        "r": "わけではない",
+        "m": "it is not that",
+        "x": "～わけではない (Intermediate L8) — partial negation. Here: 閉じ込めたかったわけではない — it is not that she wanted to confine it (she had a different intention)."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "しずえさんは——とじこめるのではなく——むかえいれたかった。",
-    "trans": "Shizue-san — didn't want to confine it — she wanted to welcome it in."
+    "hira": "しずえさんは——とじこめたかったわけではない。",
+    "trans": "It is not that Shizue-san wanted to confine it."
   },
   {
     "parts": [
@@ -5558,19 +5587,20 @@ var sentences = [
       {
         "w": "忘れない",
         "r": "わすれない",
-        "m": "don't forget"
+        "m": "do not forget"
       },
       {
-        "w": "うちに",
-        "r": "うちに",
-        "m": "while, before"
+        "g": "あいだに",
+        "r": "あいだに",
+        "m": "while, during",
+        "x": "～あいだに (Intermediate L8) — while doing something, another thing happens. Here: 忘れないあいだに — while the memory is still fresh (before forgetting)."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "わすれないうちに。",
-    "trans": "Before I forget.",
+    "hira": "わすれないあいだに。",
+    "trans": "While I still remember.",
     "_scene_break": true
   },
   {
@@ -6160,21 +6190,21 @@ var sentences = [
         "p": "は"
       },
       {
-        "w": "まだ",
-        "r": "まだ",
-        "m": "still",
-        "core": true
+        "w": "吊った",
+        "r": "つった",
+        "m": "slung, hung"
       },
       {
-        "w": "吊っていた",
-        "r": "つっていた",
-        "m": "was in a sling"
+        "g": "ままだった",
+        "r": "ままだった",
+        "m": "remained as, stayed",
+        "x": "～まま (Intermediate L6) — same situation continues. Here: 吊ったままだった — his arm was still in a sling (the state continued unchanged)."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "みぎうではまだつっていた。",
+    "hira": "みぎうではつったままだった。",
     "trans": "His right arm was still in a sling."
   },
   {
@@ -6482,9 +6512,10 @@ var sentences = [
         "m": "terrible, lousy at it (casual)"
       },
       {
-        "w": "んだけど",
-        "r": "んだけど",
-        "m": "but (casual)"
+        "g": "のに",
+        "r": "のに",
+        "m": "even though, despite",
+        "x": "Plain form のに (Minna II L45) — unexpected contrast. Here: へたくそなのに——好きみたい — even though he is bad at it, he seems to love it."
       },
       {
         "p": "——"
@@ -6504,8 +6535,8 @@ var sentences = [
         "p": "。"
       }
     ],
-    "hira": "へたくそなんだけど——すきみたい。",
-    "trans": "He's not very good — but he seems to love it.",
+    "hira": "へたくそなのに——すきみたい。",
+    "trans": "Even though he is bad at it — he seems to love it.",
     "_scene_break": true
   },
   {
@@ -6670,9 +6701,10 @@ var sentences = [
         "m": "running"
       },
       {
-        "w": "いった",
+        "g": "いった",
         "r": "いった",
-        "m": "V-te itta: went off (movement away)"
+        "m": "went off (movement away)",
+        "x": "Vテいく (Intermediate L4) — shows movement/change going forward. Here: 走っていった — ran off (away from the speaker)."
       },
       {
         "p": "。"
@@ -6785,10 +6817,10 @@ var sentences = [
         "m": "thought"
       },
       {
-        "p": "の"
-      },
-      {
-        "p": "は"
+        "g": "のは",
+        "r": "のは",
+        "m": "it is ~ that (focus)",
+        "x": "～のは～だ (Intermediate L2) — focuses attention on the latter part. Here: 教えたいと思ったのは——おれ自身か — was it really myself who wanted to teach?"
       },
       {
         "p": "——"
@@ -6853,14 +6885,20 @@ var sentences = [
       {
         "w": "わからない",
         "r": "わからない",
-        "m": "won't know"
+        "m": "will not know"
+      },
+      {
+        "g": "かもしれない",
+        "r": "かもしれない",
+        "m": "might, possibly",
+        "x": "Plain form かもしれません (Minna II L32) — possibility. Here: ずっとわからないかもしれない — I might never know (acknowledging the possibility)."
       },
       {
         "p": "。"
       }
     ],
-    "hira": "たぶん——ずっとわからない。",
-    "trans": "Probably — I'll never know.",
+    "hira": "たぶん——ずっとわからないかもしれない。",
+    "trans": "Probably — I might never know.",
     "_scene_break": true
   },
   {
@@ -6882,10 +6920,9 @@ var sentences = [
         "m": "just a little"
       },
       {
-        "g": "痛んだ",
+        "w": "痛んだ",
         "r": "いたんだ",
-        "m": "ached, hurt",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「右肩が——少しだけ痛んだ。」 (His right shoulder — ached just a little.)"
+        "m": "ached, hurt"
       },
       {
         "p": "。"
@@ -7376,9 +7413,16 @@ var sentences = [
         "m": "not at all, totally (neg.)"
       },
       {
-        "w": "電話しないで",
-        "r": "でんわしないで",
-        "m": "without calling"
+        "w": "電話",
+        "r": "でんわ",
+        "m": "phone call",
+        "core": true
+      },
+      {
+        "g": "せずに",
+        "r": "せずに",
+        "m": "without doing",
+        "x": "Vナイ ずに (Intermediate L10) — without ~ing (する→せずに). Here: 全然電話せずに — without calling at all."
       },
       {
         "p": "——"
@@ -7403,8 +7447,8 @@ var sentences = [
         "p": "——"
       }
     ],
-    "hira": "ぜんぜんでんわしないで——おとうさんもしんぱいして——",
-    "trans": "You haven't called at all — your father is worried too — ",
+    "hira": "ぜんぜんでんわせずに——おとうさんもしんぱいして——",
+    "trans": "You have not called at all — your father is worried too —",
     "_scene_break": true
   },
   {
@@ -8595,10 +8639,9 @@ var sentences = [
         "p": "は"
       },
       {
-        "g": "微笑んだ",
+        "w": "微笑んだ",
         "r": "ほほえんだ",
-        "m": "smiled gently",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「まおは微笑んだ。」 (Mao smiled.)"
+        "m": "smiled gently"
       },
       {
         "p": "。"
@@ -11594,10 +11637,9 @@ var sentences = [
         "p": "——"
       },
       {
-        "g": "微笑んだ",
+        "w": "微笑んだ",
         "r": "ほほえんだ",
-        "m": "smiled gently",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「まおは——微笑んだ。」 (Mao — smiled.)"
+        "m": "smiled gently"
       },
       {
         "p": "。"
@@ -12388,10 +12430,9 @@ var sentences = [
         "p": "を"
       },
       {
-        "g": "包んだ",
+        "w": "包んだ",
         "r": "つつんだ",
-        "m": "wrapped, enveloped",
-        "x": "～んです (Minna II L26) — explanatory / seeking explanation. Here in: 「霧が——まおの足元を包んだ。」 (Fog — wrapped around Mao's feet.)"
+        "m": "wrapped, enveloped"
       },
       {
         "p": "。"
