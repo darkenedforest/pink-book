@@ -151,6 +151,11 @@ body.hide-furigana ruby rt{visibility:hidden;}
 }
 .trans-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}
 
+/* English word tapping */
+.en-word{cursor:pointer;transition:background 0.15s;border-radius:2px;}
+.en-word:hover{background:rgba(184,67,58,0.08);}
+body.en-mode .en-word{font-size:inherit;}
+
 /* English-primary mode */
 body.en-mode .sentence-block{display:flex;flex-direction:column;}
 body.en-mode .trans-line{order:-1;font-size:1em;font-style:normal;color:var(--text);margin-top:0;margin-bottom:0.1rem;font-weight:400;}
@@ -24960,7 +24965,26 @@ function renderPage(pageIdx) {
 
     var transLine = document.createElement('span');
     transLine.className = 'trans-line' + (showTrans ? '' : ' hidden');
-    transLine.textContent = s.trans;
+    if (s.en_parts && s.en_parts.length > 0) {
+      s.en_parts.forEach(function(ep) {
+        if (ep.e) {
+          var espan = document.createElement('span');
+          espan.className = 'en-word';
+          espan.textContent = ep.e + ' ';
+          espan.onclick = function(ev) {
+            showPopup(ev, {type:'en', reading:ep.jp, word:ep.e, meaning:ep.m, jp:ep.jp, r:ep.r});
+            trackTap(si);
+          };
+          transLine.appendChild(espan);
+        } else if (ep.p !== undefined) {
+          var pspan = document.createElement('span');
+          pspan.textContent = ep.p + ' ';
+          transLine.appendChild(pspan);
+        }
+      });
+    } else {
+      transLine.textContent = s.trans;
+    }
     block.appendChild(transLine);
 
     el.appendChild(block);
@@ -25087,7 +25111,12 @@ function showPopup(e, data) {
   var popup = document.getElementById('popup');
   var overlay = document.getElementById('popupOverlay');
   var html = '';
-  if (data.type === 'grammar') {
+  if (data.type === 'en') {
+    html += '<div class="grammar-tag" style="background:var(--accent)">English</div>';
+    html += '<div class="kanji-display" style="font-size:1.4rem;">' + data.word + '</div>';
+    if (data.jp) html += '<div class="reading">' + data.jp + (data.r && data.r !== data.jp ? ' (' + data.r + ')' : '') + '</div>';
+    if (data.meaning) html += '<div class="meaning">' + data.meaning + '</div>';
+  } else if (data.type === 'grammar') {
     html += '<div class="grammar-tag">Grammar Point</div>';
     html += '<div class="reading">' + data.reading + '</div>';
     if (data.word !== data.reading) html += '<div class="kanji-display">' + data.word + '</div>';
