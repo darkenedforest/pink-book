@@ -151,6 +151,12 @@ body.hide-furigana ruby rt{visibility:hidden;}
 }
 .trans-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}
 
+/* English-primary mode */
+body.en-mode .sentence-block{display:flex;flex-direction:column;}
+body.en-mode .trans-line{order:-1;font-size:1em;font-style:normal;color:var(--text);margin-top:0;margin-bottom:0.1rem;font-weight:400;}
+body.en-mode .jp-sentence{font-size:0.78em;color:var(--trans-color);display:block;margin-top:0.05rem;}
+body.en-mode .hira-line{display:none !important;}
+
 /* ===== SCENE HEADERS ===== */
 .scene-break{
   margin:2rem 0 1.2rem;padding-top:1.5rem;
@@ -291,6 +297,7 @@ body.hide-furigana ruby rt{visibility:hidden;}
 <div class="settings-drawer open" id="settingsDrawer">
   <div class="settings-inner">
     <div class="settings-row">
+      <button class="toggle-btn" id="btnEnMode" onclick="toggleEnMode()">EN Mode</button>
       <button class="toggle-btn active" id="btnFurigana" onclick="toggleFurigana()">Furigana</button>
       <button class="toggle-btn active" id="btnHira" onclick="toggleHira()">Hiragana</button>
       <button class="toggle-btn active" id="btnTrans" onclick="toggleTrans()">Translation</button>
@@ -17132,6 +17139,20 @@ function toggleHira() {
   showHira = !showHira;
   document.getElementById('btnHira').classList.toggle('active', showHira);
   document.querySelectorAll('.hira-line').forEach(function(el) { el.classList.toggle('hidden', !showHira); });
+  saveState();
+}
+var enMode = false;
+function toggleEnMode() {
+  enMode = !enMode;
+  document.body.classList.toggle('en-mode', enMode);
+  document.getElementById('btnEnMode').classList.toggle('active', enMode);
+  // In EN mode, force translation visible
+  if (enMode) {
+    showTrans = true;
+    document.getElementById('btnTrans').classList.toggle('active', true);
+    document.querySelectorAll('.trans-line').forEach(function(el) { el.classList.remove('hidden'); });
+  }
+  repaginate();
   saveState();
 }
 function toggleTrans() {
