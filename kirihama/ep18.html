@@ -19332,6 +19332,7 @@ function renderPage(pageIdx) {
 
     var jpLine = document.createElement('span');
     jpLine.className = 'jp-sentence';
+    if (enMode && !showJpRef) jpLine.style.display = 'none';
     s.parts.forEach(function(part) {
       if (part.w) {
         var span = document.createElement('span');
