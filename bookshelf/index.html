@@ -61,6 +61,19 @@ body{
   font-size:0.72rem;color:var(--text-light);line-height:1.4;
 }
 
+/* Coming soon */
+.book-slot.coming-soon .cover-wrap{position:relative;overflow:hidden;}
+.book-slot.coming-soon .book-cover{filter:grayscale(100%) brightness(0.7);}
+.coming-soon-banner{
+  position:absolute;top:22px;right:-35px;
+  background:rgba(44,36,22,0.75);color:#fff;
+  font-family:'Source Sans Pro',sans-serif;font-size:0.7rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.1em;
+  padding:0.3rem 2.5rem;
+  transform:rotate(45deg);
+  white-space:nowrap;
+}
+
 /* Empty slot */
 .book-slot.empty{
   border-style:dashed;cursor:default;
@@ -199,8 +212,11 @@ body{
         <div class="book-tagline">A midnight shop that trades in memories and emotions</div>
       </div>
     </div>
-    <div class="book-slot" onclick="openBook('last-train')">
-      <img class="book-cover" src="last-train-cover.png" alt="The Last Train">
+    <div class="book-slot coming-soon" onclick="openBook('last-train')">
+      <div class="cover-wrap">
+        <img class="book-cover" src="last-train-cover.png" alt="The Last Train">
+        <div class="coming-soon-banner">Coming Soon</div>
+      </div>
       <div class="book-info">
         <div class="book-title">最終電車</div>
         <div class="book-tagline">A student trapped on an infinite train through surreal worlds</div>
