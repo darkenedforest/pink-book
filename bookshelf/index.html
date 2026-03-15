@@ -300,6 +300,7 @@ function openBook(id) {
       '<div class="modal-meta">' + b.meta + '</div>' +
       '<div class="modal-synopsis">' + b.synopsis + '</div>' +
       (b.url === '#' ? '<div class="modal-btn" style="opacity:0.5;cursor:default;pointer-events:none;">Coming Soon</div>' : '<a class="modal-btn" href="' + b.url + '">Read</a>') +
+      (b.url === '#' ? '' :
       '<div class="review-divider"></div>' +
       '<div class="review-heading">Leave a Review</div>' +
       '<div class="star-picker" id="starPicker">' +
@@ -311,7 +312,7 @@ function openBook(id) {
       '</div>' +
       '<textarea class="review-input" id="reviewText" placeholder="Write a comment (optional)..."></textarea>' +
       '<button class="review-submit" onclick="submitReview()">Submit Review</button>' +
-      '<div class="reviews-list" id="reviewsList">' + reviewsHtml + '</div>' +
+      '<div class="reviews-list" id="reviewsList">' + reviewsHtml + '</div>') +
     '</div>';
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
