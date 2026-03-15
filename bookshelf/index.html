@@ -299,7 +299,7 @@ function openBook(id) {
       '<div class="modal-subtitle">' + b.title_en + '</div>' +
       '<div class="modal-meta">' + b.meta + '</div>' +
       '<div class="modal-synopsis">' + b.synopsis + '</div>' +
-      '<a class="modal-btn" href="' + b.url + '">Read</a>' +
+      (b.url === '#' ? '<div class="modal-btn" style="opacity:0.5;cursor:default;pointer-events:none;">Coming Soon</div>' : '<a class="modal-btn" href="' + b.url + '">Read</a>') +
       '<div class="review-divider"></div>' +
       '<div class="review-heading">Leave a Review</div>' +
       '<div class="star-picker" id="starPicker">' +
