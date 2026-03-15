@@ -76174,6 +76174,20 @@ function toggleEnMode() {
     document.getElementById('btnTrans').classList.toggle('active', true);
     document.querySelectorAll('.trans-line').forEach(function(el) { el.classList.remove('hidden'); });
   }
+  // Swap UI labels to Japanese / back to English
+  document.getElementById('btnFurigana').textContent = enMode ? '振り仮名' : 'Furigana';
+  document.getElementById('btnHira').textContent = enMode ? 'ひらがな' : 'Hiragana';
+  document.getElementById('btnTrans').textContent = enMode ? '翻訳' : 'Translation';
+  document.getElementById('btnEnMode').textContent = enMode ? '日本語練習' : '英語練習';
+  // Swap nav links
+  document.querySelectorAll('.chapter-nav a').forEach(function(a) {
+    if (a.textContent === 'Previous') a.textContent = '前へ';
+    else if (a.textContent === 'Next') a.textContent = '次へ';
+    else if (a.textContent === 'Contents') a.textContent = '目次';
+    else if (a.textContent === '前へ') a.textContent = 'Previous';
+    else if (a.textContent === '次へ') a.textContent = 'Next';
+    else if (a.textContent === '目次') a.textContent = 'Contents';
+  });
   repaginate();
   saveState();
 }
