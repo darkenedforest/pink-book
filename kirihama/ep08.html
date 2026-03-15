@@ -305,10 +305,10 @@ body.en-mode .hira-line{display:none !important;}
 <div class="settings-drawer open" id="settingsDrawer">
   <div class="settings-inner">
     <div class="settings-row">
-      <button class="toggle-btn" id="btnEnMode" onclick="toggleEnMode()">EN Mode</button>
       <button class="toggle-btn active" id="btnFurigana" onclick="toggleFurigana()">Furigana</button>
       <button class="toggle-btn active" id="btnHira" onclick="toggleHira()">Hiragana</button>
       <button class="toggle-btn active" id="btnTrans" onclick="toggleTrans()">Translation</button>
+      <button class="toggle-btn" id="btnEnMode" onclick="toggleEnMode()" style="margin-left:auto;">英語練習</button>
       <div class="slider-group">
         <span>Aa</span>
         <input type="range" min="14" max="56" value="18" id="fontSlider" oninput="setFontSize(this.value)">
