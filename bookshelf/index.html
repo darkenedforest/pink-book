@@ -53,10 +53,20 @@ body{
   border-bottom:1px solid var(--border);
 }
 .book-info{padding:0.7rem 0.8rem;}
+.book-title-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.2rem;}
 .book-title{
   font-family:'Noto Serif JP',serif;font-size:0.95rem;font-weight:700;
-  margin-bottom:0.2rem;line-height:1.3;
+  line-height:1.3;
 }
+.lang-badges{display:flex;gap:0.2rem;flex-shrink:0;}
+.lang-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:22px;height:22px;border-radius:50%;font-size:0.48rem;font-weight:700;
+  font-family:'Source Sans Pro',sans-serif;letter-spacing:0.02em;
+  border:1.5px solid var(--border);color:var(--text-light);background:var(--bg);
+}
+.lang-badge.jp{border-color:#b8433a;color:#b8433a;}
+.lang-badge.en{border-color:#2c6fbb;color:#2c6fbb;}
 .book-tagline{
   font-size:0.72rem;color:var(--text-light);line-height:1.4;
 }
@@ -201,14 +211,20 @@ body{
     <div class="book-slot" onclick="openBook('kirihama')">
       <img class="book-cover" src="kirihama-cover.png" alt="The Secrets of Kirihama">
       <div class="book-info">
-        <div class="book-title">霧浜の秘密</div>
+        <div class="book-title-row">
+          <div class="book-title">霧浜の秘密</div>
+          <div class="lang-badges"><span class="lang-badge jp">JP</span><span class="lang-badge en">EN</span></div>
+        </div>
         <div class="book-tagline">A supernatural mystery in a foggy coastal village</div>
       </div>
     </div>
     <div class="book-slot" onclick="openBook('shadow-shop')">
       <img class="book-cover" src="shadow-shop-cover.png" alt="The Shadow Shop">
       <div class="book-info">
-        <div class="book-title">影の店</div>
+        <div class="book-title-row">
+          <div class="book-title">影の店</div>
+          <div class="lang-badges"><span class="lang-badge jp">JP</span></div>
+        </div>
         <div class="book-tagline">A midnight shop that trades in memories and emotions</div>
       </div>
     </div>
@@ -218,7 +234,10 @@ body{
         <div class="coming-soon-banner">Coming Soon</div>
       </div>
       <div class="book-info">
-        <div class="book-title">最終電車</div>
+        <div class="book-title-row">
+          <div class="book-title">最終電車</div>
+          <div class="lang-badges"><span class="lang-badge jp">JP</span></div>
+        </div>
         <div class="book-tagline">A student trapped on an infinite train through surreal worlds</div>
       </div>
     </div>
