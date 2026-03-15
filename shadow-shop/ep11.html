@@ -22527,11 +22527,9 @@ function updatePageInfo() {
 
 // ========== BOOKMARK ==========
 function trackTap(sentenceIdx) {
-  if (sentenceIdx > bookmarkSentence) {
-    bookmarkSentence = sentenceIdx;
-    saveState();
-    updateBookmarkDisplay();
-  }
+  bookmarkSentence = sentenceIdx;
+  saveState();
+  updateBookmarkDisplay();
 }
 
 function setBookmarkHere() {
