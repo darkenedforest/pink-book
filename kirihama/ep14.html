@@ -152,14 +152,17 @@ body.hide-furigana ruby rt{visibility:hidden;}
 .trans-line.hidden{opacity:0;max-height:0;overflow:hidden;margin:0;}
 
 /* English word tapping */
-.en-word{cursor:pointer;transition:background 0.15s;border-radius:2px;}
+.en-word{cursor:pointer;transition:background 0.15s;border-radius:2px;padding:0 1px;}
 .en-word:hover{background:rgba(184,67,58,0.08);}
-body.en-mode .en-word{font-size:inherit;}
 
 /* English-primary mode */
 body.en-mode .sentence-block{display:flex;flex-direction:column;}
 body.en-mode .trans-line{order:-1;font-size:1em;font-style:normal;color:var(--text);margin-top:0;margin-bottom:0.1rem;font-weight:400;}
-body.en-mode .jp-sentence{font-size:0.78em;color:var(--trans-color);display:block;margin-top:0.05rem;}
+body.en-mode .trans-line .en-word{cursor:pointer;font-size:inherit;}
+body.en-mode .jp-sentence{font-size:0.78em;color:var(--trans-color);display:block;margin-top:0.05rem;pointer-events:none;}
+body.en-mode .jp-sentence .word,
+body.en-mode .jp-sentence .grammar{pointer-events:none;cursor:default;}
+body.en-mode .jp-sentence ruby rt{visibility:hidden;}
 body.en-mode .hira-line{display:none !important;}
 
 /* ===== SCENE HEADERS ===== */
