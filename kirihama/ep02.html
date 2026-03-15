@@ -54357,19 +54357,23 @@ function renderPage(pageIdx) {
     var transLine = document.createElement('span');
     transLine.className = 'trans-line' + (showTrans ? '' : ' hidden');
     if (s.en_parts && s.en_parts.length > 0) {
-      s.en_parts.forEach(function(ep) {
+      var enIdx = 0;
+      s.en_parts.forEach(function(ep, idx) {
         if (ep.e) {
           var espan = document.createElement('span');
           espan.className = 'en-word';
-          espan.textContent = ep.e + ' ';
+          // Add space before word unless it's the first token
+          var nextIsP = s.en_parts[idx+1] && s.en_parts[idx+1].p !== undefined;
+          espan.textContent = (enIdx > 0 ? ' ' : '') + ep.e;
           espan.onclick = function(ev) {
             showPopup(ev, {type:'en', reading:ep.jp, word:ep.e, meaning:ep.m, jp:ep.jp, r:ep.r});
             trackTap(si);
           };
           transLine.appendChild(espan);
+          enIdx++;
         } else if (ep.p !== undefined) {
           var pspan = document.createElement('span');
-          pspan.textContent = ep.p + ' ';
+          pspan.textContent = ep.p;
           transLine.appendChild(pspan);
         }
       });
