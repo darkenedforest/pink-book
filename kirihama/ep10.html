@@ -23251,7 +23251,6 @@ function toggleTrans() {
     showJpRef = !showJpRef;
     document.getElementById('btnTrans').classList.toggle('active', showJpRef);
     document.querySelectorAll('.jp-sentence').forEach(function(el) { el.style.display = showJpRef ? '' : 'none'; });
-    document.querySelectorAll('.hira-line').forEach(function(el) { el.style.display = showJpRef ? '' : 'none'; });
   } else {
     showTrans = !showTrans;
     document.getElementById('btnTrans').classList.toggle('active', showTrans);
