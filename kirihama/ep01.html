@@ -32593,8 +32593,7 @@ function renderPage(pageIdx) {
   var indices = pages[pageIdx];
   var lastSceneId = null;
 
-  for (var ii = 0; ii < indices.length; ii++) {
-    var si = indices[ii];
+  for (var ii = 0; ii < indices.length; ii++) { (function(si) {
     var s = sentences[si];
 
     // Scene break divider
@@ -32682,7 +32681,7 @@ function renderPage(pageIdx) {
     block.appendChild(transLine);
 
     el.appendChild(block);
-  }
+  })(indices[ii]); }
 
   updatePageInfo();
 }
