@@ -206,7 +206,7 @@ function init() {
       return na - nb;
     });
     var total = 0; lessons.forEach(function(l){ total += bySource[src][l]; });
-    html += '<div class="tree-book open" id="book-' + src + '">';
+    html += '<div class="tree-book" id="book-' + src + '">';
     html += '<label class="tree-book-label" onclick="event.stopPropagation()">';
     html += '<input type="checkbox" checked onchange="toggleBook(\'' + src + '\',this.checked)"> ';
     html += sourceNames[src] + ' <span style="font-weight:400;color:var(--text-light);font-size:0.72rem;">(' + total + ')</span>';
