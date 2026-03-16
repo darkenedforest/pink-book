@@ -164,10 +164,12 @@ body{font-family:'Source Sans Pro',sans-serif;background:linear-gradient(160deg,
   <div class="summary" id="summaryPanel">
     <h2>Batch Complete</h2>
     <p id="summaryText">You reviewed 10 grammar points.</p>
+    <div id="batchNav" style="display:flex;align-items:center;justify-content:center;gap:0.3rem;margin-bottom:0.8rem;flex-wrap:wrap;"></div>
     <div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;">
-      <button class="btn btn-outline" onclick="repeatBatch()">Repeat Batch</button>
-      <button class="btn btn-primary" onclick="nextBatch()">Next Batch</button>
-      <button class="btn btn-outline" onclick="endReview()">Back to Setup</button>
+      <button class="btn btn-outline" onclick="repeatBatch()">Repeat</button>
+      <button class="btn btn-outline" onclick="prevBatch()">← Prev Batch</button>
+      <button class="btn btn-primary" onclick="nextBatch()">Next Batch →</button>
+      <button class="btn btn-outline btn-sm" onclick="endReview()">Setup</button>
     </div>
   </div>
 </div>
@@ -298,13 +300,33 @@ function loadBatch() {
   showCard();
 }
 
+function getBatchSize() { return parseInt(document.getElementById('batchSize').value) || 10; }
+function getCurrentBatchNum() { return Math.floor(globalIndex / getBatchSize()) + 1; }
+function getTotalBatches() { return Math.ceil(filteredPool.length / getBatchSize()); }
+
+function updateBatchNav() {
+  var bs = getBatchSize();
+  var current = getCurrentBatchNum();
+  var total = getTotalBatches();
+  var html = '';
+  for (var i = 1; i <= total; i++) {
+    var cls = (i === current) ? 'btn btn-sm btn-primary' : 'btn btn-sm btn-outline';
+    html += '<button class="' + cls + '" onclick="goToBatch(' + i + ')" style="min-width:32px;padding:0.25rem 0.4rem;">' + i + '</button>';
+  }
+  document.getElementById('batchNav').innerHTML = html;
+  document.getElementById('summaryText').textContent = 'Batch ' + current + ' of ' + total + ' — ' + currentDeck.length + ' points reviewed.';
+}
+
+function goToBatch(num) {
+  globalIndex = (num - 1) * getBatchSize();
+  loadBatch();
+}
+
 function showCard() {
   if (deckIndex >= currentDeck.length) {
-    globalIndex += parseInt(document.getElementById('batchSize').value) || 10;
     document.getElementById('cardArea').classList.remove('active');
     document.getElementById('summaryPanel').classList.add('active');
-    var remaining = filteredPool.length - globalIndex;
-    document.getElementById('summaryText').textContent = 'You reviewed ' + currentDeck.length + ' grammar points.' + (remaining > 0 ? ' ' + remaining + ' remaining.' : ' All done!');
+    updateBatchNav();
     return;
   }
   flipped = false;
@@ -340,8 +362,9 @@ function renderCard(g, showBack) {
 
 function nextCard() { deckIndex++; showCard(); }
 function prevCard() { if (deckIndex > 0) { deckIndex--; showCard(); } }
-function nextBatch() { loadBatch(); }
-function repeatBatch() { globalIndex -= parseInt(document.getElementById('batchSize').value) || 10; if (globalIndex < 0) globalIndex = 0; loadBatch(); }
+function nextBatch() { globalIndex += getBatchSize(); if (globalIndex >= filteredPool.length) globalIndex = 0; loadBatch(); }
+function prevBatch() { globalIndex -= getBatchSize(); if (globalIndex < 0) globalIndex = Math.max(0, (getTotalBatches()-1) * getBatchSize()); loadBatch(); }
+function repeatBatch() { loadBatch(); }
 function endReview() {
   document.getElementById('cardArea').classList.remove('active');
   document.getElementById('summaryPanel').classList.remove('active');
