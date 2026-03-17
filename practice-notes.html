@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Speaking Test Speeches</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f3ec;--card-bg:#fffdf8;--text:#2c2416;--text-light:#6b5d4d;--accent:#b8433a;--grammar-color:#7b2d8e;--border:#e0d5c5;--popup-bg:#fffef9;--hira-color:#999;--trans-color:#5a7a5a;--font-size:18px;--page-max-width:720px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Serif JP',serif;background:var(--bg);color:var(--text);min-height:100vh}
+#password-gate{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem}
+#password-gate.hidden{display:none}
+#password-gate h1{font-size:1.3rem;color:var(--accent);letter-spacing:0.04em}
+#password-gate input{font-family:'Noto Sans JP',sans-serif;font-size:1rem;padding:0.6rem 1rem;border:1.5px solid var(--border);border-radius:8px;background:var(--card-bg);color:var(--text);text-align:center;width:220px;outline:none}
+#password-gate input:focus{border-color:var(--accent)}
+#password-gate button{font-family:'Source Sans Pro',sans-serif;font-size:0.9rem;font-weight:600;padding:0.5rem 1.5rem;border:none;border-radius:999px;background:var(--accent);color:#fff;cursor:pointer;transition:opacity 0.2s}
+#password-gate button:hover{opacity:0.85}
+#password-gate .error{font-family:'Source Sans Pro',sans-serif;font-size:0.8rem;color:var(--accent);min-height:1.2em}
+#content{display:none}
+#content.visible{display:block}
+.container{max-width:var(--page-max-width);margin:0 auto;padding:1rem 1.2rem 3rem}
+.page-title{font-size:1.4rem;font-weight:700;color:var(--accent);text-align:center;margin:1.5rem 0 0.3rem;letter-spacing:0.04em}
+.page-subtitle{font-family:'Source Sans Pro',sans-serif;font-size:0.82rem;color:var(--text-light);text-align:center;margin-bottom:2rem}
+.topic-section{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.6rem 1.4rem 1.8rem;margin-bottom:2rem;box-shadow:2px 0 12px rgba(44,36,22,0.06),-2px 0 12px rgba(44,36,22,0.06)}
+.topic-header{font-size:1.05rem;font-weight:700;color:var(--accent);margin-bottom:0.3rem;letter-spacing:0.02em}
+.topic-lesson{font-family:'Source Sans Pro',sans-serif;font-size:0.72rem;font-weight:600;color:var(--grammar-color);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1.2rem}
+.sentence-block{margin-bottom:1rem}
+.jp-sentence{display:inline;line-height:2.6;font-size:var(--font-size)}
+ruby rt{font-size:0.5em;color:var(--hira-color);font-family:'Noto Sans JP',sans-serif;font-weight:400}
+.word{cursor:pointer;transition:background 0.15s;border-radius:2px}
+.word:hover{background:rgba(184,67,58,0.08)}
+.grammar{font-weight:700;color:var(--grammar-color);cursor:pointer;border-bottom:2px solid rgba(123,45,142,0.35);border-radius:2px;transition:background 0.15s}
+.grammar:hover{background:rgba(123,45,142,0.08)}
+.hira-line{display:block;font-family:'Noto Sans JP',sans-serif;font-size:0.78em;color:var(--hira-color);margin-top:0.1rem;line-height:1.6}
+.trans-line{display:block;font-family:'Source Sans Pro',sans-serif;font-size:0.78em;color:var(--trans-color);margin-top:0.05rem;line-height:1.6;font-style:italic}
+.popup-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999}
+.popup-overlay.show{display:block}
+.popup{display:none;position:fixed;z-index:1000;background:var(--popup-bg);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;box-shadow:0 12px 40px rgba(44,36,22,0.18);max-width:340px;min-width:200px;animation:popIn 0.18s ease-out}
+.popup.show{display:block}
+@keyframes popIn{from{opacity:0;transform:translateY(6px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.popup .reading{font-family:'Noto Sans JP',sans-serif;font-size:1.05rem;color:var(--accent);font-weight:500;margin-bottom:0.15rem}
+.popup .kanji-display{font-size:0.78rem;color:var(--text-light);margin-bottom:0.3rem}
+.popup .meaning{font-family:'Source Sans Pro',sans-serif;font-size:0.88rem;color:var(--text);line-height:1.55}
+.popup .grammar-tag{display:inline-block;font-family:'Source Sans Pro',sans-serif;font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#fff;background:var(--grammar-color);padding:0.12rem 0.5rem;border-radius:999px;margin-bottom:0.35rem}
+.popup .grammar-explain{font-family:'Source Sans Pro',sans-serif;font-size:0.8rem;color:var(--text);line-height:1.55;margin-top:0.25rem}
+.back-link{display:block;text-align:center;margin-top:1rem;font-family:'Source Sans Pro',sans-serif;font-size:0.85rem}
+.back-link a{color:var(--accent);text-decoration:none;font-weight:600}
+.back-link a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div id="password-gate">
+<h1>中級へ行こう — Speaking Test</h1>
+<input type="password" id="pw-input" placeholder="パスワード" autocomplete="off">
+<button id="pw-btn">Enter</button>
+<div class="error" id="pw-error"></div>
+</div>
+<div id="content">
+<div class="container">
+<h1 class="page-title">中級へ行こう — Speaking Test Speeches</h1>
+<p class="page-subtitle">Three 2-minute speeches with grammar highlights</p>
+<div class="topic-section">
+<h2 class="topic-header">Topic 1: 今の子どもと昔の子どもはどんなところが違いますか</h2>
+<div class="topic-lesson">第3課 — 19 Grammar Points</div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">私はアメリカで育ちましたが、日本に来てから、子どもたちの生活を</span><span class="grammar" data-r="みてきて" data-m="have been observing" data-x="Vてきた — expresses change over time. [中級へ行こう, Lesson 4]">見てきて</span><span class="word" data-r="" data-m="">、昔と今ではいろいろ違うと思うようになりました。</span></span>
+<span class="hira-line">わたしはアメリカでそだちましたが、にほんにきてから、こどもたちのせいかつをみてきて、むかしといまではいろいろちがうとおもうようになりました。</span>
+<span class="trans-line">I grew up in America, but since coming to Japan and observing children's lives over time, I've come to think that the past and present are quite different.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">まず、今の子どもはスマホやゲームで遊んで</span><span class="grammar" data-r="ばかりいて" data-m="doing nothing but ~" data-x="Vてばかりいる — doing nothing but V. [中級へ行こう, Lesson 3]">ばかりいて</span><span class="word" data-r="" data-m="">、外で走ったり友達と遊んだりすることが少なくなっ</span><span class="grammar" data-r="てきました" data-m="has gradually changed" data-x="Vてきた — gradual change. [中級へ行こう, Lesson 4]">てきました</span><span class="word" data-r="" data-m="">。</span></span>
+<span class="hira-line">まず、いまのこどもはスマホやゲームであそんでばかりいて、そとではしったりともだちとあそんだりすることがすくなくなってきました。</span>
+<span class="trans-line">First of all, today's children do nothing but play with smartphones and games, and running outside or playing with friends has gradually decreased.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">昔の子どもは外で遊ぶのが好きだった</span><span class="grammar" data-r="ものですが" data-m="used to ~ (nostalgia)" data-x="Vたものだ — nostalgia. [中級へ行こう, Lesson 7]">ものですが</span><span class="word" data-r="" data-m="">、今は家の中でゲームを</span><span class="grammar" data-r="したがる" data-m="want to do (3rd person)" data-x="Vたがる — third person desire. [中級へ行こう, Lesson 3]">したがる</span><span class="word" data-r="" data-m="">子どもが多いです。</span></span>
+<span class="hira-line">むかしのこどもはそとであそぶのがすきだったものですが、いまはいえのなかでゲームをしたがるこどもがおおいです。</span>
+<span class="trans-line">Children in the past used to like playing outside, but now many children want to play games indoors.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">また、大人が着る</span><span class="grammar" data-r="ような" data-m="like ~, such as ~" data-x="V普通形ようなN. [中級へ行こう, Lesson 3]">ような</span><span class="word" data-r="" data-m="">ブランドの服を</span><span class="grammar" data-r="ほしがる" data-m="want (3rd person)" data-x="欲しがる — third person desire. [中級へ行こう, Lesson 3]">欲しがる</span><span class="word" data-r="" data-m="">子どもも増えています。</span></span>
+<span class="hira-line">また、おとながきるようなブランドのふくをほしがるこどももふえています。</span>
+<span class="trans-line">Also, the number of children who want brand-name clothes like adults wear is increasing.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">親は子どもに「だめ」と言おう</span><span class="grammar" data-r="として" data-m="as ~" data-x="として — as ~. [中級へ行こう, Lesson 7]">として</span><span class="word" data-r="" data-m="">も、子どもが泣くと、</span><span class="grammar" data-r="つい かってしまう" data-m="end up buying unintentionally" data-x="ついVてしまう — unintentional action. [中級へ行こう, Lesson 3]">つい買ってしまう</span><span class="grammar" data-r="のではないでしょうか" data-m="is it not that ~?" data-x="のでしょうか — soft rhetorical question. [中級へ行こう, Lesson 2]">のではないでしょうか</span><span class="word" data-r="" data-m="">。</span></span>
+<span class="hira-line">おやはこどもに「だめ」といおうとしても、こどもがなくと、ついかってしまうのではないでしょうか。</span>
+<span class="trans-line">Even if parents try to say no, when the child cries, don't they end up buying it anyway?</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">こうなった</span><span class="grammar" data-r="のは" data-m="the reason ~ is" data-x="のは〜からだ — reason pattern. [中級へ行こう, Lesson 3]">のは</span><span class="word" data-r="" data-m="">、テレビやインターネットの広告が増えた</span><span class="grammar" data-r="からだ" data-m="it is because ~" data-x="のは〜からだ — because. [中級へ行こう, Lesson 3]">からだ</span><span class="word" data-r="" data-m="">と思います。</span></span>
+<span class="hira-line">こうなったのは、テレビやインターネットのこうこくがふえたからだとおもいます。</span>
+<span class="trans-line">I think the reason things became this way is because TV and internet advertisements increased.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">昔の子どもは、まるで小さい大人</span><span class="grammar" data-r="のように" data-m="like ~, as if ~" data-x="Nのように — like N. [中級へ行こう, Lesson 3]">のように</span><span class="word" data-r="" data-m="">家の手伝いをした</span><span class="grammar" data-r="ものですが" data-m="used to ~ (nostalgia)" data-x="Vたものだ — nostalgia. [中級へ行こう, Lesson 7]">ものですが</span><span class="word" data-r="" data-m="">、今はお手伝いを</span><span class="grammar" data-r="したがらない" data-m="does not want to (3rd person)" data-x="Vたがらない — negative of Vたがる. [中級へ行こう, Lesson 3]">したがらない</span><span class="word" data-r="" data-m="">子どもが多いです。</span></span>
+<span class="hira-line">むかしのこどもは、まるでちいさいおとなのようにいえのてつだいをしたものですが、いまはおてつだいをしたがらないこどもがおおいです。</span>
+<span class="trans-line">Children in the past used to help with housework just like little adults, but now many children don't want to help.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">社会の変化</span><span class="grammar" data-r="にともなって" data-m="along with ~" data-x="にともなって — along with. [中級へ行こう, Lesson 9]">にともなって</span><span class="word" data-r="" data-m="">、子どもの生活もどんどん変わって</span><span class="grammar" data-r="いくでしょう" data-m="will continue to change" data-x="Vていく — future change. [中級へ行こう, Lesson 4]">いくでしょう</span><span class="word" data-r="" data-m="">。</span></span>
+<span class="hira-line">しゃかいのへんかにともなって、こどものせいかつもどんどんかわっていくでしょう。</span>
+<span class="trans-line">Along with changes in society, children's lives will surely continue to change rapidly.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">リサイクルのこと</span><span class="grammar" data-r="といっても" data-m="even though I say ~" data-x="といっても — that said. [中級へ行こう, Lesson 7]">といっても</span><span class="word" data-r="" data-m="">、昔は物を大切に使い</span><span class="grammar" data-r="おわる" data-m="finish V-ing" data-x="Vマス終わる — compound verb. [中級へ行こう, Lesson 1]">終わる</span><span class="word" data-r="" data-m="">まで使った</span><span class="grammar" data-r="ものですが" data-m="used to ~ (nostalgia)" data-x="Vたものだ — nostalgia. [中級へ行こう, Lesson 7]">ものですが</span><span class="word" data-r="" data-m="">、今の子どもは新しい物</span><span class="grammar" data-r="ばかり" data-m="nothing but ~" data-x="Nばかり — nothing but. [中級へ行こう, Lesson 3]">ばかり</span><span class="grammar" data-r="ほしがります" data-m="want (3rd person)" data-x="欲しがる — desire. [中級へ行こう, Lesson 3]">欲しがります</span><span class="word" data-r="" data-m="">。</span></span>
+<span class="hira-line">リサイクルのことといっても、むかしはものをたいせつにつかいおわるまでつかったものですが、いまのこどもはあたらしいものばかりほしがります。</span>
+<span class="trans-line">Even when it comes to recycling, people used to use things carefully until completely used up, but today's children want nothing but new things.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">私は、子どもには外で遊んで</span><span class="grammar" data-r="ほしい" data-m="want someone to ~" data-x="Vてほしい — wish for someone. [中級へ行こう, Lesson 7]">ほしい</span><span class="word" data-r="" data-m="">し、物の大切さも分かってほしいと思っています。</span></span>
+<span class="hira-line">わたしは、こどもにはそとであそんでほしいし、もののたいせつさもわかってほしいとおもっています。</span>
+<span class="trans-line">I want children to play outside, and I also want them to understand the value of things.</span></div>
+</div>
+<div class="topic-section">
+<h2 class="topic-header">Topic 2: 日本に来る前、日本にどんなイメージを持っていましたか。今はどうですか。</h2>
+<div class="topic-lesson">第4課 — 19 Grammar Points</div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">日本に来る前、私はアニメや映画</span><span class="grammar" data-r="のような" data-m="such as ~" data-x="N1のようなN2 — like. [中級へ行こう, Lesson 4]">のような</span><span class="word" data-r="" data-m="">物でしか日本を知りませんでした。</span></span>
+<span class="hira-line">にほんにくるまえ、わたしはアニメやえいがのようなものでしかにほんをしりませんでした。</span>
+<span class="trans-line">Before coming to Japan, I only knew Japan through things like anime and movies.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">日本人はみんな礼儀正しくて、毎日寿司を食べているというイメージを持っていました。</span></span>
+<span class="hira-line">にほんじんはみんなれいぎただしくて、まいにちすしをたべているというイメージをもっていました。</span>
+<span class="trans-line">I had the image that all Japanese people were polite and ate sushi every day.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">日本の生活の</span><span class="grammar" data-r="べんりさ" data-m="convenience" data-x="Aさ — nominalization. [中級へ行こう, Lesson 5]">便利さ</span><span class="word" data-r="" data-m="">や</span><span class="grammar" data-r="あんぜんさ" data-m="safety" data-x="Aさ — nominalization. [中級へ行こう, Lesson 5]">安全さ</span><span class="word" data-r="" data-m="">にも憧れていました。</span></span>
+<span class="hira-line">にほんのせいかつのべんりさやあんぜんさにもあこがれていました。</span>
+<span class="trans-line">I also admired the convenience and safety of life in Japan.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">しかし、実際に住んでみると、日本は</span><span class="grammar" data-r="アメリカほどひろくない" data-m="not as spacious as America" data-x="XはYほど〜ない. [中級へ行こう, Lesson 4]">アメリカほど広くない</span><span class="word" data-r="" data-m="">し、電車の中はとても静かで最初は驚いた</span><span class="grammar" data-r="ものです" data-m="it was indeed ~" data-x="ものだ — strong impression. [中級へ行こう, Lesson 5]">ものです</span><span class="word" data-r="" data-m="">。</span></span>
+<span class="hira-line">しかし、じっさいにすんでみると、にほんはアメリカほどひろくないし、でんしゃのなかはとてもしずかでさいしょはおどろいたものです。</span>
+<span class="trans-line">However, when I actually tried living here, Japan is not as spacious as America, and I was really surprised at how quiet trains are.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">日本に来てから、いろいろなことが分かっ</span><span class="grammar" data-r="てきました" data-m="has gradually changed" data-x="Vてきた — gradual change. [中級へ行こう, Lesson 4]">てきました</span><span class="word" data-r="" data-m="">。</span></span>
+<span class="hira-line">にほんにきてから、いろいろなことがわかってきました。</span>
+<span class="trans-line">Since coming to Japan, I've gradually come to understand many things.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">例えば、日本人がいつも礼儀正しい</span><span class="grammar" data-r="わけではない" data-m="not that ~" data-x="わけではない — not necessarily. [中級へ行こう, Lesson 8]">わけではない</span><span class="word" data-r="" data-m="">し、寿司</span><span class="grammar" data-r="ばかり" data-m="nothing but ~" data-x="Nばかり — nothing but. [中級へ行こう, Lesson 3]">ばかり</span><span class="word" data-r="" data-m="">食べている</span><span class="grammar" data-r="わけでもありません" data-m="not that ~ either" data-x="わけではない. [中級へ行こう, Lesson 8]">わけでもありません</span><span class="word" data-r="" data-m="">。</span></span>
+<span class="hira-line">たとえば、にほんじんがいつもれいぎただしいわけではないし、すしばかりたべているわけでもありません。</span>
+<span class="trans-line">For example, it's not that Japanese people are always polite, and it's not that they eat nothing but sushi either.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="grammar" data-r="いっぽう" data-m="on the other hand" data-x="一方 — contrast. [中級へ行こう, Lesson 9]">一方</span><span class="word" data-r="" data-m="">、日本のサービスの丁寧さはアメリカ</span><span class="grammar" data-r="よりたかい" data-m="higher than ~" data-x="比較の整理. [中級へ行こう, Lesson 4]">より高い</span><span class="word" data-r="" data-m="">と言えるでしょう。</span></span>
+<span class="hira-line">いっぽう、にほんのサービスのていねいさはアメリカよりたかいといえるでしょう。</span>
+<span class="trans-line">On the other hand, the politeness of Japanese service can probably be said to be higher than America's.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">日本語を勉強</span><span class="grammar" data-r="してきた" data-m="have been studying" data-x="Vてきた. [中級へ行こう, Lesson 4]">してきた</span><span class="word" data-r="" data-m="">私から見ると、言葉が分かる</span><span class="grammar" data-r="ようになる" data-m="come to be able to ~" data-x="V普通形ようになる. [中級へ行こう, Lesson 3]">ようになる</span><span class="grammar" data-r="にともなって" data-m="along with ~" data-x="にともなって — along with. [中級へ行こう, Lesson 9]">にともなって</span><span class="word" data-r="" data-m="">、日本の文化の</span><span class="grammar" data-r="ふかさ" data-m="depth" data-x="Aさ — nominalization. [中級へ行こう, Lesson 5]">深さ</span><span class="word" data-r="" data-m="">もだんだん見え</span><span class="grammar" data-r="てきました" data-m="has gradually changed" data-x="Vてきた — gradual change. [中級へ行こう, Lesson 4]">てきました</span><span class="word" data-r="" data-m="">。</span></span>
+<span class="hira-line">にほんごをべんきょうしてきたわたしからみると、ことばがわかるようになるにともなって、にほんのぶんかのふかさもだんだんみえてきました。</span>
+<span class="trans-line">From the perspective of someone who has been studying Japanese, as I came to understand the language, I gradually began to see the depth of Japanese culture.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">日本の生活</span><span class="grammar" data-r="といっても" data-m="even though I say ~" data-x="といっても — that said. [中級へ行こう, Lesson 7]">といっても</span><span class="word" data-r="" data-m="">、東京と田舎では全然違います。</span></span>
+<span class="hira-line">にほんのせいかつといっても、とうきょうといなかではぜんぜんちがいます。</span>
+<span class="trans-line">Even when we talk about life in Japan, Tokyo and the countryside are completely different.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">もし日本に来る前の私にアドバイスする</span><span class="grammar" data-r="なら" data-m="if ~" data-x="なら — conditional. [中級へ行こう, Lesson 7]">なら</span><span class="word" data-r="" data-m="">、「イメージだけで判断する</span><span class="grammar" data-r="べきではない" data-m="should not ~" data-x="べきだ — obligation. [中級へ行こう, Lesson 10]">べきではない</span><span class="word" data-r="" data-m="">」と言いたいです。</span></span>
+<span class="hira-line">もしにほんにくるまえのわたしにアドバイスするなら、「イメージだけではんだんするべきではない」といいたいです。</span>
+<span class="trans-line">If I were to give advice to my past self, I'd want to say: You shouldn't judge based on image alone.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">来る前の日本のイメージは間違っていたという</span><span class="grammar" data-r="より" data-m="rather than ~" data-x="V1るよりV2るほうが. [中級へ行こう, Lesson 7]">より</span><span class="word" data-r="" data-m="">、一つの面しか見ていなかった</span><span class="grammar" data-r="ということだ" data-m="it means that ~" data-x="ということだ. [中級へ行こう, Lesson 5]">ということだ</span><span class="word" data-r="" data-m="">と思います。</span></span>
+<span class="hira-line">くるまえのにほんのイメージはまちがっていたというより、ひとつのめんしかみていなかったということだとおもいます。</span>
+<span class="trans-line">Rather than saying my image of Japan was wrong, I think it means I was only seeing one side of things.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">今は、日本に来てよかったと心から思っています。</span></span>
+<span class="hira-line">いまは、にほんにきてよかったとこころからおもっています。</span>
+<span class="trans-line">Now, I truly think from the bottom of my heart that I'm glad I came to Japan.</span></div>
+</div>
+<div class="topic-section">
+<h2 class="topic-header">Topic 3: リサイクルをすることについてどう思いますか</h2>
+<div class="topic-lesson">第7課 — 21 Grammar Points</div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">私が子どもの頃、アメリカでは何でもすぐ捨てた</span><span class="grammar" data-r="ものです" data-m="it was indeed ~" data-x="ものだ — strong impression. [中級へ行こう, Lesson 5]">ものです</span><span class="word" data-r="" data-m="">。</span></span>
+<span class="hira-line">わたしがこどものころ、アメリカではなんでもすぐすてたものです。</span>
+<span class="trans-line">When I was a child, in America we used to just throw everything away immediately.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">リサイクルのことなど、あまり考えなかった</span><span class="grammar" data-r="ものでした" data-m="used to ~ (nostalgia)" data-x="Vたものだ — nostalgia. [中級へ行こう, Lesson 7]">ものでした</span><span class="word" data-r="" data-m="">。</span></span>
+<span class="hira-line">リサイクルのことなど、あまりかんがえなかったものでした。</span>
+<span class="trans-line">We didn't used to think much about things like recycling.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">しかし、日本に来てから、ゴミの分け方の</span><span class="grammar" data-r="こまかさ" data-m="meticulousness" data-x="Aさ — nominalization. [中級へ行こう, Lesson 5]">細かさ</span><span class="word" data-r="" data-m="">に驚</span><span class="grammar" data-r="きました" data-m="has gradually become clear" data-x="Vてきた — gradual change. [中級へ行こう, Lesson 4]">きました</span><span class="word" data-r="" data-m="">。</span></span>
+<span class="hira-line">しかし、にほんにきてから、ゴミのわけかたのこまかさにおどろきました。</span>
+<span class="trans-line">However, since coming to Japan, I was amazed by the meticulousness of garbage sorting.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">日本では市民</span><span class="grammar" data-r="として" data-m="as ~" data-x="として — as ~. [中級へ行こう, Lesson 7]">として</span><span class="word" data-r="" data-m="">、きちんとゴミを分けることが求められています。</span></span>
+<span class="hira-line">にほんではしみんとして、きちんとゴミをわけることがもとめられています。</span>
+<span class="trans-line">In Japan, as citizens, people are expected to sort garbage properly.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">リサイクル</span><span class="grammar" data-r="といっても" data-m="even though I say ~" data-x="といっても — that said. [中級へ行こう, Lesson 7]">といっても</span><span class="word" data-r="" data-m="">、ただゴミを分ければいい</span><span class="grammar" data-r="わけではありません" data-m="not that ~" data-x="わけではない. [中級へ行こう, Lesson 8]">わけではありません</span><span class="word" data-r="" data-m="">。</span></span>
+<span class="hira-line">リサイクルといっても、ただゴミをわければいいわけではありません。</span>
+<span class="trans-line">Even when we talk about recycling, it's not just a matter of sorting garbage.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="grammar" data-r="たいせつなのは" data-m="the important thing is ~" data-x="のは〜ことだ. [中級へ行こう, Lesson 2]">大切なのは</span><span class="word" data-r="" data-m="">、まず物を買う前に、本当に必要かどうか考える</span><span class="grammar" data-r="ことだ" data-m="the thing is to ~" data-x="のは〜ことだ. [中級へ行こう, Lesson 2]">ことだ</span><span class="word" data-r="" data-m="">と思います。</span></span>
+<span class="hira-line">たいせつなのは、まずものをかうまえに、ほんとうにひつようかどうかかんがえることだとおもいます。</span>
+<span class="trans-line">I think the important thing is to first think about whether something is truly necessary before buying it.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">新しい物を買う</span><span class="grammar" data-r="より" data-m="rather than ~" data-x="V1るよりV2るほうが. [中級へ行こう, Lesson 7]">より</span><span class="word" data-r="" data-m="">、今ある物を使い続ける</span><span class="grammar" data-r="ほうが" data-m="~ is more" data-x="V1るよりV2るほうが. [中級へ行こう, Lesson 7]">ほうが</span><span class="word" data-r="" data-m="">環境にいい</span><span class="grammar" data-r="のではないでしょうか" data-m="is it not that ~?" data-x="のでしょうか — soft rhetorical question. [中級へ行こう, Lesson 2]">のではないでしょうか</span><span class="word" data-r="" data-m="">。</span></span>
+<span class="hira-line">あたらしいものをかうより、いまあるものをつかいつづけるほうがかんきょうにいいのではないでしょうか。</span>
+<span class="trans-line">Isn't it better for the environment to keep using what you already have rather than buying new things?</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">環境問題が深刻になる</span><span class="grammar" data-r="にともなって" data-m="along with ~" data-x="にともなって — along with. [中級へ行こう, Lesson 9]">にともなって</span><span class="word" data-r="" data-m="">、リサイクルの大切さも増し</span><span class="grammar" data-r="てきました" data-m="has gradually changed" data-x="Vてきた — gradual change. [中級へ行こう, Lesson 4]">てきました</span><span class="word" data-r="" data-m="">。</span></span>
+<span class="hira-line">かんきょうもんだいがしんこくになるにともなって、リサイクルのたいせつさもましてきました。</span>
+<span class="trans-line">As environmental problems become more serious, the importance of recycling has also been increasing.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">私は、政府にはもっとリサイクルしやすい仕組みを作って</span><span class="grammar" data-r="ほしい" data-m="want someone to ~" data-x="Vてほしい — wish for someone. [中級へ行こう, Lesson 7]">ほしい</span><span class="word" data-r="" data-m="">と思います。</span></span>
+<span class="hira-line">わたしは、せいふにはもっとリサイクルしやすいしくみをつくってほしいとおもいます。</span>
+<span class="trans-line">I want the government to create systems that make recycling easier.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">例えば、リサイクルの</span><span class="grammar" data-r="ために" data-m="for the purpose of ~" data-x="ために — purpose. [中級へ行こう, Lesson 6]">ために</span><span class="word" data-r="" data-m="">、コンビニやスーパーにもっと回収ボックスを置く</span><span class="grammar" data-r="べきではないでしょうか" data-m="should not ~?" data-x="べきだ — obligation. [中級へ行こう, Lesson 10]">べきではないでしょうか</span><span class="word" data-r="" data-m="">。</span></span>
+<span class="hira-line">たとえば、リサイクルのために、コンビニやスーパーにもっとかいしゅうボックスをおくべきではないでしょうか。</span>
+<span class="trans-line">For example, shouldn't they place more collection boxes at convenience stores and supermarkets?</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">ゴミを減らすことは、一人一人が努力する</span><span class="grammar" data-r="べき" data-m="should ~" data-x="べきだ — obligation. [中級へ行こう, Lesson 10]">べき</span><span class="grammar" data-r="ことだ" data-m="the thing is to ~" data-x="のは〜ことだ. [中級へ行こう, Lesson 2]">ことだ</span><span class="word" data-r="" data-m="">と思います。</span></span>
+<span class="hira-line">ゴミをへらすことは、ひとりひとりがどりょくするべきことだとおもいます。</span>
+<span class="trans-line">I think reducing garbage is something each person should make an effort toward.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">もしリサイクルが面倒</span><span class="grammar" data-r="なら" data-m="if ~" data-x="なら — conditional. [中級へ行こう, Lesson 7]">なら</span><span class="word" data-r="" data-m="">、まずゴミを出さない生活を</span><span class="grammar" data-r="はじめる" data-m="start ~" data-x="Vマス始める. [中級へ行こう, Lesson 1]">始める</span><span class="word" data-r="" data-m="">のもいい方法です。</span></span>
+<span class="hira-line">もしリサイクルがめんどうなら、まずゴミをださないせいかつをはじめるのもいいほうほうです。</span>
+<span class="trans-line">If recycling is too much trouble, starting a lifestyle that doesn't produce garbage is also a good approach.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">環境を守る</span><span class="grammar" data-r="ために" data-m="for the purpose of ~" data-x="ために — purpose. [中級へ行こう, Lesson 6]">ために</span><span class="word" data-r="" data-m="">、</span><span class="grammar" data-r="つい" data-m="unintentionally" data-x="ついVてしまう — unintentional. [中級へ行こう, Lesson 3]">つい</span><span class="word" data-r="" data-m="">「面倒だ」と思って</span><span class="grammar" data-r="しまう" data-m="end up doing ~" data-x="ついVてしまう. [中級へ行こう, Lesson 3]">しまう</span><span class="word" data-r="" data-m="">こともありますが、地球のことを考えれば、やら</span><span class="grammar" data-r="ずにはいられません" data-m="cannot help but do ~" data-x="ずにはいられない. [中級へ行こう, Lesson 10]">ずにはいられません</span><span class="word" data-r="" data-m="">。</span></span>
+<span class="hira-line">かんきょうをまもるために、つい「めんどうだ」とおもってしまうこともありますが、ちきゅうのことをかんがえれば、やらずにはいられません。</span>
+<span class="trans-line">In order to protect the environment, there are times I can't help thinking it's a hassle, but when I think about the earth, I can't help but do it.</span></div>
+<div class="sentence-block"><span class="jp-sentence"><span class="word" data-r="" data-m="">私たちの行動が未来を変えて</span><span class="grammar" data-r="いく" data-m="will continue to ~" data-x="Vていく — future change. [中級へ行こう, Lesson 4]">いく</span><span class="word" data-r="" data-m="">と信じています。</span></span>
+<span class="hira-line">わたしたちのこうどうがみらいをかえていくとしんじています。</span>
+<span class="trans-line">I believe that our actions will continue to change the future.</span></div>
+</div>
+<div class="back-link"><a href="index.html">Back to Bookshelf</a></div>
+</div></div>
+<div class="popup-overlay" id="popupOverlay"></div>
+<div class="popup" id="popup"></div>
+<script>
+(function(){var gate=document.getElementById("password-gate"),input=document.getElementById("pw-input"),btn=document.getElementById("pw-btn"),err=document.getElementById("pw-error"),content=document.getElementById("content");function check(){if(input.value==="chuukyuu"){gate.classList.add("hidden");content.classList.add("visible");}else{err.textContent="Incorrect password";input.value="";input.focus();}}btn.addEventListener("click",check);input.addEventListener("keydown",function(e){if(e.key==="Enter")check();});input.focus();})();
+(function(){var overlay=document.getElementById("popupOverlay"),popup=document.getElementById("popup");function hide(){popup.classList.remove("show");overlay.classList.remove("show");}overlay.addEventListener("click",hide);function show(el){var r=el.dataset.r||"",m=el.dataset.m||"",x=el.dataset.x||"",isG=el.classList.contains("grammar"),display=el.textContent,h="";if(isG)h+='<div class="grammar-tag">Grammar</div>';if(r)h+='<div class="reading">'+r+"</div>";if(display&&display!==r)h+='<div class="kanji-display">'+display+"</div>";if(m)h+='<div class="meaning">'+m+"</div>";if(x)h+='<div class="grammar-explain">'+x+"</div>";if(!h)return;popup.innerHTML=h;overlay.classList.add("show");popup.classList.add("show");var rect=el.getBoundingClientRect(),pw=popup.offsetWidth,ph=popup.offsetHeight,left=rect.left+rect.width/2-pw/2,top=rect.top-ph-10;if(top<8)top=rect.bottom+10;if(left<8)left=8;if(left+pw>window.innerWidth-8)left=window.innerWidth-pw-8;popup.style.left=left+"px";popup.style.top=top+"px";}document.addEventListener("click",function(e){var w=e.target.closest(".word,.grammar");if(w){e.preventDefault();e.stopPropagation();show(w);}});})();
+</script>
+<script data-goatcounter="https://darkenedforest.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body></html>
