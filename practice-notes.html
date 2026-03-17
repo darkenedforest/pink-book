@@ -24,10 +24,6 @@ h1{font-size:1.5rem;color:var(--accent);text-align:center;margin:20px 0 8px;lett
 .pu{cursor:default}
 .hl{font-size:.85rem;color:var(--hira);margin-bottom:3px}
 .tl{font-size:.85rem;color:var(--trans);font-style:italic}
-.dt{display:flex;align-items:center;gap:6px;margin-top:6px}
-.dt button{background:none;border:1px solid var(--border);border-radius:4px;padding:2px 10px;font-size:.78rem;color:var(--hira);cursor:pointer}
-.dt button.ac{background:var(--border);color:var(--text)}
-.hid{display:none}
 .po{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.3);z-index:100;justify-content:center;align-items:flex-end;padding-bottom:10vh}
 .po.vis{display:flex}
 .pp{background:var(--card-bg);border-radius:12px;padding:20px 24px;max-width:360px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,.15)}
@@ -52,7 +48,7 @@ h1{font-size:1.5rem;color:var(--accent);text-align:center;margin:20px 0 8px;lett
 <button onclick="ck()">Enter</button>
 <div id="pwe">Incorrect password</div>
 </div>
-<div id="ct" class="hid">
+<div id="ct" style="display:none">
 <div class="ctr">
 <h1>中級へ行こう</h1>
 <div class="sub">Speaking Test Speeches (2 min each)</div>
@@ -64,17 +60,3171 @@ h1{font-size:1.5rem;color:var(--accent);text-align:center;margin:20px 0 8px;lett
 <div class="pw" id="ppw"></div>
 <div class="pr" id="ppr"></div>
 <div class="pm" id="ppm"></div>
-<div class="pe hid" id="ppe"></div>
+<div class="pe" id="ppe" style="display:none"></div>
 </div>
 </div>
 <script>
-function ck(){var p=document.getElementById("pwi").value;if(p==="chuukyuu"){document.getElementById("pwo").style.display="none";document.getElementById("ct").classList.remove("hid")}else{document.getElementById("pwe").style.display="block";document.getElementById("pwi").value="";document.getElementById("pwi").focus()}}
+function ck(){var p=document.getElementById("pwi").value;if(p==="chuukyuu"){document.getElementById("pwo").style.display="none";document.getElementById("ct").style.display="block"}else{document.getElementById("pwe").style.display="block";document.getElementById("pwi").value="";document.getElementById("pwi").focus()}}
 document.getElementById("pwi").addEventListener("keydown",function(e){if(e.key==="Enter")ck()});
 window.addEventListener("load",function(){document.getElementById("pwi").focus()});
-var S=[{"topic": "Topic 1", "topic_num": "第3課", "question": "今の子どもと昔の子どもはどんなところが違いますか", "question_en": "How are children today different from children in the past?", "grammar_count": 19, "sentences": [{"parts": [{"w": "私", "r": "わたし", "m": "I"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "アメリカ", "r": "アメリカ", "m": "America"}, {"w": "で", "r": "で", "m": "at; in; by; with"}, {"w": "育ちました", "r": "そだちました", "m": "grew up"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"p": "、"}, {"w": "日本", "r": "にほん", "m": "Japan"}, {"w": "に", "r": "に", "m": "to; at; in"}, {"w": "来て", "r": "きて", "m": "coming"}, {"w": "から", "r": "から", "m": "from; since; because"}, {"p": "、"}, {"w": "子どもたち", "r": "こどもたち", "m": "children"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "生活", "r": "せいかつ", "m": "life; lifestyle"}, {"w": "を", "r": "を", "m": "(object)"}, {"g": "見てきて", "r": "見てきて", "m": "Vテいく: Used to show, based on the present situation, how thin", "x": "Vテいく: Used to show, based on the present situation, how things will change in the future. Vテきた: Used to show, based on the present situation, how things have changed from before until now. [中級へ行こう, Lesson 4]", "id": "int_L4_1"}, {"p": "、"}, {"w": "昔", "r": "むかし", "m": "the past"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "今", "r": "いま", "m": "now"}, {"w": "で", "r": "で", "m": "at; in; by; with"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "いろいろ", "r": "いろいろ", "m": "in many ways"}, {"w": "違う", "r": "ちがう", "m": "to differ"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "思う", "r": "おもう", "m": "to think"}, {"w": "ようになりました", "r": "ようになりました", "m": "came to ~"}, {"p": "。"}], "hira": "わたし は アメリカ で そだちました が、 にほん に きて から、 こどもたち の せいかつ を みてきて、 むかし と いま で は いろいろ ちがう と おもう ようになりました。", "trans": "I grew up in America, but since coming to Japan and observing children's lives, I've come to think that the past and present are quite different."}, {"parts": [{"w": "まず", "r": "まず", "m": "first of all"}, {"p": "、"}, {"w": "今", "r": "いま", "m": "now"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "子ども", "r": "こども", "m": "child"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "スマホ", "r": "スマホ", "m": "smartphone"}, {"w": "や", "r": "や", "m": "and (among others)"}, {"w": "ゲーム", "r": "ゲーム", "m": "game"}, {"w": "で", "r": "で", "m": "at; in; by; with"}, {"w": "遊んで", "r": "あそんで", "m": "playing"}, {"g": "ばかりいて", "r": "ばかりいて", "m": "only N, keep V ing, always V (Used to focus on one thing, or", "x": "only N, keep V ing, always V (Used to focus on one thing, or to mean one thing keeps being done or is repeatedly done. In many cases, it is used with a negative meaning.) [中級へ行こう, Lesson 3]", "id": "int_L3_2"}, {"p": "、"}, {"w": "外", "r": "そと", "m": "outside"}, {"w": "で", "r": "で", "m": "at; in; by; with"}, {"w": "走ったり", "r": "はしったり", "m": "running (and)"}, {"w": "友達", "r": "ともだち", "m": "friend"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "遊んだり", "r": "あそんだり", "m": "playing (and)"}, {"w": "する", "r": "する", "m": "to do"}, {"w": "こと", "r": "こと", "m": "thing; matter"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"w": "少なく", "r": "すくなく", "m": "less"}, {"w": "なっ", "r": "なっ", "m": "becoming"}, {"g": "てきました", "r": "てきました", "m": "Vテいく: Used to show, based on the present situation, how thin", "x": "Vテいく: Used to show, based on the present situation, how things will change in the future. Vテきた: Used to show, based on the present situation, how things have changed from before until now. [中級へ行こう, Lesson 4]", "id": "int_L4_1"}, {"p": "。"}], "hira": "まず、 いま の こども は スマホ や ゲーム で あそんで ばかりいて、 そと で はしったり ともだち と あそんだり する こと が すくなく なっ てきました。", "trans": "First of all, today's children do nothing but play with smartphones and games, and running outside or playing with friends has gradually decreased."}, {"parts": [{"w": "昔", "r": "むかし", "m": "the past"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "子ども", "r": "こども", "m": "child"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "外", "r": "そと", "m": "outside"}, {"w": "で", "r": "で", "m": "at; in; by; with"}, {"w": "遊ぶ", "r": "あそぶ", "m": "to play"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"w": "好き", "r": "すき", "m": "like"}, {"w": "だった", "r": "だった", "m": "was"}, {"g": "ものです", "r": "ものです", "m": "used to V (Used to express a past situation or what frequent", "x": "used to V (Used to express a past situation or what frequently occurred while remembering it.) [中級へ行こう, Lesson 7]", "id": "int_L7_1"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"p": "、"}, {"w": "今", "r": "いま", "m": "now"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "家", "r": "いえ", "m": "house"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "中", "r": "なか", "m": "inside"}, {"w": "で", "r": "で", "m": "at; in; by; with"}, {"w": "ゲーム", "r": "ゲーム", "m": "game"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "し", "r": "し", "m": "and (listing reasons)"}, {"g": "たがる", "r": "たがる", "m": "want N, want to V, don't want to V (Used to express the desi", "x": "want N, want to V, don't want to V (Used to express the desires/wishes of a third person.) [中級へ行こう, Lesson 3]", "id": "int_L3_3"}, {"w": "子ども", "r": "こども", "m": "child"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"w": "多いです", "r": "おおいです", "m": "there are many"}, {"p": "。"}], "hira": "むかし の こども は そと で あそぶ の が すき だった ものですが、 いま は いえ の なか で ゲーム を したがる こども が おおいです。", "trans": "Children in the past used to like playing outside, but now many children want to play games indoors."}, {"parts": [{"w": "また", "r": "また", "m": "also; moreover"}, {"p": "、"}, {"w": "大人", "r": "おとな", "m": "adult"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"w": "着る", "r": "きる", "m": "to wear"}, {"g": "ような", "r": "ような", "m": "N such as ~ V (Used to explain something by showing an examp", "x": "N such as ~ V (Used to explain something by showing an example.) [中級へ行こう, Lesson 3]", "id": "int_L3_1"}, {"w": "ブランド", "r": "ブランド", "m": "brand"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "服", "r": "ふく", "m": "clothes"}, {"w": "を", "r": "を", "m": "(object)"}, {"g": "欲しがる", "r": "欲しがる", "m": "want N, want to V, don't want to V (Used to express the desi", "x": "want N, want to V, don't want to V (Used to express the desires/wishes of a third person.) [中級へ行こう, Lesson 3]", "id": "int_L3_3"}, {"w": "子ども", "r": "こども", "m": "child"}, {"w": "も", "r": "も", "m": "also; even"}, {"w": "増えています", "r": "ふえています", "m": "is increasing"}, {"p": "。"}], "hira": "また、 おとな が きる ような ブランド の ふく を ほしがる こども も ふえています。", "trans": "Also, the number of children who want brand-name clothes like adults wear is increasing."}, {"parts": [{"w": "親", "r": "おや", "m": "parent"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "子ども", "r": "こども", "m": "child"}, {"w": "に", "r": "に", "m": "to; at; in"}, {"p": "「"}, {"w": "だめ", "r": "だめ", "m": "no good"}, {"p": "」"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "言おう", "r": "いおう", "m": "try to say"}, {"w": "としても", "r": "としても", "m": "even if"}, {"p": "、"}, {"w": "子ども", "r": "こども", "m": "child"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"w": "泣く", "r": "なく", "m": "to cry"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"p": "、"}, {"g": "つい買ってしまう", "r": "ついかってしまう", "m": "carelessly V, without thinking V (Used to express that you u", "x": "carelessly V, without thinking V (Used to express that you unconsciously do or have done something that you don't think is right. It conveys regret.) [中級へ行こう, Lesson 3]", "id": "int_L3_4"}, {"g": "のではないでしょうか", "r": "のではないでしょうか", "m": "Used when someone asks a question in a polite way.", "x": "Used when someone asks a question in a polite way. [中級へ行こう, Lesson 2]", "id": "int_L2_1"}, {"p": "。"}], "hira": "おや は こども に 「だめ」 と いおう としても、 こども が なく と、 ついかってしまう のではないでしょうか。", "trans": "Even if parents try to say no, when the child cries, don't they end up buying it anyway?"}, {"parts": [{"w": "こうなった", "r": "こうなった", "m": "became like this"}, {"g": "のは", "r": "のは", "m": "It is because ~ that ~ (〜からだ gives reasons for 〜（の）は.)", "x": "It is because ~ that ~ (〜からだ gives reasons for 〜（の）は.) [中級へ行こう, Lesson 3]", "id": "int_L3_5"}, {"p": "、"}, {"w": "テレビ", "r": "テレビ", "m": "television"}, {"w": "や", "r": "や", "m": "and (among others)"}, {"w": "インターネット", "r": "インターネット", "m": "internet"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "広告", "r": "こうこく", "m": "advertisement"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"w": "増えた", "r": "ふえた", "m": "increased"}, {"g": "からだ", "r": "からだ", "m": "It is because ~ that ~ (〜からだ gives reasons for 〜（の）は.)", "x": "It is because ~ that ~ (〜からだ gives reasons for 〜（の）は.) [中級へ行こう, Lesson 3]", "id": "int_L3_5"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "思います", "r": "おもいます", "m": "I think"}, {"p": "。"}], "hira": "こうなった のは、 テレビ や インターネット の こうこく が ふえた からだ と おもいます。", "trans": "I think the reason things became this way is because TV and internet advertisements increased."}, {"parts": [{"w": "昔", "r": "むかし", "m": "the past"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "子ども", "r": "こども", "m": "child"}, {"w": "は", "r": "は", "m": "(topic)"}, {"p": "、"}, {"w": "まるで", "r": "まるで", "m": "just like; as if"}, {"w": "小さい", "r": "ちいさい", "m": "small"}, {"w": "大人", "r": "おとな", "m": "adult"}, {"g": "のように", "r": "のように", "m": "like N, (V/A/Na) like N, N2 (such) as N1 (Used to liken one ", "x": "like N, (V/A/Na) like N, N2 (such) as N1 (Used to liken one thing to something else.) [中級へ行こう, Lesson 3]", "id": "int_L3_6"}, {"w": "家", "r": "いえ", "m": "house"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "手伝い", "r": "てつだい", "m": "chores"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "した", "r": "した", "m": "did"}, {"g": "ものです", "r": "ものです", "m": "used to V (Used to express a past situation or what frequent", "x": "used to V (Used to express a past situation or what frequently occurred while remembering it.) [中級へ行こう, Lesson 7]", "id": "int_L7_1"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"p": "、"}, {"w": "今", "r": "いま", "m": "now"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "お手伝い", "r": "おてつだい", "m": "chores (polite)"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "し", "r": "し", "m": "and (listing reasons)"}, {"g": "たがらない", "r": "たがらない", "m": "want N, want to V, don't want to V (Used to express the desi", "x": "want N, want to V, don't want to V (Used to express the desires/wishes of a third person.) [中級へ行こう, Lesson 3]", "id": "int_L3_3"}, {"w": "子ども", "r": "こども", "m": "child"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"w": "多いです", "r": "おおいです", "m": "there are many"}, {"p": "。"}], "hira": "むかし の こども は、 まるで ちいさい おとな のように いえ の てつだい を した ものですが、 いま は おてつだい を したがらない こども が おおいです。", "trans": "Children in the past used to help with housework just like little adults, but now many children don't want to help."}, {"parts": [{"w": "社会", "r": "しゃかい", "m": "society"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "変化", "r": "へんか", "m": "change"}, {"g": "にともなって", "r": "にともなって", "m": "As ~, With ~ (Used to express one thing changes in response ", "x": "As ~, With ~ (Used to express one thing changes in response to the change of another thing.) [中級へ行こう, Lesson 9]", "id": "int_L9_1"}, {"p": "、"}, {"w": "子ども", "r": "こども", "m": "child"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "生活", "r": "せいかつ", "m": "life; lifestyle"}, {"w": "も", "r": "も", "m": "also; even"}, {"w": "どんどん", "r": "どんどん", "m": "rapidly"}, {"w": "変わっ", "r": "かわっ", "m": "changing"}, {"g": "ていく", "r": "ていく", "m": "Vテいく: Used to show, based on the present situation, how thin", "x": "Vテいく: Used to show, based on the present situation, how things will change in the future. Vテきた: Used to show, based on the present situation, how things have changed from before until now. [中級へ行こう, Lesson 4]", "id": "int_L4_1"}, {"w": "でしょう", "r": "でしょう", "m": "probably"}, {"p": "。"}], "hira": "しゃかい の へんか にともなって、 こども の せいかつ も どんどん かわっ て いく でしょう。", "trans": "Along with changes in society, children's lives will surely continue to change rapidly."}, {"parts": [{"w": "リサイクル", "r": "リサイクル", "m": "recycling"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "こと", "r": "こと", "m": "thing; matter"}, {"g": "といっても", "r": "といっても", "m": "Though ~, (The reality is different from what should be expe", "x": "Though ~, (The reality is different from what should be expected from ~.) [中級へ行こう, Lesson 7]", "id": "int_L7_3"}, {"p": "、"}, {"w": "昔", "r": "むかし", "m": "the past"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "物", "r": "もの", "m": "thing"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "大切に", "r": "たいせつに", "m": "carefully"}, {"w": "使い", "r": "つかい", "m": "using"}, {"g": "終わる", "r": "終わる", "m": "start to V, finish V ing (These expressions are used to show", "x": "start to V, finish V ing (These expressions are used to show when an action or event begins or ends.) [中級へ行こう, Lesson 1]", "id": "int_L1_4"}, {"w": "まで", "r": "まで", "m": "until"}, {"w": "使った", "r": "つかった", "m": "used"}, {"g": "ものです", "r": "ものです", "m": "used to V (Used to express a past situation or what frequent", "x": "used to V (Used to express a past situation or what frequently occurred while remembering it.) [中級へ行こう, Lesson 7]", "id": "int_L7_1"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"p": "、"}, {"w": "今", "r": "いま", "m": "now"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "子ども", "r": "こども", "m": "child"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "新しい", "r": "あたらしい", "m": "new"}, {"w": "物", "r": "もの", "m": "thing"}, {"g": "ばかり", "r": "ばかり", "m": "only N, keep V ing, always V (Used to focus on one thing, or", "x": "only N, keep V ing, always V (Used to focus on one thing, or to mean one thing keeps being done or is repeatedly done. In many cases, it is used with a negative meaning.) [中級へ行こう, Lesson 3]", "id": "int_L3_2"}, {"w": "欲しがります", "r": "ほしがります", "m": "wants (3rd person)"}, {"p": "。"}], "hira": "リサイクル の こと といっても、 むかし は もの を たいせつに つかい おわる まで つかった ものですが、 いま の こども は あたらしい もの ばかり ほしがります。", "trans": "Even when it comes to recycling, people used to use things carefully until used up, but today's children want nothing but new things."}, {"parts": [{"w": "私", "r": "わたし", "m": "I"}, {"w": "は", "r": "は", "m": "(topic)"}, {"p": "、"}, {"w": "子ども", "r": "こども", "m": "child"}, {"w": "に", "r": "に", "m": "to; at; in"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "外", "r": "そと", "m": "outside"}, {"w": "で", "r": "で", "m": "at; in; by; with"}, {"w": "遊んで", "r": "あそんで", "m": "playing"}, {"g": "ほしい", "r": "ほしい", "m": "want someone to V or not to V (Used to express a request.)", "x": "want someone to V or not to V (Used to express a request.) [中級へ行こう, Lesson 7]", "id": "int_L7_7"}, {"w": "し", "r": "し", "m": "and (listing reasons)"}, {"p": "、"}, {"w": "物", "r": "もの", "m": "thing"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "大切さ", "r": "たいせつさ", "m": "importance"}, {"w": "も", "r": "も", "m": "also; even"}, {"w": "分かって", "r": "わかって", "m": "understanding"}, {"w": "ほしい", "r": "ほしい", "m": "want (someone to)"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "思っています", "r": "おもっています", "m": "think; believe"}, {"p": "。"}], "hira": "わたし は、 こども に は そと で あそんで ほしい し、 もの の たいせつさ も わかって ほしい と おもっています。", "trans": "I want children to play outside, and I also want them to understand the value of things."}]}, {"topic": "Topic 2", "topic_num": "第4課", "question": "日本に来る前、日本にどんなイメージを持っていましたか。今はどうですか。", "question_en": "What image did you have of Japan before coming? How about now?", "grammar_count": 19, "sentences": [{"parts": [{"w": "日本", "r": "にほん", "m": "Japan"}, {"w": "に", "r": "に", "m": "to; at; in"}, {"w": "来る", "r": "くる", "m": "to come"}, {"w": "前", "r": "まえ", "m": "before"}, {"p": "、"}, {"w": "私", "r": "わたし", "m": "I"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "アニメ", "r": "アニメ", "m": "anime"}, {"w": "や", "r": "や", "m": "and (among others)"}, {"w": "映画", "r": "えいが", "m": "movie"}, {"g": "のような", "r": "のような", "m": "N2 such as N1 (Used to show example(s) of N2 as represented ", "x": "N2 such as N1 (Used to show example(s) of N2 as represented by N1.) [中級へ行こう, Lesson 4]", "id": "int_L4_3"}, {"w": "物", "r": "もの", "m": "thing"}, {"w": "で", "r": "で", "m": "at; in; by; with"}, {"w": "しか", "r": "しか", "m": "only (with neg.)"}, {"w": "日本", "r": "にほん", "m": "Japan"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "知りませんでした", "r": "しりませんでした", "m": "did not know"}, {"p": "。"}], "hira": "にほん に くる まえ、 わたし は アニメ や えいが のような もの で しか にほん を しりませんでした。", "trans": "Before coming to Japan, I only knew Japan through things like anime and movies."}, {"parts": [{"w": "日本人", "r": "にほんじん", "m": "Japanese person"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "みんな", "r": "みんな", "m": "everyone"}, {"w": "礼儀正しくて", "r": "れいぎただしくて", "m": "polite and"}, {"p": "、"}, {"w": "毎日", "r": "まいにち", "m": "every day"}, {"w": "寿司", "r": "すし", "m": "sushi"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "食べている", "r": "たべている", "m": "is eating"}, {"w": "という", "r": "という", "m": "called; that"}, {"w": "イメージ", "r": "イメージ", "m": "image"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "持っていました", "r": "もっていました", "m": "had; held"}, {"p": "。"}], "hira": "にほんじん は みんな れいぎただしくて、 まいにち すし を たべている という イメージ を もっていました。", "trans": "I had the image that all Japanese people were polite and ate sushi every day."}, {"parts": [{"w": "日本", "r": "にほん", "m": "Japan"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "生活", "r": "せいかつ", "m": "life; lifestyle"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "便利", "r": "べんり", "m": "convenient"}, {"g": "さ", "r": "さ", "m": "Used to nominalize an adjective.", "x": "Used to nominalize an adjective. [中級へ行こう, Lesson 5]", "id": "int_L5_1"}, {"w": "や", "r": "や", "m": "and (among others)"}, {"w": "安全", "r": "あんぜん", "m": "safe"}, {"w": "さ", "r": "さ", "m": "(nominalization)"}, {"w": "にも", "r": "にも", "m": "also to"}, {"w": "憧れていました", "r": "あこがれていました", "m": "admired; longed for"}, {"p": "。"}], "hira": "にほん の せいかつ の べんりさ や あんぜんさ に も あこがれていました。", "trans": "I also admired the convenience and safety of life in Japan."}, {"parts": [{"w": "しかし", "r": "しかし", "m": "however"}, {"p": "、"}, {"w": "実際に", "r": "じっさいに", "m": "actually"}, {"w": "住んでみると", "r": "すんでみると", "m": "when I tried living"}, {"p": "、"}, {"w": "日本", "r": "にほん", "m": "Japan"}, {"w": "は", "r": "は", "m": "(topic)"}, {"g": "アメリカほど広くない", "r": "アメリカほど広くない", "m": "X is not as ~ as Y (Used to express that while X and Y are a", "x": "X is not as ~ as Y (Used to express that while X and Y are about the same as ~, when compared, X is of a lower degree than Y.) [中級へ行こう, Lesson 4]", "id": "int_L4_4"}, {"w": "し", "r": "し", "m": "and (listing reasons)"}, {"p": "、"}, {"w": "電車", "r": "でんしゃ", "m": "train"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "中", "r": "なか", "m": "inside"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "とても", "r": "とても", "m": "very"}, {"w": "静かで", "r": "しずかで", "m": "quiet and"}, {"w": "最初", "r": "さいしょ", "m": "at first"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "驚いた", "r": "おどろいた", "m": "was surprised"}, {"g": "ものです", "r": "ものです", "m": "Normally, in general, should ~, must ~ (Used to express some", "x": "Normally, in general, should ~, must ~ (Used to express something that is considered to be common knowledge.) [中級へ行こう, Lesson 5]", "id": "int_L5_3"}, {"p": "。"}], "hira": "しかし、 じっさいに すんでみると、 にほん は アメリカほどひろくない し、 でんしゃ の なか は とても しずかで さいしょ は おどろいた ものです。", "trans": "However, when I actually tried living here, Japan is not as spacious as America, and I was really surprised at how quiet trains are."}, {"parts": [{"w": "日本", "r": "にほん", "m": "Japan"}, {"w": "に", "r": "に", "m": "to; at; in"}, {"w": "来て", "r": "きて", "m": "coming"}, {"w": "から", "r": "から", "m": "from; since; because"}, {"p": "、"}, {"w": "いろいろな", "r": "いろいろな", "m": "various"}, {"w": "こと", "r": "こと", "m": "thing; matter"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"w": "分かっ", "r": "わかっ", "m": "understanding"}, {"g": "てきました", "r": "てきました", "m": "Vテいく: Used to show, based on the present situation, how thin", "x": "Vテいく: Used to show, based on the present situation, how things will change in the future. Vテきた: Used to show, based on the present situation, how things have changed from before until now. [中級へ行こう, Lesson 4]", "id": "int_L4_1"}, {"p": "。"}], "hira": "にほん に きて から、 いろいろな こと が わかっ てきました。", "trans": "Since coming to Japan, I've gradually come to understand many things."}, {"parts": [{"w": "例えば", "r": "たとえば", "m": "for example"}, {"p": "、"}, {"w": "日本人", "r": "にほんじん", "m": "Japanese person"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"w": "いつも", "r": "いつも", "m": "always"}, {"w": "礼儀正しい", "r": "れいぎただしい", "m": "polite"}, {"g": "わけではない", "r": "わけではない", "m": "It is not that ~ (Used to express partial negation, frequent", "x": "It is not that ~ (Used to express partial negation, frequently in conjunction with adverbs like 全部, いつも, etc. Also used to euphemistically deny what could naturally be expected from what is mentioned just before.) [中級へ行こう, Lesson 8]", "id": "int_L8_2"}, {"w": "し", "r": "し", "m": "and (listing reasons)"}, {"p": "、"}, {"w": "寿司", "r": "すし", "m": "sushi"}, {"g": "ばかり", "r": "ばかり", "m": "only N, keep V ing, always V (Used to focus on one thing, or", "x": "only N, keep V ing, always V (Used to focus on one thing, or to mean one thing keeps being done or is repeatedly done. In many cases, it is used with a negative meaning.) [中級へ行こう, Lesson 3]", "id": "int_L3_2"}, {"w": "食べている", "r": "たべている", "m": "is eating"}, {"g": "わけでもありません", "r": "わけでもありません", "m": "It is not that ~ (Used to express partial negation, frequent", "x": "It is not that ~ (Used to express partial negation, frequently in conjunction with adverbs like 全部, いつも, etc. Also used to euphemistically deny what could naturally be expected from what is mentioned just before.) [中級へ行こう, Lesson 8]", "id": "int_L8_2"}, {"p": "。"}], "hira": "たとえば、 にほんじん が いつも れいぎただしい わけではない し、 すし ばかり たべている わけでもありません。", "trans": "For example, it's not that Japanese people are always polite, and it's not that they eat nothing but sushi either."}, {"parts": [{"g": "一方", "r": "一方", "m": "[that is/in other words, on the other hand] つまり: Used to rep", "x": "[that is/in other words, on the other hand] つまり: Used to rephrase in simpler terms or summarize the expression, content, etc., previously mentioned. 一方: Used to lead into a sentence or phrase that has the opposite meaning to what was said in the previous sentence or phrase. [中級へ行こう, Lesson 9]", "id": "int_L9_2"}, {"p": "、"}, {"w": "日本", "r": "にほん", "m": "Japan"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "サービス", "r": "サービス", "m": "service"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "丁寧", "r": "ていねい", "m": "polite; careful"}, {"g": "さ", "r": "さ", "m": "Used to nominalize an adjective.", "x": "Used to nominalize an adjective. [中級へ行こう, Lesson 5]", "id": "int_L5_1"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "アメリカ", "r": "アメリカ", "m": "America"}, {"g": "より高い", "r": "より高い", "m": "Organizing Comparison expressions.", "x": "Organizing Comparison expressions. [中級へ行こう, Lesson 4]", "id": "int_L4_5"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "言えるでしょう", "r": "いえるでしょう", "m": "can probably say"}, {"p": "。"}], "hira": "いっぽう、 にほん の サービス の ていねいさ は アメリカ よりたかい と いえるでしょう。", "trans": "On the other hand, the politeness of Japanese service can probably be said to be higher than America's."}, {"parts": [{"w": "日本語", "r": "にほんご", "m": "Japanese language"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "勉強", "r": "べんきょう", "m": "study"}, {"w": "し", "r": "し", "m": "and (listing reasons)"}, {"g": "てきた", "r": "てきた", "m": "Vテいく: Used to show, based on the present situation, how thin", "x": "Vテいく: Used to show, based on the present situation, how things will change in the future. Vテきた: Used to show, based on the present situation, how things have changed from before until now. [中級へ行こう, Lesson 4]", "id": "int_L4_1"}, {"w": "私", "r": "わたし", "m": "I"}, {"w": "から", "r": "から", "m": "from; since; because"}, {"w": "見ると", "r": "みると", "m": "looking at it"}, {"p": "、"}, {"w": "言葉", "r": "ことば", "m": "language"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"w": "分かる", "r": "わかる", "m": "to understand"}, {"g": "ようになる", "r": "ようになる", "m": "N such as ~ V (Used to explain something by showing an examp", "x": "N such as ~ V (Used to explain something by showing an example.) [中級へ行こう, Lesson 3]", "id": "int_L3_1"}, {"g": "にともなって", "r": "にともなって", "m": "As ~, With ~ (Used to express one thing changes in response ", "x": "As ~, With ~ (Used to express one thing changes in response to the change of another thing.) [中級へ行こう, Lesson 9]", "id": "int_L9_1"}, {"p": "、"}, {"w": "日本", "r": "にほん", "m": "Japan"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "文化", "r": "ぶんか", "m": "culture"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "深", "r": "ふか", "m": "deep"}, {"g": "さ", "r": "さ", "m": "Used to nominalize an adjective.", "x": "Used to nominalize an adjective. [中級へ行こう, Lesson 5]", "id": "int_L5_1"}, {"w": "も", "r": "も", "m": "also; even"}, {"w": "だんだん", "r": "だんだん", "m": "gradually"}, {"w": "見え", "r": "みえ", "m": "became visible"}, {"g": "てきました", "r": "てきました", "m": "Vテいく: Used to show, based on the present situation, how thin", "x": "Vテいく: Used to show, based on the present situation, how things will change in the future. Vテきた: Used to show, based on the present situation, how things have changed from before until now. [中級へ行こう, Lesson 4]", "id": "int_L4_1"}, {"p": "。"}], "hira": "にほんご を べんきょう してきた わたし から みると、 ことば が わかる ようになる にともなって、 にほん の ぶんか の ふかさ も だんだん みえ てきました。", "trans": "From the perspective of someone who has been studying Japanese, as I came to understand the language, I gradually began to see the depth of Japanese culture."}, {"parts": [{"w": "日本", "r": "にほん", "m": "Japan"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "生活", "r": "せいかつ", "m": "life; lifestyle"}, {"g": "といっても", "r": "といっても", "m": "Though ~, (The reality is different from what should be expe", "x": "Though ~, (The reality is different from what should be expected from ~.) [中級へ行こう, Lesson 7]", "id": "int_L7_3"}, {"p": "、"}, {"w": "東京", "r": "とうきょう", "m": "Tokyo"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "田舎", "r": "いなか", "m": "countryside"}, {"w": "で", "r": "で", "m": "at; in; by; with"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "全然", "r": "ぜんぜん", "m": "completely"}, {"w": "違います", "r": "ちがいます", "m": "is different"}, {"p": "。"}], "hira": "にほん の せいかつ といっても、 とうきょう と いなか で は ぜんぜん ちがいます。", "trans": "Even when we talk about life in Japan, Tokyo and the countryside are completely different."}, {"parts": [{"w": "もし", "r": "もし", "m": "if"}, {"w": "日本", "r": "にほん", "m": "Japan"}, {"w": "に", "r": "に", "m": "to; at; in"}, {"w": "来る", "r": "くる", "m": "to come"}, {"w": "前", "r": "まえ", "m": "before"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "私", "r": "わたし", "m": "I"}, {"w": "に", "r": "に", "m": "to; at; in"}, {"w": "アドバイスする", "r": "アドバイスする", "m": "to give advice"}, {"g": "なら", "r": "なら", "m": "If ~ (Used to take up as a subject what the other party has ", "x": "If ~ (Used to take up as a subject what the other party has said or what you are thinking about in order to express your opinion or judgment on the matter.) [中級へ行こう, Lesson 7]", "id": "int_L7_5"}, {"p": "、"}, {"p": "「"}, {"w": "イメージ", "r": "イメージ", "m": "image"}, {"w": "だけ", "r": "だけ", "m": "only"}, {"w": "で", "r": "で", "m": "at; in; by; with"}, {"w": "判断する", "r": "はんだんする", "m": "to judge"}, {"g": "べきではない", "r": "べきではない", "m": "should V (Used to express an action or behavior that is deem", "x": "should V (Used to express an action or behavior that is deemed in general appropriate or natural in society.) [中級へ行こう, Lesson 10]", "id": "int_L10_4"}, {"p": "」"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "言いたいです", "r": "いいたいです", "m": "want to say"}, {"p": "。"}], "hira": "もし にほん に くる まえ の わたし に アドバイスする なら、 「イメージ だけ で はんだんする べきではない」 と いいたいです。", "trans": "If I were to give advice to my past self, I'd want to say: You shouldn't judge based on image alone."}, {"parts": [{"w": "来る", "r": "くる", "m": "to come"}, {"w": "前", "r": "まえ", "m": "before"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "日本", "r": "にほん", "m": "Japan"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "イメージ", "r": "イメージ", "m": "image"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "間違っていた", "r": "まちがっていた", "m": "was wrong"}, {"w": "という", "r": "という", "m": "called; that"}, {"w": "より", "r": "より", "m": "rather than"}, {"p": "、"}, {"w": "一つ", "r": "ひとつ", "m": "one"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "面", "r": "めん", "m": "side; aspect"}, {"w": "しか", "r": "しか", "m": "only (with neg.)"}, {"w": "見ていなかった", "r": "みていなかった", "m": "was not seeing"}, {"g": "ということだ", "r": "ということだ", "m": "It is said that ~ (Used to express hearsay.)", "x": "It is said that ~ (Used to express hearsay.) [中級へ行こう, Lesson 5]", "id": "int_L5_5"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "思います", "r": "おもいます", "m": "I think"}, {"p": "。"}], "hira": "くる まえ の にほん の イメージ は まちがっていた という より、 ひとつ の めん しか みていなかった ということだ と おもいます。", "trans": "Rather than saying my image of Japan was wrong, I think it means I was only seeing one side of things."}, {"parts": [{"w": "今", "r": "いま", "m": "now"}, {"w": "は", "r": "は", "m": "(topic)"}, {"p": "、"}, {"w": "日本", "r": "にほん", "m": "Japan"}, {"w": "に", "r": "に", "m": "to; at; in"}, {"w": "来て", "r": "きて", "m": "coming"}, {"w": "よかった", "r": "よかった", "m": "was good; glad"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "心から", "r": "こころから", "m": "from the heart; truly"}, {"w": "思っています", "r": "おもっています", "m": "think; believe"}, {"p": "。"}], "hira": "いま は、 にほん に きて よかった と こころから おもっています。", "trans": "Now, I truly think from the bottom of my heart that I'm glad I came to Japan."}]}, {"topic": "Topic 3", "topic_num": "第7課", "question": "リサイクルをすることについてどう思いますか", "question_en": "What do you think about recycling?", "grammar_count": 21, "sentences": [{"parts": [{"w": "私", "r": "わたし", "m": "I"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"w": "子ども", "r": "こども", "m": "child"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "頃", "r": "ころ", "m": "time; when"}, {"p": "、"}, {"w": "アメリカ", "r": "アメリカ", "m": "America"}, {"w": "で", "r": "で", "m": "at; in; by; with"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "何でも", "r": "なんでも", "m": "anything"}, {"w": "すぐ", "r": "すぐ", "m": "immediately"}, {"w": "捨てた", "r": "すてた", "m": "threw away"}, {"g": "ものです", "r": "ものです", "m": "used to V (Used to express a past situation or what frequent", "x": "used to V (Used to express a past situation or what frequently occurred while remembering it.) [中級へ行こう, Lesson 7]", "id": "int_L7_1"}, {"p": "。"}], "hira": "わたし が こども の ころ、 アメリカ で は なんでも すぐ すてた ものです。", "trans": "When I was a child, in America we used to just throw everything away immediately."}, {"parts": [{"w": "リサイクル", "r": "リサイクル", "m": "recycling"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "こと", "r": "こと", "m": "thing; matter"}, {"w": "など", "r": "など", "m": "etc."}, {"p": "、"}, {"w": "あまり", "r": "あまり", "m": "not very"}, {"w": "考えなかった", "r": "かんがえなかった", "m": "didn't think about"}, {"g": "ものでした", "r": "ものでした", "m": "used to V (Used to express a past situation or what frequent", "x": "used to V (Used to express a past situation or what frequently occurred while remembering it.) [中級へ行こう, Lesson 7]", "id": "int_L7_1"}, {"p": "。"}], "hira": "リサイクル の こと など、 あまり かんがえなかった ものでした。", "trans": "We didn't used to think much about things like recycling."}, {"parts": [{"w": "しかし", "r": "しかし", "m": "however"}, {"p": "、"}, {"w": "日本", "r": "にほん", "m": "Japan"}, {"w": "に", "r": "に", "m": "to; at; in"}, {"w": "来て", "r": "きて", "m": "coming"}, {"w": "から", "r": "から", "m": "from; since; because"}, {"p": "、"}, {"w": "ゴミ", "r": "ゴミ", "m": "garbage"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "分け方", "r": "わけかた", "m": "way of sorting"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "細", "r": "こま", "m": "fine; detailed"}, {"w": "か", "r": "か", "m": "(question)"}, {"g": "さ", "r": "さ", "m": "Used to nominalize an adjective.", "x": "Used to nominalize an adjective. [中級へ行こう, Lesson 5]", "id": "int_L5_1"}, {"w": "に", "r": "に", "m": "to; at; in"}, {"w": "驚きました", "r": "おどろきました", "m": "was surprised"}, {"p": "。"}], "hira": "しかし、 にほん に きて から、 ゴミ の わけかた の こまかさ に おどろきました。", "trans": "However, since coming to Japan, I was amazed by the meticulousness of garbage sorting."}, {"parts": [{"w": "日本", "r": "にほん", "m": "Japan"}, {"w": "で", "r": "で", "m": "at; in; by; with"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "市民", "r": "しみん", "m": "citizen"}, {"g": "として", "r": "として", "m": "as ~ (Used to expressly state the position, qualification or", "x": "as ~ (Used to expressly state the position, qualification or kind of a thing or person.) [中級へ行こう, Lesson 7]", "id": "int_L7_2"}, {"p": "、"}, {"w": "きちんと", "r": "きちんと", "m": "properly"}, {"w": "ゴミ", "r": "ゴミ", "m": "garbage"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "分ける", "r": "わける", "m": "to sort"}, {"w": "こと", "r": "こと", "m": "thing; matter"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"w": "求められています", "r": "もとめられています", "m": "is required"}, {"p": "。"}], "hira": "にほん で は しみん として、 きちんと ゴミ を わける こと が もとめられています。", "trans": "In Japan, as citizens, people are expected to sort garbage properly."}, {"parts": [{"w": "リサイクル", "r": "リサイクル", "m": "recycling"}, {"g": "といっても", "r": "といっても", "m": "Though ~, (The reality is different from what should be expe", "x": "Though ~, (The reality is different from what should be expected from ~.) [中級へ行こう, Lesson 7]", "id": "int_L7_3"}, {"p": "、"}, {"w": "ただ", "r": "ただ", "m": "just; merely"}, {"w": "ゴミ", "r": "ゴミ", "m": "garbage"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "分ければ", "r": "わければ", "m": "if you sort"}, {"w": "いい", "r": "いい", "m": "good"}, {"g": "わけではありません", "r": "わけではありません", "m": "It is not that ~ (Used to express partial negation, frequent", "x": "It is not that ~ (Used to express partial negation, frequently in conjunction with adverbs like 全部, いつも, etc. Also used to euphemistically deny what could naturally be expected from what is mentioned just before.) [中級へ行こう, Lesson 8]", "id": "int_L8_2"}, {"p": "。"}], "hira": "リサイクル といっても、 ただ ゴミ を わければ いい わけではありません。", "trans": "Even when we talk about recycling, it's not just a matter of sorting garbage."}, {"parts": [{"g": "大切なのは", "r": "たいせつなのは", "m": "It is ~ that ~ (Used to focus on the latter part of the sent", "x": "It is ~ that ~ (Used to focus on the latter part of the sentence.) [中級へ行こう, Lesson 2]", "id": "int_L2_4"}, {"p": "、"}, {"w": "まず", "r": "まず", "m": "first of all"}, {"w": "物", "r": "もの", "m": "thing"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "買う", "r": "かう", "m": "to buy"}, {"w": "前", "r": "まえ", "m": "before"}, {"w": "に", "r": "に", "m": "to; at; in"}, {"p": "、"}, {"w": "本当に", "r": "ほんとうに", "m": "truly; really"}, {"w": "必要", "r": "ひつよう", "m": "necessary"}, {"w": "か", "r": "か", "m": "(question)"}, {"w": "どうか", "r": "どうか", "m": "whether or not"}, {"w": "考える", "r": "かんがえる", "m": "to think about"}, {"g": "ことだ", "r": "ことだ", "m": "It is ~ that ~ (Used to focus on the latter part of the sent", "x": "It is ~ that ~ (Used to focus on the latter part of the sentence.) [中級へ行こう, Lesson 2]", "id": "int_L2_4"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "思います", "r": "おもいます", "m": "I think"}, {"p": "。"}], "hira": "たいせつなのは、 まず もの を かう まえ に、 ほんとうに ひつよう か どうか かんがえる ことだ と おもいます。", "trans": "I think the important thing is to first think about whether something is truly necessary before buying it."}, {"parts": [{"w": "新しい", "r": "あたらしい", "m": "new"}, {"w": "物", "r": "もの", "m": "thing"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "買う", "r": "かう", "m": "to buy"}, {"g": "より", "r": "より", "m": "Rather than V2, it is ~ to V1 (Used to compare doing two act", "x": "Rather than V2, it is ~ to V1 (Used to compare doing two actions.) [中級へ行こう, Lesson 7]", "id": "int_L7_4"}, {"p": "、"}, {"w": "今", "r": "いま", "m": "now"}, {"w": "ある", "r": "ある", "m": "existing; to have"}, {"w": "物", "r": "もの", "m": "thing"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "使い続ける", "r": "つかいつづける", "m": "to keep using"}, {"g": "ほうが", "r": "ほうが", "m": "Rather than V2, it is ~ to V1 (Used to compare doing two act", "x": "Rather than V2, it is ~ to V1 (Used to compare doing two actions.) [中級へ行こう, Lesson 7]", "id": "int_L7_4"}, {"w": "環境", "r": "かんきょう", "m": "environment"}, {"w": "に", "r": "に", "m": "to; at; in"}, {"w": "いい", "r": "いい", "m": "good"}, {"g": "のではないでしょうか", "r": "のではないでしょうか", "m": "Used when someone asks a question in a polite way.", "x": "Used when someone asks a question in a polite way. [中級へ行こう, Lesson 2]", "id": "int_L2_1"}, {"p": "。"}], "hira": "あたらしい もの を かう より、 いま ある もの を つかいつづける ほうが かんきょう に いい のではないでしょうか。", "trans": "Isn't it better for the environment to keep using what you already have rather than buying new things?"}, {"parts": [{"w": "環境問題", "r": "かんきょうもんだい", "m": "environmental problems"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"w": "深刻", "r": "しんこく", "m": "serious"}, {"w": "に", "r": "に", "m": "to; at; in"}, {"w": "なる", "r": "なる", "m": "to become"}, {"g": "にともなって", "r": "にともなって", "m": "As ~, With ~ (Used to express one thing changes in response ", "x": "As ~, With ~ (Used to express one thing changes in response to the change of another thing.) [中級へ行こう, Lesson 9]", "id": "int_L9_1"}, {"p": "、"}, {"w": "リサイクル", "r": "リサイクル", "m": "recycling"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "大切", "r": "たいせつ", "m": "important"}, {"g": "さ", "r": "さ", "m": "Used to nominalize an adjective.", "x": "Used to nominalize an adjective. [中級へ行こう, Lesson 5]", "id": "int_L5_1"}, {"w": "も", "r": "も", "m": "also; even"}, {"w": "増し", "r": "まし", "m": "increasing"}, {"g": "てきました", "r": "てきました", "m": "Vテいく: Used to show, based on the present situation, how thin", "x": "Vテいく: Used to show, based on the present situation, how things will change in the future. Vテきた: Used to show, based on the present situation, how things have changed from before until now. [中級へ行こう, Lesson 4]", "id": "int_L4_1"}, {"p": "。"}], "hira": "かんきょうもんだい が しんこく に なる にともなって、 リサイクル の たいせつさ も まし てきました。", "trans": "As environmental problems become more serious, the importance of recycling has also been increasing."}, {"parts": [{"w": "私", "r": "わたし", "m": "I"}, {"w": "は", "r": "は", "m": "(topic)"}, {"p": "、"}, {"w": "政府", "r": "せいふ", "m": "government"}, {"w": "に", "r": "に", "m": "to; at; in"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "もっと", "r": "もっと", "m": "more"}, {"w": "リサイクル", "r": "リサイクル", "m": "recycling"}, {"w": "しやすい", "r": "しやすい", "m": "easy to do"}, {"w": "仕組み", "r": "しくみ", "m": "system"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "作っ", "r": "つくっ", "m": "make"}, {"g": "てほしい", "r": "てほしい", "m": "want someone to V or not to V (Used to express a request.)", "x": "want someone to V or not to V (Used to express a request.) [中級へ行こう, Lesson 7]", "id": "int_L7_7"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "思います", "r": "おもいます", "m": "I think"}, {"p": "。"}], "hira": "わたし は、 せいふ に は もっと リサイクル しやすい しくみ を つくって ほしい と おもいます。", "trans": "I want the government to create systems that make recycling easier."}, {"parts": [{"w": "例えば", "r": "たとえば", "m": "for example"}, {"p": "、"}, {"w": "リサイクル", "r": "リサイクル", "m": "recycling"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"g": "ために", "r": "ために", "m": "Because ~, because of ~ (Used to explain causes or reasons.)", "x": "Because ~, because of ~ (Used to explain causes or reasons.) [中級へ行こう, Lesson 6]", "id": "int_L6_2"}, {"p": "、"}, {"w": "コンビニ", "r": "コンビニ", "m": "convenience store"}, {"w": "や", "r": "や", "m": "and (among others)"}, {"w": "スーパー", "r": "スーパー", "m": "supermarket"}, {"w": "にも", "r": "にも", "m": "also to"}, {"w": "っ", "r": "っ", "m": "(geminate)"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "回収", "r": "かいしゅう", "m": "collection"}, {"w": "ボックス", "r": "ボックス", "m": "box"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "置く", "r": "おく", "m": "to place"}, {"g": "べき", "r": "べき", "m": "should V (Used to express an action or behavior that is deem", "x": "should V (Used to express an action or behavior that is deemed in general appropriate or natural in society.) [中級へ行こう, Lesson 10]", "id": "int_L10_4"}, {"w": "で", "r": "で", "m": "at; in; by; with"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "な", "r": "な", "m": "(negative)"}, {"w": "い", "r": "い", "m": "(auxiliary)"}, {"w": "でしょうか", "r": "でしょうか", "m": "(polite question)"}, {"p": "。"}], "hira": "たとえば、 リサイクル の ために、 コンビニ や スーパー に もっと かいしゅう ボックス を おく べきではないでしょうか。", "trans": "For example, shouldn't they place more collection boxes at convenience stores and supermarkets?"}, {"parts": [{"w": "ゴミ", "r": "ゴミ", "m": "garbage"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "減らす", "r": "へらす", "m": "to reduce"}, {"w": "こと", "r": "こと", "m": "thing; matter"}, {"w": "は", "r": "は", "m": "(topic)"}, {"p": "、"}, {"w": "一人一人", "r": "ひとりひとり", "m": "each person"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"w": "努力する", "r": "どりょくする", "m": "to make effort"}, {"g": "べき", "r": "べき", "m": "should V (Used to express an action or behavior that is deem", "x": "should V (Used to express an action or behavior that is deemed in general appropriate or natural in society.) [中級へ行こう, Lesson 10]", "id": "int_L10_4"}, {"g": "ことだ", "r": "ことだ", "m": "It is ~ that ~ (Used to focus on the latter part of the sent", "x": "It is ~ that ~ (Used to focus on the latter part of the sentence.) [中級へ行こう, Lesson 2]", "id": "int_L2_4"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "思います", "r": "おもいます", "m": "I think"}, {"p": "。"}], "hira": "ゴミ を へらす こと は、 ひとりひとり が どりょくする べき ことだ と おもいます。", "trans": "I think reducing garbage is something each person should make an effort toward."}, {"parts": [{"w": "もし", "r": "もし", "m": "if"}, {"w": "リサイクル", "r": "リサイクル", "m": "recycling"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"w": "面倒", "r": "めんどう", "m": "troublesome"}, {"g": "なら", "r": "なら", "m": "If ~ (Used to take up as a subject what the other party has ", "x": "If ~ (Used to take up as a subject what the other party has said or what you are thinking about in order to express your opinion or judgment on the matter.) [中級へ行こう, Lesson 7]", "id": "int_L7_5"}, {"p": "、"}, {"w": "まず", "r": "まず", "m": "first of all"}, {"w": "ゴミ", "r": "ゴミ", "m": "garbage"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "出", "r": "だ", "m": "put out"}, {"g": "さ", "r": "さ", "m": "Used to nominalize an adjective.", "x": "Used to nominalize an adjective. [中級へ行こう, Lesson 5]", "id": "int_L5_1"}, {"w": "な", "r": "な", "m": "(negative)"}, {"w": "い", "r": "い", "m": "(auxiliary)"}, {"w": "生活", "r": "せいかつ", "m": "life; lifestyle"}, {"w": "を", "r": "を", "m": "(object)"}, {"g": "始める", "r": "始める", "m": "start to V, finish V ing (These expressions are used to show", "x": "start to V, finish V ing (These expressions are used to show when an action or event begins or ends.) [中級へ行こう, Lesson 1]", "id": "int_L1_4"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "も", "r": "も", "m": "also; even"}, {"w": "いい", "r": "いい", "m": "good"}, {"w": "方法", "r": "ほうほう", "m": "method"}, {"w": "です", "r": "です", "m": "is (polite)"}, {"p": "。"}], "hira": "もし リサイクル が めんどう なら、 まず ゴミ を ださない せいかつ を はじめる の も いい ほうほう です。", "trans": "If recycling is too much trouble, starting a lifestyle that doesn't produce garbage is also a good approach."}, {"parts": [{"w": "環境", "r": "かんきょう", "m": "environment"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "守る", "r": "まもる", "m": "to protect"}, {"g": "ために", "r": "ために", "m": "Because ~, because of ~ (Used to explain causes or reasons.)", "x": "Because ~, because of ~ (Used to explain causes or reasons.) [中級へ行こう, Lesson 6]", "id": "int_L6_2"}, {"p": "、"}, {"g": "つい", "r": "つい", "m": "carelessly V, without thinking V (Used to express that you u", "x": "carelessly V, without thinking V (Used to express that you unconsciously do or have done something that you don't think is right. It conveys regret.) [中級へ行こう, Lesson 3]", "id": "int_L3_4"}, {"p": "「"}, {"w": "面倒だ", "r": "めんどうだ", "m": "is troublesome"}, {"p": "」"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "思っ", "r": "おもっ", "m": "think"}, {"g": "てしまう", "r": "てしまう", "m": "carelessly V, without thinking V (Used to express that you u", "x": "carelessly V, without thinking V (Used to express that you unconsciously do or have done something that you don't think is right. It conveys regret.) [中級へ行こう, Lesson 3]", "id": "int_L3_4"}, {"w": "こと", "r": "こと", "m": "thing; matter"}, {"w": "も", "r": "も", "m": "also; even"}, {"w": "あります", "r": "あります", "m": "there is"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"p": "、"}, {"w": "地球", "r": "ちきゅう", "m": "Earth"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "こと", "r": "こと", "m": "thing; matter"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "考えれば", "r": "かんがえれば", "m": "if you think"}, {"p": "、"}, {"w": "やら", "r": "やら", "m": "do"}, {"g": "ずに", "r": "ずに", "m": "without ~ing", "x": "without ~ing [中級へ行こう, Lesson 10]", "id": "int_L10_6"}, {"w": "は", "r": "は", "m": "(topic)"}, {"w": "い", "r": "い", "m": "(auxiliary)"}, {"w": "ら", "r": "ら", "m": "(conditional)"}, {"w": "れ", "r": "れ", "m": "(passive/potential)"}, {"w": "ません", "r": "ません", "m": "not (polite neg.)"}, {"p": "。"}], "hira": "かんきょう を まもる ために、 つい 「めんどうだ」 と おもって しまう こと も あります が、 ちきゅう の こと を かんがえれば、 やら ずにはいられません。", "trans": "In order to protect the environment, there are times I can't help thinking it's a hassle, but when I think about the earth, I can't help but do it."}, {"parts": [{"w": "私たち", "r": "わたしたち", "m": "we"}, {"w": "の", "r": "の", "m": "of; (nominalizer)"}, {"w": "行動", "r": "こうどう", "m": "action"}, {"w": "が", "r": "が", "m": "(subject/but)"}, {"w": "未来", "r": "みらい", "m": "future"}, {"w": "を", "r": "を", "m": "(object)"}, {"w": "変え", "r": "かえ", "m": "change"}, {"g": "ていく", "r": "ていく", "m": "Vテいく: Used to show, based on the present situation, how thin", "x": "Vテいく: Used to show, based on the present situation, how things will change in the future. Vテきた: Used to show, based on the present situation, how things have changed from before until now. [中級へ行こう, Lesson 4]", "id": "int_L4_1"}, {"w": "と", "r": "と", "m": "and; with; when; (quotation)"}, {"w": "信じています", "r": "しんじています", "m": "believe"}, {"p": "。"}], "hira": "わたしたち の こうどう が みらい を かえて いく と しんじています。", "trans": "I believe that our actions will continue to change the future."}]}];
-function render(){var c=document.getElementById("sp");S.forEach(function(s,si){var d=document.createElement("div");d.className="sec";d.innerHTML="<div class=thdr>"+esc(s.topic)+": "+esc(s.question)+"</div><div class=tq>"+esc(s.topic_num)+" &mdash; "+s.grammar_count+" Grammar Points<div class=tqe>"+esc(s.question_en)+"</div></div>";s.sentences.forEach(function(sn,sj){var b=document.createElement("div");b.className="sb";var j=document.createElement("div");j.className="jp";sn.parts.forEach(function(t){if(t.p!==undefined){var sp=document.createElement("span");sp.className="pu";sp.textContent=t.p;j.appendChild(sp)}else if(t.g!==undefined){var sp=document.createElement("span");sp.className="tk gt";sp.textContent=t.g;sp.setAttribute("data-t","g");sp.setAttribute("data-s",t.g);sp.setAttribute("data-x",t.x||"");if(t.r)sp.setAttribute("data-r",t.r);if(t.m)sp.setAttribute("data-m",t.m);var _x=(t.x||"");sp.addEventListener("click",function(){show(this)});j.appendChild(sp)}else if(t.w!==undefined){var sp=document.createElement("span");sp.className="tk wt";sp.textContent=t.w;sp.setAttribute("data-t","w");sp.setAttribute("data-s",t.w);if(t.r)sp.setAttribute("data-r",t.r);if(t.m)sp.setAttribute("data-m",t.m);if(t.r)sp.setAttribute("data-r",t.r);if(t.m)sp.setAttribute("data-m",t.m);sp.addEventListener("click",function(){show(this)});j.appendChild(sp)}});b.appendChild(j);var h=document.createElement("div");h.className="hl";h.textContent=sn.hira;var tr=document.createElement("div");tr.className="tl";tr.textContent=sn.trans;b.appendChild(h);b.appendChild(tr);d.appendChild(b)});c.appendChild(d)})}
+var S=[
+  {
+    "topic": "Topic 3 (第7課)",
+    "question": "リサイクルをすることについてどう思いますか",
+    "question_en": "What do you think about recycling?",
+    "sentences": [
+      {
+        "parts": [
+          {
+            "w": "以前",
+            "r": "いぜん",
+            "m": "previously"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "ある",
+            "r": "ある",
+            "m": "a certain"
+          },
+          {
+            "w": "調査",
+            "r": "ちょうさ",
+            "m": "survey"
+          },
+          {
+            "w": "に",
+            "r": "に",
+            "m": "(according to)"
+          },
+          {
+            "w": "よると",
+            "r": "よると",
+            "m": "according to"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "リサイクル",
+            "r": "リサイクル",
+            "m": "recycling"
+          },
+          {
+            "w": "できる",
+            "r": "できる",
+            "m": "can do"
+          },
+          {
+            "w": "資源",
+            "r": "しげん",
+            "m": "resource"
+          },
+          {
+            "w": "ごみ",
+            "r": "ごみ",
+            "m": "garbage; waste"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "うち",
+            "r": "うち",
+            "m": "of; among"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "家庭",
+            "r": "かてい",
+            "m": "household"
+          },
+          {
+            "w": "から",
+            "r": "から",
+            "m": "from"
+          },
+          {
+            "w": "出る",
+            "r": "でる",
+            "m": "to come out"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(nominalizer)"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "たった",
+            "r": "たった",
+            "m": "only; merely"
+          },
+          {
+            "w": "1%",
+            "r": "いちパーセント",
+            "m": "1 percent"
+          },
+          {
+            "w": "だけ",
+            "r": "だけ",
+            "m": "only"
+          },
+          {
+            "w": "だ",
+            "r": "だ",
+            "m": "(copula)"
+          },
+          {
+            "g": "ということ",
+            "x": "It means that ~; I heard that ~ (reported information) [中級へ行こう, Lesson 5]"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "聞いた",
+            "r": "きいた",
+            "m": "heard"
+          },
+          {
+            "g": "ことがあります",
+            "x": "Expresses that something has happened before / there are times when ~ [中級へ行こう, Lesson 8]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "いぜん、　ある　ちょうさ　に　よると、　リサイクル　できる　しげん　ごみ　の　うち、　かてい　から　でる　の　は　たった　いちパーセント　だけ　だ　ということ　を　きいた　こと　が　あります。",
+        "trans": "Previously, according to a survey, I heard that of recyclable waste, only 1% comes from households."
+      },
+      {
+        "parts": [
+          {
+            "w": "残り",
+            "r": "のこり",
+            "m": "remaining"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "99%",
+            "r": "きゅうじゅうきゅうパーセント",
+            "m": "99 percent"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "企業",
+            "r": "きぎょう",
+            "m": "companies"
+          },
+          {
+            "g": "によって",
+            "x": "Indicates the agent in a passive construction (by ~) [中級へ行こう, Lesson 6]"
+          },
+          {
+            "w": "出されています",
+            "r": "だされています",
+            "m": "is produced (passive)"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "のこり　の　きゅうじゅうきゅうパーセント　は　きぎょう　によって　だされています。",
+        "trans": "The remaining 99% is produced by companies."
+      },
+      {
+        "parts": [
+          {
+            "g": "つまり",
+            "x": "In other words; that is to say [中級へ行こう, Lesson 9]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "もし",
+            "r": "もし",
+            "m": "if"
+          },
+          {
+            "w": "全員",
+            "r": "ぜんいん",
+            "m": "everyone"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "リサイクル",
+            "r": "リサイクル",
+            "m": "recycling"
+          },
+          {
+            "w": "できる",
+            "r": "できる",
+            "m": "can do"
+          },
+          {
+            "w": "もの",
+            "r": "もの",
+            "m": "things"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "全部",
+            "r": "ぜんぶ",
+            "m": "all; everything"
+          },
+          {
+            "w": "リサイクル",
+            "r": "リサイクル",
+            "m": "recycle"
+          },
+          {
+            "w": "した",
+            "r": "した",
+            "m": "did"
+          },
+          {
+            "g": "としても",
+            "x": "Even if; even assuming that [中級へ行こう, Lesson 2]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "資源",
+            "r": "しげん",
+            "m": "resource"
+          },
+          {
+            "w": "ごみ",
+            "r": "ごみ",
+            "m": "garbage; waste"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "1%",
+            "r": "いちパーセント",
+            "m": "1 percent"
+          },
+          {
+            "g": "しか",
+            "x": "Only; nothing but (with negative) [中級へ行こう, Lesson 4]"
+          },
+          {
+            "w": "リサイクル",
+            "r": "リサイクル",
+            "m": "recycle"
+          },
+          {
+            "g": "されないということです",
+            "x": "It means that ~; I heard that ~ (reported information) [中級へ行こう, Lesson 5]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "つまり、　もし　ぜんいん　が　リサイクル　できる　もの　を　ぜんぶ　リサイクル　した　としても、　しげん　ごみ　の　いちパーセント　しか　リサイクル　されない　ということです。",
+        "trans": "In other words, even if everyone recycled everything they could, only 1% of recyclable waste would be recycled."
+      },
+      {
+        "parts": [
+          {
+            "w": "もし",
+            "r": "もし",
+            "m": "if"
+          },
+          {
+            "w": "それ",
+            "r": "それ",
+            "m": "that"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "本当",
+            "r": "ほんとう",
+            "m": "true; real"
+          },
+          {
+            "g": "なら",
+            "x": "If (that is the case); if it is true that ~ [中級へ行こう, Lesson 7]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "リサイクル",
+            "r": "リサイクル",
+            "m": "recycling"
+          },
+          {
+            "w": "運動",
+            "r": "うんどう",
+            "m": "movement"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "成功",
+            "r": "せいこう",
+            "m": "success"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "不可能",
+            "r": "ふかのう",
+            "m": "impossible"
+          },
+          {
+            "g": "のように",
+            "x": "Like ~; as if ~; in a manner similar to ~ [中級へ行こう, Lesson 3]"
+          },
+          {
+            "w": "見えます",
+            "r": "みえます",
+            "m": "appears; looks"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "もし　それ　が　ほんとう　なら、　リサイクル　うんどう　の　せいこう　は　ふかのう　の　よう　に　みえます。",
+        "trans": "If that were true, the success of the recycling movement seems impossible."
+      },
+      {
+        "parts": [
+          {
+            "w": "それで",
+            "r": "それで",
+            "m": "so; because of that"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "自分",
+            "r": "じぶん",
+            "m": "oneself"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "by (means)"
+          },
+          {
+            "w": "調べ",
+            "r": "しらべ",
+            "m": "research; investigate"
+          },
+          {
+            "g": "始めました",
+            "x": "Started to ~ (marks the beginning of an action) [中級へ行こう, Lesson 1]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "それで、　じぶん　で　しらべ　はじめました。",
+        "trans": "So I started researching it myself."
+      },
+      {
+        "parts": [
+          {
+            "w": "実際に",
+            "r": "じっさいに",
+            "m": "actually"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "アメリカ",
+            "r": "アメリカ",
+            "m": "America"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "in"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "1%",
+            "r": "いちパーセント",
+            "m": "1 percent"
+          },
+          {
+            "w": "より",
+            "r": "より",
+            "m": "than"
+          },
+          {
+            "w": "多い",
+            "r": "おおい",
+            "m": "many; much"
+          },
+          {
+            "w": "です",
+            "r": "です",
+            "m": "(copula polite)"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "but"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "g": "それほど多くない",
+            "x": "Not as ~ as; less than (comparison showing lesser degree) [中級へ行こう, Lesson 4]"
+          },
+          {
+            "w": "こと",
+            "r": "こと",
+            "m": "(nominalizer)"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "わかりました",
+            "r": "わかりました",
+            "m": "found out"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "じっさいに、　アメリカ　で　は　いちパーセント　より　おおい　です　が、　それほど　おおくない　こと　が　わかりました。",
+        "trans": "Actually, in America it is more than 1%, but not by a lot."
+      },
+      {
+        "parts": [
+          {
+            "w": "データ",
+            "r": "データ",
+            "m": "data"
+          },
+          {
+            "g": "で見ると",
+            "x": "Looking at / according to (data, graphs, etc.) [中級へ行こう, Lesson 4]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "家庭",
+            "r": "かてい",
+            "m": "household"
+          },
+          {
+            "w": "から",
+            "r": "から",
+            "m": "from"
+          },
+          {
+            "w": "出る",
+            "r": "でる",
+            "m": "to come out"
+          },
+          {
+            "w": "ゴミ",
+            "r": "ゴミ",
+            "m": "garbage; waste"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "全体",
+            "r": "ぜんたい",
+            "m": "the whole; total"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "3%",
+            "r": "さんパーセント",
+            "m": "3 percent"
+          },
+          {
+            "w": "から",
+            "r": "から",
+            "m": "from"
+          },
+          {
+            "w": "10%",
+            "r": "じゅっパーセント",
+            "m": "10 percent"
+          },
+          {
+            "w": "程度",
+            "r": "ていど",
+            "m": "about; approximately"
+          },
+          {
+            "w": "だ",
+            "r": "だ",
+            "m": "(copula)"
+          },
+          {
+            "g": "ということです",
+            "x": "It means that ~; I heard that ~ (reported information) [中級へ行こう, Lesson 5]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "データ　で　みると、　かてい　から　でる　ゴミ　は　ぜんたい　の　さんパーセント　から　じゅっパーセント　ていど　だ　ということです。",
+        "trans": "Looking at the data, household waste is only about 3% to 10% of the total."
+      },
+      {
+        "parts": [
+          {
+            "g": "一方",
+            "x": "On the other hand; while; meanwhile [中級へ行こう, Lesson 9]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "企業",
+            "r": "きぎょう",
+            "m": "companies"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "全体",
+            "r": "ぜんたい",
+            "m": "the whole; total"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "97%",
+            "r": "きゅうじゅうななパーセント",
+            "m": "97 percent"
+          },
+          {
+            "g": "も",
+            "x": "As much as; as many as (emphasizes large quantity) [中級へ行こう, Lesson 1]"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "ゴミ",
+            "r": "ゴミ",
+            "m": "garbage; waste"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "出しています",
+            "r": "だしています",
+            "m": "are producing"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "いっぽう、　きぎょう　は　ぜんたい　の　きゅうじゅうななパーセント　も　の　ゴミ　を　だしています。",
+        "trans": "On the other hand, companies produce as much as 97% of all waste."
+      },
+      {
+        "parts": [
+          {
+            "w": "これ",
+            "r": "これ",
+            "m": "this"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "リサイクル",
+            "r": "リサイクル",
+            "m": "recycling"
+          },
+          {
+            "w": "できる",
+            "r": "できる",
+            "m": "can do"
+          },
+          {
+            "w": "ゴミ",
+            "r": "ゴミ",
+            "m": "garbage; waste"
+          },
+          {
+            "w": "だけ",
+            "r": "だけ",
+            "m": "only"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "(copula te-form)"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "なく",
+            "r": "なく",
+            "m": "not"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "全部",
+            "r": "ぜんぶ",
+            "m": "all"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "ゴミ",
+            "r": "ゴミ",
+            "m": "garbage; waste"
+          },
+          {
+            "w": "です",
+            "r": "です",
+            "m": "(copula polite)"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "but"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "リサイクル",
+            "r": "リサイクル",
+            "m": "recycling"
+          },
+          {
+            "w": "可能な",
+            "r": "かのうな",
+            "m": "possible"
+          },
+          {
+            "w": "ゴミ",
+            "r": "ゴミ",
+            "m": "garbage; waste"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "割合",
+            "r": "わりあい",
+            "m": "ratio; proportion"
+          },
+          {
+            "w": "も",
+            "r": "も",
+            "m": "also"
+          },
+          {
+            "w": "同じ",
+            "r": "おなじ",
+            "m": "same"
+          },
+          {
+            "g": "ようなものだ",
+            "x": "Something like ~; the kind of thing that ~ [中級へ行こう, Lesson 3]"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "(quotation)"
+          },
+          {
+            "w": "考えられます",
+            "r": "かんがえられます",
+            "m": "can be considered"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "これ　は　リサイクル　できる　ゴミ　だけ　で　は　なく、　ぜんぶ　の　ゴミ　です　が、　リサイクル　かのうな　ゴミ　の　わりあい　も　おなじ　ような　もの　だ　と　かんがえられます。",
+        "trans": "This is not just recyclable waste but all waste; however, the ratio of recyclable waste is probably similar."
+      },
+      {
+        "parts": [
+          {
+            "w": "企業",
+            "r": "きぎょう",
+            "m": "companies"
+          },
+          {
+            "w": "に対して",
+            "r": "にたいして",
+            "m": "toward; for"
+          },
+          {
+            "w": "リサイクル",
+            "r": "リサイクル",
+            "m": "recycling"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "義務",
+            "r": "ぎむ",
+            "m": "obligation; duty"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "ない",
+            "r": "ない",
+            "m": "not exist"
+          },
+          {
+            "g": "ままでは",
+            "x": "As it is; remaining in the state of ~; while still ~ [中級へ行こう, Lesson 6]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "もったいない",
+            "r": "もったいない",
+            "m": "wasteful"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "(quotation)"
+          },
+          {
+            "w": "思わ",
+            "r": "おもわ",
+            "m": "think"
+          },
+          {
+            "g": "ずに",
+            "x": "Without doing ~ (negative te-form equivalent) [中級へ行こう, Lesson 10]"
+          },
+          {
+            "w": "ゴミ",
+            "r": "ゴミ",
+            "m": "garbage; waste"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "出し続ける",
+            "r": "だしつづける",
+            "m": "keep producing"
+          },
+          {
+            "w": "企業",
+            "r": "きぎょう",
+            "m": "companies"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "多い",
+            "r": "おおい",
+            "m": "many"
+          },
+          {
+            "g": "のではないでしょうか",
+            "x": "Isn’t it the case that ~? (soft assertion / rhetorical question) [中級へ行こう, Lesson 2]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "きぎょう　にたいして　リサイクル　の　ぎむ　が　ない　まま　で　は、　もったいない　と　おもわ　ず　に　ゴミ　を　だしつづける　きぎょう　が　おおい　のではないでしょうか。",
+        "trans": "Without recycling obligations for companies, are there not many companies that keep producing waste without thinking it is wasteful?"
+      },
+      {
+        "parts": [
+          {
+            "g": "例えば",
+            "x": "For example [中級へ行こう, Lesson 9]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "環境",
+            "r": "かんきょう",
+            "m": "environment"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "守る",
+            "r": "まもる",
+            "m": "to protect"
+          },
+          {
+            "g": "ために",
+            "x": "In order to; for the purpose of [中級へ行こう, Lesson 6]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "政府",
+            "r": "せいふ",
+            "m": "government"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "企業",
+            "r": "きぎょう",
+            "m": "companies"
+          },
+          {
+            "w": "に",
+            "r": "に",
+            "m": "(target)"
+          },
+          {
+            "w": "も",
+            "r": "も",
+            "m": "also"
+          },
+          {
+            "w": "リサイクル",
+            "r": "リサイクル",
+            "m": "recycling"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "義務づける",
+            "r": "ぎむづける",
+            "m": "to obligate; to require"
+          },
+          {
+            "g": "べきだ",
+            "x": "Should; ought to [中級へ行こう, Lesson 10]"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "(quotation)"
+          },
+          {
+            "w": "思います",
+            "r": "おもいます",
+            "m": "I think"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "たとえば、　かんきょう　を　まもる　ため　に、　せいふ　は　きぎょう　に　も　リサイクル　を　ぎむづける　べき　だ　と　おもいます。",
+        "trans": "For example, to protect the environment, I think the government should require companies to recycle too."
+      },
+      {
+        "parts": [
+          {
+            "g": "したがって",
+            "x": "Therefore; consequently [中級へ行こう, Lesson 9]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "個人",
+            "r": "こじん",
+            "m": "individual"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "努力",
+            "r": "どりょく",
+            "m": "effort"
+          },
+          {
+            "w": "だけ",
+            "r": "だけ",
+            "m": "only"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "by; with"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "この",
+            "r": "この",
+            "m": "this"
+          },
+          {
+            "w": "問題",
+            "r": "もんだい",
+            "m": "problem"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "解決しよう",
+            "r": "かいけつしよう",
+            "m": "try to solve"
+          },
+          {
+            "g": "としても",
+            "x": "Even if; even assuming that [中級へ行こう, Lesson 2]"
+          },
+          {
+            "w": "解決できない",
+            "r": "かいけつできない",
+            "m": "cannot solve"
+          },
+          {
+            "g": "のではないでしょうか",
+            "x": "Isn’t it the case that ~? (soft assertion / rhetorical question) [中級へ行こう, Lesson 2]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "したがって、　こじん　の　どりょく　だけ　で　は、　この　もんだい　を　かいけつしよう　としても　かいけつできない　のではないでしょうか。",
+        "trans": "Therefore, with individual effort alone, even if we try to solve this problem, can we really?"
+      }
+    ]
+  },
+  {
+    "topic": "Topic 2 (第4課)",
+    "question": "日本に来る前、日本にどんなイメージを持っていましたか。今はどうですか。",
+    "question_en": "What image did you have of Japan before coming? How about now?",
+    "sentences": [
+      {
+        "parts": [
+          {
+            "w": "日本",
+            "r": "にほん",
+            "m": "Japan"
+          },
+          {
+            "w": "に",
+            "r": "に",
+            "m": "(to)"
+          },
+          {
+            "w": "来る",
+            "r": "くる",
+            "m": "to come"
+          },
+          {
+            "w": "前",
+            "r": "まえ",
+            "m": "before"
+          },
+          {
+            "w": "に",
+            "r": "に",
+            "m": "(time)"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "日本",
+            "r": "にほん",
+            "m": "Japan"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "文化",
+            "r": "ぶんか",
+            "m": "culture"
+          },
+          {
+            "g": "について",
+            "x": "About; regarding; concerning [中級へ行こう, Lesson 8]"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "ビデオ",
+            "r": "ビデオ",
+            "m": "video"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "たくさん",
+            "r": "たくさん",
+            "m": "a lot; many"
+          },
+          {
+            "w": "見",
+            "r": "み",
+            "m": "watch"
+          },
+          {
+            "g": "てきました",
+            "x": "Have been ~ing (change/continuation up to now) [中級へ行こう, Lesson 4]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "にほん　に　くる　まえ　に、　にほん　の　ぶんか　について　の　ビデオ　を　たくさん　み　てきました。",
+        "trans": "Before coming to Japan, I had watched many videos about Japanese culture."
+      },
+      {
+        "parts": [
+          {
+            "w": "その",
+            "r": "その",
+            "m": "that"
+          },
+          {
+            "w": "ビデオ",
+            "r": "ビデオ",
+            "m": "video"
+          },
+          {
+            "g": "で見ると",
+            "x": "Looking at / according to (data, graphs, etc.) [中級へ行こう, Lesson 4]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "日本人",
+            "r": "にほんじん",
+            "m": "Japanese people"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "非常に",
+            "r": "ひじょうに",
+            "m": "extremely"
+          },
+          {
+            "w": "忙しい",
+            "r": "いそがしい",
+            "m": "busy"
+          },
+          {
+            "g": "ため",
+            "x": "Because; since (reason/cause) [中級へ行こう, Lesson 6]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "予定",
+            "r": "よてい",
+            "m": "plan; schedule"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "前もって",
+            "r": "まえもって",
+            "m": "in advance"
+          },
+          {
+            "w": "立てなければならない",
+            "r": "たてなければならない",
+            "m": "must make/set up"
+          },
+          {
+            "g": "ということでした",
+            "x": "It was said that ~; the situation was that ~ [中級へ行こう, Lesson 5]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "その　ビデオ　で　みると、　にほんじん　は　ひじょうに　いそがしい　ため、　よてい　を　まえもって　たてなければならない　ということでした。",
+        "trans": "According to those videos, Japanese people are extremely busy and have to make plans well in advance."
+      },
+      {
+        "parts": [
+          {
+            "w": "また",
+            "r": "また",
+            "m": "also; and"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "日本人",
+            "r": "にほんじん",
+            "m": "Japanese people"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "礼儀正しくて",
+            "r": "れいぎただしくて",
+            "m": "polite (and)"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "治安",
+            "r": "ちあん",
+            "m": "public safety"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "いい",
+            "r": "いい",
+            "m": "good"
+          },
+          {
+            "w": "国",
+            "r": "くに",
+            "m": "country"
+          },
+          {
+            "w": "だ",
+            "r": "だ",
+            "m": "(copula)"
+          },
+          {
+            "w": "という",
+            "r": "という",
+            "m": "called; that says"
+          },
+          {
+            "w": "イメージ",
+            "r": "イメージ",
+            "m": "image; impression"
+          },
+          {
+            "w": "も",
+            "r": "も",
+            "m": "also"
+          },
+          {
+            "w": "ありました",
+            "r": "ありました",
+            "m": "there was; had"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "また、　にほんじん　は　れいぎただしくて、　ちあん　が　いい　くに　だ　という　イメージ　も　ありました。",
+        "trans": "Also, I had an image that Japanese people are polite and Japan is a safe country."
+      },
+      {
+        "parts": [
+          {
+            "w": "知らない",
+            "r": "しらない",
+            "m": "unknown"
+          },
+          {
+            "w": "人",
+            "r": "ひと",
+            "m": "person"
+          },
+          {
+            "w": "に",
+            "r": "に",
+            "m": "(to)"
+          },
+          {
+            "w": "話しかけ",
+            "r": "はなしかけ",
+            "m": "speak to; address"
+          },
+          {
+            "g": "たら",
+            "x": "If; when (conditional) [中級へ行こう, Lesson 7]"
+          },
+          {
+            "w": "不快に",
+            "r": "ふかいに",
+            "m": "unpleasantly"
+          },
+          {
+            "w": "感じる",
+            "r": "かんじる",
+            "m": "to feel"
+          },
+          {
+            "g": "ということ",
+            "x": "It means that ~; I heard that ~ (reported information) [中級へ行こう, Lesson 5]"
+          },
+          {
+            "w": "や",
+            "r": "や",
+            "m": "and (listing)"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "いつも",
+            "r": "いつも",
+            "m": "always"
+          },
+          {
+            "w": "静か",
+            "r": "しずか",
+            "m": "quiet"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "(copula te-form)"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "信号",
+            "r": "しんごう",
+            "m": "traffic signal"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "赤",
+            "r": "あか",
+            "m": "red"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "g": "あいだ",
+            "x": "While; during the time that ~ [中級へ行こう, Lesson 8]"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "絶対に",
+            "r": "ぜったいに",
+            "m": "absolutely"
+          },
+          {
+            "w": "道",
+            "r": "みち",
+            "m": "road; street"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "渡らない",
+            "r": "わたらない",
+            "m": "do not cross"
+          },
+          {
+            "g": "というようなイメージ",
+            "x": "Such as ~; the kind of ~ that [中級へ行こう, Lesson 3]"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "持っていました",
+            "r": "もっていました",
+            "m": "had; was holding"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "しらない　ひと　に　はなしかけ　たら　ふかいに　かんじる　ということ　や、　いつも　しずか　で、　しんごう　が　あか　の　あいだ　は　ぜったいに　みち　を　わたらない　というような　イメージ　を　もっていました。",
+        "trans": "I had images like if you talk to a stranger they will feel uncomfortable, they are always quiet, and they absolutely never cross on red."
+      },
+      {
+        "parts": [
+          {
+            "g": "つまり",
+            "x": "In other words; that is to say [中級へ行こう, Lesson 9]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "日本",
+            "r": "にほん",
+            "m": "Japan"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "アメリカ",
+            "r": "アメリカ",
+            "m": "America"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "with; and"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(contrast)"
+          },
+          {
+            "w": "完全に",
+            "r": "かんぜんに",
+            "m": "completely"
+          },
+          {
+            "w": "違う",
+            "r": "ちがう",
+            "m": "different"
+          },
+          {
+            "w": "国",
+            "r": "くに",
+            "m": "country"
+          },
+          {
+            "w": "だ",
+            "r": "だ",
+            "m": "(copula)"
+          },
+          {
+            "w": "という",
+            "r": "という",
+            "m": "called; that says"
+          },
+          {
+            "w": "イメージ",
+            "r": "イメージ",
+            "m": "image"
+          },
+          {
+            "w": "でした",
+            "r": "でした",
+            "m": "was"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "つまり、　にほん　は　アメリカ　と　は　かんぜんに　ちがう　くに　だ　という　イメージ　でした。",
+        "trans": "In other words, my image was that Japan is completely different from America."
+      },
+      {
+        "parts": [
+          {
+            "w": "しかし",
+            "r": "しかし",
+            "m": "however"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "実際に",
+            "r": "じっさいに",
+            "m": "actually"
+          },
+          {
+            "w": "来て",
+            "r": "きて",
+            "m": "came (te-form)"
+          },
+          {
+            "w": "みると",
+            "r": "みると",
+            "m": "upon trying"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "思っていた",
+            "r": "おもっていた",
+            "m": "had thought"
+          },
+          {
+            "g": "ほど違わない",
+            "x": "Not as ~ as (comparison: X is not to the degree of Y) [中級へ行こう, Lesson 4]"
+          },
+          {
+            "w": "こと",
+            "r": "こと",
+            "m": "(nominalizer)"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "わかりました",
+            "r": "わかりました",
+            "m": "understood; realized"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "しかし、　じっさいに　きて　みると、　おもっていた　ほど　ちがわない　こと　が　わかりました。",
+        "trans": "However, when I actually came, I found it was not as different as I thought."
+      },
+      {
+        "parts": [
+          {
+            "w": "知らない",
+            "r": "しらない",
+            "m": "unknown"
+          },
+          {
+            "w": "人たち",
+            "r": "ひとたち",
+            "m": "people"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "話しかけ",
+            "r": "はなしかけ",
+            "m": "speak to"
+          },
+          {
+            "g": "てきたり",
+            "x": "Sometimes ~ and sometimes ~ (listing actions with てくる) [中級へ行こう, Lesson 4]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "公共",
+            "r": "こうきょう",
+            "m": "public"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "場所",
+            "r": "ばしょ",
+            "m": "place"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "at; in"
+          },
+          {
+            "w": "大きな",
+            "r": "おおきな",
+            "m": "big; loud"
+          },
+          {
+            "w": "声",
+            "r": "こえ",
+            "m": "voice"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "in (manner)"
+          },
+          {
+            "w": "話している",
+            "r": "はなしている",
+            "m": "are talking"
+          },
+          {
+            "w": "人",
+            "r": "ひと",
+            "m": "person"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "いたり",
+            "r": "いたり",
+            "m": "sometimes there are"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "赤信号",
+            "r": "あかしんごう",
+            "m": "red light"
+          },
+          {
+            "g": "のまま",
+            "x": "Remaining as ~; still in the state of ~ [中級へ行こう, Lesson 6]"
+          },
+          {
+            "w": "道",
+            "r": "みち",
+            "m": "road"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "渡る",
+            "r": "わたる",
+            "m": "to cross"
+          },
+          {
+            "w": "人",
+            "r": "ひと",
+            "m": "person"
+          },
+          {
+            "w": "も",
+            "r": "も",
+            "m": "also"
+          },
+          {
+            "w": "いて",
+            "r": "いて",
+            "m": "there being"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "g": "つい驚いてしまいました",
+            "x": "Could not help but ~; ended up ~ (unintentional action) [中級へ行こう, Lesson 3]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "しらない　ひとたち　が　はなしかけ　てきたり、　こうきょう　の　ばしょ　で　おおきな　こえ　で　はなしている　ひと　が　いたり、　あかしんごう　の　まま　みち　を　わたる　ひと　も　いて、　つい　おどろいて　しまいました。",
+        "trans": "Strangers would come talk to me, people were loud in public, people crossed on red -- I could not help but be surprised."
+      },
+      {
+        "parts": [
+          {
+            "w": "以前",
+            "r": "いぜん",
+            "m": "before; previously"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "ビデオ",
+            "r": "ビデオ",
+            "m": "video"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "情報",
+            "r": "じょうほう",
+            "m": "information"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "信じる",
+            "r": "しんじる",
+            "m": "to believe"
+          },
+          {
+            "g": "ばかりで",
+            "x": "Nothing but; only; always (excessive repetition) [中級へ行こう, Lesson 3]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "自分",
+            "r": "じぶん",
+            "m": "oneself"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "目",
+            "r": "め",
+            "m": "eyes"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "with"
+          },
+          {
+            "w": "確かめ",
+            "r": "たしかめ",
+            "m": "to confirm; verify"
+          },
+          {
+            "g": "ようとしなかった",
+            "x": "Did not try to ~; made no attempt to ~ [中級へ行こう, Lesson 2]"
+          },
+          {
+            "g": "のは",
+            "x": "~ is that I think ~ (nominalizing subject with evaluation) [中級へ行こう, Lesson 2]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "よくなかった",
+            "r": "よくなかった",
+            "m": "was not good"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "(quotation)"
+          },
+          {
+            "w": "思います",
+            "r": "おもいます",
+            "m": "I think"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "いぜん　は、　ビデオ　の　じょうほう　を　しんじる　ばかり　で、　じぶん　の　め　で　たしかめ　よう　と　しなかった　のは、　よくなかった　と　おもいます。",
+        "trans": "Before, I only believed videos and did not try to see for myself, which I think was wrong."
+      },
+      {
+        "parts": [
+          {
+            "w": "来る",
+            "r": "くる",
+            "m": "to come"
+          },
+          {
+            "w": "前",
+            "r": "まえ",
+            "m": "before"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "イメージ",
+            "r": "イメージ",
+            "m": "image"
+          },
+          {
+            "g": "といっても",
+            "x": "Even though I say ~; although ~ (downplaying a statement) [中級へ行こう, Lesson 7]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "実際",
+            "r": "じっさい",
+            "m": "actual; real"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "日本",
+            "r": "にほん",
+            "m": "Japan"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "with"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(contrast)"
+          },
+          {
+            "w": "だいぶ",
+            "r": "だいぶ",
+            "m": "quite; considerably"
+          },
+          {
+            "w": "違いました",
+            "r": "ちがいました",
+            "m": "was different"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "くる　まえ　の　イメージ　といっても、　じっさい　の　にほん　と　は　だいぶ　ちがいました。",
+        "trans": "Even though I say I had an image, the real Japan was quite different."
+      },
+      {
+        "parts": [
+          {
+            "w": "ビデオ",
+            "r": "ビデオ",
+            "m": "video"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "on; in"
+          },
+          {
+            "w": "見る",
+            "r": "みる",
+            "m": "to see"
+          },
+          {
+            "w": "日本",
+            "r": "にほん",
+            "m": "Japan"
+          },
+          {
+            "g": "より、実際に住んでいる日本のほうが",
+            "x": "~ is more ~ than ~ (comparison showing preference) [中級へ行こう, Lesson 7]"
+          },
+          {
+            "w": "ずっと",
+            "r": "ずっと",
+            "m": "much; far more"
+          },
+          {
+            "w": "面白い",
+            "r": "おもしろい",
+            "m": "interesting"
+          },
+          {
+            "w": "です",
+            "r": "です",
+            "m": "(copula polite)"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "ビデオ　で　みる　にほん　より、　じっさいに　すんでいる　にほん　の　ほう　が　ずっと　おもしろい　です。",
+        "trans": "The Japan you live in is much more interesting than the Japan in videos."
+      },
+      {
+        "parts": [
+          {
+            "w": "今",
+            "r": "いま",
+            "m": "now"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "日本人",
+            "r": "にほんじん",
+            "m": "Japanese people"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "p": "「"
+          },
+          {
+            "w": "外国人",
+            "r": "がいこくじん",
+            "m": "foreigner"
+          },
+          {
+            "p": "」"
+          },
+          {
+            "g": "として",
+            "x": "As ~; in the role/capacity of ~ [中級へ行こう, Lesson 7]"
+          },
+          {
+            "w": "見る",
+            "r": "みる",
+            "m": "to see; view"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(nominalizer)"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "(copula te-form)"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(contrast)"
+          },
+          {
+            "w": "なく",
+            "r": "なく",
+            "m": "not"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "同じ",
+            "r": "おなじ",
+            "m": "same"
+          },
+          {
+            "w": "人間",
+            "r": "にんげん",
+            "m": "human being"
+          },
+          {
+            "g": "として",
+            "x": "As ~; in the role/capacity of ~ [中級へ行こう, Lesson 7]"
+          },
+          {
+            "w": "見る",
+            "r": "みる",
+            "m": "to see"
+          },
+          {
+            "g": "ようになりました",
+            "x": "Came to ~; reached the point where ~ (change of state) [中級へ行こう, Lesson 4]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "いま　は、　にほんじん　を　「がいこくじん」　として　みる　の　で　は　なく、　おなじ　にんげん　として　みる　ようになりました。",
+        "trans": "Now I have come to see Japanese people not as foreigners but as the same -- just people."
+      },
+      {
+        "parts": [
+          {
+            "w": "文化",
+            "r": "ぶんか",
+            "m": "culture"
+          },
+          {
+            "g": "によって",
+            "x": "Depending on; by means of [中級へ行こう, Lesson 10]"
+          },
+          {
+            "w": "違い",
+            "r": "ちがい",
+            "m": "differences"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "あります",
+            "r": "あります",
+            "m": "there are"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "but"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "人",
+            "r": "ひと",
+            "m": "people"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "どこ",
+            "r": "どこ",
+            "m": "where"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "at"
+          },
+          {
+            "w": "も",
+            "r": "も",
+            "m": "even; also"
+          },
+          {
+            "w": "同じ",
+            "r": "おなじ",
+            "m": "same"
+          },
+          {
+            "w": "だ",
+            "r": "だ",
+            "m": "(copula)"
+          },
+          {
+            "g": "ものです",
+            "x": "That is just how it is; naturally ~ (expressing general truth/nostalgia) [中級へ行こう, Lesson 5]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "ぶんか　によって　ちがい　は　あります　が、　ひと　は　どこ　で　も　おなじ　だ　もの　です。",
+        "trans": "There are cultural differences, but people are the same everywhere."
+      }
+    ]
+  },
+  {
+    "topic": "Topic 1 (第3課)",
+    "question": "今の子どもと昔の子どもはどんなところが違いますか",
+    "question_en": "How are children today different from children in the past?",
+    "sentences": [
+      {
+        "parts": [
+          {
+            "w": "子ども",
+            "r": "こども",
+            "m": "children"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "考え方",
+            "r": "かんがえかた",
+            "m": "way of thinking"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "私",
+            "r": "わたし",
+            "m": "I"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "子ども",
+            "r": "こども",
+            "m": "child"
+          },
+          {
+            "w": "だった",
+            "r": "だった",
+            "m": "was"
+          },
+          {
+            "w": "頃",
+            "r": "ころ",
+            "m": "time; era"
+          },
+          {
+            "g": "と比べて",
+            "x": "Compared to/with ~ [中級へ行こう, Lesson 4]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "変わっ",
+            "r": "かわっ",
+            "m": "changed"
+          },
+          {
+            "g": "てきました",
+            "x": "Have been ~ing (change/continuation up to now) [中級へ行こう, Lesson 4]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "こども　の　かんがえかた　は、　わたし　が　こども　だった　ころ　と　くらべて、　かわっ　てきました。",
+        "trans": "Children way of thinking has changed compared to when I was a child."
+      },
+      {
+        "parts": [
+          {
+            "w": "昔",
+            "r": "むかし",
+            "m": "in the past"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "子ども",
+            "r": "こども",
+            "m": "children"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "学校",
+            "r": "がっこう",
+            "m": "school"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "友達",
+            "r": "ともだち",
+            "m": "friends"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "with"
+          },
+          {
+            "w": "外",
+            "r": "そと",
+            "m": "outside"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "at"
+          },
+          {
+            "w": "遊び",
+            "r": "あそび",
+            "m": "play"
+          },
+          {
+            "g": "たがった",
+            "x": "Wanted to ~ (third person desire, past tense) [中級へ行こう, Lesson 3]"
+          },
+          {
+            "g": "ものです",
+            "x": "That is just how it is; naturally ~ (expressing general truth/nostalgia) [中級へ行こう, Lesson 5]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "むかし　は、　こども　は　がっこう　の　ともだち　と　そと　で　あそび　たがった　もの　です。",
+        "trans": "Before, kids used to want to play outside with school friends."
+      },
+      {
+        "parts": [
+          {
+            "w": "しかし",
+            "r": "しかし",
+            "m": "however"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "インターネット",
+            "r": "インターネット",
+            "m": "the internet"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "普及",
+            "r": "ふきゅう",
+            "m": "spread; popularization"
+          },
+          {
+            "g": "にともなって",
+            "x": "Along with; as ~ happens [中級へ行こう, Lesson 9]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "今",
+            "r": "いま",
+            "m": "now"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "子ども",
+            "r": "こども",
+            "m": "children"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "インターネット",
+            "r": "インターネット",
+            "m": "the internet"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "on; via"
+          },
+          {
+            "w": "出会った",
+            "r": "であった",
+            "m": "met"
+          },
+          {
+            "w": "友達",
+            "r": "ともだち",
+            "m": "friends"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "with"
+          },
+          {
+            "w": "ゲーム",
+            "r": "ゲーム",
+            "m": "games"
+          },
+          {
+            "g": "ばかり",
+            "x": "Nothing but; only; always (excessive repetition) [中級へ行こう, Lesson 3]"
+          },
+          {
+            "w": "して",
+            "r": "して",
+            "m": "doing"
+          },
+          {
+            "w": "遊ぶ",
+            "r": "あそぶ",
+            "m": "to play"
+          },
+          {
+            "g": "ようになりました",
+            "x": "Came to ~; reached the point where ~ (change of state) [中級へ行こう, Lesson 4]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "しかし、　インターネット　の　ふきゅう　に　ともなって、　いま　の　こども　は　インターネット　で　であった　ともだち　と　ゲーム　ばかり　して　あそぶ　ように　なりました。",
+        "trans": "However, with the spread of the internet, kids now do nothing but play games with friends they met online."
+      },
+      {
+        "parts": [
+          {
+            "w": "年々",
+            "r": "ねんねん",
+            "m": "year by year"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "このような",
+            "r": "このような",
+            "m": "this kind of"
+          },
+          {
+            "w": "子ども",
+            "r": "こども",
+            "m": "children"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "増え",
+            "r": "ふえ",
+            "m": "increase"
+          },
+          {
+            "g": "てきています",
+            "x": "Has been ~ing (ongoing change continuing to present) [中級へ行こう, Lesson 4]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "ねんねん、　このような　こども　が　ふえ　てきています。",
+        "trans": "Year by year, more children like this are increasing."
+      },
+      {
+        "parts": [
+          {
+            "w": "インターネット",
+            "r": "インターネット",
+            "m": "the internet"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "on; via"
+          },
+          {
+            "w": "人",
+            "r": "ひと",
+            "m": "people"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "with"
+          },
+          {
+            "w": "出会う",
+            "r": "であう",
+            "m": "to meet"
+          },
+          {
+            "g": "のは",
+            "x": "The thing about ~ is that ~ (explanation/definition) [中級へ行こう, Lesson 5]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "自分",
+            "r": "じぶん",
+            "m": "oneself"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "知っている",
+            "r": "しっている",
+            "m": "know"
+          },
+          {
+            "w": "場所",
+            "r": "ばしょ",
+            "m": "place"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "with"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(contrast)"
+          },
+          {
+            "w": "違う",
+            "r": "ちがう",
+            "m": "different"
+          },
+          {
+            "w": "さまざまな",
+            "r": "さまざまな",
+            "m": "various"
+          },
+          {
+            "w": "場所",
+            "r": "ばしょ",
+            "m": "place"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "人",
+            "r": "ひと",
+            "m": "people"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "with"
+          },
+          {
+            "w": "話す",
+            "r": "はなす",
+            "m": "to talk"
+          },
+          {
+            "w": "機会",
+            "r": "きかい",
+            "m": "opportunity; chance"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "増える",
+            "r": "ふえる",
+            "m": "to increase"
+          },
+          {
+            "g": "ということです",
+            "x": "It means that ~; I heard that ~ (reported information) [中級へ行こう, Lesson 5]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "インターネット　で　ひと　と　であう　のは、　じぶん　が　しっている　ばしょ　と　は　ちがう　さまざまな　ばしょ　の　ひと　と　はなす　きかい　が　ふえる　ということです。",
+        "trans": "Meeting people online means more chances to talk with people from various different places."
+      },
+      {
+        "parts": [
+          {
+            "w": "その",
+            "r": "その",
+            "m": "that"
+          },
+          {
+            "g": "おかげで",
+            "x": "Thanks to; because of (positive cause) [中級へ行こう, Lesson 6]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "他",
+            "r": "ほか",
+            "m": "other"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "文化",
+            "r": "ぶんか",
+            "m": "culture"
+          },
+          {
+            "g": "について",
+            "x": "About; regarding; concerning [中級へ行こう, Lesson 8]"
+          },
+          {
+            "w": "学ぶ",
+            "r": "まなぶ",
+            "m": "to learn"
+          },
+          {
+            "w": "こと",
+            "r": "こと",
+            "m": "(nominalizer)"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "できます",
+            "r": "できます",
+            "m": "can do"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "その　おかげで、　ほか　の　ぶんか　について　まなぶ　こと　が　できます。",
+        "trans": "Thanks to that, you can learn about other cultures."
+      },
+      {
+        "parts": [
+          {
+            "w": "ある",
+            "r": "ある",
+            "m": "a certain"
+          },
+          {
+            "w": "動画",
+            "r": "どうが",
+            "m": "video"
+          },
+          {
+            "g": "で見ると",
+            "x": "Looking at / according to (data, graphs, etc.) [中級へ行こう, Lesson 4]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "多く",
+            "r": "おおく",
+            "m": "many"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "若者",
+            "r": "わかもの",
+            "m": "young people"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "アメリカ人",
+            "r": "アメリカじん",
+            "m": "American people"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "with"
+          },
+          {
+            "w": "ゲーム",
+            "r": "ゲーム",
+            "m": "games"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "する",
+            "r": "する",
+            "m": "to do"
+          },
+          {
+            "w": "こと",
+            "r": "こと",
+            "m": "(nominalizer)"
+          },
+          {
+            "g": "を通して",
+            "x": "Through; by means of [中級へ行こう, Lesson 8]"
+          },
+          {
+            "w": "英語",
+            "r": "えいご",
+            "m": "English"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "学んで",
+            "r": "まなんで",
+            "m": "learning"
+          },
+          {
+            "g": "きている",
+            "x": "Have been ~ing / came to ~ (gradual change up to now) [中級へ行こう, Lesson 4]"
+          },
+          {
+            "w": "そうです",
+            "r": "そうです",
+            "m": "I heard that"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "ある　どうが　で　みると、　おおく　の　わかもの　が　アメリカじん　と　ゲーム　を　する　こと　を　とおして　えいご　を　まなんで　きている　そうです。",
+        "trans": "According to a video, many young people are learning English through playing games with Americans."
+      },
+      {
+        "parts": [
+          {
+            "g": "一方",
+            "x": "On the other hand; while; meanwhile [中級へ行こう, Lesson 9]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "インターネット",
+            "r": "インターネット",
+            "m": "the internet"
+          },
+          {
+            "w": "に",
+            "r": "に",
+            "m": "on"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "危険な",
+            "r": "きけんな",
+            "m": "dangerous"
+          },
+          {
+            "w": "人",
+            "r": "ひと",
+            "m": "person"
+          },
+          {
+            "w": "も",
+            "r": "も",
+            "m": "also"
+          },
+          {
+            "w": "いる",
+            "r": "いる",
+            "m": "exist (animate)"
+          },
+          {
+            "g": "ため",
+            "x": "Because; since (reason/cause) [中級へ行こう, Lesson 6]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "注意しないといけません",
+            "r": "ちゅういしないといけません",
+            "m": "must be careful"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "いっぽう、　インターネット　に　は　きけんな　ひと　も　いる　ため、　ちゅうい　しないと　いけません。",
+        "trans": "On the other hand, there are dangerous people online too, so you have to be careful."
+      },
+      {
+        "parts": [
+          {
+            "w": "また",
+            "r": "また",
+            "m": "also"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "自分",
+            "r": "じぶん",
+            "m": "oneself"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "with"
+          },
+          {
+            "w": "同じ",
+            "r": "おなじ",
+            "m": "same"
+          },
+          {
+            "w": "考え",
+            "r": "かんがえ",
+            "m": "thinking; opinion"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "人",
+            "r": "ひと",
+            "m": "person"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "見つけ",
+            "r": "みつけ",
+            "m": "find"
+          },
+          {
+            "g": "やすい",
+            "x": "Easy to ~; tend to ~ [中級へ行こう, Lesson 3]"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(nominalizer)"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "so"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "自分",
+            "r": "じぶん",
+            "m": "oneself"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "考え方",
+            "r": "かんがえかた",
+            "m": "way of thinking"
+          },
+          {
+            "w": "こそ",
+            "r": "こそ",
+            "m": "indeed; precisely"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "正しい",
+            "r": "ただしい",
+            "m": "correct"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "(quotation)"
+          },
+          {
+            "g": "つい信じてしまうことがある",
+            "x": "Cannot help but ~; end up ~ing (unintentional/regrettable action) [中級へ行こう, Lesson 3]"
+          },
+          {
+            "g": "のではないでしょうか",
+            "x": "Isn’t it the case that ~? (soft assertion / rhetorical question) [中級へ行こう, Lesson 2]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "また、　じぶん　と　おなじ　かんがえ　の　ひと　を　みつけ　やすい　ので、　じぶん　の　かんがえかた　こそ　が　ただしい　と　つい　しんじて　しまう　こと　が　ある　のではないでしょうか。",
+        "trans": "Also, since it is easy to find people who think like you, do people not end up believing their way is correct?"
+      },
+      {
+        "parts": [
+          {
+            "w": "外",
+            "r": "そと",
+            "m": "outside"
+          },
+          {
+            "w": "に",
+            "r": "に",
+            "m": "(to)"
+          },
+          {
+            "w": "出て",
+            "r": "でて",
+            "m": "go out"
+          },
+          {
+            "w": "体",
+            "r": "からだ",
+            "m": "body"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "動かす",
+            "r": "うごかす",
+            "m": "to move"
+          },
+          {
+            "w": "こと",
+            "r": "こと",
+            "m": "(nominalizer)"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "g": "大切さ",
+            "x": "The importance of ~ (nominalization with さ) [中級へ行こう, Lesson 5]"
+          },
+          {
+            "w": "も",
+            "r": "も",
+            "m": "also"
+          },
+          {
+            "w": "忘れる",
+            "r": "わすれる",
+            "m": "to forget"
+          },
+          {
+            "g": "べきではありません",
+            "x": "Should not; ought not to [中級へ行こう, Lesson 10]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "そと　に　でて　からだ　を　うごかす　こと　の　たいせつさ　も　わすれる　べき　で　は　ありません。",
+        "trans": "We should not forget the importance of going outside and moving our bodies."
+      },
+      {
+        "parts": [
+          {
+            "w": "太陽",
+            "r": "たいよう",
+            "m": "sun"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "光",
+            "r": "ひかり",
+            "m": "light"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "体",
+            "r": "からだ",
+            "m": "body"
+          },
+          {
+            "g": "にとって",
+            "x": "For ~; from the standpoint of ~ [中級へ行こう, Lesson 8]"
+          },
+          {
+            "w": "いい",
+            "r": "いい",
+            "m": "good"
+          },
+          {
+            "g": "ものですから",
+            "x": "Because; since (explanatory/justifying reason) [中級へ行こう, Lesson 5]"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "たいよう　の　ひかり　は　からだ　にとって　いい　もの　です　から。",
+        "trans": "Sunlight is good for your body, after all."
+      },
+      {
+        "parts": [
+          {
+            "w": "ですから",
+            "r": "ですから",
+            "m": "therefore; so"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "インターネット",
+            "r": "インターネット",
+            "m": "the internet"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "on; via"
+          },
+          {
+            "w": "人",
+            "r": "ひと",
+            "m": "people"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "with"
+          },
+          {
+            "w": "遊ぶ",
+            "r": "あそぶ",
+            "m": "to play"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(nominalizer)"
+          },
+          {
+            "w": "は",
+            "r": "は",
+            "m": "(topic)"
+          },
+          {
+            "w": "価値",
+            "r": "かち",
+            "m": "value; worth"
+          },
+          {
+            "w": "が",
+            "r": "が",
+            "m": "(subject)"
+          },
+          {
+            "w": "ある",
+            "r": "ある",
+            "m": "to exist"
+          },
+          {
+            "g": "といっても",
+            "x": "Even though I say ~; although ~ (downplaying a statement) [中級へ行こう, Lesson 7]"
+          },
+          {
+            "p": "、"
+          },
+          {
+            "w": "それ",
+            "r": "それ",
+            "m": "that"
+          },
+          {
+            "w": "だけ",
+            "r": "だけ",
+            "m": "only"
+          },
+          {
+            "w": "で",
+            "r": "で",
+            "m": "by"
+          },
+          {
+            "w": "遊ぶ",
+            "r": "あそぶ",
+            "m": "to play"
+          },
+          {
+            "g": "より、外でも遊ぶほうが",
+            "x": "~ is more ~ than ~ (comparison showing preference) [中級へ行こう, Lesson 7]"
+          },
+          {
+            "w": "いい",
+            "r": "いい",
+            "m": "good; better"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "(quotation)"
+          },
+          {
+            "w": "思います",
+            "r": "おもいます",
+            "m": "I think"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "ですから、　インターネット　で　ひと　と　あそぶ　の　は　かち　が　ある　といっても、　それ　だけ　で　あそぶ　より、　そと　で　も　あそぶ　ほう　が　いい　と　おもいます。",
+        "trans": "So even though playing online has value, I think it is better to also play outside."
+      },
+      {
+        "parts": [
+          {
+            "w": "インターネット",
+            "r": "インターネット",
+            "m": "the internet"
+          },
+          {
+            "w": "を",
+            "r": "を",
+            "m": "(object)"
+          },
+          {
+            "w": "唯一",
+            "r": "ゆいいつ",
+            "m": "only; sole"
+          },
+          {
+            "w": "の",
+            "r": "の",
+            "m": "(of)"
+          },
+          {
+            "w": "遊び方",
+            "r": "あそびかた",
+            "m": "way of playing"
+          },
+          {
+            "g": "のままにしておくべきではない",
+            "x": "Leaving as ~; keeping in the state of ~ [中級へ行こう, Lesson 6]"
+          },
+          {
+            "w": "と",
+            "r": "と",
+            "m": "(quotation)"
+          },
+          {
+            "w": "考えています",
+            "r": "かんがえています",
+            "m": "I think; I believe"
+          },
+          {
+            "p": "。"
+          }
+        ],
+        "hira": "インターネット　を　ゆいいつ　の　あそびかた　の　まま　に　して　おく　べき　で　は　ない　と　かんがえています。",
+        "trans": "I think we should not leave the internet as the only way to play."
+      }
+    ]
+  }
+];
+function render(){var c=document.getElementById("sp");S.forEach(function(s,si){var d=document.createElement("div");d.className="sec";d.innerHTML="<div class=thdr>"+esc(s.topic)+"</div><div class=tq>"+esc(s.question)+"<div class=tqe>"+esc(s.question_en)+"</div></div>";s.sentences.forEach(function(sn,sj){var b=document.createElement("div");b.className="sb";var j=document.createElement("div");j.className="jp";sn.parts.forEach(function(t){if(t.p!==undefined){var sp=document.createElement("span");sp.className="pu";sp.textContent=t.p;j.appendChild(sp)}else if(t.g!==undefined){var sp=document.createElement("span");sp.className="tk gt";sp.textContent=t.g;sp.setAttribute("data-t","g");sp.setAttribute("data-s",t.g);sp.setAttribute("data-x",t.x||"");sp.addEventListener("click",function(){show(this)});j.appendChild(sp)}else if(t.w!==undefined){var sp=document.createElement("span");sp.className="tk wt";sp.textContent=t.w;sp.setAttribute("data-t","w");sp.setAttribute("data-s",t.w);if(t.r)sp.setAttribute("data-r",t.r);if(t.m)sp.setAttribute("data-m",t.m);sp.addEventListener("click",function(){show(this)});j.appendChild(sp)}});b.appendChild(j);var h=document.createElement("div");h.className="hl";h.textContent=sn.hira;var tr=document.createElement("div");tr.className="tl";tr.textContent=sn.trans;b.appendChild(h);b.appendChild(tr);d.appendChild(b)});c.appendChild(d)})}
 function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
-function show(el){var t=el.getAttribute("data-t");var we=document.getElementById("ppw");var re=document.getElementById("ppr");var me=document.getElementById("ppm");var xe=document.getElementById("ppe");we.textContent=el.getAttribute("data-s");we.className="pw"+(t==="g"?" gm":"");if(t==="g"){re.textContent="";me.textContent="";var x=el.getAttribute("data-x")||"";var bi=x.lastIndexOf("[");if(bi>0){xe.innerHTML=esc(x.substring(0,bi).trim())+"<div class=ps>"+esc(x.substring(bi))+"</div>"}else{xe.textContent=x}xe.classList.remove("hid")}else{re.textContent=el.getAttribute("data-r")||"";me.textContent=el.getAttribute("data-m")||"";xe.classList.add("hid")}document.getElementById("pov").classList.add("vis")}
+function show(el){var t=el.getAttribute("data-t");var we=document.getElementById("ppw");var re=document.getElementById("ppr");var me=document.getElementById("ppm");var xe=document.getElementById("ppe");we.textContent=el.getAttribute("data-s");we.className="pw"+(t==="g"?" gm":"");if(t==="g"){re.textContent="";me.textContent="";var x=el.getAttribute("data-x")||"";var bi=x.lastIndexOf("[");if(bi>0){xe.innerHTML=esc(x.substring(0,bi).trim())+"<div class=ps>"+esc(x.substring(bi))+"</div>"}else{xe.textContent=x}xe.style.display="block"}else{re.textContent=el.getAttribute("data-r")||"";me.textContent=el.getAttribute("data-m")||"";xe.style.display="none"}document.getElementById("pov").classList.add("vis")}
 function cp(){document.getElementById("pov").classList.remove("vis")}
 render();
 </script>
