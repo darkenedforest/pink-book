@@ -226,7 +226,7 @@ body.en-mode .jp-sentence .grammar{pointer-events:none;cursor:default;}
 /* ===== POPUP ===== */
 .popup-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;}
 .popup-overlay.show{display:block;}
-.popup{
+.popup{font-size:var(--font-size);
   display:none;position:fixed;z-index:1000;background:var(--popup-bg);
   border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;
   box-shadow:0 12px 40px rgba(44,36,22,0.18);max-width:340px;min-width:200px;
@@ -234,16 +234,16 @@ body.en-mode .jp-sentence .grammar{pointer-events:none;cursor:default;}
 }
 .popup.show{display:block;}
 @keyframes popIn{from{opacity:0;transform:translateY(6px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
-.popup .reading{font-family:'Noto Sans JP',sans-serif;font-size:1.05rem;color:var(--accent);font-weight:500;margin-bottom:0.15rem;}
-.popup .kanji-display{font-size:0.78rem;color:var(--text-light);margin-bottom:0.3rem;}
-.popup .meaning{font-family:'Source Sans Pro',sans-serif;font-size:0.88rem;color:var(--text);line-height:1.55;}
+.popup .reading{font-family:'Noto Sans JP',sans-serif;font-size:1.05em;color:var(--accent);font-weight:500;margin-bottom:0.15rem;}
+.popup .kanji-display{font-size:0.78em;color:var(--text-light);margin-bottom:0.3rem;}
+.popup .meaning{font-family:'Source Sans Pro',sans-serif;font-size:0.88em;color:var(--text);line-height:1.55;}
 .popup .grammar-tag{
-  display:inline-block;font-family:'Source Sans Pro',sans-serif;font-size:0.62rem;font-weight:600;
+  display:inline-block;font-family:'Source Sans Pro',sans-serif;font-size:0.62em;font-weight:600;
   text-transform:uppercase;letter-spacing:0.06em;color:#fff;background:var(--grammar-color);
   padding:0.12rem 0.5rem;border-radius:999px;margin-bottom:0.35rem;
 }
 .popup .grammar-explain{
-  font-family:'Source Sans Pro',sans-serif;font-size:0.8rem;color:var(--text);line-height:1.55;margin-top:0.25rem;
+  font-family:'Source Sans Pro',sans-serif;font-size:0.8em;color:var(--text);line-height:1.55;margin-top:0.25rem;
 }
 
 /* ===== SWIPE ZONES ===== */
@@ -32805,7 +32805,7 @@ function showPopup(e, data) {
   var html = '';
   if (data.type === 'en') {
     html += '<div class="grammar-tag" style="background:var(--accent)">English</div>';
-    html += '<div class="kanji-display" style="font-size:1.4rem;">' + data.word + '</div>';
+    html += '<div class="kanji-display" style="font-size:1.4em;">' + data.word + '</div>';
     if (data.jp) html += '<div class="reading">' + data.jp + (data.r && data.r !== data.jp ? ' (' + data.r + ')' : '') + '</div>';
     if (data.meaning) html += '<div class="meaning">' + data.meaning + '</div>';
   } else if (data.type === 'grammar') {
