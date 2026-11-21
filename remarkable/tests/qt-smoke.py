@@ -8,10 +8,10 @@ from tempfile import TemporaryDirectory
 from xml.sax.saxutils import escape, quoteattr
 
 import PySide6
-from PySide6.QtCore import Property, Slot, QObject, QUrl, Qt, QPoint, QPointF, QResource, qInstallMessageHandler
+from PySide6.QtCore import Property, Slot, QObject, QUrl, Qt, QPoint, QPointF, QRectF, QResource, qInstallMessageHandler
 from PySide6.QtGui import QGuiApplication, QWheelEvent
 from PySide6.QtQml import QQmlApplicationEngine, QJSValue
-from PySide6.QtQuick import QQuickWindow
+from PySide6.QtQuick import QQuickItem, QQuickWindow
 from PySide6.QtTest import QTest
 
 repo = Path(__file__).resolve().parents[2]
@@ -161,6 +161,31 @@ def tap(name):
     QTest.qWait(180)
 
 
+def tap_point(x, y):
+    QTest.mouseClick(win, Qt.LeftButton, Qt.NoModifier, QPoint(round(x), round(y)))
+    QTest.qWait(180)
+
+
+def popup_item(name):
+    item = win.findChild(QQuickItem, name)
+    assert item is not None and item.isVisible(), name
+    return item
+
+
+def popup_rect():
+    card = popup_item("lookupCard")
+    return QRectF(card.x(), card.y(), card.width(), card.height())
+
+
+def assert_inside_window(rect):
+    inset = 10 * prop("unit")
+    tolerance = 1
+    assert rect.left() >= inset - tolerance
+    assert rect.top() >= inset - tolerance
+    assert rect.right() <= win.width() - inset + tolerance
+    assert rect.bottom() <= win.height() - inset + tolerance
+
+
 def prop(name):
     value = win.property(name)
     return value.toVariant() if isinstance(value, QJSValue) else value
@@ -212,15 +237,62 @@ assert prop("currentPage") == 0
 first_page = prop("pageStart"), prop("pageEnd")
 assert 0 == first_page[0] < first_page[1] < chapter["sentenceCount"]
 
-tap("朝")
+lookup_state = (prop("currentPage"), prop("position"), prop("positionOffset"))
+token_click = label(win, "朝")
+tap_point(token_click.x(), token_click.y())
 assert prop("lookup")["meaning"] == "morning"
 assert label(win, "あさ")
+anchor = prop("lookupAnchor")
+card = popup_rect()
+assert anchor.contains(QPointF(token_click)), (anchor, token_click)
+assert card.top() > anchor.bottom(), (card, anchor)
+assert abs(card.left() - 10 * prop("unit")) < 1, card
+assert card.width() <= 340 * prop("unit")
+assert_inside_window(card)
+tap_point(card.right() - 5, card.bottom() - 5)
+assert prop("lookup"), "Tapping inside the card must not dismiss it"
 tap("Close")
 assert not prop("lookup")
 tap("ながら")
 assert prop("lookup")["kind"] == "grammar"
 assert "indicating a simultaneous action" in prop("lookup")["explanation"]
-tap("Close")
+assert label(win, "GRAMMAR POINT")
+
+# Control geometry for the viewport-edge case; the real click path above
+# already checked that the anchor is captured from a displayed word.
+assert win.setProperty("lookupAnchor", QRectF(win.width() - 18, win.height() - 44, 14, 36))
+QTest.qWait(100)
+anchor = prop("lookupAnchor")
+card = popup_rect()
+assert card.bottom() < anchor.top(), (card, anchor)
+assert abs(card.right() - (win.width() - 10 * prop("unit"))) < 1, card
+assert_inside_window(card)
+
+entry = dict(prop("lookup"))
+entry["explanation"] = (entry["explanation"] + " ") * 30
+assert win.setProperty("lookup", engine.toScriptValue(entry))
+QTest.qWait(100)
+body = popup_item("lookupBody")
+assert body.property("contentHeight") > body.height(), "Long grammar notes should scroll inside the card"
+assert_inside_window(popup_rect())
+center = body.mapToScene(QPointF(body.width() / 2, body.height() / 2))
+app.sendEvent(win, QWheelEvent(center, center, QPoint(0, -300), QPoint(0, -480),
+                                Qt.NoButton, Qt.NoModifier, Qt.ScrollUpdate, False))
+QTest.qWait(200)
+assert body.property("contentY") > 0, "Wheel input should scroll the note, not the reader"
+del body
+
+tap_point(3, 3)
+assert not prop("lookup"), "Tapping outside should dismiss the note"
+assert (prop("currentPage"), prop("position"), prop("positionOffset")) == lookup_state
+tap("朝")
+assert prop("lookup")["text"] == "朝"
+assert popup_item("lookupBody").property("contentY") == 0
+QTest.keyClick(win, Qt.Key_Escape)
+QTest.qWait(180)
+assert not prop("lookup")
+assert prop("screen") == "read"
+assert (prop("currentPage"), prop("position"), prop("positionOffset")) == lookup_state
 tap("Aa")
 assert prop("showSettings")
 for toggle in ("Furigana", "Kana line", "English", "A+"):
@@ -243,7 +315,7 @@ tap("Go to mark")
 assert prop("currentPage") == 0
 assert prop("position") == 0
 navigate_to_shelf()
-print("Kirihama word/grammar lookups, settings, stable pages, horizontal drag and bookmark passed", flush=True)
+print("Kirihama anchored word/grammar notes, settings, stable pages, horizontal drag and bookmark passed", flush=True)
 
 # Chapter ids repeat across books. Verify each exposes its own first sentence.
 tap("影の店")

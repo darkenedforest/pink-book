@@ -36,6 +36,7 @@ Window {
         Number(chapterOffsets[chapterOffsets.length - 1]) : Math.max(0, pageEnd - pageStart)
     property string screen: "shelf"
     property var lookup: null
+    property rect lookupAnchor: Qt.rect(0, 0, 0, 0)
     property bool showSettings: false
     property bool furigana: Boolean(store.value("furigana", true))
     property bool translations: Boolean(store.value("translations", false))
@@ -223,6 +224,19 @@ Window {
         lookup = null
         showSettings = false
         chapterList.positionViewAtBeginning()
+    }
+
+    function openLookup(target, entry) {
+        pages.cancelFlick()
+        rememberPosition()
+        const token = target.mapToItem(lookupOverlay, 0, 0)
+        const viewport = pages.mapToItem(lookupOverlay, 0, 0)
+        const top = Math.max(token.y, viewport.y)
+        const bottom = Math.min(token.y + target.height, viewport.y + pages.height)
+        lookupAnchor = Qt.rect(token.x, top, target.width, Math.max(0, bottom - top))
+        lookupBody.cancelFlick()
+        lookupBody.contentY = 0
+        lookup = entry
     }
 
     function back() {
@@ -667,8 +681,7 @@ Window {
                             Accessible.onPressAction: token.open()
                             function open() {
                                 if (!tappable) return
-                                root.rememberPosition()
-                                root.lookup = modelData
+                                root.openLookup(token, modelData)
                             }
                             Column {
                                 width: parent.width
@@ -844,30 +857,54 @@ Window {
     }
 
     Item {
+        id: lookupOverlay
         visible: !!root.lookup
         anchors.fill: parent
         z: 15
-        Rectangle { anchors.fill: parent; color: "#3825221f" }
+        // Like the web reader, dismiss without dimming or moving the page.
         MouseArea { anchors.fill: parent; onClicked: root.lookup = null }
         Rectangle {
             id: definition
-            anchors { left: parent.left; right: parent.right; bottom: parent.bottom; margins: root.gutter }
-            height: definitionHeader.height + Math.min(lookupBody.contentHeight,
-                    Math.max(130 * root.unit, root.height * 0.46)) + 20 * root.unit
-            radius: 9 * root.unit
-            color: root.paper; border.color: root.ink; border.width: 2
+            objectName: "lookupCard"
+            readonly property real inset: 10 * root.unit
+            readonly property real gap: 10 * root.unit
+            readonly property real padding: 14 * root.unit
+            readonly property real anchorTop: root.lookupAnchor.y
+            readonly property real anchorBottom: anchorTop + root.lookupAnchor.height
+            readonly property real roomAbove: anchorTop - gap - inset
+            readonly property real roomBelow: parent.height - inset - anchorBottom - gap
+            readonly property real desiredHeight: definitionHeader.height + lookupBody.contentHeight + 2 * padding
+            readonly property bool below: desiredHeight <= roomBelow || roomBelow >= roomAbove
+            readonly property real sideRoom: below ? roomBelow : roomAbove
+            readonly property real viewportHeight: Math.max(0, parent.height - 2 * inset)
+            readonly property real minimumHeight: definitionHeader.height + 2 * padding + 30 * root.unit
+            readonly property real preferredY: below ? anchorBottom + gap : anchorTop - gap - height
+
+            width: Math.max(0, Math.min(340 * root.unit, parent.width - 2 * inset))
+            // Normally the note fits on one side. On very short windows, allow
+            // it to overlap the anchor so the close button stays reachable.
+            height: Math.min(desiredHeight, viewportHeight, sideRoom >= minimumHeight ? sideRoom : viewportHeight)
+            x: Math.max(inset, Math.min(parent.width - inset - width,
+                        root.lookupAnchor.x + root.lookupAnchor.width / 2 - width / 2))
+            y: Math.max(inset, Math.min(parent.height - inset - height, preferredY))
+            radius: 8 * root.unit
+            color: root.paper
+            border.color: root.line
+            border.width: 1
             MouseArea { anchors.fill: parent }
             Item {
                 id: definitionHeader
-                anchors { top: parent.top; left: parent.left; right: parent.right; margins: 20 * root.unit }
-                height: 51 * root.unit
+                anchors { top: parent.top; left: parent.left; right: parent.right; margins: definition.padding }
+                height: 36 * root.unit
                 Text {
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: root.lookup && root.lookup.kind === "grammar" ? "GRAMMAR NOTE" : "WORD LOOKUP"
+                    anchors { left: parent.left; right: closeLookup.left; rightMargin: 6 * root.unit; verticalCenter: parent.verticalCenter }
+                    text: root.lookup && root.lookup.kind === "grammar" ? "GRAMMAR POINT" : "WORD LOOKUP"
                     color: root.accent
-                    font.bold: true; font.letterSpacing: 1.3 * root.unit; font.pixelSize: 14 * root.unit
+                    elide: Text.ElideRight
+                    font.bold: true; font.letterSpacing: 1.0 * root.unit; font.pixelSize: 12 * root.unit
                 }
                 ReaderButton {
+                    id: closeLookup
                     anchors { right: parent.right; verticalCenter: parent.verticalCenter }
                     unit: root.unit; label: "Close"
                     onClicked: root.lookup = null
@@ -875,19 +912,25 @@ Window {
             }
             Flickable {
                 id: lookupBody
-                anchors { top: definitionHeader.bottom; left: parent.left; right: parent.right; bottom: parent.bottom
-                          leftMargin: 20 * root.unit; rightMargin: 20 * root.unit; bottomMargin: 12 * root.unit }
+                objectName: "lookupBody"
+                anchors {
+                    top: definitionHeader.bottom; left: parent.left; right: parent.right; bottom: parent.bottom
+                    leftMargin: definition.padding; rightMargin: definition.padding; bottomMargin: definition.padding
+                }
                 clip: true
                 boundsBehavior: Flickable.StopAtBounds
                 contentWidth: width
-                contentHeight: lookupText.implicitHeight + 14 * root.unit
+                contentHeight: lookupText.implicitHeight
                 Column {
                     id: lookupText
                     width: parent.width
-                    spacing: 9 * root.unit
+                    spacing: 7 * root.unit
                     Repeater {
-                        model: root.lookup ? [root.lookup.text, root.lookup.reading,
-                                              root.lookup.meaning, root.lookup.explanation] : []
+                        model: root.lookup ? [
+                            root.lookup.text,
+                            root.lookup.reading === root.lookup.text ? "" : root.lookup.reading,
+                            root.lookup.meaning, root.lookup.explanation
+                        ] : []
                         delegate: Text {
                             required property var modelData
                             required property int index
@@ -897,13 +940,12 @@ Window {
                             wrapMode: Text.Wrap
                             textFormat: Text.PlainText
                             font.family: root.jpFont
-                            font.pixelSize: (index === 0 ? 32 : index === 1 ? 20 : 18) * root.unit
+                            font.pixelSize: (index === 0 ? 27 : index === 1 ? 18 : 16) * root.unit
                             font.bold: index === 0 || index === 2
                             color: index === 1 ? root.accent : root.ink
                         }
                     }
                 }
-                onVisibleChanged: if (visible) contentY = 0
             }
         }
     }
